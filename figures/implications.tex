@@ -1,0 +1,18 @@
+% The arrow directions are exactly those in the source diagram.
+\begin{tikzpicture}[field/diagram]
+    \node[field/concept, text width=3.25cm, fill=FieldRegion]
+        (dh) at (0,2.85) {Domain of holomorphy};
+    \node[field/concept] (hp) at (-4.6,1.05) {H-pseudoconvex};
+    \node[field/concept] (oc) at (0,1.05) {0-complete};
+    \node[field/concept] (hc) at (4.6,1.05) {Holomorphically\\convex};
+    \node[field/concept] (wc) at (-4.6,-0.75) {Weak continuity\\principle};
+    \node[field/concept] (pc) at (0,-0.75) {Pseudoconvex};
+    \node[field/concept] (de) at (4.6,-0.75) {Domain of existence};
+    \draw[field/implies] (dh.south west) -- (hp.north);
+    \draw[field/implies] (dh.south) -- (oc.north);
+    \draw[field/equivalent] (dh.south east) -- (hc.north);
+    \draw[field/equivalent] (hp.south) -- (wc.north);
+    \draw[field/equivalent] (oc.south) -- (pc.north);
+    \draw[field/equivalent] (hc.south) -- (de.north);
+    \draw[field/equivalent] (wc.east) -- (pc.west);
+\end{tikzpicture}

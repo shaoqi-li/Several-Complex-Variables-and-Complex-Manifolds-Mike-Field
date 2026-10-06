@@ -1,0 +1,98 @@
+Transcription notes for Mike Field, Several Complex Variables and Complex Manifolds II
+
+Original spelling, numbering and readable source anomalies are preserved. These notes are not a mathematical errata edition.
+
+Compilation status: VERIFIED. main.tex and book-preview.tex both compiled successfully with bundled Tectonic0.17.0; final output141pages. See compile-report.txt.
+
+
+========================================================================
+Chapter 5 transcription completion notes
+
+All source PDF pages 10-73 (printed 1-64) have editable LaTeX content in chapter05.tex. This continuation inspected PDF33 at the boundary and every PDF page34-73 visually. The introductory text remains separately supplied in work/chapter05-intro.tex for main integration. No new custom macros are needed. No unresolved symbols in this continuation.
+
+Concrete source anomalies preserved as printed (printed page / PDF page):
+28 / 37: exterior d properties referred to section3, apparently section2.
+32 / 41: Prop5.7.2 proof defines U=X-iJX,V=Y-iJY but sets B=[JX,Y]+[X,JY] in [U,V]=A+iB; signs then inconsistent.
+33 / 42: sphere statement says n=2,4,6 although preceding paragraph excludes S4.
+34 / 43: final Xp under a hat in bracket formula; repeated pairing TM,barTM* rather than complementary pairing; remark switches r,s to p,q.
+37 / 46: contraction property3 target C^{r,s} lacks expected s+1.
+39 / 48: second integral uses g(...,t,...) where shifted argument would be zk-t; final u=v+g printed instead of v+G.
+40 / 49: a_k stated in A(Dk) although preceding expression is a (p,0)-form.
+45 / 54: states T(1)=q_*E although q_*E was zero.
+46-47 / 55-56: a_i=d_i/d_i' followed by a_i theta_ij=theta_ij' a_j, inconsistent ratio.
+47 / 56: Definition5.9.5 says d in D(D) instead of D(M).
+48 / 57: calls M*(E) a group and div a group homomorphism, although a fixed nontrivial bundle has no internal product of its sections.
+52 / 61: phi in K(Omega(Mtilde)) printed with the operators reversed.
+54 / 63: trivial theta multiplier exp(2az+z lambda^2+b lambda) printed rather than quadratic expansion.
+55 / 64: zeta summand explicitly +2omega^2 and sigma product explicitly begins 2; confirmed with enlarged crops in work/page064-zeta-crop.png and page064-sigma-crop.png. Source also spells Appell as Apell.
+56 / 65: claims this one line bundle generates HLB(T), inconsistent with full Picard group.
+57 / 66: L(3H,m)=L(H,m)^3 printed (rather than m^3); Exercise1 P(x) printed rather than P(s); Exercise4 annihilator says zero on TV* rather than TV.
+58 / 67: Exercise6 claims L(H,1) for arbitrary integer-valued imaginary part, with no semicharacter condition.
+60 / 69: defining function condition1 uses x in M instead of ambient Mtilde; tangent space also T_xM at boundary as printed.
+63 / 72: E is a holomorphic vector bundle on E instead of on M.
+64 / 73: top-form Hilbert inner product lacks conventional phase factor ensuring positivity; faithfully transcribed.
+
+Source word pseudoconvexivity (with iv) preserved wherever printed, including section10 heading. All prose remains English and all proof/exercise content retained.
+
+
+========================================================================
+Chapter 6 continuation: PDF95-135 (printed86-126) completed from page images; boundary94 inspected. No illegible symbols remain. Original mathematical/typographical anomalies below were retained, not silently corrected. This is a transcription, not an errata edition.
+
+PDF94/printed85: reduced analytic-space definition says O_X is a subsheaf of O_X (expected C_X).
+PDF98/89: morphism description uses equality theta(Omega_x)=Omega'_x, which need not hold. PDF99/90: Definition and Corollary both numbered6.2.5; theorem6.2.4(1) ends with analytic extension of Omega (expected tildeOmega).
+PDF100/91: theta codomain C^I instead O^I; germ described at x rather than pi(x); pi_i used for germ projection where eta_i would fit. PDF101/92: Dpi_2 instead Dpi'_2; p instead phat in composites.
+PDF105-106/96-97: short-sequence arrow a_(i+1) inconsistent with preceding a_i. PDF106/97: proof starts with tilde s on K then extension of s; source also says holomorphic section sheaf is never soft.
+PDF107/98: Fbar_(j+1)=F_(j+1)/F*_(j+1), and later Fbar_0=F; both inconsistent with construction. PDF108/99: section-complex display omits (X) on F_0,F_1. PDF109/100: intermediate canonical-resolution diagram has inconsistent j indices.
+PDF110/101: b^(j-1)(G) omits tilde. PDF111/102: F instead tildeF in independence calculation; omega/eta substitutions in naturality conclusion; Theorem6.3.11 hypothesis k>0 (not >=0).
+PDF113/104: second singular-cohomology formula H^0 instead H^p. PDF115/106: M instead X in Dolbeault quotient; M(X) positioned under H^0(X,M/O) in Cousin diagram (preserved). PDF117/108: composition law (ba)^0 rather than (ba)^p.
+PDF118/109: DB=c (capital B); Leray condition uses p both for degree and intersection length. PDF119/110: d_(p-j)c_j instead expected d_(j-1)c_j. PDF121/112: refinement s in I^(p+1) instead J; same phitilde twice in homotopy sentence.
+PDF122/113: chi checka^p=chi a^p (expected a^p chi); reference Theorem5.3.10. PDF123/114: diagram labels lower connecting arrow sigma. PDF124/115: g_t=g_t^(t0) rather than phi(t)-indexed section; reference Theorem6.3.13.
+PDF125/116: transition cocycle called Z^2 though two indices. PDF126-127/117-118: cocycle representative sign conflicts with declared c1=-delta; preserved convention/formula.
+PDF129/120: Example14 compact Riemann surface L (expected M). PDF130/121: log g_j^(-1) in first Chern integral; preserved. PDF131/122: M insteadX in bottom projection diagram. PDF132/123: L(X) called group of linear equivalence classes (rather than principal divisors).
+PDF133/124: reference Example14 rather than15; Poincare pairing written with homology H_(2n-2) and target cohomology H^(2n), preserved.
+PDF134/125 Exercise5 prints D and M/D (same script glyph as divisor sheaf), rather than expected M/O; preserved. Exercise10(a) action has exp(-pi(2Re(H(z,lambda)+H(lambda,lambda)))|t|^2 as second coordinate, mathematically inconsistent but faithfully retained. Parentheses in that source action are unbalanced; transcription keeps its visible grouping via LaTeX math delimiters.
+
+Only standard packages/macros were used. Diagrams are editable amscd/array. No further custom macros needed. All41 appended source pages present as boundary comments.
+
+
+========================================================================
+Continuation transcription notes (PDF156-187, printed147-178):
+All pages visually inspected; OCR was not used to substitute for transcription. Page boundary comments added. Source anomalies were preserved literally.
+PDF157: 'identity p x q, q x q matrices' (first should mathematically be p x p).
+PDF159: displayed defining set for unit Euclidean disc E omits '<1'.
+PDF174: final equation in Cartan-Serre proof prints H^p = C^{p-1}(U',F) direct-sum Z^p(U,F)/Im(D), a malformed/wrong quotient; retained source.
+PDF176-177: source Taylor quadratic coefficient appears without 1/2; source F_y derivative repeats partial z_j partial z_j. Retained.
+PDF177: source condition read 'If y in bar E(s)'; context suggests boundary E(s). Check if editorial correction wanted, but transcription retained visibly printed bar.
+PDF178: source M_n subset union U_i omits interior M from RHS; retained.
+PDF179 Figure1: mathematical domain/cover illustration reconstructed as editable LaTeX picture with oval/circle/qbezier/dotted arcs and all labels, not an embedded raster. Plain bold Figure1 caption, no additional package.
+PDF180: source final display uses sum g_j F^{-1} although preceding G uses F^{-j}; retained.
+PDF185: source says C0 terms have one index positive; zero-index case not explicit; retained.
+PDF186: constraint under shifted Laurent series visually reads r0+...+rn=m+m+1, retained. This reading is somewhat uncertain (m/n overprint); enlarged page inspected. Explicit polynomial space later prints P^{(-m-n-1)}(C) missing C^{n+1}; retained.
+PDF187: theorem A says G_z-module (printed G, rather than O); retained as mathcal G_z.
+Boundary187 proof Theorem7.5.3 open after 'For m in Z, let'; next page display tilde phiSigma and F(m) -> F(m+1).
+Focused follow-up PDF186: embedded JBIG2 image 3100x4965; rendered at native dimensions and enlarged crop inspected. Both RHS letters show three stems, best literal reading m+m+1; second may be overprinted, so retains documented uncertainty. No source edit after coordinator tail append.
+
+
+========================================================================
+Chapter 7, PDF188–207 / printed179–198 — transcription notes
+
+All assigned pages visually inspected; all prose, proofs, exercises and diagrams transcribed as editable LaTeX.
+
+The following visible source anomalies have been retained. This list documents transcription decisions and is not a systematic mathematical errata list.
+- Printed179: the displayed exact sequence begins with K(m-1), although the surrounding argument uses F(m-1).
+- Printed180: the displayed map retains the original phi_(m-1) subscripts.
+- Printed182: Chow proof says the polynomial “does not vanish at x” after fixing z; the displayed sequence uses I rather than I(m). The spelling “skyscrapper” is retained.
+- Printed185: the definition displays deg(L)=div(s), with no degree on the right. This is retained.
+- Printed187: the sequence retains F(a_1-1), as printed, despite the surrounding twist by -a_1-1.
+- Printed188: the uniqueness proof equates the number of a_i equal to m with dim H^0(E(-m)), as printed.
+- Printed189: Exercise 3 says “of rank is uniform”, with the missing rank left as printed.
+- Printed190: the displayed polynomial basis uses j_0+...+j_p<=n, although the preceding sentence specifies degree m; Exercise5 says “ideal in I”.
+- Printed192: the manifold statement says “branched over” without inserting an extra word.
+- Printed193: the map phi_N uses the source summation symbol for its target; P_j is described with E_z**(s) rather than replacing s by j. The source calls i a “right inverse” and then a “biholomorphism”; both are retained.
+- Printed195: the proof cites Theorem7.5.1; it has not been changed to7.6.1.
+- Printed196: the remark cites Theorem7.6.2 when discussing Serre’s theorem; the reference is retained.
+
+The divisor-group glyph on printed191 was rechecked against the scan and represented as calligraphic D, consistent with Chapter5. Meromorphic-section spaces are represented as calligraphic M.
+
+
+Focused recheck PDF186/printed177: the overprinted Laurent-series constraint is best read m+m+1. The second character remains somewhat uncertain; this literal reading was retained.

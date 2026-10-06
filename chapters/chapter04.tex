@@ -1,0 +1,953 @@
+% !TeX root = ../main.tex
+\chapter{Complex Manifolds}\label{ch:4}
+% Original book page 134
+\ChapterFourIntroduction
+
+\section{Generalities on complex manifolds and analytic sets}\label{sec:4:1}
+In this section we shall review the definitions of complex manifold\IndexMark{idx-106}{complex manifold@Complex manifold} and submanifold, analytic map and analytic set. For the most part our definitions are straightforward adaptations of those from differential manifolds and our presentation will therefore be brief.
+
+Throughout this section all topological spaces will be assumed Hausdorff, paracompact and, unless otherwise indicated, connected. If $M$ is a topological space, we let $\mathcal U$ denote the topology of $M$ and $\mathcal U_a$ denote the subset of $\mathcal U$ consisting of all open neighbourhoods of a given point $a\in M$.
+
+\FieldHeading{Definition}{4.1.1}{}\FieldTarget{definition:4.1.1}{4.1.1} Let $M$ be a topological space. $M$ is said to have the structure of an $n$-dimensional complex manifold if there exists an atlas\IndexMark{idx-035}{atlas complex analytic@Atlas (complex analytic)} $\mathcal A=\{(U_i,\phi_i):i\in I\}$ of charts on $M$ such that
+\begin{enumerate}
+\item $\phi_i$ is a homeomorphism of $U_i$ onto the open subset $\phi_i(U_i)$ of $\mathbb C^n$ for all $i\in I$.
+\item For all $i,j\in I$, $\phi_i\phi_j^{-1}$ is a biholomorphic map of $\phi_j(U_{ij})$ onto $\phi_i(U_{ij})$.
+\end{enumerate}
+% Original book page 135
+\paragraph*{Remarks.}
+\begin{enumerate}
+\item We often refer to an $n$-dimensional complex manifold as being a complex manifold modelled on $\mathbb C^n$. We also say that the atlas defines a complex analytic structure\IndexMark{idx-107}{complex manifold@Complex manifold!analytic structure@analytic structure} on $M$. It is always assumed that a complex manifold $M$ comes with a specific complex analytic structure. As we shall see later, a topological space may admit many distinct complex analytic structures.
+\item We generally assume that the atlas $\mathcal A$ is maximal. That is, if $(U,\phi)$ is any chart on $M$ such that $\phi\phi_j^{-1}$ is biholomorphic\IndexMark{idx-045}{biholomorphic@Biholomorphic} for all $j\in I$, then $(U,\phi)\in\mathcal A$.
+\item Every $n$-dimensional complex manifold has the structure of a $2n$-dimensional real analytic (therefore, differential) manifold: Forget the complex structure!
+\end{enumerate}
+
+\FieldHeading{Definition}{4.1.2}{}\FieldTarget{definition:4.1.2}{4.1.2} Let $M$ be an $m$-dimensional complex manifold with atlas $\mathcal A$ and $N$ be a connected subset of $M$. We say that $N$ is an \emph{$n$-dimensional complex submanifold}\IndexMark{idx-115}{complex submanifold@Complex submanifold} of $M$ if for every $x\in N$, there exists $(U,\phi)\in\mathcal A$ such that $\phi$ maps $U\cap N$ homeomorphically onto an open subset of $\mathbb C^n\times\{0\}\subset\mathbb C^n\times\mathbb C^{m-n}\cong\mathbb C^m$.
+
+\paragraph*{Remark.} If $N$ is an $n$-dimensional complex submanifold of $M$ then $N$ has the structure of an $n$-dimensional complex manifold. Indeed, an atlas for $N$ is implicit in the definition.
+
+\paragraph*{Example.} An open (connected) subset of an $n$-dimensional complex manifold $M$ is an $n$-dimensional complex submanifold of $M$.
+
+\FieldHeading{Definition}{4.1.3}{}\FieldTarget{definition:4.1.3}{4.1.3} Let $M,N$ be complex manifolds with atlases $\mathcal A,\mathcal B$ respectively. A map $f:M\longrightarrow N$ is said to be \emph{holomorphic} or \emph{analytic}\IndexMark{idx-019}{analytic map@Analytic map} if $\zeta f\phi^{-1}:\phi(U\cap f^{-1}(V))\longrightarrow\zeta(V)$ is analytic for all $(U,\phi)\in\mathcal A$, $(V,\zeta)\in\mathcal B$. If $f$ is a homeomorphism and both $f$ and $f^{-1}$ are analytic we say that $f$ is \emph{biholomorphic} and that $M$ and $N$ are \emph{biholomorphic} or \emph{analytically equivalent}\IndexMark{idx-013}{analytic equivalence@Analytic equivalence}.
+
+\paragraph*{Notation.} Let $M$ be an $m$-dimensional complex manifold with topology $\mathcal U$. If $U\in\mathcal U$, we let $A(U)$ denote the ring of $\mathbb C$-valued analytic functions on $U$. Just as in \hyperref[sec:3:1]{\S1, Chapter 3}, we let $\mathcal O_x$ denote the ring of germs of analytic functions at a point $x\in M$. Using a chart containing $x$, it is easy to see that $\mathcal O_x\cong\mathbb C\{z_1,\ldots,z_m\}$ for all $x\in M$ (of course,
+% Original book page 136
+the isomorphism is no longer canonical). We let $\mathcal M_x$ denote the quotient field of $\mathcal O_x$ and $\mathcal M$ denote the disjoint union of the fields $\mathcal M_x$ over $M$. We call $\mathcal M$ the sheaf of germs\IndexMark{idx-565}{sheaf of germs@Sheaf of germs!meromorphic functions@meromorphic functions} of meromorphic functions on $M$.
+
+\FieldHeading{Definition}{4.1.4}{}\FieldTarget{definition:4.1.4}{4.1.4} Let $M$ be a complex manifold. A map $m:M\longrightarrow\mathcal M$ is said to define a \emph{meromorphic function}\IndexMark{idx-388}{meromorphic function@Meromorphic function!on complex manifold@on complex manifold} on $M$ if
+\begin{enumerate}
+\item For all $x\in M$, $m(x)\in\mathcal M_x$.
+\item We may find an open neighbourhood $U$ of every point $x\in M$ and $f,g\in A(U)$ such that $m(y)=f_y/g_y$, $y\in U$.
+\end{enumerate}
+
+\paragraph*{Notation.} We let $\mathcal M(M)$ denote the field of meromorphic functions on $M$. Given $U\in\mathcal U$, we let $A^*(U)$, $\mathcal M^*(U)$ denote the multiplicative groups of units in $A(U)$, $\mathcal M(U)$ respectively.
+
+Let us now indicate some of the main problems in the theory of complex manifolds. The fundamental problem is, of course, the classification of complex manifolds up to biholomorphism. As we shall soon see this is unrealistically hard, even for domains in $\mathbb C^n$. Next we might try to find all complex structures, if any, on a given differential manifold. Again, this appears an intractable problem at present (see \S\S4, 5). Finally, we might ask for necessary conditions on a differential manifold for it to admit a complex structure. Although some important results have been proved, especially about compact 4-manifolds, relatively little is known. For example, it is still unknown whether the six dimensional sphere admits a complex structure though it is known that the only other sphere that can admit a complex structure is the Riemann sphere. We do, however, have one elementary result.
+
+\FieldHeading{Proposition}{4.1.5}{}\FieldTarget{proposition:4.1.5}{4.1.5} If the differential manifold $M$ admits a complex structure then $M$ is even dimensional and orientable\IndexMark{idx-425}{orientable manifold@Orientable manifold}.
+\begin{proof}
+$M$ must obviously be even dimensional as $\mathbb C^n$ is always of even (real) dimension. As for the orientability, notice that $\mathbb C^n$ has a canonical orientation defined by the complex structure $J$ on $\mathbb C^n$ (\hyperref[sec:1:5]{\S5, Chapter 1}). If $M$ has complex analytic atlas $\{(U_i,\phi_i)\}$, then $D(\phi_i\phi_j^{-1})(\phi_j(x))$ is $\mathbb C$-linear for all $i,j$ and so commutes with $J$. Consequently, $M$ is orientable. Alternatively, the reader may verify that the real determinant of a complex linear map is always positive (see \hyperref[sec:5:4]{\S4, Chapter 5}).
+\end{proof}
+% Original book page 137
+\paragraph*{Remark.} If a differential manifold is two dimensional then it admits a complex structure if and only if it is orientable. For a proof of this result, depending on the theorem of Korn and Lichtenstein on the existence of isothermal parameters, see Chern \cite{bib:I:chern-s-s:1}.
+
+We conclude this section by giving the straightforward generalisation of Definition~\ref{definition:2.2.1} to complex manifolds.
+
+\FieldHeading{Definition}{4.1.6}{}\FieldTarget{definition:4.1.6}{4.1.6} Let $Y$ be a subset of the complex manifold $M$. We say that $Y$ is an \emph{analytic subset}\IndexMark{idx-028}{analytic subset@Analytic subset} of $M$ if for each $x\in M$ there exist $U\in\mathcal U_x$ and an analytic function $f:U\longrightarrow\mathbb C^p$ such that $Y\cap U=f^{-1}(0)$ ($p$ may depend on $x$).
+
+\paragraph*{Remarks.}
+\begin{enumerate}
+\item Notice that an analytic subset of $M$ is necessarily closed.
+\item In Chapter~\ref{ch:6} we define what is meant by an analytic function on an analytic set as well as giving an ``intrinsic'' definition of an analytic set.
+\end{enumerate}
+
+\subsection*{Exercises}
+\begin{enumerate}
+\item Show that if $M$ and $N$ are complex manifolds then $M\times N$ has the structure of a complex manifold.
+\item Let $M$ be a complex manifold and $m\in\mathcal M^*(M)$. Show that the zero, pole and indeterminacy sets of $m$ are well defined analytic subsets of $M$.
+\item Show that the zero set of $y^2=z^3$ is not a complex submanifold of $\mathbb C^2$.
+\end{enumerate}
+
+\section{\texorpdfstring{Complex submanifolds of $\mathbb C^n$}{Complex submanifolds of Cn}}\label{sec:4:2}
+Every domain in $\mathbb C^n$ has the structure of an \emph{open complex submanifold} of $\mathbb C^n$. As we discussed in \hyperref[sec:1:4]{\S4 of Chapter 1}, every proper simply connected domain of $\mathbb C$ is biholomorphic to the open unit disc. We have no such simple classification of simply connected domains in $\mathbb C^n$, $n>1$.
+
+\paragraph*{Example 1.} Let $D$ denote the open unit polydisc, centre zero, in $\mathbb C^n$, $n>1$, and set $D^*=D\setminus\{(0,\ldots,0,t):0\leq t<1\}$. $D$ and $D^*$ are certainly homeomorphic but cannot be biholomorphic since $D$ is a domain
+% Original book page 138
+of holomorphy whilst $D^*$ is not (see example 6, \hyperref[sec:2:4]{\S4, Chapter 2}).
+
+Even if $\Omega$ and $\Omega'$ are homeomorphic domains of holomorphy they need not be biholomorphic.
+
+\paragraph*{Example 2. (Theorem of Poincar\'e)}\IndexMark{idx-445}{poincare theorem@Poincar\'e theorem} Let $D$ and $E$ respectively denote the open unit polydisc, centre zero, and the open unit Euclidean disc, centre zero, in $\mathbb C^n$. Then for $n>1$, $D$ and $E$ are not biholomorphic\IndexMark{idx-047}{biholomorphic inequivalence of disc and polydisc@Biholomorphic inequivalence of disc and polydisc}. Our proof of this inequivalence uses an elementary argument due to Simha \cite{bib:I:simha-r-r:1}. First we remark that if there exists a biholomorphic map of $D$ onto $E$ then there certainly exists a biholomorphic map of $D$ onto $E$ which preserves the origin. This is just a consequence of the existence of biholomorphisms of $D$ taking any prescribed point of $D$ to the origin (That such maps exist is an immediate consequence of their existence for $n=1$). We shall show that if $f:D\longrightarrow E$ and $g:E\longrightarrow D$ are holomorphic origin preserving maps then $Df(0)(D)\subset E$ and $Dg(0)(E)\subset D$. Assuming this, we see that if $f$ is a biholomorphism with inverse $g$ then we must have $Df(0)(D)=E$---since $Df(0)\cdot Dg(0)=I$. Hence $Df(0)(\partial D)=\partial E$. But this is absurd since $\partial D$ contains linear pieces of positive dimension whilst $\partial E$ does not.
+\begin{enumerate}
+\item $Df(0)(D)\subset E$.
+
+Let $f=(f_1,\ldots,f_n)$, $v\in D$, $u=(u_1,\ldots,u_n)\in E$ and $\langle\ ,\ \rangle$ denote the standard Hermitian inner product on $\mathbb C^n$. Applying Schwarz's lemma to the function $u\longmapsto\sum u_i f_i(tv)$, we see that $|\langle\bar u,Df(0)(v)\rangle|\leq1$. This holds for all $u\in E$, therefore $Df(0)(v)\in E$.
+\item $Dg(0)(E)\subset D$.
+
+Let $g=(g_1,\ldots,g_n)$ and $u=(u_1,\ldots,u_n)\in E$. Applying Schwarz's lemma to the function $u\longmapsto f_j(tu_1,\ldots,tu_n)$ we see that $|\sum u_i\partial f_j/\partial z_i(0)|\leq1$ for $1\leq j\leq n$. Hence $Df(0)(u)\in D$.
+\end{enumerate}
+
+\paragraph*{Remarks.}
+\begin{enumerate}
+\item It is not hard to show that there exist no proper holomorphic maps of $D$ into $E$. See Alexander \cite{bib:I:alexander-h:1} (By \emph{proper} we mean a map\IndexMark{idx-473}{proper map@Proper map} such that inverse images of compact sets are compact).
+% Original book page 139
+\item For more inequivalence results of the above type and further references see Alexander \cite{bib:I:alexander-h:1} or R. Narasimhan \cite[Chapter 5]{bib:I:narasimhan-r:2}.
+\item In spite of the negative character of the above examples there certainly are some topological restrictions on domains of holomorphy in $\mathbb C^n$. For example, if $\Omega$ is a domain of holomorphy then $H_r(\Omega,\mathbb Z)=0$, $r>n$, and $\Omega$ has the homotopy type of an $n$-dimensional CW complex (see Andreotti and Frankel \cite{bib:I:andreotti-a-and-frankel-t:1} and R. Narasimhan \cite{bib:I:narasimhan-r:4,bib:I:narasimhan-r:5} for further details). If $\Omega$ is a Runge domain\IndexMark{idx-534}{runge domain@Runge domain} (\hyperref[sec:2:7]{\S7, Chapter 2}) then $H^r(\Omega,\mathbb C)=0$, $r\geq n$ (Theorem of Serre \cite{bib:I:serre-j-p:1}, see also H\"ormander \cite[Theorem 2.7.11]{bib:I:hormander-l:1}).
+\end{enumerate}
+
+Next we turn to the ``classical'' domains\IndexMark{idx-085}{classical domain@Classical domain} in $\mathbb C^n$ which generalise the open unit disc or upper half plane in $\mathbb C$. As we shall not need any results from this theory in the remainder of these notes we shall be rather brief and sketchy in our presentation referring the reader to the references for further details and proofs.
+
+Let $\Omega$ be a bounded domain in $\mathbb C^n$. We let $\operatorname{Aut}(\Omega)$ denote the group of biholomorphisms of $\Omega$. A fundamental result of H. Cartan \cite{bib:I:cartan-h:4} is that $\operatorname{Aut}(\Omega)$ is a locally compact Lie group\IndexMark{idx-102}{complex lie group@Complex Lie group} (see also R. Narasimhan \cite{bib:I:narasimhan-r:2}).
+
+\FieldHeading{Definition}{4.2.1}{}\FieldTarget{definition:4.2.1}{4.2.1} A domain $\Omega$ in $\mathbb C^n$ is said to be \emph{homogeneous} if $\operatorname{Aut}(\Omega)$ acts transitively on $\Omega$. That is, given $y,z\in\Omega$, there exists $f\in\operatorname{Aut}(\Omega)$ such that $f(y)=z$. We say $\Omega$ is \emph{symmetric} if, in addition, given $z\in\Omega$ there exists $f\in\operatorname{Aut}(\Omega)$ such that $f(z)=z$, $f(y)\neq y$, $y\neq z$, and $f^2=I$.
+
+E. Cartan \cite{bib:I:cartan-e:1} classified all the bounded homogeneous domains\IndexMark{idx-309}{homogeneous domain@Homogeneous domain} in $\mathbb C^2$ and $\mathbb C^3$ proving that any such domain in $\mathbb C^2$ is biholomorphic to either the unit polydisc or the unit Euclidean disc and that in $\mathbb C^3$ any such domain is biholomorphic to one of the unit polydisc, the unit Euclidean disc, the product of the 2-dimensional unit Euclidean disc with the unit disc, the domain $\operatorname{Im}(z_3)>\sqrt{\operatorname{Im}(z_1)^2+\operatorname{Im}(z_2)^2}$. These domains are all symmetric\IndexMark{idx-595}{symmetric domain@Symmetric domain}. However, it was later shown by Pyatetskii-Shapiro \cite{bib:I:pyatetskii-shapiro-i-i:1} that there exist bounded homogeneous domains in $\mathbb C^n$, $n\geq4$, which are not symmetric (non-countably many for $n\geq7$). Proofs of these facts may be found in Pyatetskii-Shapiro \cite{bib:I:pyatetskii-shapiro-i-i:1}, Siegel \cite{bib:I:siegel-c-l:2} and Hua \cite{bib:I:hua-l-k:1}.
+% Original book page 140
+We say that a bounded symmetric domain is \emph{irreducible}\IndexMark{idx-337}{irreducible@Irreducible!domain@domain} if it cannot be written as a product of symmetric domains of lower dimension. E. Cartan \cite{bib:I:cartan-e:1} proved that there exist six classes of irreducible symmetric domain. Four of these are referred to as classical since their automorphism groups are classical semi-simple Lie groups. The remaining two classes are exceptional in that one is encountered only in $\mathbb C^{16}$, the other only in $\mathbb C^{27}$.
+
+We now briefly describe the classical irreducible symmetric domains.
+
+\paragraph*{A. Classical domains of the first type.} Suppose $n=pq$. Write an element $z\in\mathbb C^n$ as a $p\times q$ matrix $Z=[z_{ij}]$. Let $I_q$ denote the identity in $\mathbb C^q$ and $\bar Z^*$ denote the conjugate transpose of $Z$. The domain $D_{\mathrm I}=\{Z:I_q-\bar Z^*Z\text{ is positive definite}\}$ is a representative classical domain of the first type. Notice that if $p=n$, $q=1$, we recover the Euclidean unit disc.
+
+\paragraph*{B. Classical domains of the second type.} Suppose $n=p(p+1)/2$. In this case we may identify $\mathbb C^n$ with the space of $p\times p$ symmetric matrices. The domain $D_{\mathrm {II}}=\{Z:I_p-Z\bar Z\text{ is positive definite}\}$ is a representative classical domain of the second type.
+
+\paragraph*{C. Classical domains of the third type.} Suppose $n=p(p-1)/2$. In this case we may identify $\mathbb C^n$ with the space of $p\times p$ skew-symmetric matrices. The domain $D_{\mathrm {III}}=\{Z:I_p+Z\bar Z\text{ is positive definite}\}$ is a representative classical domain of the third type.
+
+\paragraph*{D. Classical domains of the fourth type.} These exist in all dimensions and a representative domain is given by
+\[
+D_{\mathrm {IV}}=\left\{z\in\mathbb C^n:\left|\sum z_i^2\right|>\sqrt{2\sum|z_i|^2-1}\right\}.
+\]
+Finally we describe Siegel domains of the second kind and their relationship with the classical domains (for the general theory we refer to Pyatetskii-Shapiro \cite{bib:I:pyatetskii-shapiro-i-i:1} or Siegel \cite{bib:I:siegel-c-l:2}).
+
+\FieldHeading{Definition}{4.2.2}{}\FieldTarget{definition:4.2.2}{4.2.2} Let $V\subset\mathbb R^n$ be an open convex cone which does not contain any real line. We say that a function $F:\mathbb C^m\times\mathbb C^m\longrightarrow\mathbb C^n$ is a \emph{$V$-Hermitian form}\IndexMark{idx-633}{v hermitian form@V-Hermitian form} if
+% Original book page 141
+\begin{enumerate}
+\item $F(u,v)=\overline{F(v,u)}$, $u,v\in\mathbb C^m$.
+\item $F$ is $\mathbb C$-linear in the first variable.
+\item $F(u,u)=0$ if and only if $u=0$.
+\item $F(u,u)\in\bar V$ for all $u\in\mathbb C^m$.
+\end{enumerate}
+
+\FieldHeading{Definition}{4.2.3}{}\FieldTarget{definition:4.2.3}{4.2.3} A \emph{Siegel domain of the second kind}\IndexMark{idx-573}{siegel domain of second kind@Siegel domain (of second kind)} is a domain in $\mathbb C^{n+m}$ consisting of points $(y,z)$ such that $\operatorname{Im}(z)-F(y,y)\in V$ for some fixed $V$-Hermitian form $F$ on $\mathbb C^m\times\mathbb C^m$.
+
+\paragraph*{Example 3.} Let $V$ denote the set of strictly positive real numbers and $F$ the standard Hermitian inner product on $\mathbb C^m$. The corresponding Siegel domain of the second kind is the (unbounded) domain $\{(z,t)\in\mathbb C^{m+1}:\operatorname{Im}(t)-\langle z,z\rangle>0\}$. In fact this domain is biholomorphic to a classical domain of the first type, in this case the unit Euclidean disc $\{u\in\mathbb C^{m+1}:\sum|u_i^2|<1\}$. The reader may easily verify that a biholomorphic map between the two domains is given by
+\[
+u_1=(t-i)/(t+i),\qquad u_{j+1}=z_j\sqrt2/(t+i),\qquad1\leq j\leq m.
+\]
+More generally it may be shown that any Siegel domain of the 2nd. kind is biholomorphic to a bounded domain. A fundamental result due to Pyatetskii-Shapiro \cite{bib:I:pyatetskii-shapiro-i-i:1} states that every bounded homogeneous domain in $\mathbb C^n$ is biholomorphic to an (affinely homogeneous) Siegel domain of the second kind.
+
+Siegel domains are of considerable importance in Harmonic analysis, automorphic function theory and the representation theory of semi-simple Lie groups. For further details and references see Pyatetskii-Shapiro \cite{bib:I:pyatetskii-shapiro-i-i:1} and Hua \cite{bib:I:hua-l-k:1}. For an indication of more recent developments, heavily based on several complex variables, see Wells and Wolf \cite{bib:I:wells-r-o-and-wolf-j-a:1}. Finally we remark that the kernel functions and automorphism groups of the classical domains are computed in Hua \cite{bib:I:hua-l-k:1}.
+
+Next we shall consider closed submanifolds of $\mathbb C^n$. First a general result about compact complex manifolds.
+% Original book page 142
+\FieldHeading{Proposition}{4.2.4}{}\FieldTarget{proposition:4.2.4}{4.2.4} Let $M$ be a compact complex manifold. Then $A(M)=\mathbb C$. That is, every holomorphic function on $M$ is constant.
+\begin{proof}
+Exactly as for the proof of Lemma~\ref{lemma:1.4.2}.
+\end{proof}
+
+\FieldHeading{Corollary}{4.2.5}{}\FieldTarget{corollary:4.2.5}{4.2.5} The only compact complex submanifolds of $\mathbb C^n$ are isolated points.
+\begin{proof}
+Let $M$ be a compact complex submanifold of $\mathbb C^n$. The coordinate functionals $z\longmapsto z_j$, $1\leq j\leq n$, restrict to analytic functions on $M$. Now apply Proposition~\ref{proposition:4.2.4} to these analytic functions on $M$.
+\end{proof}
+
+A consequence of Corollary~\ref{corollary:4.2.5} is that the only interesting closed submanifolds of $\mathbb C^n$ are non-compact.
+
+\FieldHeading{Proposition}{4.2.6}{}\FieldTarget{proposition:4.2.6}{4.2.6} Let $M$ be a non-compact closed submanifold of $\mathbb C^n$. Then
+\begin{enumerate}
+\item Given $x,y\in M$, $x\neq y$, there exists $f\in A(M)$ such that $f(x)\neq f(y)$.
+\item $M$ is holomorphically convex: Given a compact subset $K$ of $M$, $\widehat K=\{z\in M:|f(z)|\leq\|f\|_K\text{ for all }f\in A(M)\}$ is a compact subset of $M$.
+\item We can define local analytic coordinates on $M$ by means of globally defined analytic functions. That is, given $z\in M$, there exists a neighbourhood $U$ of $z$ in $M$ and $f_1,\ldots,f_m\in A(M)$ such that, when restricted to $U$, $(f_1,\ldots,f_m):U\longrightarrow\mathbb C^m$ is a complex analytic chart for $M$.
+\end{enumerate}
+\begin{proof}
+1 and 2 are obvious since $A(M)$ contains the affine $\mathbb C$-linear maps on $\mathbb C^n$ restricted to $M$. For 3, just project $M$ onto the tangent space to $M$ at $z$.
+\end{proof}
+
+\FieldHeading{Definition}{4.2.7}{}\FieldTarget{definition:4.2.7}{4.2.7} A complex manifold which satisfies properties 1, 2 and 3 of Proposition~\ref{proposition:4.2.6} is called a \emph{Stein manifold}\IndexMark{idx-582}{stein manifold@Stein manifold}.
+
+\paragraph*{Examples.}
+\paragraph*{4.} Every domain of holomorphy is a Stein manifold. We may think of Stein manifolds as being a natural generalisation of domains of holomorphy.
+% Original book page 143
+\paragraph*{5.} Every non-compact Riemann surface is Stein by a theorem of Behnke and Stein \cite{bib:I:behnke-h-and-stein-k:1}.
+
+\paragraph*{Remark.} As we shall see later, Stein manifolds have a rich function theory. Roughly speaking, what we can do continuously or differentiably on a Stein manifold\IndexMark{idx-583}{stein manifold@Stein manifold!embedding in c n@embedding in $\mathbb{C}^n$} we can do complex analytically (``Oka's principle\IndexMark{idx-414}{oka principle@Oka principle}''---see also Chapters 7 and 12).
+
+We have the following basic result analogous to Whitney's embedding theorem.
+
+\FieldHeading{Theorem}{4.2.8}{ (Bishop \cite{bib:I:bishop-e:1}, R. Narasimhan \cite{bib:I:narasimhan-r:6}).}\FieldTarget{theorem:4.2.8}{4.2.8} Every $n$-dimensional Stein manifold has a proper analytic embedding in $\mathbb C^{2n+1}$. In particular, every Stein manifold is biholomorphic to a closed submanifold of some $\mathbb C^n$.
+\begin{proof}
+The proof of this result is considerably harder than that of Whitney's embedding theorem. The main difficulty lies in constructing proper maps from a Stein manifold into $\mathbb C^m$. For example, if the manifold is 2 complex dimensional there do not exist any proper analytic $\mathbb C$-valued maps. We shall not give a proof of the embedding theorem but instead refer the reader to the original references or to Gunning and Rossi \cite{bib:I:gunning-r-c-and-rossi-h:1} and H\"ormander \cite{bib:I:hormander-l:1}.
+\end{proof}
+
+\paragraph*{Example 6.} The open unit disc $D$ in $\mathbb C$ is a Stein manifold. We shall construct a proper embedding of\IndexMark{idx-226}{embedding@Embedding!of stein manifolds@of Stein manifolds} $D$ in $\mathbb C^3$. The main part of our construction will be to find a proper analytic map $F:D\longrightarrow\mathbb C^2$. For $n>1$, we let $D_n$ denote the open unit disc, centre zero, and radius $1-1/n$. We first construct an analytic map $f:D\longrightarrow\mathbb C$ such that
+\[
+|f(z)|>n+1,\qquad z\in\partial D_n,\quad n>1.
+\]
+To do this we shall construct inductively a sequence $f_n\in A(D)$ satisfying
+\[
+\|f_n\|_{D_{n-1}}\leq2^{-n};\qquad
+\|f_n\|_{\partial D_n}\geq n+2+\sum_{j=2}^{n-1}\|f_j\|_{D_n}.\tag{*}\label{eq:4:star:1}
+\]
+Suppose the $f_j$ are constructed for $j<n$. Set $f_n(z)=\left(\frac{n-1}{n}b_nz\right)^{p(n)}$. Choose $b_n\in\left(\frac n{n-1},\frac n{n-2}\right)$ and $p(n)$ very large so that \eqref{eq:4:star:1} holds. This
+% Original book page 144
+completes the inductive step. Now define $f=\sum_{j=1}^\infty f_j$. (*) guarantees that $f$ is analytic and that $|f(z)|>n+1$, $z\in\partial D_n$.
+
+For $n>1$, set $X_n=\{z\in D_{n+1}\setminus D_n:|f(z)|\leq n+1\}$ and $Y_n=\{z\in D_n:|f(z)|\leq n+1\}$. $X_n$ and $Y_n$ are disjoint compact subsets of $D$ and we clearly have $\widehat X_n=X_n$, $\widehat Y_n=Y_n$. We now inductively construct a sequence $h_n\in A(D)$ satisfying
+\[
+\|h_n\|_{Y_n}<2^{-n};\qquad \|h_n\|_{X_n}>2+n+\sum_{j=2}^{n-1}\|h_j\|_{X_n}.\tag{\#}\label{eq:4:star:2}
+\]
+Suppose the $h_j$ are constructed for $j<n$. Define an analytic function $q_n$ on a neighbourhood of $X_n\cup Y_n$ by requiring it to be zero on $Y_n$ and equal to $3+n+\sum_{j=2}^{n-1}\|h_j\|_{X_n}$ on $X_n$. The conditions of the Runge Approximation theorem (Theorem~\ref{theorem:A1.8}) hold in $D$ for the compact set $X_n\cup Y_n$ and so we can approximate $q_n$ by an analytic function $h_n$ on $D$ such that $\|h_n-q_n\|_{X_n\cup Y_n}\leq2^{-n}$. Since $h_n$ satisfies the required conditions the inductive step is completed. Define $h=\sum_{j=2}^\infty h_j$. Then (\#) guarantees that $h$ is an analytic function on $D$ and that
+\[
+|h(z)|>n+1\quad\text{on }X_n,\quad n>1.
+\]
+Define $F=(f,h):D\longrightarrow\mathbb C^2$. We see that
+\[
+|F(z)|=\max\{|f(z)|,|h(z)|\}>n+1,\qquad z\in D_{n+1}\setminus D_n,\quad n>1.
+\]
+Therefore, $F$ is a proper map. To construct the required proper embedding of $D$ in $\mathbb C^3$ we define $\phi:D\longrightarrow\mathbb C^3$ by $\phi(z)=(z,F(z))$.
+
+\paragraph*{Remarks.}
+\begin{enumerate}
+\item It can be shown that there exists a proper embedding of $D$ in $\mathbb C^2$. Since every proper map is closed, there can be no proper embedding of $D$ in $\mathbb C$.
+\item The technique used in the example to construct a proper map is actually a special case of the method used to construct proper maps on an arbitrary Stein manifold. The reader should note that the difficulty in generalising the example lies in filling up the space with domains to which we can apply an appropriate version of the Runge Approximation theorem.
+\end{enumerate}
+% Original book page 145
+\subsection*{Exercises}
+\begin{enumerate}
+\item Construct a proper embedding of the polydisc $D(z;r_1,\ldots,r_n)$ in $\mathbb C^{2n+1}$.
+\item Show that if we work with real analytic maps then the real Euclidean disc $E(r)$ in $\mathbb R^n$ is real analytically diffeomorphic to $\mathbb R^n$.
+\item[3*.] Construct a proper embedding of the Euclidean disc $E(r)$ in $\mathbb C^n$ in $\mathbb C^{2n+1}$.
+\item[4*.] Show that the unit disc in $\mathbb C$ admits a proper embedding in $\mathbb C^2$.
+\item[5.] (2nd. Riemann removable singularities theorem\IndexMark{idx-522}{riemann removable singularities theorem@Riemann removable singularities theorem!in several variables@in several variables}). Let $X$ be a complex submanifold of the domain $\Omega$ in $\mathbb C^n$. Show that if $\operatorname{codim}(X)\geq2$, then every analytic function on $\Omega\setminus X$ extends to $\Omega$ (Show that every analytic function on $\Omega\setminus X$ is locally bounded on $\Omega$).
+\item[6*.] Generalise the result of question 5 to the case when $X$ is an analytic subset of $\Omega$ of codimension at least 2 at every point.
+\end{enumerate}
+
+\section{Projective algebraic manifolds}\label{sec:4:3}
+The most important examples of compact complex manifolds are given by the complex projective spaces\IndexMark{idx-109}{complex projective space@Complex projective space} and their closed submanifolds. We start this section by constructing complex $n$-dimensional projective space\IndexMark{idx-470}{projective space@Projective space!complex@complex}.
+
+Let $P^n(\mathbb C)$ denote the set of complex lines through the origin of $\mathbb C^{n+1}$. We have a natural projection map $q:\mathbb C^{n+1}\setminus\{0\}\longrightarrow P^n(\mathbb C)$ defined by: $q(z)={}$Complex line through $z$ and the origin of $\mathbb C^{n+1}$. We give $P^n(\mathbb C)$ the quotient topology. We call $P^n(\mathbb C)$, with this topology, \emph{complex $n$-dimensional projective space}.
+
+\FieldHeading{Proposition}{4.3.1}{}\FieldTarget{proposition:4.3.1}{4.3.1} Complex $n$-dimensional projective space is a compact, connected Hausdorff space, $n\geq1$.
+\begin{proof}
+Let $S^{2n+1}$ denote the unit sphere in $\mathbb C^{n+1}$ relative to the standard Hermitian inner product on $\mathbb C^{n+1}$. Every complex line $L$ in $\mathbb C^{n+1}$ meets $S^{2n+1}$ in a set homeomorphic to the unit circle $S^1$. Consequently, $q(S^{2n+1})=P^n(\mathbb C)$. Since $S^{2n+1}$ is compact and connected so therefore is $P^n(\mathbb C)$. We leave the verification that $P^n(\mathbb C)$ is Hausdorff as an easy exercise.
+\end{proof}
+% Original book page 146
+\paragraph*{Remark.} The map $q:S^{2n+1}\longrightarrow P^n(\mathbb C)$ is called the \emph{Hopf fibration}\IndexMark{idx-310}{hopf fibration@Hopf fibration} of $S^{2n+1}$. In case $n=1$, it is a well known fact that the map $q:S^3\longrightarrow S^2$ defines a non-trivial element of $\pi_3(S^2)$ (See, for example, Hirsch \cite[page 131]{bib:I:hirsch-m-w:1}).
+
+Observe that $(z_0,\ldots,z_n)$, $(z'_0,\ldots,z'_n)\in\mathbb C^{n+1}\setminus\{0\}$ define the same point of $P^n(\mathbb C)$ if and only if there exists $\lambda\in\mathbb C^*$ such that $z_i=\lambda z'_i$, $0\leq i\leq n$. We may think of non-zero $(n+1)$-tuples $(z_0,\ldots,z_n)$ as defining \emph{homogeneous coordinates}\IndexMark{idx-308}{homogeneous coordinates@Homogeneous coordinates} on $P^n(\mathbb C)$. Here it is understood that two non-zero $(n+1)$-tuples define the same point of $P^n(\mathbb C)$ if and only if they are non-zero complex multiples of one another.
+
+\FieldHeading{Proposition}{4.3.2}{}\FieldTarget{proposition:4.3.2}{4.3.2} Complex $n$-dimensional projective space\IndexMark{idx-471}{projective space@Projective space!algebraic set@algebraic set} has the natural structure of a complex manifold.
+\begin{proof}
+For $0\leq i\leq n$, define open subsets $U_i$ of $P^n(\mathbb C)$ by $U_i=\{(z_0,\ldots,z_n)\in P^n(\mathbb C):z_i\neq0\}$. We define homeomorphisms $\phi_i:U_i\longrightarrow\mathbb C^n$ by
+\[
+\phi_i(z_0,\ldots,z_n)=(z_0/z_i,\ldots,\widehat{z_i/z_i},\ldots,z_n/z_i)
+\]
+($\widehat{\ }$ denotes omission). Clearly $\{U_i:0\leq i\leq n\}$ covers $P^n(\mathbb C)$ and the set $\{(U_i,\phi_i):0\leq i\leq n\}$ is an atlas on $P^n(\mathbb C)$. A simple computation shows that $\phi_i\phi_j^{-1}$ is biholomorphic (even rational) for all $i,j$.
+\end{proof}
+
+\paragraph*{Remark.} It is an outstanding problem to determine whether the complex structure on $P^n(\mathbb C)$ given above is the only one that $P^n(\mathbb C)$ admits compatible with its standard differential structure. For $n=1$ this is well known by the Riemann mapping theorem. In higher dimensions only partial results are known. See Hirzebruch and Kodaira \cite{bib:I:hirzebruch-f-and-kodaira-k:1}, Frankel \cite{bib:I:frankel-t:1}, Hartshorne \cite{bib:I:hartshorne-r:1}, Mori \cite{bib:I:mori-s:1}, Siu and Yau \cite{bib:I:siu-y-t-and-yau-s-t:1}.
+
+Suppose $P$ is a homogeneous polynomial on $\mathbb C^{n+1}$. Then $M=\{z\in\mathbb C^{n+1}:P(z)=0\}$ defines a complex cone in $\mathbb C^{n+1}$. That is, if $z\in M$ so does $\lambda z$, for all $\lambda\in\mathbb C$. Thus, in a natural way, $M$ determines a subset $M^*$ of $P^n(\mathbb C)$. Any point in $M^*$ corresponds to a line contained in $M$. Put another way, $M^*$ is just the zero locus of $P$ in homogeneous coordinates.
+
+\FieldHeading{Definition}{4.3.3}{}\FieldTarget{definition:4.3.3}{4.3.3} Any subset of $P^n(\mathbb C)$ that may be represented as the common zero locus of a set (not necessarily finite) of homogeneous polynomials defined on $\mathbb C^{n+1}$ is called (projective) \emph{algebraic}\IndexMark{idx-003}{algebraic set projective@Algebraic set (projective)}.
+% Original book page 147
+We say that a complex submanifold of $P^n(\mathbb C)$ is algebraic if it is an algebraic subset of $P^n(\mathbb C)$. We say that a complex manifold is algebraic\IndexMark{idx-004}{algebraic manifold@Algebraic manifold} if it is biholomorphic to an algebraic submanifold of some complex projective space.
+
+\paragraph*{Remark.} It follows from Hilbert's basis theorem that every projective algebraic set is the common zero locus of a finite set of homogeneous polynomials.
+
+\paragraph*{Examples.}
+\begin{enumerate}
+\item Let $(a_0,\ldots,a_n)\in P^n(\mathbb C)$. The zero set of the polynomial $a_0z_0+\cdots+a_nz_n$ is called a \emph{complex hyperplane}\IndexMark{idx-315}{hyperplane in projective space@Hyperplane in projective space}. Every complex hyperplane is biholomorphic to $P^{n-1}(\mathbb C)$ and the set of complex hyperplanes is in bijective correspondence with $P^n(\mathbb C)$. Taking the hyperplane $z_0=0$, we see that $P^n(\mathbb C)=P^{n-1}(\mathbb C)\cup U_0$ and iterating this construction we obtain a cell decomposition of $P^n(\mathbb C)$ from which we can compute the cohomology ring of $P^n(\mathbb C)$.
+\item If $F:\mathbb C^{n+1}\longrightarrow\mathbb C$ is a homogeneous polynomial then $F(z)=0$ defines an algebraic submanifold of $P^n(\mathbb C)$ if (and only if) $DF_z\neq0$ for all $z\in F^{-1}(0)\setminus\{0\}$. This is a straightforward consequence of the implicit function theorem and the homogeneity of $F$ (Observe that by Euler's theorem, $DF_z(z)=0$, $z\in F^{-1}(0)$). In particular, the hyperquadric $z_0^2+\cdots+z_n^2=0$ is an algebraic submanifold of $P^n(\mathbb C)$.
+\item The cubic curve\IndexMark{idx-158}{cubic curve@Cubic curve} $y^2z-4x^3+g_2xz^2+g_3z^3=0$ defines an algebraic submanifold of $P^2(\mathbb C)$ provided that $g_2^3-27g_3^2\neq0$ (that is, the discriminant of the cubic is non-zero). We shall return to this important class of algebraic curves in \hyperref[sec:4:4]{\S4}.
+\item Every compact Riemann surface is algebraic. We prove this for surfaces of genus 1 in \hyperref[sec:4:4]{\S4} and in general in Chapter 10 (see also the exercises at the end of \hyperref[sec:7:6]{\S6, Chapter 7}). Proofs may also be found in Siegel \cite[Chapter 2]{bib:I:siegel-c-l:1} and Griffiths and Harris \cite[page 213]{bib:I:griffiths-p-and-harris-j:1}.
+\end{enumerate}
+Some indication of the significance of projective space may be gauged from the famous theorem of Chow that we shall prove in Chapter~\ref{ch:7}:
+% Original book page 148
+\paragraph*{Theorem.} Every complex analytic subset of $P^n(\mathbb C)$ is algebraic.
+
+\paragraph*{Remark.} We say that a meromorphic function on $P^n(\mathbb C)$ is \emph{rational}\IndexMark{idx-500}{rational function@Rational function} if it can be expressed as the quotient of two homogeneous polynomials of the same degree. One consequence of Chow's theorem\IndexMark{idx-083}{chow s theorem@Chow's theorem} is that every meromorphic function on $P^n(\mathbb C)$ is rational (we have already proved this in \hyperref[sec:1:4]{\S4 of Chapter 1} for the Riemann sphere, $P^1(\mathbb C)$). We give a proof of the rationality of meromorphic functions on $P^n(\mathbb C)$, assuming Chow's theorem, in Example 3 of \hyperref[sec:4:6]{\S6}.
+
+For the remainder of this section we shall construct a number of important examples of algebraic manifolds. In each case we shall construct a biholomorphic map of the space onto a submanifold of projective space. We shall not verify that the submanifold of projective space is algebraic. This can either be done directly---usually a rather tedious and long computation---or indirectly by citing Chow's theorem.
+
+\paragraph*{Examples.}
+\paragraph*{5.} For $m,n\geq1$, $P^m(\mathbb C)\times P^n(\mathbb C)$ is algebraic. We take homogeneous coordinates $(z_0,\ldots,z_m)$ and $(w_0,\ldots,w_n)$ on $P^m(\mathbb C)$ and $P^n(\mathbb C)$ respectively. We define an embedding $\phi$ of the product in $P^{nm+n+m}(\mathbb C)$ by
+\[
+\phi(z_0,\ldots,z_m;w_0,\ldots,w_n)=(z_0w_0,z_0w_1,\ldots,z_0w_n,z_1w_0,\ldots,z_mw_n).
+\]
+We leave it to the reader to verify that $\phi$ is an embedding (the \emph{Segre embedding}\IndexMark{idx-544}{segre embedding@Segre embedding}).
+
+\paragraph*{6. Grassmann manifolds.} For $0\leq k\leq n$, we let $G_{k,n}(\mathbb C)$ denote the set of $k$-dimensional complex linear subspaces of $\mathbb C^n$. We call $G_{k,n}(\mathbb C)$ the \emph{Grassmann manifold}\IndexMark{idx-272}{grassmann manifold@Grassmann manifold} of $k$-planes in $\mathbb C^n$.
+
+We shall first show that $G_{k,n}(\mathbb C)$ is in bijective correspondence with a closed subset of $P(\bigwedge^k\mathbb C^n)$ (For any complex vector space $V$, $P(V)$ will denote the projective space of complex lines through the origin of $V$. Thus $P(\mathbb C^n)=P^{n-1}(\mathbb C)$). Suppose $E\in G_{k,n}(\mathbb C)$ and let $v_1,\ldots,v_k$ and $w_1,\ldots,w_k$ be bases for $E$. Then $v_1\wedge\cdots\wedge v_k=aw_1\wedge\cdots\wedge w_k$ for some $a\in\mathbb C^*$. Conversely, if such a relation holds, $v_1,\ldots,v_k$ and $w_1,\ldots,w_k$ span the same $k$-dimensional linear subspace of $\mathbb C^n$. Consequently we may
+% Original book page 149
+define an injection $\theta:G_{k,n}(\mathbb C)\longrightarrow P(\bigwedge^k\mathbb C^n)$ by setting $\theta(E)=v_1\wedge\cdots\wedge v_k$, where $v_1,\ldots,v_k$ is any basis for $E$. $\theta(G_{k,n}(\mathbb C))$ is obviously a closed subset of $P(\bigwedge^k\mathbb C^n)$ and we give $G_{k,n}(\mathbb C)$ the induced topology.
+
+If we let $e_1,\ldots,e_n$ denote the standard basis for $\mathbb C^n$ and choose a basis $v_1,\ldots,v_k$ for $E$ we can write
+\[
+\theta(E)=\sum a_{i_1\cdots i_k}e_{i_1}\wedge\cdots\wedge e_{i_k}
+\]
+where the $a_{i_1\cdots i_k}$ are skew-symmetric in the indices and are defined uniquely by $E$ up to multiplication by elements of $\mathbb C^*$. The scalars $a_{i_1\cdots i_k}$ are called the \emph{Cayley--Pl\"ucker--Grassmann} coordinates\IndexMark{idx-073}{cayley plucker grassmann coordinates@Cayley--Pl\""ucker--Grassmann coordinates}\IndexMark{idx-273}{grassmann manifold@Grassmann manifold!coordinates@coordinates} on $G_{k,n}(\mathbb C)$.
+
+Next we shall construct a complex analytic atlas for $G_{k,n}(\mathbb C)$. We let $\underline k$ denote the set of (ordered) subsets of $\{1,\ldots,n\}$ containing precisely $k$ elements. If $\alpha=\{\alpha_1,\ldots,\alpha_k\}\in\underline k$, we set $c\alpha=\{1,\ldots,n\}\setminus\alpha$ and let $E_\alpha$ denote the $k$-dimensional subspace of $\mathbb C^n$ spanned by the coordinate vectors $e_{\alpha_1},\ldots,e_{\alpha_k}$. Let $V_\alpha$ denote the vector space of $\mathbb C$-linear maps from $E_\alpha$ to $E_{c\alpha}$. Clearly $V_\alpha\cong\mathbb C^{k(n-k)}$. We have a natural homeomorphism $\psi_\alpha$ of $V_\alpha$ onto an open subset $U_\alpha$ of $G_{k,n}(\mathbb C)$ defined by mapping a linear function to its graph. Set $\phi_\alpha=\psi_\alpha^{-1}$. Then it is not difficult to show that $\{(U_\alpha,\phi_\alpha):\alpha\in\underline k\}$ is a complex analytic atlas on $G_{k,n}(\mathbb C)$. Relative to the complex structure defined by this atlas it is now a straightforward matter to verify that the bijection $\theta$ defined above is a complex analytic embedding of $G_{k,n}(\mathbb C)$ onto a compact complex submanifold of $P(\bigwedge^k\mathbb C^n)$.
+
+We shall now give two other descriptions of $G_{k,n}(\mathbb C)$ in terms of Lie groups. Observe that $GL(n,\mathbb C)$ acts transitively on $G_{k,n}(\mathbb C)$. Given $E\in G_{k,n}(\mathbb C)$ we let $I(E)$ denote the isotropy subgroup of $GL(n,\mathbb C)$ at $E$ (that is, $I(E)=\{A\in GL(n,\mathbb C):A(E)=E\}$). It follows from the elementary theory of homogeneous spaces (or directly, in this case) that $G_{k,n}(\mathbb C)=GL(n,\mathbb C)/I(E)$ (Kobayashi and Nomizu \cite{bib:I:kobayashi-s-and-nomizu-k:2}). Let $GL(k,n-k,\mathbb C)$ denote the subgroup of $GL(n,\mathbb C)$ consisting of all matrices of the form $\begin{pmatrix}A&B\\0&C\end{pmatrix}$ where $A\in GL(k,\mathbb C)$, $C\in GL(n-k,\mathbb C)$ and $B$ is any $k\times n$-matrix. If we take $E$ to be the $k$-plane defined by the first $k$ coordinate vectors,
+% Original book page 150
+it is easy to see that $I(E)=GL(k,n-k,\mathbb C)$. Hence,
+\[
+G_{k,n}(\mathbb C)\cong GL(n,\mathbb C)/GL(k,n-k,\mathbb C).
+\]
+Consequently, $G_{k,n}(\mathbb C)$ is a complex manifold of dimension $n^2-k^2-(n-k)^2-k(n-k)=k(n-k)$.
+
+Similarly, taking the standard Hermitian inner product on $\mathbb C^n$, we see that
+\[
+G_{k,n}(\mathbb C)\cong U(n)/(U(k)\times U(n-k))
+\]
+($U(p)$ denotes the unitary group of $\mathbb C^p$). Since the unitary groups are compact, it follows from this representation that $G_{k,n}(\mathbb C)$ is compact.
+
+Grassmann manifolds are particularly important as they are classifying spaces for vector bundles. See the exercises at the end of the section.
+
+The homology of a Grassmann manifold is described using the ``Schubert Calculus\IndexMark{idx-537}{schubert calculus@Schubert calculus}''. See Griffiths and Harris \cite{bib:I:griffiths-p-and-harris-j:1} and also Chern \cite{bib:I:chern-s-s:1}.
+
+\paragraph*{7. Flag manifolds.} Let $0<p_1<p_2<\cdots<p_k\leq n$ be a sequence of integers. The \emph{flag manifold}\IndexMark{idx-257}{flag manifold@Flag manifold} $F(p_1,\ldots,p_k,n)$ is defined to be the set of all nested sequences $L_{p_1}\subset L_{p_2}\subset\cdots\subset L_{p_k}\subset\mathbb C^n$ of linear subspaces of $\mathbb C^n$ with dimensions given by the subscripts. Clearly $F(p,n)=G_{p,n}(\mathbb C)$. $F(p_1,\ldots,p_k,n)$ has the structure of a compact complex manifold of dimension $\sum_{j=1}^{k-1}p_j(p_{j+1}-p_j)$. The easiest way to prove this is to represent the flag manifold as a homogeneous space as we did for the Grassmann manifold. Flag manifolds are also algebraic. The proof of this is similar to that we gave for the Grassmann manifold. Flag manifolds are important in the representation theory of semi-simple Lie groups. See, for example, Wells and Wolf \cite{bib:I:wells-r-o-and-wolf-j-a:1}.
+
+\subsection*{Exercises}
+\begin{enumerate}
+\item Let $z_0\in P^n(\mathbb C)$. Show that if $n>1$, $P^n(\mathbb C)\setminus\{z_0\}$ is an example of a non-compact complex manifold with no non-constant analytic functions.
+% Original book page 151
+\item Let $U=\{(z,L)\in\mathbb C^n\times G_{k,n}(\mathbb C):z\in L\}$ and define $\pi:U\longrightarrow G_{k,n}(\mathbb C)$ by $\pi(z,L)=L$. Show that $U$ has the natural structure of a $k$-dimensional holomorphic vector bundle over $G_{k,n}(\mathbb C)$. We call $U$ the \emph{universal bundle}\IndexMark{idx-056}{canonical bundle@Canonical bundle!universal bundle on a grassmannian@universal bundle on a Grassmannian}\IndexMark{idx-630}{universal bundle@Universal bundle} or \emph{canonical bundle} of $G_{k,n}(\mathbb C)$. It can be shown that given any $k$-dimensional vector bundle $E$ over a differential manifold $X$ there exists a positive integer $N$, depending only on $X$, such that for some differentiable map $f:X\longrightarrow G_{k,N}(\mathbb C)$ we have $f^*U\cong E$. Moreover, $f^*U$ depends, up to isomorphism, only on the homotopy class of the map $f:X\longrightarrow G_{k,N}(\mathbb C)$. Similar results hold for continuous vector bundles\IndexMark{idx-641}{vector bundles@Vector bundles!classifying space@classifying space} over $X$. See Atiyah \cite{bib:I:atiyah-m:1}, Husmoller \cite{bib:I:husmoller-d:1} and Milnor \cite{bib:I:milnor-j-w:1} for further details and proofs.
+\end{enumerate}
+
+\section{Complex tori}\label{sec:4:4}
+Let $\omega=\{\omega_1,\ldots,\omega_{2n}\}$ be a real basis of $\mathbb C^n$ and let $L_\omega$ denote the lattice\IndexMark{idx-352}{lattice@Lattice} subgroup of $\mathbb C^n$ defined by
+\[
+L_\omega=\left\{\sum_{j=1}^{2n}m_j\omega_j:(m_1,\ldots,m_{2n})\in\mathbb Z^{2n}\right\}.
+\]
+Clearly $L_\omega\cong\mathbb Z^{2n}$. We define the \emph{complex $n$-torus} $T_\omega$ to be the quotient space $T_\omega=\mathbb C^n/L_\omega$. The quotient map $\pi:\mathbb C^n\longrightarrow T_\omega$ is a local homeomorphism and $T_\omega$ is a compact Hausdorff space. The projection $\pi$ induces a complex structure on $T_\omega$ with respect to which $\pi$ is holomorphic, in fact locally biholomorphic (see also Theorem~\ref{theorem:4.5.2}). Clearly $T_\omega$ is diffeomorphic to the standard real $2n$-dimensional torus $T^{2n}=\mathbb R^{2n}/\mathbb Z^{2n}$. Since $L_\omega$ is a subgroup of $\mathbb C^n$, $T_\omega$ inherits a group structure from that on $\mathbb C^n$. The group operations on $T_\omega$ are obviously analytic and so $T_\omega$ has the structure of a \emph{complex Lie group}\IndexMark{idx-103}{complex lie group@Complex Lie group} (that is, a Lie group which is a complex manifold and whose group operations are analytic).
+
+\paragraph*{Example 1.} Every compact connected complex Lie group is a complex torus\IndexMark{idx-117}{complex torus@Complex torus} and is, in particular, Abelian: By standard results in Lie group theory it is enough to prove that a compact connected complex Lie group $G$ is Abelian. To see that this is so consider, for $g\in G$, the map $\phi_g:G\longrightarrow G$ defined by $\phi_g(h)=ghg^{-1}h^{-1}$, $h\in G$. Now $\phi_e(h)=e$ for all $h\in G$ and so there exists a neighbourhood $U$ of $e$ and a coordinate chart $(V,\zeta)$ for $G$ containing $e$ such that $\phi_g(G)\subset V$ for all $g\in U$. But then, by the argument of Proposition~\ref{proposition:4.2.4} applied to $\zeta\phi_g$, we see that
+% Original book page 152
+$\phi_g$ must be constant on $G$ for all $g\in U$. Hence, by analytic continuation, $\phi_g$ is constant on $G$. Therefore, $\phi_g(h)=e$ for all $g,h\in G$ and so $G$ is Abelian.
+
+\FieldHeading{Proposition}{4.4.1}{}\FieldTarget{proposition:4.4.1}{4.4.1} Let $\{\omega_1,\ldots,\omega_{2n}\}$, $\{\omega'_1,\ldots,\omega'_{2n}\}$ be real bases of $\mathbb C^n$ and $L,L'$ and $T,T'$ respectively denote the corresponding lattices and tori. Then $T$ is biholomorphic to $T'$ if and only if there exists $A\in GL(n,\mathbb C)$ such that $A(L)=L'$.
+\begin{proof}
+Suppose $f:T\longrightarrow T'$ is biholomorphic. It is no loss of generality to suppose that $f$ maps the identity of $T$ to the identity of $T'$ (otherwise replace $f$ by $f(e)^{-1}f$). Let $F:\mathbb C^n\longrightarrow\mathbb C^n$ be any lifting (necessarily biholomorphic) of $f$ to the universal cover $\mathbb C^n$ of $T,T'$:
+\[
+\input{diagrams/I-tori.tex}
+\]
+Clearly $F(z+\omega_j)-F(z)\in L'$, $1\leq j\leq2n$, for all $z\in\mathbb C^n$. By continuity, these differences are all constant functions. Hence, for $z\in\mathbb C^n$, we have
+\[
+\frac{\partial F}{\partial z_i}(z+\omega_j)=\frac{\partial F}{\partial z_i}(z),\quad1\leq i\leq n;\quad1\leq j\leq2n.
+\]
+By this periodicity, $\partial F/\partial z_i$ is a bounded holomorphic map and so, by Liouville's theorem, constant. Hence
+\[
+F(z)=Ax+b,
+\]
+for some $A\in GL(n,\mathbb C)$, $b\in\mathbb C^n$. Since $f(e)=e'$, $F(0)\in L'$ and so $b\in L'$. We may suppose $b=0$ (otherwise replace $F$ by $F-b$). By our construction, $A(L)=L'$. The converse is trivial.
+\end{proof}
+
+\paragraph*{Remark.} Notice that the proof above shows that two complex tori are biholomorphic if and only if they are isomorphic as complex Lie groups.
+
+We shall now examine complex tori of dimension one in somewhat greater detail.
+% Original book page 153
+Let $\omega=\{\omega_1,\omega_2\}$ be a real basis for $\mathbb C$ and set $\underline\tau=\{\omega_2/\omega_1,1\}=\{\tau,1\}$. Certainly $\operatorname{Im}(\tau)\neq0$ and by Proposition~\ref{proposition:4.4.1}, $T_\omega$ is biholomorphic to $T_{\underline\tau}$. Since $\{\tau,1\}$ and $\{-\tau,1\}$ generate the same lattice, we may without loss of generality suppose that $\operatorname{Im}(\tau)>0$. Hence the set of complex one-dimensional tori is parametrized by points in the upper half plane $H=\{\tau:\operatorname{Im}(\tau)>0\}$. We shall now determine when two points in the upper half plane determine the same torus. Let $\tau,\tau'\in H$ and $L,L',T,T'$ denote the corresponding lattices and tori. $T$ is biholomorphic to $T'$ if and only if there exists $a\in GL(1,\mathbb C)\approx\mathbb C^*$ such that $a(L)=L'$. That is, if and only if there exist $a_{11},\ldots,a_{22}\in\mathbb Z$ such that
+\[
+\begin{aligned}
+a\tau&=a_{11}\tau'+a_{12},\\
+a&=a_{21}\tau'+a_{22},\\
+a_{11}a_{22}-a_{21}a_{12}&=1.
+\end{aligned}
+\]
+Therefore $\tau$ and $\tau'$ define biholomorphic tori if and only if
+\[
+\tau=\frac{a_{11}\tau'+a_{12}}{a_{21}\tau'+a_{22}}.\tag{*}\label{eq:4:star:3}
+\]
+We see that the relation \eqref{eq:4:star:3} defines an action of $SL(2,\mathbb Z)$ on $H$. The orbit space of this action, $H/SL(2,\mathbb Z)$, gives an effective parametrization of the set of complex structures on the 2-dimensional real torus. We say that a subset $D\subset H$ is a \emph{fundamental region} for the action of $SL(2,\mathbb Z)$ on $H$ if no two points in $D$ lie on the same $SL(2,\mathbb Z)$ orbit and every $SL(2,\mathbb Z)$ orbit meets $D$. It is not hard to show that the region $D$ in the figure below is a fundamental region for $SL(2,\mathbb Z)$\IndexMark{idx-263}{fundamental region for sl 2 z@Fundamental region (for $\operatorname{SL}(2,\mathbb{Z})$)} acting on $H$ (for details see Lang \cite{bib:I:lang-s:2} or Robert \cite{bib:I:robert-a:1}).
+% Original book page 154
+\begin{center}
+    \begin{minipage}{\linewidth}
+        \centering
+        \input{figures/figure07.tex}
+        \FieldCaption{I}{7}{}
+    \end{minipage}
+\end{center}
+\[
+D=\left\{\tau\in H:\begin{array}{l}
+\text{Either }-\tfrac12\leq\operatorname{Re}(\tau)<\tfrac12\text{ and }|\tau|>1\\
+\text{or }|\tau|=1\text{ and }\operatorname{Re}(\tau)\leq0
+\end{array}\right\}.
+\]
+It is clear from what we have said above that we can ``continuously deform'' complex structures on a real 2-dimensional torus to obtain an uncountable family of distinct complex structures. This is very characteristic: There may exist many different complex structures on a given differential manifold. The classification of all such structures is generally a problem of great difficulty and only partial results are known. For example, if $M$ is a compact Riemann surface of genus $g\geq2$, then it is known by the work of Riemann, Teichm\"uller \cite{bib:I:teichmuller-o:1}, Rauch \cite{bib:I:rauch-h-e:1}, Ahlfors \cite{bib:I:ahlfors-l-v:2} and Bers \cite{bib:I:bers-l:1} that the set of complex structures on $M$ has the natural structure of a complex analytic space of dimension $(3g-3)$. This space of complex structures---The moduli space\IndexMark{idx-398}{moduli space@Moduli space}---will have singularities. Unfortunately, no such global existence theorem holds in general for higher dimensional compact manifolds. One approach to a global theory is due to Griffiths \cite{bib:I:griffiths-p:1}. There is an infinitesimal theory of deformations of complex structure\IndexMark{idx-164}{deformation of complex structure@Deformation of complex structure} due to Kodaira, Spencer and Kuranishi. This is described in the book by Kodaira and Morrow \cite{bib:I:kodaira-k-and-morrow-j:1}. Finally we remark the difficult theorem of Douady's [1] to the effect that the set of all
+% Original book page 155
+complex analytic subspaces of a given complex analytic space has the natural structure of a complex analytic space.
+
+We shall now briefly consider the question of the existence of meromorphic functions on a complex torus. First we look at 1-dimensional tori.
+
+Let $\{\omega_1,\omega_2\}$ be a real basis of $\mathbb C$ and let $L$ denote the corresponding lattice. Set $T=\mathbb C/L$ and let $\pi:\mathbb C\longrightarrow T$ denote the quotient map. Given $a\in\mathbb C$, we let $P_a$ denote the parallelogram with vertices $a$, $a+\omega_1$, $a+\omega_2$, $a+\omega_1+\omega_2$. $P_a$ is called a \emph{period parallelogram}\IndexMark{idx-435}{period parallelogram@Period parallelogram} (for $L$) and obviously $\pi(P_a)=T$.
+
+Suppose $m\in\mathcal M(T)$. Clearly $\widetilde m=m\pi\in\mathcal M(\mathbb C)$ and $\widetilde m$ is $L$-invariant. That is, given $z\in\mathbb C$,
+\[
+\widetilde m(z+\omega)=m(z),\quad\text{for all }\omega\in L.
+\]
+Equivalently, $\widetilde m$ is \emph{doubly periodic}\IndexMark{idx-212}{doubly periodic function@Doubly periodic function} with periods $\omega_1,\omega_2$,
+\[
+m(z+\omega_1)=m(z+\omega_2)=m(z),\quad\text{all }z\in\mathbb C.
+\]
+We shall say that an $L$-invariant meromorphic function\IndexMark{idx-389}{meromorphic function@Meromorphic function!on complex torus@on complex torus} on $\mathbb C$ or, equivalently, a meromorphic function on $T$, is ($L$-) \emph{elliptic}. Clearly the set of poles and zeroes of an elliptic function\IndexMark{idx-222}{elliptic function@Elliptic function} is finite (mod $L$).
+
+\FieldHeading{Theorem}{4.4.2}{}\FieldTarget{theorem:4.4.2}{4.4.2} Let $m\in\mathcal M^*(T)$ and $\operatorname{div}(m)=\sum_{i=1}^k n_i\cdot z_i$. Then
+\begin{enumerate}
+\item $\displaystyle\sum_{i=1}^k\operatorname{residue}_{z_i}(m)=0$.
+\item $\deg(\operatorname{div}(m))=0$.
+\item $\displaystyle\sum_{i=1}^k n_iz_i=e$ (relative to the group law on $T$).
+\end{enumerate}
+\begin{proof}
+Choose $a\in\mathbb C$ such that the boundary of the period parallelogram $P_a$ is disjoint from the poles and zeroes of $m$. 1 follows by integrating $m$ (strictly, $\widetilde m=\pi m$) round $\partial P_a$ and observing that the integrals along opposite sides cancel by the periodicity of $m$. Similarly 2 follows by integrating the elliptic function $m'/m$ round $\partial P_a$ (see also Lemma~\ref{lemma:1.4.2}). For 3 we integrate $zm'/m$ round $\partial P_a$. In this case the integrals round
+% Original book page 156
+opposite sides do not cancel but we do have
+\[
+(2\pi i)^{-1}\left\{\int_a^{a+\omega_1}-\int_{a+\omega_2}^{a+\omega_1+\omega_2}\frac{zm'}m\,dz\right\}
+=-(2\pi i)^{-1}\omega_2\int_a^{a+\omega_1}\frac{m'}m\,dz.
+\]
+Now $(2\pi i)^{-1}\int_a^{a+\omega_1}m'/m\,dz$ is just the winding number of the closed curve $m([a,a+\omega_1])$ about zero and is therefore an integer, say $m_1$. Similarly for the other pair of boundary integrals. Lifting to $P_a$ and choosing $\widetilde z_i\in P_a$ such that $\pi(\widetilde z_i)=z_i$, $1\leq i\leq k$, we see that
+\[
+\sum_{i=1}^k n_i\widetilde z_i=m_2\omega_1-m_1\omega_2\in L.
+\]
+\end{proof}
+
+\paragraph*{Remarks.} It follows from condition 1 of the Theorem that an elliptic function cannot have a single pole of order 1. The simplest possibilities are a single double pole with zero residue or two single poles with opposite residue. From condition 2 it follows that if $m\in\mathcal M^*(T)$, $c\in\mathbb C$, then $m$ and $m-c$ have the same number of zeroes. Hence the map $m:T\longrightarrow P^1(\mathbb C)$ (\hyperref[sec:1:4]{Chapter 1, \S4}, Example 1) takes all complex values the same number of times. Condition 3 gives a necessary condition on a divisor in order that it be the divisor of an elliptic function. It turns out that conditions 2 and 3 of the theorem are sufficient conditions on a divisor for it to be the divisor of a meromorphic function (Abel's Theorem).
+
+We shall now construct some elliptic functions. We start by defining \emph{Weierstrass' elliptic function}\IndexMark{idx-652}{weierstrass elliptic function@Weierstrass elliptic function} $\wp(z)$:
+\[
+\wp(z)=z^{-2}+\sum{}'\big((z-\omega)^{-2}-\omega^{-2}\big),\qquad z\in\mathbb C\setminus L.
+\]
+Here the sum is over all $\omega\in L'=L\setminus\{0\}$. This sum is absolutely convergent at all points of $\mathbb C\setminus L$ and converges uniformly on compact subsets of $\mathbb C\setminus L$ (See the exercises at the end of this section and note that terms in the sum are $O(\omega^{-3})$). Hence $\wp\in\mathcal M(\mathbb C)$. Clearly $\wp$ is even: $\wp(-z)=\wp(z)$, $z\in\mathbb C\setminus L$. To show that $\wp$ is elliptic we consider the derivative $\wp'$. Now
+\[
+\wp'(z)=-2\sum(z-\omega)^{-3}
+\]
+is obviously elliptic and so, by integrating, we see that
+% Original book page 157
+\[
+\wp(z+\omega)=\wp(z)+C(\omega),
+\]
+where $C(\omega)$ is independent of $z$. Since $\wp$ is even, $z=-\omega/2$ gives $C(\omega)=0$ and so $\wp$ is elliptic. Set
+\[
+G_j=\sum{}'\omega^{-2j},\qquad j\geq2.
+\]
+The reader may easily verify that the Laurent expansions of $\wp$ and $\wp'$ at zero are given by
+\[
+\begin{aligned}
+\wp(z)&=z^{-2}\sum_{j\geq1}(2j+1)G_{2j+2}z^{2j},\\
+\wp'(z)&=-2z^{-3}+\sum_{j\geq1}(2j+1)2jG_{2j+2}z^{2j-1}
+\end{aligned}
+\]
+and converge for $0<|z|<\min_{L'}|\omega|$.
+
+Let us find the divisor of $\wp'$. Since $\wp'$ is odd and $L$-invariant $\wp'(z)=0$ if $-z\equiv z\bmod L$. That is, if $2z\in L$. Thus representative zeroes of $\wp'$ in the period parallelogram $P_0$ are given by $\omega_1/2$, $\omega_2/2$, $(\omega_1+\omega_2)/2$. These are the only zeroes in $P_0$ by Theorem~\ref{theorem:4.4.2}. Now $\wp$ has only two zeroes in $P_0$ and, by condition 3 of Theorem~\ref{theorem:4.4.2} they must be $\{a,-a\}$ for some $a\in T$. These zeroes are not known explicitly in terms of the lattice $L$.
+
+\FieldHeading{Proposition}{4.4.3}{}\FieldTarget{proposition:4.4.3}{4.4.3} The elliptic functions $\wp$ and $\wp'$ are related by the differential equation
+\[
+\wp'^2=4\wp^3-g_2\wp-g_3,
+\]
+where $g_2^3-27g_3^2\neq0$ and $g_2=60G_4$, $g_3=140G_6$.
+\begin{proof}
+$\wp'^2-4\wp^3$ is certainly elliptic. Using the Laurent series for $\wp$ and $\wp'$ we easily compute that
+\[
+\begin{aligned}
+\wp'^2-4\wp^3&=-60G_4z^{-2}-140G_6+O(z^2)\\
+&=-g_2\wp-g_3+h,
+\end{aligned}
+\]
+where $h$ is holomorphic, elliptic and $O(z^2)$. Therefore $h\equiv0$.
+% Original book page 158
+Now we know the zeroes of $\wp'$ and so those of $4\wp^3-g_2\wp-g_3$. But the zeroes of $\wp'$ are distinct and so therefore are those of the cubic $4x^3-g_2x-g_3=0$. Therefore the discriminant of the cubic, $-16(g_2^3-27g_3^2)$, is non-zero.
+\end{proof}
+
+We have already indicated in the previous section that the cubic curve\IndexMark{idx-159}{cubic curve@Cubic curve} $y^2z-4x^3+g_2xz^2+g_3z^3=0$ is non-singular in $P^2(\mathbb C)$ provided that $g_2^3-27g_3^2\neq0$. The next theorem gives an explicit embedding of the torus\IndexMark{idx-467}{projective embedding@Projective embedding!of complex torus@of complex torus} $T$ as an algebraic submanifold of $P^2(\mathbb C)$.
+
+\FieldHeading{Theorem}{4.4.4}{}\FieldTarget{theorem:4.4.4}{4.4.4}\IndexMark{idx-227}{embedding@Embedding!of complex 1 dimensional tori@of complex 1-dimensional tori} The mapping $\phi:T\longrightarrow P^2(\mathbb C)$ defined by
+\[
+\phi(z)=(z^3\wp(z),z^3\wp'(z),z^3)
+\]
+is a biholomorphic embedding of $T$ onto the cubic curve $y^2z-4x^3+g_2xz^2+g_3z^3=0$.
+\begin{proof}
+By Proposition~\ref{proposition:4.4.3}, $\phi$ maps $T$ into the given cubic curve. Certainly $\phi$ is onto since $\wp(z)=A$ has a solution for every $A\in P^1(\mathbb C)$ (remarks following Theorem~\ref{theorem:4.4.2}). $\phi$ is holomorphic since $z^3\wp(z)$ and $z^3\wp'(z)$ are holomorphic and the derivative of $\phi$ is everywhere of maximal rank as is seen by noting that $\wp''(z)\neq0$ if $z\in\{\omega_1/2,\omega_2/2,(\omega_1+\omega_2)/2\}$ as these points are simple zeroes of $\wp'$. It remains to be proved that $\phi$ is injective. Suppose $\wp(z)=\wp(y)$. If $z\not\equiv-z$, mod $L$, and $y\not\equiv z$, mod $L$, we see that $y\equiv-z$, mod $L$, since $\wp$ is even and takes each value twice (counting multiplicities). But $\wp'$ is odd and so $\wp'(z)\neq\wp'(y)$ unless $\wp'(z)=0$ which cannot happen as $z\not\equiv-z$, mod $L$. Now suppose $z\equiv-z$, mod $L$. Since $\wp$ takes each value twice, it is easy to see that $y\equiv-y$, mod $L$. But if $z\equiv-z$, mod $L$, $z\in\{\omega_1/2,\omega_2/2,(\omega_1+\omega_2)/2\}$. Now $\wp(\omega_1/2)$, $\wp(\omega_2/2)$, $\wp(\omega_1+\omega_2/2)$ are the roots of the cubic $4x^3-g_2x-g_3=0$ and are distinct by our assumption on the discriminant. Hence $z\equiv y$, mod $L$. Our argument proves that $\phi$ is injective.
+\end{proof}
+
+\paragraph*{Remarks.}
+\begin{enumerate}
+\item Here we have just given a tiny fragment of the theory of elliptic curves. The reader may consult Lang \cite{bib:I:lang-s:2}, Robert \cite{bib:I:robert-a:1} or Siegel \cite{bib:I:siegel-c-l:1} for more complete treatments of elliptic curves and functions. Whittaker and Watson \cite{bib:I:whittaker-e-t-and-watson-g-n:1} is a classical reference.
+% Original book page 159
+\item Although we have not proved it here, it is not difficult to show that every meromorphic function on a complex torus is a rational function of $\wp$ and $\wp'$. In particular, any two non-zero meromorphic functions are algebraically dependent (see also \hyperref[sec:5:9]{Chapter 5, \S9}).
+\item It can be shown that any two meromorphic functions on a compact Riemann surface are algebraically dependent (see Gunning \cite[Theorem 26, \S10]{bib:I:gunning-r-c:1}). Consequently, we may generalise the method of proof of Theorem~\ref{theorem:4.4.4} to construct a holomorphic map of a compact Riemann surface $M$ onto an algebraic curve in $P^2(\mathbb C)$ provided that there exist ``sufficiently many'' meromorphic functions on $M$. The existence of an abundance of meromorphic functions on $M$ is a consequence of the Riemann--Roch theorem which we prove in Chapter 10 (see also \hyperref[sec:7:5]{\S5, Chapter 7}). In general, we cannot embed $M$ onto a non-singular curve in $P^2(\mathbb C)$ (we always can embed in $P^3(\mathbb C)$). We shall show in \hyperref[sec:7:5]{Chapter 7, \S5}, that every compact Riemann surface can be represented as a branched cover of $P^1(\mathbb C)$. In case the surface has genus $g>1$, and admits a 2-fold branched cover over $P^1(\mathbb C)$, the surface is called \emph{hyperelliptic}\IndexMark{idx-314}{hyperelliptic curve@Hyperelliptic curve}. We have more to say about these matters in Chapter 10. See also Griffiths and Harris \cite{bib:I:griffiths-p-and-harris-j:1}, Hartshorne \cite{bib:I:hartshorne-r:2} and Gunning \cite{bib:I:gunning-r-c:1}.
+\end{enumerate}
+
+For the remainder of this section we shall briefly consider complex tori of dimension $>1$.
+
+We no longer have a good moduli space for $n$-dimensional complex tori if $n>1$. In fact the natural parameter space for complex structures on a real $2n$-dimensional torus turns out to be non-Hausdorff---see Kodaira and Spencer \cite[pages 408--414]{bib:I:kodaira-k-and-spencer-d-c:1} and also Kodaira and Morrow \cite[pages 22--23]{bib:I:kodaira-k-and-morrow-j:1}.
+
+\FieldHeading{Definition}{4.4.5}{}\FieldTarget{definition:4.4.5}{4.4.5} A complex torus which is algebraic is called an \emph{Abelian variety}\IndexMark{idx-001}{abelian variety@Abelian variety}.
+
+Every 1-dimensional complex torus is an Abelian variety (Theorem~\ref{theorem:4.4.4}). However, it is not the case that every $n$-dimensional complex torus is algebraic for $n>1$; in fact ``most'' are not. An obvious necessary condition for a complex torus to be algebraic is that it admit non-constant meromorphic functions (of course, we might expect to use such functions to construct maps into projective space). A stronger necessary condition is that we can separate points on the torus using meromorphic functions (since we can on projective space).
+% Original book page 160
+\paragraph*{Example 2. (Siegel \cite{bib:I:siegel-c-l:2}).} Let $T$ be the complex 2-dimensional torus whose lattice is generated by $\{(1,0),(0,1),i(\sqrt2,\sqrt3),i(\sqrt5,\sqrt7)\}\subset\mathbb C^2$. Then $T$ admits no nonconstant meromorphic functions. In particular, $T$ is not algebraic. We shall not prove this result here but instead refer the reader to Siegel \cite{bib:I:siegel-c-l:2}. See also Cornalba \cite[page 85]{bib:I:cornalba-m:1}, de La Harpe \cite[page 142]{bib:I:de-la-harpe-p:1}, Griffiths and Harris \cite{bib:I:griffiths-p-and-harris-j:1} and Swinnerton-Dyer \cite{bib:I:swinnerton-dyer-h-p-f:1}.
+
+In fact in every dimension greater than 1 there exist complex tori with no non-constant meromorphic functions. We shall now give necessary and sufficient conditions for a complex torus $T$ with lattice $L$ generated by $\omega_1,\ldots,\omega_{2n}$ to be an Abelian variety.
+
+Let $A:\mathbb C^n\times\mathbb C^n\longrightarrow\mathbb R$ be a real skew-symmetric bilinear form (that is, $A$ is real linear in each variable separately and $A(x,y)=-A(y,x)$). We say that $A$ is a \emph{Riemann form}\IndexMark{idx-526}{riemann form@Riemann form} for $T$ (or $L$) if
+\begin{enumerate}
+\item $A(L,L)\subset\mathbb Z$;
+\item $A(ix,y)$ is a symmetric positive definite form on $\mathbb C^n$.
+\end{enumerate}
+
+\paragraph*{Example 3.} Every lattice $L\subset\mathbb C$ admits a Riemann form. Indeed, suppose that $L$ is generated by $\{\omega_1,\omega_2\}$ and that $\operatorname{Im}(\omega_1/\omega_2)>0$. Denote the area of the period parallelogram defined by $\omega_1,\omega_2$ by $S$. Clearly $S=\operatorname{Im}(\omega_1\bar\omega_2)$. If we define $A:\mathbb C\times\mathbb C\longrightarrow\mathbb R$ by $A(y,z)=S^{-1}\operatorname{Im}(y\bar z)$, then $A$ is a Riemann form for $L$. As an exercise the reader may verify that $A$ is the only Riemann form for $L$ which takes the values $\pm1$ on any basis of $L$.
+
+For $n>1$, lattices do not generally admit a Riemann form or even a non-zero positive semi-definite form taking integer values on the lattice. However, it may be shown that the set of all lattices which admit a non-zero Riemann form is dense in the set of all lattices (obvious topology). If $A$ is a Riemann form for $L$ then we have a positive definite Hermitian form $H$ on $\mathbb C^n$ whose imaginary part is integer valued on the lattice. Indeed, we may define
+\[
+H(y,z)=A(iy,z)+iA(y,z),\qquad y,z\in\mathbb C^n.
+\]
+We have the fundamental result
+
+\paragraph*{Theorem.} A complex torus is algebraic if and only if it admits a Riemann form.
+% Original book page 161
+We shall prove that the existence of a Riemann form implies that the torus is algebraic in \hyperref[sec:7:6]{\S6 of Chapter 7} (the converse is not difficult). The theorem will also follow from our results on compact K\"ahler manifolds presented in Chapter 10. The reader may also find proofs in Cornalba \cite{bib:I:cornalba-m:1}, Griffiths and Harris \cite{bib:I:griffiths-p-and-harris-j:1}, Swinnerton-Dyer \cite{bib:I:swinnerton-dyer-h-p-f:1} and Weil \cite{bib:I:weil-a:1}. These references also give further information and references about complex tori. In Chapter~\ref{ch:5} we shall have a little to say about the construction of meromorphic functions on complex tori as well as the role played by theta functions and holomorphic line bundles.
+
+\subsection*{Exercises}
+\begin{enumerate}
+\item Show that if $L$ is a lattice in $\mathbb C$ then $\sum_{L\setminus\{0\}}|\omega|^{-\lambda}$ converges provided that $\lambda>2$. Deduce that the series for $\wp'(z)$ converges uniformly on compact subsets of $\mathbb C\setminus L$.
+\item Let $L$ be a lattice in $\mathbb C$ and choose $\omega\in L\setminus\{0\}$ as close as possible to the origin. Show that there is a basis for $L$ which contains $\omega$.
+\item Show that every even elliptic function may be written uniquely as a product $c\prod_{j=1}^k(\wp(u_j)-\wp(z))^{p_j}$, $c\in\mathbb C$ (You will need part 2 of Theorem~\ref{theorem:4.4.2}). By writing an elliptic function as the sum of an even elliptic function plus $\wp'\times{}$ even elliptic function, show that every elliptic function is a rational combination of $\wp$, $\wp'$ and that the field of elliptic functions is a quadratic extension of $\mathbb C(\wp)$ (Use Proposition~\ref{proposition:4.4.3}).
+\item Let $F(x,y,z)$ be homogeneous of degree $d$ and $C\subset P^2(\mathbb C)$ denote the corresponding curve of degree $d$. Suppose $X\subset P^2(\mathbb C)$ is an elliptic curve parametrized by $(\wp(u),\wp'(u),1)$ as in Theorem~\ref{theorem:4.4.4}. Prove that the number of points of intersection of $X$ with $C$ (counting multiplicities) is $3d$ (This is a special case of B\'ezout's theorem.\par
+Hint: Suppose $F(0,1,0)\neq0$. Consider the elliptic function $F(\wp,\wp',1)$ and apply Theorem~\ref{theorem:4.4.2}, part 2).
+\item Suppose that the elliptic curve $X\subset P^2(\mathbb C)$ is parametrized by $(\wp,\wp',1)$. Show that the points $u,v,w\in X$ are collinear if and only if $u+v+w=e$ (relative to the group law on $X$). Deduce that
+% Original book page 162
+\[
+\wp(u+v)=-\wp(u)-\wp(v)+\frac14\left(\frac{\wp'(u)-\wp'(v)}{\wp(u)-\wp(v)}\right)^2
+\]
+provided that $u\not\equiv\pm v\pmod L$, where $L$ is the lattice associated to $X$.
+\item Use the methods of questions 4 and 5 to study the intersection of conics with a fixed elliptic curve in $P^2(\mathbb C)$.
+\item Let the lattice $L\subset\mathbb C$ have basis $\{1,\tau\}$, $\operatorname{Im}(\tau)>0$. Show that the set of continuous homomorphisms of the torus $\mathbb C/L$ is in bijective correspondence with the set $M(L)$ of complex numbers $a$ such that $aL\subset L$. Clearly $M(L)\supset\mathbb Z$. Say that $\mathbb C/L$ has \emph{complex multiplication}\IndexMark{idx-108}{complex multiplication@Complex multiplication} if $M(L)$ is strictly bigger than $\mathbb Z$. Show that if $\mathbb C/L$ has complex multiplication then $\tau\in\mathbb Q(\sqrt{-p})$, for some positive integer $p$ and that $M(L)$ is then a subring of the ring of integers of the field $\mathbb Q(\sqrt{-p})$. Deduce that there are only countably many complex tori that admit complex multiplication.
+\end{enumerate}
+
+\section{Properly discontinuous actions}\IndexMark{idx-472}{properly discontinuous action@Properly discontinuous action}\label{sec:4:5}
+Let $M$ be a complex manifold and $\operatorname{Aut}(M)$ denote the group of biholomorphic transformations of $M$. Denote the identity of $\operatorname{Aut}(M)$ by $I$. Suppose that $\Gamma$ is a subgroup of $\operatorname{Aut}(M)$. We say that $\Gamma$ acts \emph{freely} on $M$ if the only element of $\Gamma$ that has fixed points is the identity. That is, if $g\in\Gamma$ and $g(x)=x$ for some $x\in M$ then $g=I$. We say that $\Gamma$ acts \emph{properly discontinuously} on $M$ if for any pair $K_1,K_2$ of compact subsets of $M$, the set $\{g\in\Gamma:g(K_1)\cap K_2\neq\varnothing\}$ is finite.
+
+\FieldHeading{Lemma}{4.5.1}{}\FieldTarget{lemma:4.5.1}{4.5.1} Let $\Gamma$ act freely, properly discontinuously on $M$. Then every point $x\in M$ has an open neighbourhood $U$ such that if $g\in\Gamma$ and $g(U)\cap U\neq\varnothing$, then $g=I$.
+\begin{proof}
+Let $V$ be any relatively compact open neighbourhood of $x$. Since $\Gamma$ acts properly discontinuously, $P=\{g\in\Gamma:g(V)\cap V\neq\varnothing\}$ is finite. Define
+\[
+U=V\setminus\bigcup_{g\in P\setminus\{I\}}g^{-1}\big(\overline{g(V)\cap V}\big).
+\]
+We leave it to the reader to check that $U$ satisfies the conditions of the lemma.
+\end{proof}
+% Original book page 163
+\FieldHeading{Theorem}{4.5.2}{}\FieldTarget{theorem:4.5.2}{4.5.2} Let $M$ be a complex manifold and $\Gamma$ be a subgroup of $\operatorname{Aut}(M)$ which acts freely, properly discontinuously on $M$. Then there exists a natural complex structure on $M/\Gamma$ such that the orbit map $\pi:M\longrightarrow M/\Gamma$ is locally biholomorphic.
+\begin{proof}
+Let $y=\pi(x)\in M/\Gamma$. Choose a chart $(U,\phi)$ for $M$ containing $x$ such that the conditions of Lemma~\ref{lemma:4.5.1} hold for the open set $U$. $U$ is mapped homeomorphically onto $\pi(U)$ by $\pi$. Clearly $(\pi(U),\phi^{-1}(\pi|U)^{-1})$ is a chart on $M/\Gamma$ containing $y$. Repeating this construction for every point $y\in M/\Gamma$ we obtain a complex analytic atlas on $M/\Gamma$ relative to which $\pi$ is locally biholomorphic.
+\end{proof}
+
+\paragraph*{Examples.}
+\paragraph*{1.} Let $M$ be a Riemann surface (not necessarily compact). Then, by the Uniformization theorem\IndexMark{idx-627}{uniformization theorem@Uniformization theorem}, the universal covering surface $\widetilde M$ of $M$ is biholomorphic to either the Riemann sphere, upper half plane (or open unit disc) or complex plane. Set $\Gamma=\pi_1(M)$. Then $\Gamma$ acts freely, properly discontinuously on $\widetilde M$ and $M$ is biholomorphic to $\widetilde M/\Gamma$. We remark that with the exception of the Riemann sphere, punctured complex plane, complex plane and torus, $\widetilde M$ is biholomorphic to the upper half plane. In this case $\Gamma$ is a discrete subgroup of the group of biholomorphic transformations of the upper half plane, $PSL(2,\mathbb R)$. ($PSL(2,\mathbb R)=SL(2,\mathbb R)/\{I,-I\}$ and acts on the upper half-plane by mapping $z\longmapsto(az+b)/(cz+d)$, $ad-bc=1$). Viewed in this light, the classification of Riemann surfaces amounts to the classification of all discrete subgroups of $PSL(2,\mathbb R)$.
+
+\paragraph*{2.} Let $\Omega$ be a bounded domain\IndexMark{idx-053}{bounded domain@Bounded domain} in $\mathbb C^n$ and suppose that $\Gamma\subset\operatorname{Aut}(\Omega)$ acts freely, properly discontinuously on $\Omega$ and $\Omega/\Gamma$ is compact. Then $\Omega/\Gamma$ is algebraic. We prove this fundamental result of Kodaira \cite{bib:I:kodaira-k:1} in Chapter 10. We remark that it implies that if the universal cover of a compact complex manifold $M$ is biholomorphic to a bounded domain in $\mathbb C^n$ then $M$ is algebraic.
+
+\paragraph*{3.} If $L\in\mathbb C^n$ is a lattice subgroup ($\cong\mathbb Z^{2n}$), then $L$ acts freely, properly discontinuously on $\mathbb C^n$ and so $\mathbb C^n/L$ has the structure of a complex manifold; see \hyperref[sec:4:4]{\S4} of this chapter.
+% Original book page 164
+\paragraph*{4.} Let $a_0,\ldots,a_n\in\mathbb C^*$ and suppose $|a_j|<1$, $0\leq j\leq n$. Let $\Gamma$ denote the cyclic subgroup of $\operatorname{Aut}(\mathbb C^{n+1}\setminus\{0\})$ generated by $g:(z_0,\ldots,z_n)\longmapsto(a_0z_0,\ldots,a_nz_n)$. Then $\Gamma$ acts freely, properly discontinuously on $\mathbb C^{n+1}\setminus\{0\}$ and so $(\mathbb C^{n+1}\setminus\{0\})/\Gamma$ has the structure of a complex manifold which is easily seen to be compact and diffeomorphic to $S^{2n+1}\times S^1$. Any complex manifold diffeomorphic to $S^{2n+1}\times S^1$ is called a \emph{Hopf manifold}\IndexMark{idx-311}{hopf@Hopf!manifold@manifold} and, if $n=1$, a \emph{Hopf surface}\IndexMark{idx-312}{hopf@Hopf!surface@surface}. As we shall see in Chapter 10, Hopf manifolds are never algebraic ($n\neq0$). Hopf surfaces have been studied in great detail by Kodaira \cite{bib:I:kodaira-k:2}. See also Kodaira and Spencer \cite{bib:I:kodaira-k-and-spencer-d-c:1} and Ueno \cite[pages 235--238]{bib:I:ueno-k:1}. Here we shall describe the important (and unpleasant!) phenomenon of ``jumping'' of complex structure\IndexMark{idx-344}{jumping of complex structure@Jumping of complex structure} that can occur on complex manifolds of dimension greater than one. Let $D$ denote the open unit disc in $\mathbb C$ and choose $a\in\mathbb C^*$, $|a|<1$. For $t\in D$, let $\Gamma_t$ be the subgroup of $\operatorname{Aut}(\mathbb C^2\setminus\{0\})$ generated by $g_t:(z_0,z_1)\longmapsto(az_0+z,az_1)$. Then $\Gamma_t$ acts freely, properly discontinuously on $\mathbb C^2\setminus\{0\}$ and so $M_t=(\mathbb C^2\setminus\{0\})/\Gamma_t$ has the structure of a complex manifold which is easily seen to be a Hopf surface. In this case, we may define $M=(\mathbb C^2\times\{0\})\times D/\Gamma$, where $\Gamma$ is generated by $g:((z_0,z_1),t)\longmapsto((az_0+tz_1,az_1),t)$. $M$ has the structure of a complex manifold and if we let $\pi:M\longrightarrow D$ denote the natural projection we see that $\pi$ is holomorphic and $\pi^{-1}(t)=M_t$, $t\in D$. Thus we have defined a complex analytic family of Hopf surfaces, parametrized by points in the unit disc. Suppose $f:M_t\longrightarrow M_s$ is biholomorphic, $t,s\in D$. Lift $f$ to the universal cover to obtain a biholomorphic map $F:\mathbb C^2\setminus\{0\}\longrightarrow\mathbb C^2\setminus\{0\}$ satisfying $Fg_t=g_sF$. By Hartog's theorem (Theorem~\ref{theorem:2.3.2}), $F$ extends to an analytic map $\bar F:\mathbb C^2\longrightarrow\mathbb C^2$ which is easily seen to be biholomorphic and to preserve the origin. Again we have $\bar Fg_t=g_s\bar F$. Differentiating this relation at zero we see that $D\bar F_0\cdot g_t=g_s\cdot D\bar F_0$. Setting $[D\bar F_0]=[F_{ij}]$, we easily compute that this relation implies that
+\[
+\begin{aligned}
+tF_{00}z_1&=sF_{10}z_0+sF_{11}z_1,\\
+tF_{10}z_1&=0.
+\end{aligned}
+\]
+Hence if $st\neq0$, we must have $F_{10}=0$ and $tF_{00}=sF_{11}$. If these relations are satisfied, we see immediately that $DF_0$ induces a biholomorphic map between $M_t$ and $M_s$. That is, we have shown that the Hopf surfaces $M_t$ are all biholomorphic provided $t\neq0$. However, if say $s=0$, $t\neq0$, the
+% Original book page 165
+conditions above imply that $F_{00}=F_{10}=0$ and so $F$ cannot be biholomorphic. Therefore, $M_0$ is not biholomorphic to $M_t$, $t\neq0$. In other words the complex structure on $M_t$ ``jumps'' as $t$ passes through zero. Notice that although the analytic map $\pi:M\longrightarrow D$ is differentiably trivial it is \emph{not} analytically trivial.
+
+\paragraph*{5. Calabi--Eckmann manifolds (Calabi and Eckmann \cite{bib:I:calabi-e-and-eckmann-b:1}).} Fix positive integers $p,q\geq0$ and consider the projection $\pi:S^{2p+1}\times S^{2q+1}\longrightarrow P^p(\mathbb C)\times P^q(\mathbb C)$ obtained as the product of the Hopf fibrations of $S^{2p+1}$ and $S^{2q+1}$. For each $x\in P^p(\mathbb C)\times P^q(\mathbb C)$, the fibre $\pi^{-1}(x)$ is diffeomorphic to a real two-dimensional torus and so admits a complex structure. Since the base carries a complex structure we might hope to be able to define a complex structure on the product $S^{2p+1}\times S^{2q+1}$ and we shall now show that this is possible.
+
+Fix $\tau\in\mathbb C$, $\operatorname{Im}(\tau)>0$ and let $T_\tau$ denote the torus with lattice generated by $\{1,\tau\}$. Given integers $r,s$, $0\leq r\leq p$, $0\leq s\leq q$, define
+\[
+V_{rs}=\{((z_0,\ldots,z_p),(w_0,\ldots,w_q))\in S^{2p+1}\times S^{2q+1}:z_rw_s\neq0\}.
+\]
+$V_{rs}$ is an open subset of $S^{2p+1}\times S^{2q+1}$. We define a map $\phi_{rs}:V_{rs}\longrightarrow\mathbb C^{p+q}\times T_\tau$ by
+\[
+\begin{split}
+\phi_{rs}((z_0,\ldots,z_p),(w_0,\ldots,w_q))={}&(z_0/z_r,\ldots,\widehat{z_r/z_r},\ldots,\\
+&w_0/w_s,\ldots,\widehat{w_s/w_s},\ldots,t_{rs}),
+\end{split}
+\]
+where
+\[
+t_{rs}=(2\pi i)^{-1}(\log(z_r)+\tau\log(w_s)),\quad\bmod1,\tau.
+\]
+It is a straightforward exercise to verify that $\phi_{rs}$ is a homeomorphism of $V_{rs}$ onto $\mathbb C^{p+q}\times T_\tau$ and that $\{(V_{rs},\phi_{rs}):0\leq r\leq p,\ 0\leq s\leq q\}$ defines a complex analytic structure on $S^{2p+1}\times S^{2q+1}$. Relative to this structure $\pi:S^{2p+1}\times S^{2q+1}\longrightarrow P^p(\mathbb C)\times P^q(\mathbb C)$ is holomorphic and the fibres of $\pi$ are biholomorphic to $T_\tau$. We call $S^{2p+1}\times S^{2q+1}$, with the complex structure defined above, a \emph{Calabi--Eckmann manifold}\IndexMark{idx-055}{calabi eckmann manifold@Calabi--Eckmann manifold}. Observe that if $P\in S^{2p+1}$, $Q\in S^{2q+1}$ then the complex manifold $X=(S^{2p+1}\setminus\{P\})\times(S^{2q+1}\setminus\{Q\})$ is homeomorphic to $\mathbb C^{p+q+1}$. However, the complex structure induced on $\mathbb C^{p+q+1}$ is quite different from the usual structure. We shall show that every analytic function on $X$ is constant. To see this, notice that if
+% Original book page 166
+$x\in P^p(\mathbb C)\times P^q(\mathbb C)$ then $(\pi|X)^{-1}(x)$ is biholomorphic to a complex torus provided that $\pi(P,Q)\neq x$. Such tori are dense in $X$ and if $f\in A(X)$, then certainly $f$ is constant on any of these tori (Proposition~\ref{proposition:4.2.4}). Hence, by continuity, $f$ is constant on any fibre $(\pi|X)^{-1}(x)$ and so induces a holomorphic function on $P^p(\mathbb C)\times P^q(\mathbb C)$ which must be constant. Alternatively, if we use Exercise 2, \hyperref[sec:2:2]{\S2, Chapter 2} (locally) we see that $f$ must extend to an analytic function on $S^{2p+1}\times S^{2q+1}$ and so $f$ must be constant. This example shows that a non-compact complex manifold which is homeomorphic to $\mathbb C^n$ need not be biholomorphic to any open subset of $\mathbb C^n$, $n\geq3$. This is in sharp contrast to what happens in case $n=1$.
+
+\paragraph*{6. Exotic complex structures (Brieskorn and Van de Ven [1]).}\IndexMark{idx-245}{exotic complex structure@Exotic complex structure} Let $a=(a_0,\ldots,a_n)$ be an $(n+1)$-tuple of strictly positive integers. Let $X(a)\subset\mathbb C^{n+1}$ denote the zero set of the polynomial $z_0^{a_0}+\cdots+z_n^{a_n}$ and set $\Sigma(a)=X(a)\cap S^{2n+1}$. Now $X(a)\setminus\{0\}$ is a complex submanifold of $\mathbb C^{n+1}\setminus\{0\}$ and $\Sigma(a)$ is a differential submanifold of $S^{2n+1}$ (for the latter statement see Milnor \cite{bib:I:milnor-j-w:2}). If we let $\Gamma$ denote the cyclic subgroup of $\operatorname{Aut}(\mathbb C^{n+1}\setminus\{0\})$ generated by $g:(z_0,\ldots,z_n)\longmapsto(e^{1/a_0}z_0,\ldots,e^{1/a_n}z_n)$, then $\Gamma$ acts freely, properly discontinuously on $X(a)\setminus\{0\}$ and the resulting complex manifold $M=(X(a)\setminus\{0\})\setminus\Gamma$ is diffeomorphic to $S^1\times\Sigma(a)$. If one of the $a_j$'s equals one it is easy to see that $\Sigma(a)$ is diffeomorphic to $S^{2n-1}$ and so $M$ is a Hopf manifold. Suppose now that no $a_j$ is equal to one. Let $\xi_j=e^{2\pi i/a_j}$, $0\leq j\leq n$, and set
+\[
+\Delta(t)=\prod_{0<i_k<a_k}(t-\xi_0^{i_0}\cdots\xi_n^{i_n}).
+\]
+It is known (Brieskorn \cite{bib:I:brieskorn-e:1}) that if $n\neq2$ $\Sigma(a)$ is a homotopy $(2n-1)$-sphere if and only if $\Delta(1)=1$. Moreover, every homotopy $(2n-1)$-sphere $\Sigma^{2n-1}$ which bounds a parallelizable manifold is diffeomorphic to $\Sigma(a)$ for some $(n+1)$-tuple $a$ ($n\neq2$). For $n\geq4$, $\Sigma^{2n-1}$ is homeomorphic but not necessarily diffeomorphic to $S^{2n-1}$ (Brieskorn \cite{bib:I:brieskorn-e:1}, Milnor \cite{bib:I:milnor-j-w:3}). Now suppose $n\geq4$ and $a$ is chosen so that $\Sigma(a)$ is a homotopy sphere with non-standard differential structure. In Brieskorn and Van de Ven [1], it is shown that $S^1\times\Sigma(a)$ is not diffeomorphic to $S^1\times S^{2n-1}$ and so the resulting complex structure on $S^1\times\Sigma(a)$ is non-standard or ``exotic''. As a specific example, if we take $n=4$, $a_0=a_1=a_2=2$, $a_3=3$ and $a_4=6k-1$, it can be shown (see Brieskorn \cite{bib:I:brieskorn-e:1}) that as $k$ varies from 1 to 28 we obtain 28 distinct
+% Original book page 167
+complex structures on $S^1\times S^7$, 27 of which are exotic.
+
+\subsection*{Exercises}
+\begin{enumerate}
+\item In the example describing Calabi--Eckmann manifolds show that if $p=0$, $q>0$, the resulting manifold is biholomorphic to a Hopf manifold.
+\item Let $\Gamma$ be the subgroup of $GL(3,\mathbb C)$ consisting of matrices
+\[
+\begin{pmatrix}1&a_1&a_2\\0&1&a_3\\0&0&1\end{pmatrix},
+\quad\text{where }a_j\in\mathbb Z[\sqrt{-1}]
+\]
+(that is, the $a_j$ are Gaussian integers).
+Prove that $\Gamma$ acts freely, properly discontinuously on $\mathbb C^3$. The resulting complex manifold $\mathbb C^3/\Gamma$ is called an \emph{Iwasawa manifold}\IndexMark{idx-342}{iwasawa manifold@Iwasawa manifold}. Note that $\pi_1(\mathbb C^3/\Gamma)$ is not Abelian.
+\end{enumerate}
+
+\section{Analytic hypersurfaces}\label{sec:4:6}
+In this section we make a global study of analytic sets defined locally by the vanishing of a single analytic function.
+
+\FieldHeading{Definition}{4.6.1}{}\FieldTarget{definition:4.6.1}{4.6.1} Let $M$ be a complex manifold and $X$ be a proper analytic subset of $M$. We say that $X$ is an \emph{analytic hypersurface}\IndexMark{idx-018}{analytic hypersurface@Analytic hypersurface}\IndexMark{idx-321}{hypersurface@Hypersurface} of $M$ if for each $x\in X$ there exists $U\in\mathcal U_x$ and $f\in A(U)$ such that $X\cap U=f^{-1}(0)$.
+
+Before stating the next Proposition we recall some notation from \hyperref[sec:3:5]{\S5 of Chapter 3}: Suppose $X$ is an analytic subset of $M$. As in \hyperref[sec:3:5]{\S5 of Chapter 3}, we may define the ideal $I_x(X)\lhd\mathcal O_x$ at each point $x\in M$. If $x\notin X$, $I_x(X)=\mathcal O_x$. Otherwise $I_x(X)$ is a non-trivial ideal of $\mathcal O_x$.
+
+\FieldHeading{Proposition}{4.6.2}{}\FieldTarget{proposition:4.6.2}{4.6.2} Let $X$ be an analytic subset of the complex manifold $M$. The following conditions are equivalent.
+\begin{enumerate}
+\item $X$ is an analytic hypersurface.
+\item For each $x\in X$, $I_x(X)$ is a principal ideal.
+\end{enumerate}
+\begin{proof}
+Suppose $X$ is an analytic hypersurface and $x\in X$. Then there exists an open neighbourhood $U$ of $x$ and $f\in A(U)$ such that $f^{-1}(0)=X\cap U$. By the Nullstellensatz for principal ideals (Corollary~\ref{corollary:3.5.14}),
+% Original book page 168
+$I_x(X)=\operatorname{Rad}(f_x)$. But $f_x=\prod_{j=1}^k p_j^{r_j}$, where $p_j\in\mathcal O_x$ are irreducible and coprime. Hence $I_x(X)=(p_1\cdots p_k)$ and so is principal. For the converse, note that by Theorem~\ref{theorem:3.5.9} $Z(I_x(X))=X_x$. Therefore if $I_x(X)$ is principal, say $(f_x)$, we see that there exists an open neighbourhood $U$ of $x$ and representative $f\in A(U)$ of $f_x$ such that $X\cap U=f^{-1}(0)$.
+\end{proof}
+
+\FieldHeading{Definition}{4.6.3}{}\FieldTarget{definition:4.6.3}{4.6.3} Let $X$ be an analytic hypersurface in $M$ and $x\in X$. Suppose that $I_x(X)=(f_x)$ and that $df(x)\neq0$ for some representative $f$ of $f_x$. Then we say that $x$ is a \emph{regular} point of $X$. If $x$ is not regular we say it is a \emph{singular} point. We denote the set of regular and singular points\IndexMark{idx-504}{regular point of analytic set@Regular point of analytic set}\IndexMark{idx-575}{singular point of analytic set@Singular point of analytic set} of $X$ by $\operatorname{Reg}(X)$ and $\operatorname{Sing}(X)$ respectively.
+
+\paragraph*{Remark.} A point $x\in X$ is a regular point of $X$ if and only if we can find an open neighbourhood $V$ of $x$ in $M$ such that $V\cap X$ is a complex submanifold of $M$. Indeed, if the latter condition holds we may find an open neighbourhood $W$ of $x$ contained in $V$ and $g\in A(W)$ such that $g^{-1}(0)=X\cap W$ and $dg(x)\neq0$. Since $dg(x)\neq0$ implies that $g_x$ is irreducible, we must have $I_x(X)=(g_x)$. The converse follows from the implicit function theorem.
+
+\FieldHeading{Theorem}{4.6.4}{}\FieldTarget{theorem:4.6.4}{4.6.4} Let $X$ be an analytic hypersurface of the complex manifold $M$. We have
+\begin{enumerate}
+\item $\operatorname{Reg}(X)$ is an open and dense subset of $X$ and is a codimension one complex submanifold of $M$.
+\item $\operatorname{Sing}(X)$ is an analytic subset of $M$.
+\end{enumerate}
+\begin{proof}
+The remark above already shows that $\operatorname{Reg}(X)$ is an open subset of $X$ and a codimension one complex submanifold of $M$.
+
+Let $x\in X$. By Theorem~\ref{theorem:3.5.16} we may find an open neighbourhood $V$ of $x$ in $M$ and $g\in A(V)$ such that $I_y(V)=(g_y)$, for all $y\in V$. Hence $\operatorname{Sing}(X)\cap V=\{y\in V:g(y)=dg(y)=0\}$. Hence $\operatorname{Sing}(X)$ is an analytic subset of $M$. Suppose that $\operatorname{Reg}(X)\cap V$ is not dense in $X\cap V$. Then for some $y\in X\cap V$, there exists an open neighbourhood $W$ of $y$ in $V$ such that $g(z)=dg(z)=0$, $z\in X\cap W$. Since $I_y(X)=(g_y)$, this implies that in a local coordinate system $(z_1,\ldots,z_n)$ at $y$ we would have
+% Original book page 169
+\[
+(\partial g/\partial z_j)_y=u_y^jg_y,\qquad1\leq j\leq n,
+\]
+where $u_y^j\in\mathcal O_y$. However such a relation between an analytic function and its derivatives can only hold if the function is identically zero (look at Taylor series of $g$ and $dg$ at $y$). This contradiction shows that $\operatorname{Sing}(X)\cap V$ has no interior points in $X\cap V$. Therefore, $\operatorname{Reg}(X)$ is dense in $X$. Alternatively the reader may use the results at the beginning of \hyperref[sec:3:5]{\S5, Chapter 3} together with Corollary~\ref{corollary:3.5.15} to prove the density of $\operatorname{Reg}(X)$.
+\end{proof}
+
+The next result describes the local structure of an analytic hypersurface.
+
+\FieldHeading{Proposition}{4.6.5}{}\FieldTarget{proposition:4.6.5}{4.6.5} Let $X$ be an analytic hypersurface in the complex manifold $M$ and let $x\in X$. We may find an open neighbourhood $U$ of $x$ in $M$ and analytic hypersurfaces $Z_j$, $j=1,\ldots,k$, in $U$ such that
+\begin{enumerate}
+\item $\displaystyle X\cap U=\bigcup_{j=1}^k Z_j$.
+\item $\operatorname{Reg}(Z_j)$ is connected, $1\leq j\leq k$.
+\item $\displaystyle\operatorname{Reg}(X)\cap U=\bigcup_{j=1}^k\left(\operatorname{Reg}(Z_j)\setminus\bigcup_{l\neq j}Z_l\right)$.
+\end{enumerate}
+\begin{proof}
+Choose a chart $(U,\phi)$ for $M$ at $x$ such that $\phi(x)=0$. Set $D=\phi(U)$ and $Z=\phi(X\cap U)$. Since $\phi$ is biholomorphic, $Z$ is an analytic hypersurface in $D$. Shrinking $U$ if necessary, we may suppose (Corollary~\ref{corollary:3.5.15} and Theorem~\ref{theorem:3.5.16}) that $D$ is a polydisc and
+\[
+Z=\bigcup_{j=1}^k Z(p^j),
+\]
+where the $p^j$ are coprime, irreducible Weierstrass polynomials on $D$ and $I_y(Z)=(p_y^1\cdots p_y^k)$ for every $y\in D$. Set $Z_j=Z(p^j)$, $1\leq j\leq k$. Then $\operatorname{Reg}(Z_j)$ is a connected subset of $Z_j$, $1\leq j\leq k$ (Exercise 1, \hyperref[sec:3:5]{\S5, Chapter 3}). Since $I_y(Z)=(p_y^1\cdots p_y^k)$, $y\in D$, we see immediately that
+\[
+\operatorname{Reg}(Z)=\bigcup_{j=1}^k\left(\operatorname{Reg}(Z_j)\setminus\bigcup_{l\neq j}Z_l\right).
+\]
+Let $X_j$ denote the analytic hypersurface $\phi^{-1}(Z_j)$ in $D$, $1\leq j\leq k$. Clearly $\{X_j:1\leq j\leq k\}$ satisfy the conditions of the Proposition.
+\end{proof}
+% Original book page 170
+\FieldHeading{Definition}{4.6.6}{}\FieldTarget{definition:4.6.6}{4.6.6} Let $X$ be an analytic subset of the complex manifold $M$. We say that $X$ is \emph{reducible} if we can find analytic subsets $Y,Z$ of $M$, neither of which equals $X$, such that $X=Y\cup Z$. If $X$ is not reducible, we say $X$ is \emph{irreducible}\IndexMark{idx-335}{irreducible@Irreducible!analytic set@analytic set}.
+
+\FieldHeading{Theorem}{4.6.7}{}\FieldTarget{theorem:4.6.7}{4.6.7} Let $X$ be an analytic hypersurface of the complex manifold $M$ and $\{X'_i:i\in I\}$ denote the set of connected components of $\operatorname{Reg}(X)$. Set\IndexMark{idx-502}{reducible analytic set@Reducible analytic set} $X_i=\overline{X'_i}$, $i\in I$. Then
+\begin{enumerate}
+\item $X_i$ is an irreducible analytic hypersurface, $i\in I$.
+\item $\{X_i:i\in I\}$ is locally finite. In particular, if $M$ is compact $I$ is finite.
+\item $X=\bigcup_{i\in I}X_i$ and this decomposition of $X$ as a (countable) union of irreducible analytic hypersurfaces is unique up to order.
+\item If $Y$ is any proper irreducible analytic subset of $M$ and $Y\subset X$ then $Y\subset X_i$ for some $i\in I$.
+\end{enumerate}
+\begin{proof}
+Let $x\in X$ and suppose $x\in X_i$. We can find an open neighbourhood $U$ of $x$ in $M$ and hypersurfaces $Z_j$, $1\leq j\leq k$, in $U$ satisfying the conditions of Proposition~\ref{proposition:4.6.5}. Define
+\[
+R_j=\operatorname{Reg}(Z_j)\setminus\bigcup_{l\neq j}Z_l.
+\]
+For $1\leq j\leq k$, $R_j\subset\operatorname{Reg}(X)$ and is connected. Hence for some subset $\Lambda\subset\{1,\ldots,k\}$, $R_j\subset X'_i$ if and only if $j\in\Lambda$. But now $X_i\cap U=\bigcup_{j\in\Lambda}\bar R_j=\bigcup_{j\in\Lambda}Z_j$. This proves that $X_i$ is an analytic hypersurface in $M$. Since only finitely many of the $X_i$ can meet $U$, the family $\{X_i:i\in I\}$ is locally finite. Next we show that each $X_i$ is irreducible. Suppose that $X_i=Y\cup Z$, where $Y$ and $Z$ are analytic subsets of $M$. Set $Y'=X'_i\cap Y$, $Z'=X'_i\cap Z$. Since $X'_i$ is a complex submanifold we see that $Y',Z'$ are analytic subsets of $X'_i$. Now $Y',Z'$ cannot both be proper analytic subsets of $X'_i$ since if they were they would be nowhere dense in $X'_i$ (Corollary~\ref{corollary:2.2.3}) and so $X'_i$ could not be the union of $Y'$ and $Z'$. Suppose then that $Y'=X'_i$. Taking closures we see that $Y=X_i$ and so $X_i$ is irreducible.
+% Original book page 171
+Finally suppose that $Y$ is an irreducible analytic subset and $Y\subset X$. Setting $Y_i=X_i\cap Y$, we have $Y=\bigcup_{i\in I}Y_i$. Fix $y\in Y$ and let $L$ be the finite subset of $I$ characterised by $j\in L$ if and only if $y\in X_j$. Since $\{X_i:i\in I\}$ is locally finite, $\Sigma=\bigcup_{i\in I\setminus L}Y_i$ is an analytic subset of $M$. Clearly $\Sigma\neq Y$, since $y\notin\Sigma$. But now we have expressed $Y$ as a finite union
+\[
+Y=\bigcup_{i\in L}Y_i\cup\Sigma
+\]
+of analytic sets. Since $\Sigma\neq Y$, we must have $Y=Y_i$ for some $i\in L$. That is $Y\subset X_i$.
+\end{proof}
+
+As an immediate corollary of Theorem~\ref{theorem:4.6.7} we have
+
+\FieldHeading{Theorem}{4.6.8}{}\FieldTarget{theorem:4.6.8}{4.6.8} An analytic hypersurface is irreducible if and only if its set of regular points is connected.
+
+\paragraph*{Remarks.}
+\begin{enumerate}
+\item We call the hypersurfaces $X_i$ constructed in Theorem~\ref{theorem:4.6.7} the \emph{irreducible components}\IndexMark{idx-336}{irreducible@Irreducible!components@components} of $X$.
+\item Theorems~\ref{theorem:4.6.7} and \ref{theorem:4.6.8} hold for arbitrary analytic subsets of a complex manifold. For proofs and further details we refer the reader to Gunning and Rossi \cite{bib:I:gunning-r-c-and-rossi-h:1}, R. Narasimhan \cite{bib:I:narasimhan-r:3} and Whitney \cite{bib:I:whitney-h:1}.
+\item Notice that if $X$ is an irreducible analytic hypersurface it does not follow that $X_x$ is irreducible at every point $x\in X$. For example, the hypersurface $y^2=x^2(1-x)$ is irreducible but its germ at the origin is reducible.
+\item Theorems~\ref{theorem:4.6.7} and \ref{theorem:4.6.8} do not generalise to real analytic sets. For example, $y^2=x^3$ is irreducible in $\mathbb R^2$ but the set of regular points is not connected. See R. Narasimhan \cite[Chapter V]{bib:I:narasimhan-r:3} for further examples of the pathology that can occur with real analytic sets.
+\end{enumerate}
+In \hyperref[sec:4:2]{\S2}, 4 of Chapter~\ref{ch:1} we defined and discussed divisors on a Riemann surface and their relationship to meromorphic functions. For the remainder of this section we shall show how we may use Theorem~\ref{theorem:4.6.7} to
+% Original book page 172
+give a local description of divisors on an arbitrary complex manifold\IndexMark{idx-195}{divisors@Divisors!on compact complex manifolds@on compact complex manifolds}.
+
+\FieldHeading{Definition}{4.6.8}{}\FieldTarget{definition:4.6.8}{4.6.8} Let $M$ be a complex manifold. A \emph{Weil divisor}\IndexMark{idx-182}{divisor@Divisor}\IndexMark{idx-184}{divisor@Divisor!weil@Weil}\IndexMark{idx-657}{weil divisor@Weil divisor} on $M$ is a formal sum $\sum_{i\in I}n_i\cdot X_i$, where $\{X_i:i\in I\}$ is a locally finite set of mutually distinct irreducible analytic hypersurfaces in $M$ and $n_i\in\mathbb Z$, $i\in I$.
+
+As in Chapter~\ref{ch:1}, we denote the set of Weil divisors on $M$ by $\mathcal D(M)$ and note that $\mathcal D(M)$ has the structure of an ordered Abelian group. If $d=\sum_{i\in I}n_i\cdot X_i\in\mathcal D(M)$, we let $|d|$ denote the analytic hypersurface $\bigcup_{i\in I}X_i$.
+
+\paragraph*{Example 1.} Let $X$ be a non-singular analytic hypersurface in $P^n(\mathbb C)$. Assuming Chow's theorem, we see that $X$ is algebraic and so is the zero set of a homogeneous polynomial $P$. Since $X$ is non-singular, $X$ is (analytically) irreducible and it is not hard to verify that $P$ can be chosen to be irreducible (as a polynomial). Let $d=\operatorname{degree}(P)$. We say that $X$ is a \emph{hypersurface of degree $d$}\IndexMark{idx-323}{hypersurface@Hypersurface!of degree d@of degree $d$}. Now suppose $d>1$. Let $P^n(\mathbb C)^*$ denote the set of hyperplanes in $P^n(\mathbb C)$ (see also \hyperref[sec:4:4]{\S4}). Every hyperplane $H\in P^n(\mathbb C)^*$ will intersect $X$ in a Weil divisor. Indeed, changing coordinates we may assume that $H$ is the hyperplane $z_0=0$. $H\cap X$ is then the algebraic set determined by $G(z_1,\ldots,z_n)=P(0,z_1,\ldots,z_n)=0$. $G$ may not be irreducible and we let
+\[
+G(z_1,\ldots,z_n)=\prod_{i=1}^qG_i(z_1,\ldots,z_n)^{n_i}
+\]
+denote the prime factorization of $G$. If we set $X_i=G_i^{-1}(0)\cap H$, we see that $X\cap H$ determines the divisor
+\[
+d(X\cap H)=\sum_{i=1}^qn_i\cdot X_i.
+\]
+Notice that $\sum_{i=1}^qn_id_i=d$, where $d_i=\operatorname{degree}(G_i)$, $1\leq i\leq q$. Let $\Gamma=\{d(X\cap H):H\in P^n(\mathbb C)^*\}\subset\mathcal D(X)$. $\Gamma$ is in bijective correspondence with $P^n(\mathbb C)^*$. Given $d\in\Gamma$, we let $H(d)\in P^n(\mathbb C)^*$ denote the corresponding hyperplane. The set of divisors $\Gamma$ on $X$ determines the embedding of $X$ in $P^n(\mathbb C)$. Indeed, if $x\in X$ let $\Gamma_x$ denote the set of all divisors $d\in\Gamma$ such
+% Original book page 173
+that $x\in|d|$. Define $\phi(x)\in P^n(\mathbb C)$ to be $\bigcap_{d\in\Gamma_x}H(d)$. The reader may easily verify that $\phi$ embeds $X$ in $P^n(\mathbb C)$. As we shall see later there is a close relationship between families of divisors on compact complex manifolds\IndexMark{idx-196}{divisors@Divisors!on compact complex manifolds@on compact complex manifolds} and embeddings into projective space.
+
+Our next definition is motivated by the Cousin II problem\IndexMark{idx-152}{cousin problems@Cousin problems} and the question of constructing a meromorphic function with specified pole and zero set with multiplicities.
+
+\FieldHeading{Definition}{4.6.9}{}\FieldTarget{definition:4.6.9}{4.6.9} A \emph{Cartier divisor}\IndexMark{idx-065}{cartier divisor@Cartier divisor}\IndexMark{idx-183}{divisor@Divisor!cartier@Cartier} $d$ on the complex manifold $M$ consists of an open cover $\{U_i:i\in I\}$ of $M$ together with meromorphic functions $m_i\in\mathcal M^*(U_i)$ such that for all $i,j\in I$ we have $m_im_j^{-1}\in A^*(U_{ij})$. We write $d=\{(U_i,m_i):i\in I\}$.
+
+\paragraph*{Remarks.}
+\begin{enumerate}
+\item We regard the Cartier divisors $d=\{(U_i,m_i):i\in I\}$, $d'=\{(V_j,m'_j):j\in J\}$ as being equal if $m'_jm_i^{-1}\in A^*(V_j\cap U_i)$, $i\in I$, $j\in J$. That is, we think of a Cartier divisor as an equivalence class of local data. Later, in Chapter~\ref{ch:6}, we shall give a slicker definition of Cartier divisor in terms of sheaves.
+\item We let $\widetilde{\mathcal D}(M)$ denote the set of Cartier divisors on $M$.
+\item Of course, a Cartier divisor is nothing else than the data for the Cousin II problem (Definition~\ref{definition:3.4.10}). However, we prefer to reserve the term ``Cousin II problem'' for non-compact complex manifolds, especially domains of holomorphy and Stein manifolds.
+\end{enumerate}
+
+\FieldHeading{Proposition}{4.6.10}{}\FieldTarget{proposition:4.6.10}{4.6.10} The set of Cartier divisors $\widetilde{\mathcal D}(M)$ has the natural structure of an Abelian group.
+\begin{proof}
+Let $d=\{(U_i,m_i):i\in I\}$, $d'=\{(V_j,m'_j):j\in J\}\in\widetilde{\mathcal D}(M)$. We define
+\[
+\begin{aligned}
+d+d'&=\{(U_i\cap V_j,m_im'_j):i\in I,\ j\in J\},\\
+-d&=\{(U_i,m_i^{-1}):i\in I\}.
+\end{aligned}
+\]
+% Original book page 174
+It is straightforward to verify that these definitions do not depend on the particular choice of local data for the divisors.
+\end{proof}
+
+\paragraph*{Example 2.} We have a natural group homomorphism $\operatorname{div}:\mathcal M^*(M)\longrightarrow\widetilde{\mathcal D}(M)$ defined by $\operatorname{div}(m)=\{(M,m)\}\in\widetilde{\mathcal D}(M)$. $\operatorname{div}(m)$ is called the \emph{divisor} of $m$.
+
+\FieldHeading{Theorem}{4.6.11}{}\FieldTarget{theorem:4.6.11}{4.6.11} There is a natural group isomorphism between $\mathcal D(M)$ and $\widetilde{\mathcal D}(M)$.
+\begin{proof}
+Let $d=\sum_{i\in I}n_i\cdot X_i\in\mathcal D(M)$. Given $x\in M$, choose an open neighbourhood $U_x$ of $x$ and $p^i\in A(U_x)$, $i\in I$, such that
+\begin{enumerate}
+\item[a)] All but finitely many of the $p^i$ are identically equal to 1.
+\item[b)] $I_y(X_i)=(p_y^i)$, $y\in U_x$, $i\in I$.
+\end{enumerate}
+Set
+\[
+m_x=\prod_{i\in I}(p^i)^{n_i}\in\mathcal M^*(U_x).
+\]
+Clearly $\phi(d)=\{(U_x,m_x):x\in M\}$ is a Cartier divisor on $M$. The map\IndexMark{idx-186}{divisor class map@Divisor class map} $\phi:\mathcal D(M)\longrightarrow\widetilde{\mathcal D}(M)$ is easily seen to be an injective group homomorphism.
+
+Conversely, suppose $d=\{(U_i,m_i):i\in I\}$ is a Cartier divisor on $M$. Define $X=\bigcup_{i\in I}(Z(m_i)\cup P(m_i))$. $X$ is a well defined analytic hypersurface in $M$. Indeed, $X\cap U_i=Z(m_i)\cup P(m_i)$ since the condition $m_im_j^{-1}\in A^*(U_{ij})$ implies that $m_i$ and $m_j$ have the same pole and zero sets on $U_{ij}$. Let $\{X_\alpha:\alpha\in\Lambda\}$ be the decomposition of $X$ into its irreducible components. Refining the cover $\{U_i:i\in I\}$ if necessary, we may find for each $i\in I$, $p_\alpha\in A(U_i)$ such that
+\begin{enumerate}
+\item[a)] All but finitely many of the $p_\alpha$ are identically equal to 1.
+\item[b)] $U_i\cap X_\alpha=p_\alpha^{-1}(0)$, $\alpha\in\Lambda$.
+\item[c)] $I_y(X_\alpha)=(p_{\alpha,y})$, $y\in U_i$, $\alpha\in\Lambda$.
+\end{enumerate}
+Given $y\in U_i$, we see that there exist a unit $u_y\in\mathcal O_y$ and integers $n_\alpha$, $\alpha\in\Lambda$, such that
+\[
+m_y=u_y\prod_{\alpha\in\Lambda}p_{\alpha,y}^{n_\alpha}.
+\]
+% Original book page 175
+Hence for some $u\in A^*(U_i)$, we have $m_i=u\prod_{\alpha\in\Lambda}p_\alpha^{n_\alpha}$. (We assume here that $U_i$ is connected, otherwise we could only claim that the $n_\alpha$ were constant on connected components of $U_i$).
+
+We claim that the integers $n_\alpha$ do not depend on $i\in I$. This follows since $n_\alpha$ is constant on the connected open set $\operatorname{Reg}(X_\alpha)\cap\operatorname{Reg}(X)$. Since $\operatorname{Reg}(X_\alpha)\cap\operatorname{Reg}(X)$ is dense in $X_\alpha$, $n_\alpha$ is constant on $X_\alpha$. We now define
+\[
+\gamma(d)=\sum_{\alpha\in\Lambda}n_\alpha\cdot X_\alpha\in\mathcal D(M).
+\]
+By our construction it is clear that $\gamma=\phi^{-1}$ and so $\mathcal D(M)$ and $\widetilde{\mathcal D}(M)$ are naturally isomorphic.
+\end{proof}
+
+\paragraph*{Remarks.}
+\begin{enumerate}
+\item In the sequel we regard $\mathcal D(M)$ and $\widetilde{\mathcal D}(M)$ as identified by the isomorphism constructed above and write $\mathcal D(M)$ for the set of divisors on $M$, omitting the prefix ``Weil'' or ``Cartier''.
+\item If we attempt to define divisors on more general objects, such as analytic sets with singularities, we find that the sets of Weil and Cartier divisors need not agree and in practice we tend to work with the less geometrical Cartier divisors (see Hartshorne \cite[pages 140--142]{bib:I:hartshorne-r:2}).
+\end{enumerate}
+
+\paragraph*{Example 3.}\IndexMark{idx-501}{rational function@Rational function!on projective space@on projective space} Let $m\in\mathcal M^*(P^n(\mathbb C))$. Then $\operatorname{div}(m)=\sum_{i=1}^qn_i\cdot X_i$, where the $X_i$ are irreducible analytic hypersurfaces in $P^n(\mathbb C)$. By Chow's theorem and Example 1, each $X_i$ is an irreducible algebraic hypersurface of degree $d_i$, say. Suppose that $X_i$ is the zero locus of the irreducible homogeneous polynomial $P_i$ of degree $d_i$, $1\leq i\leq q$. Define $R=\prod_{i=1}^qP_i^{n_i}$. Regarding $m$ and $R$ as defining meromorphic functions on $\mathbb C^{n+1}\setminus\{0\}$, we clearly have $\operatorname{div}(m)=\operatorname{div}(R)$ and so $\operatorname{div}(R^{-1}m)=0$. But therefore $R^{-1}m$ is an analytic function on $\mathbb C^{n+1}\setminus\{0\}$ and so extends by Hartog's theorem to an analytic function on the whole of $\mathbb C^{n+1}$. Taking the Taylor expansion of $R^{-1}m$ at 0 and noting that $m$ is homogeneous of degree zero, we see that $R^{-1}m$ is a homogeneous polynomial of degree $-\sum_{i=1}^qn_id_i$. Hence $\sum_{i=1}^qn_id_i=0$
+% Original book page 176
+(otherwise $\operatorname{div}(R^{-1}m)$ could not vanish). Consequently, $R^{-1}m=c$, for some $c\in\mathbb C^*$ and so
+\[
+m=c\prod_{i=1}^qP_i^{n_i}\quad\text{on }P^n(\mathbb C).
+\]
+We have shown that every meromorphic function on $P^n(\mathbb C)$ is rational. Our arguments further prove that a divisor $d=\sum_{i=1}^qn_i\cdot X_i$ on $P^n(\mathbb C)$ is the divisor of a meromorphic (rational) function on $P^n(\mathbb C)$ if and only if $\sum_{i=1}^qn_id_i=0$, where $d_i$ is the degree of the hypersurface $X_i$. Given $d=\sum_{i=1}^qn_i\cdot X_i\in\mathcal D(P^n(\mathbb C))$, we may define the degree of $d$, $\deg(d)$, to be the sum $\sum_{i=1}^qn_id_i$, where $d_i$ is the degree of the hypersurface $X_i$. Degree defines a homomorphism $\deg:\mathcal D(P^n(\mathbb C))\longrightarrow\mathbb Z$ and the kernel of the degree map is precisely the set of divisors of rational functions on $P^n(\mathbb C)$. (For an alternative proof of the rationality of meromorphic functions on $P^n(\mathbb C)$, avoiding the use of Chow's theorem, see Jackson \cite{bib:I:jackson-d:1}).
+
+\section{Blowing up}\label{sec:4:7}
+In this section we describe an operation on complex manifolds that is of the greatest importance in the study of singularities of analytic sets and the classification theory of complex manifolds.
+
+Let $\Sigma\subset\mathbb C^n\times P^{n-1}(\mathbb C)$ be the set of points $((z_1,\ldots,z_n),(\zeta_1,\ldots,\zeta_n))$ satisfying the equations
+\[
+z_i\zeta_j=z_j\zeta_i,\qquad1\leq i,j\leq n.
+\]
+(We suppose in what follows that $n\geq2$). Notice that $((z_1,\ldots,z_n),(tz_1,\ldots,tz_n))\in\Sigma$, for all $(z_1,\ldots,z_n)\neq0$ and $t\in\mathbb C^*$. In other words, given $X\in\mathbb C^n$, $X\neq0$, $\Sigma$ contains the point corresponding to $X$ and the line through $X$. Since $\{0\}\times P^{n-1}(\mathbb C)\subset\Sigma$, we see that $\Sigma$ contains the point corresponding to zero and all the lines through zero. The reader may easily verify that we have described all the points in $\Sigma$. Let $\pi:\Sigma\longrightarrow\mathbb C^n$ denote the restriction of the projection of $\mathbb C^n\times P^{n-1}(\mathbb C)$ on $\mathbb C^n$ to $\Sigma$. If we set $E=\pi^{-1}(0)$, then $E$ is biholomorphic to $P^{n-1}(\mathbb C)$ and $\pi$
+% Original book page 177
+maps $\Sigma\setminus E$ bijectively onto $\mathbb C^n\setminus\{0\}$. We call $\Sigma$ the \emph{blowing up}\IndexMark{idx-050}{blowing up@Blowing-up} of $\mathbb C^n$ at 0. Amongst many other commonly used terms to describe $\Sigma$ are: $\mathbb C^n$ blown up at zero; the \emph{quadratic transform}\IndexMark{idx-496}{quadratic transform@Quadratic transform} of $\mathbb C^n$ at zero; the \emph{monoidal transform}\IndexMark{idx-401}{monoidal transform@Monoidal transform} of $\mathbb C^n$ at zero; the \emph{Hopf $\sigma$-process}\IndexMark{idx-313}{hopf process@Hopf $\sigma$-process} of $\mathbb C^n$ at zero. We call 0 the \emph{centre}\IndexMark{idx-075}{centre of blowing up@Centre (of blowing up)} of the blowing up; $E$ is called the \emph{exceptional variety}\IndexMark{idx-242}{exceptional variety@Exceptional variety}.
+
+It is easy to see that $\Sigma$ is a complex submanifold of $\mathbb C^n\times P^{n-1}(\mathbb C)$ and we shall now construct an explicit atlas for $\Sigma$. For $1\leq j\leq n$, define $\gamma_j:\mathbb C^n\longrightarrow\Sigma\subset\mathbb C^n\times P^{n-1}(\mathbb C)$ by
+\[
+\begin{split}
+\gamma_j(X_1,\ldots,X_n)=\big(& (X_1X_j,\ldots,X_{j-1}X_j,X_j,X_{j+1}X_j,\ldots,X_nX_j),\\
+&(X_1,\ldots,X_{j-1},1,\ldots,X_n)\big).
+\end{split}
+\]
+The reader may verify that $\gamma_j$ maps $\mathbb C^n$ homeomorphically onto an open subset of $\Sigma$. If we set $U_j=\gamma_j(\mathbb C^n)$, $\phi_j=\gamma_j^{-1}$, then $\{(U_j,\phi_j):1\leq j\leq n\}$ is a complex analytic atlas on $\Sigma$. Relative to this complex structure on $\Sigma$, $\pi:\Sigma\longrightarrow\mathbb C^n$ is holomorphic and $\pi$ maps $\Sigma\setminus E$ biholomorphically onto $\mathbb C^n\setminus\{0\}$.
+
+\begin{center}
+    \begin{minipage}{\linewidth}
+        \centering
+        \input{figures/figure08.tex}
+        \FieldCaption{I}{8}{\quad\emph{Blowing up}}
+    \end{minipage}
+\end{center}
+% Original book page 178
+In the figure the cone $S\subset\mathbb C^n$ is blown up into an open subset of $\Sigma$. That is, the cone is ``untwisted'' into an open set. Notice how lines passing through the origin of $\mathbb C^n$ lift to distinct lines in $\Sigma$. We can also describe this phenomenon using charts of the atlas we constructed above for $\Sigma$. Thus if $n=2$ and we take any open cone $S\subset\mathbb C^2$ which contains the $z_1$-axis but omits the $z_2$-axis then $\pi^{-1}(S)$ is described by the figure below if we use coordinates given by the chart $(U_1,\phi_1)$.
+
+\begin{center}
+    \begin{minipage}{\linewidth}
+        \centering
+        \input{figures/figure09.tex}
+        \FieldCaption{I}{9}{}
+    \end{minipage}
+\end{center}
+
+In the figure, the line $z_2=mz_1$ in the $(z_1,z_2)$-plane corresponds to the affine line $X_2=m$ in the $(X_1,X_2)$-plane.
+
+The construction we have described above works equally well if instead of $\mathbb C^n$ we take an open neighbourhood $U$ of $0\in\mathbb C^n$ and define $\Sigma_U\subset U\times P^{n-1}(\mathbb C)$ to be the intersection of $\Sigma$ with $U\times P^{n-1}(\mathbb C)$. We refer to $\Sigma_U$ as $U$ blown up at zero. The projection again restricts to a holomorphic map $\pi:\Sigma_U\longrightarrow U$ which induces a biholomorphic map between $\Sigma_U\setminus E$ and $U\setminus\{0\}$.
+
+We now wish to generalise the construction above so that we can blow up arbitrary complex manifolds at a point. First, a lemma.
+
+\FieldHeading{Lemma}{4.7.1}{}\FieldTarget{lemma:4.7.1}{4.7.1} Let $M$ and $\Sigma$ be complex manifolds with closed submanifolds $N$ and $X$ respectively. Suppose that for some open neighbourhood $U$ of $N$ in $M$ there exists a biholomorphism $\phi:U\setminus N\longrightarrow\Sigma\setminus X$. Then if we define
+\[
+M^*=(M\setminus N)\cup\Sigma,
+\]
+% Original book page 179
+where we identify $x\in M\setminus N$ with $y\in\Sigma\setminus X$ if $\phi(x)=y$, $M^*$ has the natural structure of a complex manifold such that $M^*\setminus X$ is biholomorphic to $M\setminus N$. Furthermore, if $\phi$ is the restriction of a holomorphic map $\pi:U\longrightarrow\Sigma$, then $\pi$ induces a holomorphic map $\pi:M^*\longrightarrow M$ such that $\pi$ maps $M^*\setminus X$ biholomorphically onto $M\setminus N$.
+\begin{proof}
+The proof is quite elementary and we leave it to the reader.
+\end{proof}
+
+Suppose $M$ is a complex manifold of dimension $n$, $n>1$, and let $p\in M$. Choose a coordinate chart $(V,\phi)$ for $M$ such that $p\in V$ and $\phi(p)=0$. Set $U=\phi(V)$. Let $\Sigma$ denote the blow up of $U$ at 0 ($\Sigma_U$ in the notation above). Then $\phi^{-1}\pi:\Sigma\setminus E\longrightarrow V\setminus\{p\}$ is a biholomorphism and so we may apply Lemma~\ref{lemma:4.7.1} to construct the complex manifold
+\[
+B_p(M)=(M\setminus\{p\})\cup\Sigma
+\]
+together with the holomorphic map $\pi:B_p(M)\longrightarrow M$. We say that $B_p(M)$ is $M$ blown up at the point $p$ (or any of the other descriptions we gave previously for blowing up\IndexMark{idx-051}{blowing up@Blowing-up!with non singular centre@with non-singular centre} $\mathbb C^n$). We call $p$ the centre of the blowing up and $E=\pi^{-1}(p)$ the exceptional variety. Clearly $E$ is biholomorphic to $P^{n-1}(\mathbb C)$. The projection map $\pi:B_p(M)\longrightarrow M$ is a proper holomorphic map and restricts to a biholomorphism of $B_p(M)\setminus E$ with $M\setminus\{p\}$.
+
+We may generalise the above construction to include centres which are closed complex submanifolds of $M$. First we describe the local situation. Regard $\mathbb C^m$ as the subspace $\mathbb C^m\times\{0\}$ of $\mathbb C^{m+n}$. We define $\mathbb C^{m+n}$ blown up along $\mathbb C^m$ to be the space $\mathbb C^m\times\Sigma$, where $\Sigma$ is $\mathbb C^n$ blown up at zero. In other words, we just blow up normal to $\mathbb C^m$ in $\mathbb C^{m+n}$. More generally, if $X$ is a closed submanifold of $M$ we may blow up $M$ along $X$ to construct a complex manifold $B_X(M)$ together with a holomorphic projection $\pi:B_X(M)\longrightarrow M$ which restricts to a biholomorphic map of $B_X(M)\setminus\pi^{-1}(X)$ onto $M\setminus X$. In this case the exceptional variety $\pi^{-1}(X)$ is a bundle over $X$ with fibre biholomorphic to $P^q(\mathbb C)$, where $q=\dim(M)-\dim(X)-1$. We give an example of this process below.
+
+We shall now give some examples to show how blowing up may be used to ``desingularize\IndexMark{idx-171}{desingularization@Desingularization}'' analytic sets. Suppose that $X$ is an analytic subset of
+% Original book page 180
+the complex manifold $M$. Let $Y$ be a closed complex submanifold of $M$ which is a subset of $\operatorname{Sing}(X)$. Let us blow up $M$ along $Y$ to give the new complex manifold $B_Y(M)$. The set $\pi^{-1}(X)$ is an analytic subset of $B_Y(M)$. Necessarily $\pi^{-1}(X)$ contains the exceptional variety $E=\pi^{-1}(Y)$ and we define the \emph{strict transform}\IndexMark{idx-585}{strict transform@Strict transform} of $X$ to be the analytic subset $X^*=\overline{\pi^{-1}(X)\setminus E}$ of $B_Y(M)$. As our examples will show a careful choice of $Y$ will often result in $X^*$ having ``simpler'' singularities than $X$.
+
+\paragraph*{Examples.}
+\paragraph*{1.} Let $Z\subset\mathbb C^2$ denote the curve defined by $P(z_1,z_2)=(z_1-z_2)(z_1+z_2)=0$. $Z$ has an isolated singularity at zero. As above we let $\Sigma$ denote $\mathbb C^2$ blown up at zero and $\pi:\Sigma\longrightarrow\mathbb C^2$ the projection map. Set $\widetilde Z=\pi^{-1}(Z)$ and let $Z^*$ denote the strict transform of $Z$. To describe $\widetilde Z$ we use the atlas $\{(U_i,\phi_i):i=1,2\}$ that we previously constructed on $\Sigma$. For $i=1,2$, set $\widetilde Z_i=\phi_i(\widetilde Z\cap U_i)\subset\mathbb C^2$. Then $\widetilde Z_1$ is the zero set of $P(X_1,X_1X_2)$ and $\widetilde Z_2$ is the zero set of $P(X_1X_2,X_2)$. We have
+\[
+P(X_1,X_1X_2)=(X_1-X_1X_2)(X_1+X_1X_2)=X_1^2(1-X_2)(1+X_2).
+\]
+Now $X_1=0$ is just the equation of the exceptional variety (intersected with $U_1$) and so the strict transform $Z^*$ of $Z$ is the pair of distinct lines $X_2=\pm1$ (again intersected with $U_1$). A similar description holds in the chart $(U_2,\phi_2)$. Hence $Z^*$ consists of two distinct lines and, in particular, is non-singular.
+
+\begin{center}
+    \begin{minipage}{\linewidth}
+        \centering
+        \input{figures/figure10.tex}
+        \FieldCaption{I}{10}{}
+    \end{minipage}
+\end{center}
+% Original book page 181
+\paragraph*{2.} Let $Z\subset\mathbb C^2$ be the curve defined by $P(z_1,z_2)=z_1^2-z_2^3=0$. $Z$ has an isolated singularity at zero. Repeating the argument above, we see that $\widetilde Z_1\subset\mathbb C^2$ is the zero locus of $X_1^2-X_1^3X_2^3=X_1^2(1-X_1X_2^3)$. That is, the intersection of $Z^*$ with $U_1$ is the non-singular curve $1=X_1X_2^3$ (notice that this curve does not meet the exceptional variety $X_1=0$---in $U_1$). Similarly, $\widetilde Z_2$ is the zero locus of $X_1^2X_2^2-X_2^3=X_2^2(X_1^2-X_2)$. Now $X_2=0$ is the equation of the exceptional variety in $U_2$ and so the intersection of $Z^*$ with $U_2$ is the parabola $X_2=X_1^2$, which is of course non-singular. Hence $Z^*$ is non-singular.
+
+\begin{center}
+    \begin{minipage}{\linewidth}
+        \centering
+        \input{figures/figure11.tex}
+        \FieldCaption{I}{11}{}
+    \end{minipage}
+\end{center}
+
+If instead we had started with the curve $z_1^2=z_2^5$, we would find that $Z^*\cap U_2$ was the curve $X_1^2=X_2^3$. Hence a further blowing up, this time of the manifold $\Sigma$, would remove the singularity. Without too much difficulty this technique will effectively resolve the singularities\IndexMark{idx-172}{desingularization@Desingularization} of all curves. Details may be found in Walker \cite{bib:I:walker-r:1}, Mumford \cite{bib:I:mumford-d:1} or Hartshorne \cite{bib:I:hartshorne-r:2}.
+
+Fundamental results of Hironaka \cite{bib:I:hironaka-h:1,bib:I:hironaka-h:2}, following on work of Walker and Zariski assert that we can always resolve singularities of complex analytic sets. Specifically, if $X$ is a complex analytic subset of a complex manifold $M$, there exists a (locally finite) sequence
+\[
+M_\Lambda\xrightarrow{\pi_\Lambda}M_{\Lambda-1}\xrightarrow{\pi_{\Lambda-1}}\cdots\longrightarrow M_1\xrightarrow{\pi_1}M
+\]
+% Original book page 182
+of blowing ups of $M$, with non-singular centres, such that the iterated strict transform of $X$ is a non-singular submanifold of $M_\Lambda$. The proof of this result is extremely hard. Much of the difficulty lies with choosing the centres so that when we blow up along them the singularities are somehow simplified. A proof of the desingularization theorem, together with many helpful examples is given in Hironaka \cite{bib:I:hironaka-h:2}.
+
+The next example shows that one cannot hope to give simple proofs of the desingularization theorem by working with a restricted class of analytic sets such as hypersurfaces with isolated singularities.
+
+\paragraph*{Example 3.} Let $Z\subset\mathbb C^3$ be the hypersurface defined by $z_1^5=z_2z_3^6-z_2^6z_3$. $Z$ has an isolated singularity at 0. Blow up $\mathbb C^3$ at zero. We now describe $\widetilde Z_i=\widetilde Z\cap U_i$, $1\leq i\leq3$.
+
+$\widetilde Z_1$ is the zero locus of $X_1^5(1-X_1^2X_2X_3^6+X_1^2X_2^6X_3)$ and so the strict transform $Z^*$ intersects $U_1$ in the non-singular hypersurface $1=X_1^2X_2X_3^6-X_1^2X_2^6X_3$.
+
+$\widetilde Z_2$ is the zero locus of $X_2^5(X_1^5-X_2^2X_3^6-X_2^2X_3)$. Therefore $Z^*\cap U_2$ is the hypersurface $X_1^5=X_2^2X_3^6-X_2^2X_3$. Now $\operatorname{Sing}(Z^*\cap U_2)$ is the set $X_1=X_2=0$. In particular, $Z^*\cap U_2$ no longer has an isolated singularity.
+
+Just as for $\widetilde Z_2$, we find that $Z^*\cap U_3$ is the curve $X_1^5=X_3^2X_2-X_3^2X_2^6$ with singular locus $X_1=X_3=0$.
+
+It follows from the above that $\operatorname{Sing}(Z^*)$ is a subset of the exceptional variety $P^2(\mathbb C)$ and is in fact the hyperplane $X_1=0$ (Here we take homogeneous coordinates $(X_1,X_2,X_3)$ on $P^2(\mathbb C)$). In other words $\operatorname{Sing}(Z^*)$ is biholomorphic to the Riemann sphere $P^1(\mathbb C)$.
+
+We now blow up $\Sigma$ along $\operatorname{Sing}(Z^*)$. Let us work in $U_2$. $Z^*\cap U_2$ is the hypersurface $X_1^5=X_2^2X_3^6-X_2^2X_3$ with singular set $X_1=X_2=0$. Blowing up along the $X_3$-axis, we make the transformations $X_1=Y_1Y_2$, $X_2=Y_2$, $X_3=Y_3$ to obtain the hypersurface
+\[
+Y_1^5Y_2^5-Y_2^2Y_3^6+Y_2^2Y_3=Y_2^2(Y_1^5Y_2^3-Y_3^6+Y_3)=0.
+\]
+% Original book page 183
+The strict transform is the hypersurface $Y_3=Y_3^6-Y_1^5Y_2^3$ which is of course non-singular. A similar result holds in $U_3$ and so the strict transform of $Z^*$ obtained by blowing up $\Sigma$ along $\operatorname{Sing}(Z^*)$ is a non-singular hypersurface.
+
+We now wish to say a few words about the \emph{embedded resolution of singularities}\IndexMark{idx-224}{embedded resolution of singularities@Embedded resolution of singularities}\IndexMark{idx-514}{resolution of singularities@Resolution of singularities}. First we give a definition: Suppose that $Y$ is an analytic hypersurface in the complex manifold $N$. For each $x\in Y$, we may write $I_x(Y)=(p_1,\ldots,p_k)$, where $p_1,\ldots,p_k$ are the local defining equations for the irreducible components of $Y$ passing through $x$. We say that $Y$ is a \emph{hypersurface with} (or \emph{in}) \emph{normal crossings}\IndexMark{idx-190}{divisor in normal crossings@Divisor in normal crossings}\IndexMark{idx-322}{hypersurface@Hypersurface!in normal crossings@in normal crossings}\IndexMark{idx-407}{normal crossings@Normal crossings} if (1) Each irreducible component of $Y$ is non-singular; (2) For each $x\in Y$, $\{dp_1(x),\ldots,dp_k(x)\}$ form a linearly independent set.
+
+Notice that the second condition implies that not more than $\operatorname{dimension}(N)$ irreducible components of $Y$ pass through any point of $N$. Condition (2) may also be given in terms of the tangent spaces to the irreducible components of $Y$ at $x$. We require $\dim(T_xN\cap\bigcap T_xY_j)=n-k$, where we assume that there are $k$ irreducible components $Y_j$ of $Y$ passing through $x$. Yet another equivalent formulation is that given $x\in Y$, we can choose complex analytic coordinates $(z_1,\ldots,z_n)$ at $x$ such that $Y$ is locally the zero set of the function $u(z)z_1^{m_1}\cdots z_k^{m_k}$, $u(0)\neq0$.
+
+\begin{center}
+    \begin{minipage}{\linewidth}
+        \centering
+        \input{figures/figure12.tex}
+        \FieldCaption{I}{12}{}
+    \end{minipage}
+\end{center}
+% Original book page 184
+Suppose $d\in\mathcal D(N)$. We say that $d$ is a \emph{divisor in normal crossings} if the hypersurface $|d|$ is in normal crossings. If $d$ is in normal crossings and $x\in|d|$, we may choose complex analytic coordinates at $x$ so that $d$ is locally given as the divisor of the meromorphic function $u(z)z_1^{m_1}\cdots z_k^{m_k}$, $u(0)\neq0$.
+
+Now suppose $X$ is an analytic subset of the complex manifold $M$. The embedded resolution of singularities\IndexMark{idx-225}{embedded resolution of singularities@Embedded resolution of singularities} theorem asserts that we can find a proper map $\pi:\widetilde M\longrightarrow M$ of complex manifolds which is a (locally finite) composition of blowing ups with non-singular centres such that $\widetilde X=\pi^{-1}(X)$ is non-singular and $\pi^{-1}(\operatorname{Sing}(X))$ is a divisor in $\widetilde X$ in normal crossings. A proof may be found in Hironaka \cite{bib:I:hironaka-h:2}.
+
+\paragraph*{Examples.}
+\paragraph*{4.} The resolution of the curve $(z_1-z_2)(z_1+z_2)=0$ given in example 1 above is an embedded resolution.
+
+\paragraph*{5.} The resolution of the curve $z_1^2-z_2^3=0$ given in example 2 above is not an embedded resolution. Two further blowing ups are needed to obtain an embedded resolution:
+
+\begin{center}
+    \begin{minipage}{\linewidth}
+        \centering
+        \input{figures/figure13.tex}
+        \FieldCaption{I}{13}{}
+    \end{minipage}
+\end{center}
+% Original book page 185
+We conclude this chapter with some remarks on the role of blowing up in the classification theory of compact complex manifolds, especially complex surfaces.
+
+First notice that we can use blowing up to define a relation between complex manifolds of the same dimension. Thus we shall say that $M$ is B-related to $N$ if $M$ may be obtained by blowing up $N$ a finite number of times. If $M$ and $N$ are complex surfaces then the centres of the blowing ups must always be points and the exceptional varieties are always biholomorphic to $P^1(\mathbb C)$. Now suppose that $E$ is a complex submanifold of the complex surface $M$ which is biholomorphic to $P^1(\mathbb C)$. It follows from a theorem of Grauert \cite{bib:I:grauert-h:1}, that if the self-intersection number of $E$ is $-1$ (``$E^2=-1$'') then we can \emph{blow down} $E$ to a point. That is, there exists a complex surface $N$ such that for some $p\in N$, $B_p(N)=M$ and the exceptional variety of the blowing up is $E$. We call such a variety $E$ an \emph{exceptional curve of first kind}\IndexMark{idx-241}{exceptional curve of first kind@Exceptional curve of first kind}. We can now define an equivalence relation between compact complex surfaces. We say that the surfaces $M$ and $N$ are B-equivalent if $M$ can be obtained from $N$ by a finite number of blowing ups and blowing downs. We say that a complex surface is a \emph{relatively minimal model}\IndexMark{idx-396}{minimal model@Minimal model} if and only if it does not contain any exceptional curves of the first kind. Every compact complex surface can be obtained from a relatively minimal model by a finite succession of blowing ups.
+
+In Kodaira \cite{bib:I:kodaira-k:2} there is a description of the relatively minimal models of compact complex surfaces as well as a description of the classification of compact complex surfaces. A useful survey of Kodaira's work, together with further references, may be found in Sundararaman \cite{bib:I:sundararaman-d:1}. See also Ueno \cite{bib:I:ueno-k:1}.
+
+It is an important problem to find properties of complex manifolds invariant under blowing up or blowing down\IndexMark{idx-052}{blowing down@Blowing down} (in algebraic geometry the corresponding problem is that of finding birational invariants\IndexMark{idx-049}{birational invariant@Birational invariant}). We shall describe one invariant here (see also \hyperref[sec:5:9]{\S9, Chapter 5}) and refer the reader to the references cited above for the description of other invariants and proofs. Let $M$ be a compact complex manifold with field of meromorphic functions $\mathcal M(M)$. We let $t(M)$ denote the transcendence degree of $\mathcal M(M)$ over $\mathbb C$. A result of Thimm \cite{bib:I:thimm-w:1} (see also Remmert \cite{bib:I:remmert-r:1}, Siegel \cite{bib:I:siegel-c-l:2}) asserts that
+% Original book page 186
+$t(M)\leq\operatorname{dimension}(M)$. If $M$ is algebraic, $t(M)=\operatorname{dimension}(M)$. We have the important result that $t(M)$ is invariant under blowing ups. Thus surfaces with different transcendence degrees cannot have the same relatively minimal models. If $t(M)=\operatorname{dimension}(M)$ we say that $M$ is a \emph{Moishezon manifold}\IndexMark{idx-399}{moishezon manifold@Moishezon manifold}. If $\operatorname{dimension}(M)=2$, every Moishezon manifold is algebraic by a theorem of Kodaira \cite{bib:I:kodaira-k:2}. The theory of Moishezon manifolds is expounded in Moishezon \cite{bib:I:moishezon-b-g:1}. We remark that even though a Moishezon manifold $M$ need not be algebraic (at least if $\operatorname{dimension}(M)>2$), there exists a finite sequence of blowing ups of $M$ such that the resulting manifold is algebraic (For a proof see Moishezon \cite[Chapter 2]{bib:I:moishezon-b-g:1}). Of course, if $M$ is algebraic, then any finite sequence of blowing ups of $M$ with non-singular centres (necessarily algebraic) will give an algebraic manifold.
+
+\subsection*{Exercises}
+\begin{enumerate}
+\item Blow up the surface $zx^2=y^2$ at zero. Observe that blowing up at the (geometrically) most singular points does not always work. Now find a desingularization of the surface.
+\item Verify that the surface $x^2y^2-z^6+x^6+y^6=0$ has an isolated singularity at zero. Show that when we blow up at zero, the new surface has a singular set with singularities.
+\end{enumerate}

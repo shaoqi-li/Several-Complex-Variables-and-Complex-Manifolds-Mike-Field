@@ -1,0 +1,1568 @@
+\chapter{Coherent Sheaves}\label{ch:7}
+\ChapterSevenIntroduction
+% Source PDF page 136; printed page 127
+\section{Coherent sheaves}\label{sec:7:1}
+Throughout this section we shall be studying sheaves of $\mathcal{O}$-modules on a complex manifold $M$ (Here, as in the sequel, we usually drop the subscript ``$M$'' from the Oka sheaf $\mathcal{O}_M$). In future we call a sheaf of $\mathcal{O}$-modules an \emph{analytic sheaf}\IndexMark{idx-023}{analytic sheaf@Analytic sheaf}. We have already seen some examples where algebraic conditions holding at a point continue to hold in a neighbourhood of the point. Thus the condition that germs of analytic functions be relatively prime is an open condition (Proposition~\ref{proposition:3.4.2}). Another important example came from the theory of analytic hypersurfaces where we showed that if $Z$ was an analytic hypersurface in $M$ with $I_z(Z)=(g_z)$, then $I_y(Z)=(g_y)$ for $y$ in some neighbourhood of $z$ (Theorem~\ref{theorem:3.5.16}). The main aim of this section will be to describe the class of coherent analytic sheaves for which this type of behaviour is characteristic. For example, we shall show that if $\mathcal{F}\xrightarrow{a}\mathcal{G}\xrightarrow{b}\mathcal{H}$ is a sequence of coherent sheaves with $ba=0$ and if the sequence is exact (at stalk level) at $x\in M$, then it is exact in a neighbourhood of $x$. Of course, if we wish to use topological methods to get global results then our local results need to be framed in terms of open sets -- not points -- and this is why coherence is such an important concept in the cohomology
+% Source PDF page 137; printed page 128
+ theory of sheaves. Our proofs will be close to those in the original works on coherence by H. Cartan \cite{bib:II:cartan-h:1,bib:II:cartan-h:2} and J.P. Serre \cite{bib:II:serre-j-p:2}.
+
+\begin{originaltheorem}{Definition}{7.1.1}\FieldTarget{definition:7.1.1}{7.1.1}
+An analytic sheaf $\mathcal{F}$ on $M$ is said to be of \emph{finite type} if we can find an open neighbourhood $U$ of every point $x$ in $M$ and a finite number of sections $s_1,\ldots,s_k\in\mathcal{F}(U)$ such that $\{s_{1,y},\ldots,s_{k,y}\}$ generates $\mathcal{F}_y$ as an $\mathcal{O}_y$-module for every $y\in U$.
+\end{originaltheorem}
+\paragraph{Example 1.} The sheaf of sections of a holomorphic vector bundle on $M$ is of finite type.
+\begin{originaltheorem}{Proposition}{7.1.2}\FieldTarget{proposition:7.1.2}{7.1.2}
+Let $\mathcal{F}$ be an analytic sheaf of finite type\IndexMark{idx-024}{analytic sheaf@Analytic sheaf!of finite type@of finite type} and $f_1,\ldots,f_p$ be continuous sections of $\mathcal{F}$ defined over some open neighbourhood of $x\in M$ such that $f_{1,x},\ldots,f_{p,x}$ generate $\mathcal{F}_x$. Then $f_{1,y},\ldots,f_{p,y}$ generate $\mathcal{F}_y$ for $y$ in some neighbourhood of $x$.
+\end{originaltheorem}
+\begin{proof}
+Since $\mathcal{F}$ is of finite type we can find an open neighbourhood $U$ of $x$ and sections $s_1,\ldots,s_k\in\mathcal{F}(U)$ such that $s_{1,y},\ldots,s_{k,y}$ generate $\mathcal{F}_y$ for $y\in U$. By assumption, there exist $a_{ij,x}\in\mathcal{O}_x$ such that
+\[
+s_{i,x}=\sum_{j=1}^p a_{ij,x}f_{j,x},\quad i=1,\ldots,k.
+\]
+Choosing representatives for the germs $a_{ij,x}$, we see that on some neighbourhood $V$ of $x$ we have
+\[
+s_i=\sum_{j=1}^p a_{ij}f_j,\quad i=1,\ldots,k.
+\]
+Hence for all $z\in V$ we have
+\[
+s_{i,z}=\sum_{j=1}^p a_{ij,z}f_{j,z}.
+\]
+\end{proof}
+For $q\geq0$, recall that $\mathcal{O}^q$ denotes the $p$-fold direct sum of $\mathcal{O}$ and that $\mathcal{O}^q$ is equal to the sheaf of germs of $\mathbb{C}^q$-valued holomorphic functions on $M$. We have a canonical $\mathcal{O}$-module basis of $\mathcal{O}^q$ given by the constant functions
+\[
+E_1(z)=(1,0,\ldots,0),\ldots,E_q(z)=(0,0,\ldots,1).
+\]
+% Source PDF page 138; printed page 129
+Suppose that $\mathcal{F}$ is an analytic sheaf on $M$ and that $f_1,\ldots,f_p$ are continuous sections of $\mathcal{F}$ over some open subset $U$ of $M$. Let $f=(f_1,\ldots,f_p):\mathcal{O}_U^p\to\mathcal{F}_U$ denote the sheaf homomorphism defined by
+\[
+f(g_1,\ldots,g_p)=\sum_{j=1}^p g_jf_{j,z},\quad (g_1,\ldots,g_p)\in\mathcal{O}_z^p,\ z\in U.
+\]
+The kernel of $f$ is a subsheaf $R(f_1,\ldots,f_p)$ of $\mathcal{O}_U^p$ called the \emph{sheaf of relations between}\IndexMark{idx-570}{sheaf of relations@Sheaf of relations} $f_1,\ldots,f_p$.
+\begin{originaltheorem}{Theorem}{7.1.3}\FieldTarget{theorem:7.1.3}{7.1.3}
+Let $U$ be an open subset of $M$ and $f_1,\ldots,f_p\in\mathcal{O}^q(U)$. Then the sheaf of relations $R(f_1,\ldots,f_p)$ is a subsheaf of $\mathcal{O}_U^p$ of finite type.
+\end{originaltheorem}
+This theorem, due to Oka\IndexMark{idx-418}{oka theorem@Oka theorem}, is the fundamental result upon which the theory of coherent analytic sheaves rests.
+
+In view of the local nature of Theorem~\ref{theorem:7.1.3} it suffices to prove
+\begin{originaltheorem}{Theorem}{7.1.4}\FieldTarget{theorem:7.1.4}{7.1.4}
+Let $\Omega$ be an open subset of $\mathbb{C}^n$ and $f_1,\ldots,f_p\in A(\Omega)^q$. We can find an open neighbourhood $U$ of any point $z\in\Omega$ and finitely many functions $C_1,\ldots,C_r\in A(U)^p$ such that $C_{1,x},\ldots,C_{r,x}$ generate $R(f_1,\ldots,f_p)_x$ as an $\mathcal{O}_x$-module for all $x\in U$.
+\end{originaltheorem}
+\begin{proof}
+First of all notice that
+\[
+R(f_1,\ldots,f_p)_z=\{(a_1,\ldots,a_p)\in\mathcal{O}_z^p:\ \sum_{j=1}^p a_jf_{j,z}=0\},\quad z\in\Omega.
+\]
+Since $\mathcal{O}_z$ is Noetherian, $R(f_1,\ldots,f_p)_z$ is certainly finitely generated. We have to find generators which also generate the stalks in a neighbourhood of $z$.
+
+We may clearly assume that $0\in\Omega$ and that $z=0$. Our proof goes by induction on $q$ and $n$. First, suppose that the theorem has been proved for all $q$ in the $(n-1)$-dimensional case (note that the case $n=0$ is trivial). We shall prove that the theorem is true for $n$ and $q=1$.
+
+Without loss of generality we may assume that $f_1,\ldots,f_p$ are normalised in direction $z_n$ and so, by the Weierstrass Preparation theorem, we may suppose that $f_1,\ldots,f_p$ are Weierstrass polynomials in
+% Source PDF page 139; printed page 130
+$z_n$ with coefficients in $A(\Omega')$, where $\Omega'$ is an open neighbourhood of $0\in\mathbb{C}^{n-1}$. In what follows we may suppose $\Omega=\Omega'\times\mathbb{C}$. Let $d$ denote the maximum of the degrees of the polynomials $f_1,\ldots,f_p$. We may write
+\[
+f_i=\sum_{j=0}^d f_{ij}z_n^j,\quad i=1,\ldots,p,
+\]
+where $f_{ij}\in A(\Omega')$. We let ${}^d A'[z_n]$ denote the group of polynomials in $z_n$ of degree $\leq d$ which have coefficients in $A(\Omega')$. For $\zeta=(\zeta',\zeta_n)\in\mathbb{C}^n$, we let $\mathcal{O}'_{\zeta'}$ denote the ring of germs of analytic functions on $\mathbb{C}^{n-1}$ at $\zeta'$ and ${}^d A'[z_n]_\zeta$ denote the germs at $\zeta$ of functions in ${}^d A'[z_n]$. Finally, let ${}^d R(f_1,\ldots,f_p)$ denote the subset of $R(f_1,\ldots,f_p)$ defined by ${}^d R(f_1,\ldots,f_p)_\zeta=R(f_1,\ldots,f_p)_\zeta\cap{}^d A'[z_n]_\zeta$, $\zeta\in\Omega$. Note that ${}^d R(f_1,\ldots,f_p)$ has the structure of an $\mathcal{O}'$-module.
+
+We shall prove the inductive step by first showing that for all $\zeta\in\Omega$, ${}^d R(f_1,\ldots,f_p)_\zeta$ generates $R(f_1,\ldots,f_p)_\zeta$ as an $\mathcal{O}_\zeta$-module. Then, using the inductive hypothesis, we show that we can find a finite set of generators for ${}^d R(f_1,\ldots,f_p)$ (as an $\mathcal{O}'$-module) over some neighbourhood of zero.
+
+\emph{Step 1:} The $\mathcal{O}$-module $R(f_1,\ldots,f_p)_\zeta$ is generated by the elements of ${}^d R(f_1,\ldots,f_p)_\zeta$, $\zeta\in\Omega$.
+
+Suppose $f_p$ has degree $d$. Then, by the Weierstrass Preparation theorem, we have for $\zeta\in\Omega$
+\[
+f_{p,\zeta}=f'f'',
+\]
+where $f',f''\in\mathcal{O}_\zeta$, $f'$ is the germ of a Weierstrass polynomial in $z_n-\zeta_n$ and $f''(\zeta)\neq0$. By Lemma~\ref{lemma:3.4.1}, $f''$ is a polynomial in $z_n$ with leading coefficient 1. Let $d',d''$ denote the degrees of $f',f''$ with respect to $z_n$. Given $(a_1,\ldots,a_p)\in R(f_1,\ldots,f_p)$, we can by the Weierstrass division theorem write
+\[
+a_i=f_{p,\zeta}b_i+c_i,\quad i=1,\ldots,p-1,
+\]
+where $b_i\in\mathcal{O}_\zeta$ and $c_i\in\mathcal{O}'_{\zeta'}[z_n]$ is of degree $<d'$. Set
+\[
+c_p=a_p+\sum_{i=1}^{p-1}f_{i,\zeta}b_i
+\]
+% Source PDF page 140; printed page 131
+and observe that we have the identity
+\begin{equation*}
+\begin{split}
+(a_1,\ldots,a_p)={}&(f_p,0,\ldots,0,-f_1)_\zeta b_1+\cdots+(0,\ldots,0,f_p,-f_{p-1})_\zeta b_p\\
+&+(c_1,\ldots,c_p).
+\end{split}
+\tag{*}\label{eq:7:star:1}
+\end{equation*}
+Now all the terms in this identity, except possibly $(c_1,\ldots,c_p)$, lie in $R(f_1,\ldots,f_p)_\zeta$. Hence $(c_1,\ldots,c_p)\in R(f_1,\ldots,f_p)_\zeta$. Therefore
+\[
+\sum_{i=1}^{p-1}c_if_{i,\zeta}+(c_pf'')f'=0.
+\]
+But the sum is a polynomial in $z_n$ of degree $<d+d'$. Consequently, by Lemma~\ref{lemma:3.4.1}, $c_pf''$ is a polynomial in $z_n$ of degree $<d$. But since
+\[
+(c_1,\ldots,c_p)=(1/f'')(f''c_1,\ldots,f''c_p)
+\]
+and $f''c_1,\ldots,f''c_p$ have degree $<d$, it follows that $(c_1,\ldots,c_p)\in{}^d R(f_1,\ldots,f_p)_\zeta$. This, together with (*), proves step 1.
+
+\emph{Step 2:} We may find an open neighbourhood $U$ of $0\in\mathbb{C}^n$ and sections $C_1,\ldots,C_r\in{}^d R(f_1,\ldots,f_p)(U)$ such that for all $\zeta\in U$, $C_{1,\zeta},\ldots,C_{r,\zeta}$ generate ${}^d R(f_1,\ldots,f_p)_\zeta$ as an $\mathcal{O}'_{\zeta'}$-module.
+
+Suppose $a=(a_1,\ldots,a_p)\in{}^d A'[z_n]_\zeta$. Then
+\[
+a_i=\sum_{j=0}^d c_{ij}(z_n^j)_\zeta,\quad c_{ij}\in\mathcal{O}'_{\zeta'}.
+\]
+Now $a\in{}^d R(f_1,\ldots,f_p)_\zeta$ if and only if $\sum_{i=0}^p a_if_i=0$. That is, if and only if
+\[
+\sum_{k=0}^d\sum_{j=0}^d\sum_{i=1}^p c_{ij}f_{ik}(z_n^{k+j})=0.
+\]
+Equating coefficients of powers of $z_n$ to zero we see that $a\in{}^d R(f_1,\ldots,f_p)_\zeta$ if and only if
+\[
+\sum_{j+k=r}\sum_{i=1}^p c_{ij}f_{ik}=0,\quad r=0,\ldots,2d.
+\]
+That is, ${}^d R(f_1,\ldots,f_p)$ is isomorphic to the kernel of the homomorphism $F=(F_1,\ldots,F_{p(d+1)}):\mathcal{O}'^{p(d+1)}\to\mathcal{O}'^{2d+1}$ defined by
+% Source PDF page 141; printed page 132
+\[
+(F([c_{ij}]))_r=\sum_{i,j}c_{ij}f_{i,r-j},\quad r=0,\ldots,2d.
+\]
+In other words, ${}^d R(f_1,\ldots,f_p)$ is isomorphic to $R(F_1,\ldots,F_{p(d+1)})$ and so, by the inductive hypothesis, we may find an open neighbourhood $U'$ of $0\in\mathbb{C}^{n-1}$ and $C_1,\ldots,C_r\in A(U')^{p(d+1)}$ such that $C_{1,\zeta'},\ldots,C_{r,\zeta'}$ generate $R(F_1,\ldots,F_{p(d+1)})_{\zeta'}$ for all $\zeta'\in U'$. Taking $U=U'\times\mathbb{C}\subset\mathbb{C}^n$, we see that $C_1,\ldots,C_r$ give the required generators of ${}^d R(f_1,\ldots,f_p)$ as an $\mathcal{O}'$-module.
+
+To complete our induction we now show that if the result is true for $n$ and $q=1$ it is true for $n$ and $q>1$.
+
+Setting $f_j=(f_{j1},\ldots,f_{jq})$, we define $\widetilde f_j=(f_{j1},\ldots,f_{jq-1})$, $j=1,\ldots,p$. For $\zeta\in\Omega$, we have
+\[
+R(f_1,\ldots,f_p)_\zeta\subset R(\widetilde f_1,\ldots,\widetilde f_p)_\zeta.
+\]
+Now by the inductive hypothesis for $n$ and $q-1$, there exists a neighbourhood $V\subset\Omega$ of 0 and $g_1,\ldots,g_r\in A(V)^p$ such that $g_{1,\zeta},\ldots,g_{r,\zeta}$ generate the $\mathcal{O}_\zeta$-module $R(\widetilde f_1,\ldots,\widetilde f_p)_\zeta$ for all $\zeta\in V$. For $\zeta\in V$, we have $R(f_1,\ldots,f_p)_\zeta\subset\{\sum_{j=1}^r c_jg_{j,\zeta}:c_j\in\mathcal{O}_\zeta\}$. Setting $g_j=(g_{j1},\ldots,g_{jp})$, $1\leq j\leq r$, and taking components as we see that $\sum_{j=1}^r c_jg_{j,\zeta}\in R(f_1,\ldots,f_p)_\zeta$ if and only if
+\[
+\sum_{j=1}^r\sum_{k=1}^p c_j(g_{jk}f_{ki})_\zeta=0,\quad i=1,\ldots,q.
+\]
+But the first $q-1$ of these equations automatically hold and so only the $q$th. equation remains to be satisfied. By the inductive hypothesis for $n$ and $q=1$, there exists a neighbourhood $U\subset V$ of 0 and $h_1,\ldots,h_s\in A(U)^r$ such that the solutions $(c_1,\ldots,c_r)\in\mathcal{O}_\zeta^r$ of $\sum_{j=1}^r\sum_{k=1}^p c_j(g_{jk}f_{kq})_\zeta=0$ are generated by $h_{1,\zeta},\ldots,h_{s,\zeta}$, $\zeta\in U$. Defining $C_1,\ldots,C_s\in A(U)^p$ by $C_i=\sum_{j=1}^r h_{ij}g_j$, $1\leq i\leq s$, we see that $C_1,\ldots,C_s$ are the required set of generators for $R(f_1,\ldots,f_p)_U$.
+\end{proof}
+\begin{originaltheorem}{Definition}{7.1.5}\FieldTarget{definition:7.1.5}{7.1.5}
+An analytic sheaf $\mathcal{F}$ on the complex manifold $M$ is said to be \emph{coherent}\IndexMark{idx-095}{coherent sheaf@Coherent sheaf} if
+% Source PDF page 142; printed page 133
+\begin{enumerate}[label=\alph*)]
+\item $\mathcal{F}$ is of finite type.
+\item Given any open subset $U$ of $M$ and sections $f_1,\ldots,f_p\in\mathcal{F}(U)$, then the sheaf of relations $R(f_1,\ldots,f_p)$ is of finite type.
+\end{enumerate}
+\end{originaltheorem}
+\begin{originaltheorem}{Theorem}{7.1.6}\FieldTarget{theorem:7.1.6}{7.1.6}
+Every analytic subsheaf of $\mathcal{O}^q$ which is of finite type is coherent.
+\end{originaltheorem}
+\begin{proof}Theorem~\ref{theorem:7.1.3}.\end{proof}
+\begin{originaltheorem}{Corollary}{7.1.7}\FieldTarget{corollary:7.1.7}{7.1.7}
+Let $\mathcal{F}$ be a coherent sheaf on $M$, $U$ be an open subset of $M$ and $f_1,\ldots,f_p\in\mathcal{F}(U)$. Then $R(f_1,\ldots,f_p)$ is coherent.
+\end{originaltheorem}
+\begin{proof}$R(f_1,\ldots,f_p)$ is a subsheaf of $\mathcal{O}_U^p$ of finite type.\end{proof}
+\begin{originaltheorem}{Corollary}{7.1.8}\FieldTarget{corollary:7.1.8}{7.1.8}
+Let $\mathcal{F}$ be a coherent sheaf on $M$ and $x\in M$. Then we may find a free resolution of $\mathcal{F}$, of length $m=\dim(M)$, over some open neighbourhood $U$ of $x$:
+\[
+0\to\mathcal{O}_U^{p_m}\xrightarrow{s_m}\mathcal{O}_U^{p_{m-1}}\to\cdots\xrightarrow{s_1}\mathcal{O}_U^{p_0}\xrightarrow{s_0}\mathcal{F}_U\to0.
+\]
+\end{originaltheorem}
+\begin{proof}
+Since $\mathcal{F}$ is of finite type, we may find an open neighbourhood $U_0$ of $x$ and $s_1^0,\ldots,s_{p_0}^0\in\mathcal{F}(U_0)$ such that for all $\zeta\in U_0$, $s_{1,\zeta}^0,\ldots,s_{p_0,\zeta}^0$ generate $\mathcal{F}_\zeta$ as an $\mathcal{O}_\zeta$-module. That is, setting $s_0=(s_1^0,\ldots,s_{p_0}^0)$ we have the exact sequence
+\[
+\mathcal{O}_{U_0}^{p_0}\xrightarrow{s_0}\mathcal{F}_{U_0}\to0.
+\]
+Now $\operatorname{Ker}(s_0)=R(s_1^0,\ldots,s_{p_0}^0)$ and so, since $R(s_1^0,\ldots,s_{p_0}^0)$ is of finite type, we may find an open neighbourhood $U_1\subset U_0$ of $x$ and $s_1^1,\ldots,s_{p_1}^1\in A(U_1)^{p_0}$ such that $s_{1,\zeta}^1,\ldots,s_{p_1,\zeta}^1$ generate $R(s_1^0,\ldots,s_{p_0}^0)_\zeta$, $\zeta\in U_1$. Setting $s_1=(s_1^1,\ldots,s_{p_1}^1)$, we obtain the exact sequence
+\[
+\mathcal{O}_{U_1}^{p_1}\xrightarrow{s_1}\mathcal{O}_{U_1}^{p_0}\xrightarrow{s_0}\mathcal{F}_{U_1}\to0.
+\]
+Proceeding inductively, we obtain after $m$ steps the exact sequence
+\[
+\mathcal{O}_{U_{m-1}}^{p_{m-1}}\xrightarrow{s_{m-1}}\cdots\xrightarrow{s_1}\mathcal{O}_{U_{m-1}}^{p_0}\xrightarrow{s_0}\mathcal{F}_{U_{m-1}}\to0.
+\]
+% Source PDF page 143; printed page 134
+By the Hilbert Syzygy theorem (Theorem~\ref{theorem:3.6.1}), $\operatorname{Ker}(s_{m-1})_y$ is a free $\mathcal{O}_y$-module, $y\in U_{m-1}$. Suppose $\operatorname{Ker}(s_{m-1})_x\approx\mathcal{O}_x^{p_m}$. A set of generators for $\mathcal{O}_x^{p_m}$ is given by the constant functions $E_j$, $1\leq j\leq p_m$ and, since $\operatorname{Ker}(s_{m-1})$ is of finite type, it follows from Proposition~\ref{proposition:7.1.2} that the $E_j$ generate $\operatorname{Ker}(s_{m-1})_y$ for $y$ in some open neighbourhood $U_m$ of $x$. Taking $U=U_m$, we therefore obtain the exact sequence
+\[
+\mathcal{O}_U^{p_m}\xrightarrow{s_m}\mathcal{O}_U^{p_{m-1}}\to\cdots\xrightarrow{s_0}\mathcal{F}_U\to0.
+\]
+By the Hilbert Syzygy theorem, $\operatorname{Ker}(s_m)=0$.
+\end{proof}
+\paragraph{Remarks.} One consequence of Corollary~\ref{corollary:7.1.8} is that every coherent sheaf is locally isomorphic to the cokernel of a sheaf homomorphism $a:\mathcal{O}^p\to\mathcal{O}^q$. Later on in this chapter, we shall examine to what extent coherent sheaves admit global resolutions by free, and more especially locally free, sheaves of $\mathcal{O}$-modules.
+\paragraph{Example 2.} The sheaf of holomorphic sections of a holomorphic vector bundle $E$ is coherent. Indeed, $\underline E$ is locally isomorphic to $\mathcal{O}^q$, $q=\dim(E)$.
+\begin{originaltheorem}{Theorem}{7.1.9}\FieldTarget{theorem:7.1.9}{7.1.9}
+We have the following basic properties of coherent sheaves:
+\begin{enumerate}[label=\arabic*.]
+\item Every analytic subsheaf of a coherent sheaf which is of finite type is coherent.
+\item Suppose $0\to\mathcal{F}\xrightarrow{a}\mathcal{G}\xrightarrow{b}\mathcal{H}\to0$ is a short exact sequence of analytic sheaves. If any two of the sheaves $\mathcal{F},\mathcal{G},\mathcal{H}$ are coherent, so is the third.
+\item The direct sum of a finite family of coherent sheaves is coherent.
+\item Let $a:\mathcal{F}\to\mathcal{G}$ be a homomorphism of coherent sheaves. Then $\operatorname{Ker}(a)$, $\operatorname{Im}(a)$ and $\operatorname{Coker}(a)$ are coherent.
+\item Let $\mathcal{F},\mathcal{G}$ be coherent subsheaves of a coherent sheaf $\mathcal{H}$. Then the sheaves $\mathcal{F}+\mathcal{G}$, $\mathcal{F}\cup\mathcal{G}$ are coherent.
+
+% Source PDF page 144; printed page 135
+\item Let $\mathcal{F},\mathcal{G}$ be coherent sheaves. Then $\mathcal{F}\otimes_{\mathcal{O}}\mathcal{G}$ is coherent.
+\end{enumerate}
+\end{originaltheorem}
+\begin{proof}
+1. Clearly every analytic subsheaf of a sheaf satisfying (b) of Definition~\ref{definition:7.1.5} also satisfies condition (b).
+
+2.a) Suppose $\mathcal{G}$ and $\mathcal{H}$ are coherent. Since $\mathcal{G}$ is of finite type, may find an open neighbourhood $U$ of any point $x\in M$ and surjective homomorphism $c:\mathcal{O}_U^p\to\mathcal{G}_U$. Since $\mathcal{H}$ satisfies condition (b), $\operatorname{Ker}(bc)$ is of finite type and so, by 1., $c(\operatorname{Ker}(bc))$ is a coherent subsheaf of $\mathcal{G}_U$. But $a$ maps $\mathcal{F}_U$ isomorphically onto $c(\operatorname{Ker}(bc))$ and so $\mathcal{F}$ is coherent.
+
+b) Suppose $\mathcal{F}$ and $\mathcal{G}$ are coherent. Since $\mathcal{G}$ is of finite type and $b$ is surjective $\mathcal{H}$ is of finite type. We must show that $\mathcal{H}$ satisfies condition (b). Let $x\in M$, $U$ be an open neighbourhood of $x$ and $s_1,\ldots,s_p\in\mathcal{H}(U)$. Shrinking $U$ if necessary, we may choose $t_1,\ldots,t_p\in\mathcal{G}(U)$ such that $s_j=b(t_j)$, $j=1,\ldots,p$. Shrinking $U$ further if necessary, we may find $u_1,\ldots,u_q\in\mathcal{F}(U)$ such that $u_{1,y},\ldots,u_{q,y}$ generate $\mathcal{F}_y$ as an $\mathcal{O}_y$-module for all $y\in U$. Now given $y\in U$ and $(f_1,\ldots,f_p)\in\mathcal{O}_y^p$, $(f_1,\ldots,f_p)\in R(s_1,\ldots,s_p)_y$ if and only if $\sum_{i=1}^p f_it_i\in\operatorname{Im}(a)$. That is, if and only if there exist $g_1,\ldots,g_q\in\mathcal{O}_y$ such that $\sum_{i=1}^p f_it_i=\sum_{j=1}^q g_ja(u_j)$. But $R(t_1,\ldots,t_p,a(u_1),\ldots,a(u_q))$ is of finite type since $\mathcal{G}$ is coherent and since $R(s_1,\ldots,s_p)$ is the image of $R(t_1,\ldots,a(u_q))$ under the canonical projection of $\mathcal{O}^{p+q}$ on $\mathcal{O}^p$ it follows that $R(s_1,\ldots,s_p)$ is of finite type.
+
+c) We leave the case $\mathcal{F}$ and $\mathcal{H}$ coherent implies $\mathcal{G}$ coherent as an exercise (details may be found in Serre \cite{bib:II:serre-j-p:2} or Gunning and Rossi \cite{bib:II:gunning-r-c-and-rossi-h:1}).
+
+3. The finite direct sum of coherent sheaves is coherent. This follows by an easy induction from 2.c) or directly and we omit details.
+
+4. Suppose $a:\mathcal{F}\to\mathcal{G}$ is a homomorphism of coherent sheaves. Now $\operatorname{Im}(a)$ is of finite type since $\mathcal{F}$ is of finite type and so, by 1, $\operatorname{Im}(a)$ is coherent. Applying 2.a) and b) to the exact sequences
+\[
+0\to\operatorname{Ker}(a)\to\mathcal{F}\to\operatorname{Im}(a)\to0
+\]
+\[
+0\to\operatorname{Im}(a)\to\mathcal{G}\to\operatorname{Coker}(a)\to0
+\]
+we see that $\operatorname{Ker}(a)$ and $\operatorname{Coker}(a)$ are coherent.
+% Source PDF page 145; printed page 136
+
+5. The sheaf $\mathcal{F}+\mathcal{G}$ is of finite type and so coherent by 1. The sheaf $\mathcal{F}\cap\mathcal{G}$ is the kernel of the quotient map $\mathcal{F}\to\mathcal{H}/\mathcal{G}$ and is therefore coherent by 2.a).
+
+6. Let $x\in M$. Since $\mathcal{F}$ is coherent, there exists an open neighbourhood $U$ of $x$ and exact sheaf sequence
+\[
+\mathcal{O}_U^p\to\mathcal{O}_U^q\to\mathcal{F}_U\to0.
+\]
+Tensoring with $\mathcal{G}_U$ we obtain the exact sequence
+\[
+\mathcal{G}_U\otimes_{\mathcal{O}}\mathcal{O}_U^p\to\mathcal{G}_U\otimes_{\mathcal{O}}\mathcal{O}_U^q\to(\mathcal{F}\otimes_{\mathcal{O}}\mathcal{G})_U\to0.
+\]
+Now $\mathcal{G}_U\otimes_{\mathcal{O}}\mathcal{O}_U^p\approx\mathcal{G}_U^p$; $\mathcal{G}_U\otimes_{\mathcal{O}}\mathcal{O}_U^q\approx\mathcal{G}_U^q$ and so we arrive at the exact sequence
+\[
+\mathcal{G}_U^p\to\mathcal{G}_U^q\to(\mathcal{F}\otimes_{\mathcal{O}}\mathcal{G})_U\to0.
+\]
+But by 3, $\mathcal{G}_U^p$, $\mathcal{G}_U^q$ are coherent and so, by 4, $(\mathcal{F}\otimes_{\mathcal{O}}\mathcal{G})_U$ is coherent. Hence $\mathcal{F}\otimes_{\mathcal{O}}\mathcal{G}$ is coherent.
+\end{proof}
+\paragraph{Remark.} Theorem~\ref{theorem:7.1.9} suggests that set of coherent sheaves on $M$ is the smallest class of analytic sheaves on $M$ which contains the locally free sheaves (holomorphic vector bundles) and is closed under the operations of quotient, kernel and image. Unfortunately this is not generally true, even when $M$ is compact (the ideal sheaf of a point need not have a resolution by locally free sheaves in case every holomorphic vector bundle on $M$ is flat). However, if $M$ is projective algebraic, then every coherent sheaf on $M$ has a global resolution by locally free sheaves and so the coherent sheaves on $M$ are the smallest class containing the locally free sheaves and which are closed under the operations of quotient, kernel and image. We shall return to this question later in the chapter.
+\paragraph{Examples.}
+3. Let $X$ be a complex submanifold of the complex manifold $M$. Then the sheaves $\mathcal{I}_X$, $\mathcal{O}_X$ are coherent sheaves on $M$. First we prove $\mathcal{I}_X$ is coherent. The question being local we may suppose that $X$ is the subspace $\mathbb{C}^k$ of $\mathbb{C}^m$ defined by $z_{k+1}=\cdots=z_m=0$. If $z\notin\mathbb{C}^k$, $\mathcal{I}_{X,z}=\mathcal{O}_z$.
+% Source PDF page 146; printed page 137
+For $z\in\mathbb{C}^k$, $\mathcal{I}_{X,z}=(z_{k+1},\ldots,z_m)$\IndexMark{idx-092}{coherence of ideal sheaf@Coherence of ideal sheaf} and clearly $z_{k+1},\ldots,z_m$ give a finite set of generators for $\mathcal{I}_X$ in a neighbourhood of $z$. Hence $\mathcal{I}_X$ is of finite type and so coherent by Theorem~\ref{theorem:7.1.6}. Since $\mathcal{O}_X=\mathcal{O}_M/\mathcal{I}_X$, we see from Theorem~\ref{theorem:7.1.9}, 2, that $\mathcal{O}_X$ is coherent.
+
+4. Let $X$ be an analytic hypersurface in the complex manifold $M$. Then $\mathcal{I}_X$, $\mathcal{O}_X$ are coherent. Theorem~\ref{theorem:3.5.16} implies that $\mathcal{I}_X$ is coherent. $\mathcal{O}_X$ is coherent as in Example 3.
+
+5. Let $X$ be an analytic subset of $M$. Then $\mathcal{I}_X$, $\mathcal{O}_X$ are coherent. The proof of this result is outside the scope of these notes depending, as it does, on the local parametrization theorem for analytic sets. The proof may be found in H. Cartan \cite{bib:II:cartan-h:1}, Gunning \cite[page 43]{bib:II:gunning-r-c:1}, Gunning and Rossi \cite{bib:II:gunning-r-c-and-rossi-h:1}, R. Narasimhan \cite{bib:II:narasimhan-r:1}, Whitney \cite{bib:II:whitney-h:1}.
+
+6. Let $f:M\to N$ be a holomorphic map of complex manifolds and $\mathcal{F}$ be a coherent sheaf on\IndexMark{idx-093}{coherence of ideal sheaf@Coherence of ideal sheaf!inverse image@inverse image} $N$. Then $f^*\mathcal{F}$ is a coherent sheaf on $M$. This result follows by representing $\mathcal{F}$ locally as the cokernel of a map $\mathcal{O}^p\to\mathcal{O}^q$ and then using the right exactness of $f^*$ -- see Exercise 12, \hyperref[sec:6:1]{\S1, Chapter 6}.
+
+7. Suppose $\mathcal{F}$ is a coherent sheaf on $M$ and $f:M\to N$ is holomorphic. In general $f_*\mathcal{F}$ will not be a coherent sheaf on $N$. However, if $f$ is proper\IndexMark{idx-094}{coherence of ideal sheaf@Coherence of ideal sheaf!direct image@direct image}, a deep and difficult theorem of Grauert asserts that $f_*\mathcal{F}$ is coherent. Proofs of this important result may be found in Forster and Knorr \cite{bib:II:forster-o-and-knorr-k:1}, Kiehl and Verdier \cite{bib:II:kiehl-r-and-verdier-j-l:1}. See also R. Narasimhan \cite{bib:II:narasimhan-r:2}. In case $f$ is a \emph{finite} map, the reader may consult Grauert and Remmert \cite{bib:II:grauert-h-and-remmert-r:1}, Gunning \cite{bib:II:gunning-r-c:1}, R. Narasimhan \cite{bib:II:narasimhan-r:1}.
+
+8. Let $\mathcal{F}$ be a coherent sheaf on $M$. Then $\operatorname{supp}(\mathcal{F})$\IndexMark{idx-594}{support@Support!of coherent sheaf@of coherent sheaf} is an analytic subset of $M$ (for the definition of $\operatorname{supp}(\mathcal{F})$, see Exercise 6, \hyperref[sec:6:1]{\S1, Chapter 6}). To see this note that we can find an open neighbourhood $U$ of any $x\in M$ and exact sequence
+\[
+\mathcal{O}_U^p\xrightarrow{s_0}\mathcal{O}_U^q\xrightarrow{s_1}\mathcal{F}_U\to0.
+\]
+Now $\operatorname{supp}(\mathcal{F})\cap U=\{x\in U:s_{1,x}\neq0\}=\{x\in U:s_{0,x}\text{ is not of maximal rank}\}$. Now $s_0$ may be represented as a $q\times p$ matrix with holomorphic entries defined on $U$. The condition that $s_{0,x}$ is not of maximal
+% Source PDF page 147; printed page 138
+rank is given by a finite set of algebraic equations in the components of $s_{0,x}$. Hence the set of points where $s_{0,x}$ fails to be of maximal rank is an analytic subset of $U$. A similar argument will show that the set of points in $M$ where $\mathcal{F}$ is not locally free is an analytic subset of $M$.
+
+9. Let $X$ be a complex submanifold of $M$ and let $\mathcal{O}_X$ denote $\mathcal{O}_X|X$ as well as the sheaf $\mathcal{O}_X$ on $M$. Suppose $\mathcal{F}$ is a sheaf of $\mathcal{O}_X$-modules on $X$ and $\widetilde{\mathcal{F}}$ denote the trivial extension of $\mathcal{F}$ to $M$. Clearly $\widetilde{\mathcal{F}}$ has the structure of an $\mathcal{O}_X$-module and, since $\mathcal{O}_X$ is an $\mathcal{O}_M$-module, $\widetilde{\mathcal{F}}$ has the structure of an $\mathcal{O}_M$-module. We claim that $\widetilde{\mathcal{F}}$ is coherent as a sheaf of $\mathcal{O}_M$-modules if and only if $\mathcal{F}$ is coherent as a sheaf of $\mathcal{O}_X$-modules. Well suppose $\mathcal{F}$ is coherent as a sheaf of $\mathcal{O}_X$-modules. Obviously $\widetilde{\mathcal{F}}|M\setminus X$ is coherent. Let $x\in X$. We may find an open neighbourhood $U$ of $x$ in $X$ and exact sequence
+\[
+\mathcal{O}_U^q\to\mathcal{O}_U^p\to\mathcal{F}_U\to0.
+\]
+Taking any open neighbourhood $V$ of $x$ in $M$ such that $V\cap X=U$ and taking trivial extensions we obtain the exact sequence
+\[
+(\mathcal{O}_X|V)^q\to(\mathcal{O}_X|V)^p\to\widetilde{\mathcal{F}}_V\to0.
+\]
+But $\mathcal{O}_X^p$, $\mathcal{O}_X^q$ are coherent sheaves on $M$ and so by Theorem~\ref{theorem:7.1.9}, 4, $\widetilde{\mathcal{F}}_V$ is coherent. Hence $\widetilde{\mathcal{F}}$ is coherent. The converse follows easily from Example 6.
+
+10. Let $\mathcal{F}\xrightarrow{a}\mathcal{G}\xrightarrow{b}\mathcal{H}$ be a sequence of coherent sheaves on $M$ and suppose $ba=0$ and the sequence is exact at the point $x\in M$ (that is at the stalk level). Then the sequence is exact on some open neighbourhood of $x$. To see this we note that $\ker(b)/\operatorname{Im}(a)$ is coherent with zero stalk at $x$. Now apply the result of Example 8.
+\paragraph{Exercises.}
+\begin{enumerate}[label=\arabic*.]
+\item Let $\mathcal{F},\mathcal{G}$ be analytic sheaves on $X$ with $\mathcal{F}$ coherent. Show that for all $x\in X$, $\mathcal{H}om_{\mathcal{O}}(\mathcal{F},\mathcal{G})_x\approx\operatorname{Hom}_{\mathcal{O}_x}(\mathcal{F}_x,\mathcal{G}_x)$. Deduce that if $\mathcal{F}$ and $\mathcal{G}$ are coherent then so is $\mathcal{H}om_{\mathcal{O}}(\mathcal{F},\mathcal{G})$.
+% Source PDF page 148; printed page 139
+\item Remmert's proper mapping theorem states that the image of an analytic subset by a proper analytic map is an analytic set. Deduce this result from Grauert's direct image theorem and Example 8.
+\item Let $(X,\mathcal{O}_X)$ be an analytic space (\hyperref[sec:6:1]{\S1, Chapter 6}). Using the result described in Example 5, show that $\mathcal{O}_X^p$ is a coherent sheaf of $\mathcal{O}_X$-modules, $p\geq1$. Describe the appropriate extension of Example 9 to this more general framework.
+\item Show that $f_*\mathcal{F}$ need not be of finite type if $f$ is not proper, $\mathcal{F}$ coherent. (Hint: Take $X=\mathbb{C}$, $Y$ a point and $\mathcal{F}=\mathcal{O}_X$).
+\item Let $\mathcal{F}$ be a coherent sheaf of $\mathcal{O}_X$-modules on the complex manifold $X$. Suppose that $\mathcal{F}_x$ is a free $\mathcal{O}_x$-module for every $x\in X$. Prove that $\mathcal{F}$ is locally free.
+\end{enumerate}
+\section{Coherent sheaves on a Stein manifold}\label{sec:7:2}
+Suppose that $E$ is a holomorphic vector bundle on the $m$-dimensional complex manifold $M$. We have the associated $\bar\partial$-complex
+\[
+0\to\Omega(E)\to C^{0,0}(M,E)\xrightarrow{\bar\partial}\cdots\xrightarrow{\bar\partial}C^{0,m}(M,E)\to0.
+\]
+For this section and the remainder of the chapter we shall assume that the $\bar\partial$-complex of any holomorphic vector bundle on a Stein manifold is \emph{exact}. In Chapter 11 we shall give a proof of this fundamental result that depends on the theory of elliptic operators. For the present we remark that we have proved the exactness of the $\bar\partial$-sequence in case $M$ is a polydisc or $\mathbb{C}^n$ and $E$ is trivial (Theorem~\ref{theorem:5.8.2}) and indicated an elementary proof in case $M$ is the Euclidean disc and $E$ is trivial (Exercise, 2, \hyperref[sec:5:8]{\S8, Chapter 5}).
+
+The Dolbeault\IndexMark{idx-205}{dolbeault complex@Dolbeault complex} isomorphisms (Example 5, \hyperref[sec:6:3]{\S3, Chapter 6}) imply that our assumption is equivalent to the vanishing of $H^p(M,\underline E)$, $p\geq1$, for every holomorphic vector bundle $E$ on a Stein manifold $M$. Since the sheaf of sections of a holomorphic vector bundle is coherent we see that our assumption amounts to a special case of the second of the remarkable and famous Theorems A and B of H. Cartan:
+% Source PDF page 149; printed page 140
+\begin{originaltheorem}{Theorem}{A}\FieldTarget{theorem:7.2.A}{A}
+Let $\mathcal{F}$ be a coherent sheaf on the Stein manifold $M$. Given $x\in M$, we may find $s_1,\ldots,s_p\in H^0(M,\mathcal{F})=\mathcal{F}(M)$ such that $s_{1,x},\ldots,s_{p,x}$ generate $\mathcal{F}_x$ as an $\mathcal{O}_x$-module.
+\end{originaltheorem}
+\begin{originaltheorem}{Theorem}{B}\FieldTarget{theorem:7.2.B}{B}
+Let $\mathcal{F}$ be a coherent sheaf on the Stein manifold $M$. Then $H^q(M,\mathcal{F})=0$, $q\geq1$.
+\end{originaltheorem}
+The main aim of this section is to prove Theorems A and B, granted our assumption that Theorem B is true for locally free sheaves of $\mathcal{O}$-modules.
+
+Theorems A and B have many profound applications.
+\paragraph{Examples.}
+1. Let $X$ be an analytic subset of the Stein manifold $M$. Then $X$ may be represented as the common zero locus of a set of analytic functions on $M$. For this it is enough to show that for each $x\in M\setminus X$, there exists $f\in A(M)$ such that $f\in\mathcal{I}_X(M)$ and $f(x)\neq0$. Set $\mathcal{I}=\mathcal{I}_X$ and let $\mathcal{I}_x$ denote the ideal sheaf of the analytic set $X\cup\{x\}$. Then $\mathcal{I}_x$ is a subsheaf of $\mathcal{O}$ and $\mathcal{I}/\mathcal{I}_x=\mathbb{C}(x)$, where $\mathbb{C}(x)$ denotes the ``skyscraper'' sheaf whose stalk is zero except at $x$ where it equals $\mathbb{C}$. Now, by Cartan\IndexMark{idx-061}{cartan theorems a and b@Cartan theorems A and B}'s coherence theorem, $\mathcal{I}_x$ is coherent and so, by Theorem B, $H^1(M,\mathcal{I}_x)=0$. Therefore, taking the cohomology sequence of the short exact sequence $0\to\mathcal{I}_x\to\mathcal{I}\to\mathbb{C}(x)\to0$ we obtain the exact sequence
+\[
+\mathcal{I}(M)\to\mathbb{C}\to0.
+\]
+Hence, for any $a\in\mathbb{C}$, there exists $f\in\mathcal{I}(M)\subset A(M)$ such that $f(x)=a$. Choosing $a\neq0$, our proof is complete. In fact a much sharper result is true. It can be shown that if $M$ is of dimension $m$, there exist $f_1,\ldots,f_m\in A(M)$ such that $X=Z(f_1,\ldots,f_m)$. The reader may find a proof in Forster and Ramspott \cite{bib:II:forster-o-and-ramspott-k-j:1} (see also Grauert \cite{bib:II:grauert-h:2}).
+
+2. Let $M$ be a complex manifold and $\mathcal{U}=\{U_i:i\in I\}$ be an open cover of $M$ by Stein manifolds. Then, exactly as in the proof of Example 15, \hyperref[sec:2:4]{\S4, Chapter 2}, $U_{i_0\cdots i_k}=U_{i_0}\cap\cdots\cap U_{i_k}$ is Stein for all $i_0,\ldots,i_k\in I$. It follows from Theorem B that if $\mathcal{F}$ is any coherent sheaf on $M$, then any Stein open cover of $M$ is a Leray cover for $\mathcal{F}$.
+% Source PDF page 150; printed page 141
+Before we start on the main work of this section, we show how Theorem B for free sheaves enables us to give a complete solution to the Cousin problems\IndexMark{idx-156}{cousin problems@Cousin problems} on a Stein manifold.
+\begin{originaltheorem}{Theorem}{7.2.1}\FieldTarget{theorem:7.2.1}{7.2.1}
+A Stein manifold is a Cousin I and Cousin A domain.
+\end{originaltheorem}
+\begin{proof}
+Our standing assumption implies that $H^1(M,\mathcal{O})$ $(=H^1(M,\underline{\mathbb{C}}))=0$, $M$ Stein. Hence, as in Example 6, \hyperref[sec:6:3]{\S3, Chapter 6}, $M$ is a Cousin I and Cousin A domain.
+\end{proof}
+\begin{originaltheorem}{Theorem}{7.2.2}\FieldTarget{theorem:7.2.2}{7.2.2}
+Let $d$ be a divisor on the Stein manifold $M$. Then $d$ is a divisor of a meromorphic function on $M$ if and only if $c_1([d])=0$. In particular, $M$ is a Cousin I and Cousin B domain if and only if $H^2(M,\mathbb{Z})=0$.
+\end{originaltheorem}
+\begin{proof}
+Our standing assumption implies that $H^1(M,\mathcal{O})=H^2(M,\mathcal{O})=0$. Hence the Chern class map $c_1:H^1(M,\mathcal{O}^*)\to H^2(M,\mathbb{Z})$ is an isomorphism (see Example 11, \hyperref[sec:6:3]{\S3, Chapter 6}). The result now follows from Example 16, \hyperref[sec:6:3]{\S3, Chapter 6}.
+\end{proof}
+As an immediate consequence of Theorem~\ref{theorem:7.2.2} we have
+\begin{originaltheorem}{Theorem}{7.2.3}\FieldTarget{theorem:7.2.3}{7.2.3}
+Let $X$ be an analytic hypersurface\IndexMark{idx-324}{hypersurface@Hypersurface!in stein manifold@in Stein manifold} in the Stein manifold $M$. Provided that $H^2(M,\mathbb{Z})=0$, there exists $f\in A(M)$ such that
+\begin{enumerate}[label=\arabic*.]
+\item $X=Z(f)$.
+\item $\mathcal{I}_{X,x}=(f_x)$, for all $x\in M$.
+\end{enumerate}
+\end{originaltheorem}
+\paragraph{Remark.} If $X$ is an analytic hypersurface in the $m$-dimensional Stein manifold $M$ and $H^2(M,\mathbb{Z})\neq0$, then it can be shown that $X$ is representable as the common zero locus of not more than $1+[\frac{m}{2}]$ analytic functions on $M$. See Forster and Ramspott \cite[Satz 3]{bib:II:forster-o-and-ramspott-k-j:1}.
+
+We shall give further applications of Theorems A and B in the remainder of the chapter and also in Chapter 12.
+\begin{originaltheorem}{Proposition}{7.2.4}\FieldTarget{proposition:7.2.4}{7.2.4}
+Let $\mathcal{F}$ be a coherent sheaf on the Stein manifold $M$. Suppose that $\mathcal{F}$ admits the (projective) resolution
+% Source PDF page 151; printed page 142
+\[
+0\to\underline E_m\xrightarrow{a_m}\cdots\xrightarrow{a_1}\underline E_0\xrightarrow{a_0}\mathcal{F}\to0,
+\]
+where $E_m,\ldots,E_0$ are holomorphic vector bundles on $M$. Then
+\begin{enumerate}[label=\arabic*.]
+\item $H^q(M,\mathcal{F})=0$, $q\geq1$.
+\item The map $a_0^0:\Omega(E_0)\to\mathcal{F}(M)$ is onto.
+\end{enumerate}
+\end{originaltheorem}
+\begin{proof}
+Set $\mathcal{K}_j=\operatorname{Im}(a_j)$, $0\leq j\leq m$. The exactness of the resolution\IndexMark{idx-509}{resolution projective of coherent sheaf@Resolution (projective) of coherent sheaf} of $\mathcal{F}$ is equivalent to the exactness of the sequences
+\[
+0\to\mathcal{K}_{j+1}\to\underline E_j\to\mathcal{K}_j\to0,\quad j=0,\ldots,m-1.
+\]
+Our standing assumption implies that $H^q(M,\underline E_j)=0$, $q\geq1$, $0\leq j\leq m$. Consider the cohomology sequence of the short exact sequence $0\to\mathcal{K}_m\to\underline E_{m-1}\to\mathcal{K}_{m-1}\to0$. Since $\mathcal{K}_m\cong\underline E_m$, we see easily that $H^q(M,\mathcal{K}_{m-1})=0$, $q\geq1$. Proceeding inductively, we deduce that $H^q(M,\mathcal{K}_j)=0$, $q\geq1$, $j=0,\ldots,m-1$. But $\mathcal{K}_0=\mathcal{F}$ and so we have proved 1. Now take the cohomology sequence of $0\to\mathcal{K}_1\to\underline E_0\xrightarrow{a_0}\mathcal{F}\to0$ to obtain the exact sequence
+\[
+0\to\mathcal{K}_1(M)\to\Omega(E_0)\xrightarrow{a_0^0}\mathcal{F}(M)\to0.
+\]
+This proves 2.
+\end{proof}
+\paragraph{Examples.}
+3. Let $X$ be an analytic hypersurface\IndexMark{idx-325}{hypersurface@Hypersurface!in stein manifold@in Stein manifold} in the Stein manifold $M$ and suppose that $H^2(M,\mathbb{Z})=0$. We claim that $H^q(M,\mathcal{O}_X)=0$, $q\geq1$. Indeed by Theorem~\ref{theorem:7.2.3}, there exists $f\in A(M)$ such that $\mathcal{I}_{X,x}=(f_x)$ for all $x\in M$. Therefore $\mathcal{O}_X$ has the resolution
+\[
+0\to\mathcal{O}_M\xrightarrow{\times f}\mathcal{O}_M\to\mathcal{O}_M/\mathcal{I}_X=\mathcal{O}_X\to0.
+\]
+Now apply Proposition~\ref{proposition:7.2.4}.
+
+4. Let $\mathcal{I}_0$ denote the ideal sheaf of the point $(0,0)\in\mathbb{C}^2$ and set $\mathcal{O}=\mathcal{O}_{\mathbb{C}^2}$, $\mathcal{O}_0=\mathcal{O}/\mathcal{I}_0$. Then $\mathcal{O}_0$ has the resolution
+\[
+0\to\mathcal{O}\xrightarrow{a}\mathcal{O}^2\xrightarrow{b}\mathcal{O}\to\mathcal{O}_0\to0,
+\]
+% Source PDF page 152; printed page 143
+where $a(f)=(z_2f,z_1f)$, $b(f_1,f_2)=z_1f_1-z_2f_2$. Hence, by Proposition~\ref{proposition:7.2.4}, $H^q(\mathbb{C}^2,\mathcal{O}_0)=0$, $q\geq1$.
+\paragraph{Remarks.}
+1. Both the examples above are special instances of a general technique for constructing resolutions of ideal or structure sheaves based on the \emph{Koszul complex}\IndexMark{idx-347}{koszul complex@Koszul complex}\IndexMark{idx-348}{koszul complex@Koszul complex}. For details we refer the reader to Griffiths and Harris \cite{bib:II:griffiths-p-and-harris-j:1} and Hartshorne \cite{bib:II:hartshorne-r:1}. See also the exercises at the end of \hyperref[sec:7:5]{\S5}.
+
+2. Unfortunately it is not true that every coherent sheaf on a Stein manifold admits a resolution by free or even locally free sheaves (see exercise 9). However, we shall prove that a coherent sheaf on a Stein manifold $M$ admits a free resolution over any relatively compact subset of $M$ and this will be a main step in the proof of Theorems A and B.
+
+The next few paragraphs are devoted to a study of the space of sections of a holomorphic vector bundle defined over a domain of holomorphy.
+\begin{originaltheorem}{Proposition}{7.2.5}\FieldTarget{proposition:7.2.5}{7.2.5}
+Let $E$ be a holomorphic vector bundle over the domain of holomorphy $\Omega$ in $\mathbb{C}^n$. Then
+\begin{enumerate}[label=\arabic*.]
+\item Given $e\in E_x$, $x\in\Omega$, there exists $s\in\Omega(E)$ such that $s(x)=e$.
+\item If $\omega$ is any relatively compact open subset of $\Omega$, there exists an exact sequence
+\[
+\mathcal{O}_\omega^r\to\underline E_\omega\to0.
+\]
+\end{enumerate}
+\end{originaltheorem}
+\begin{proof}
+Our proof of 1 goes by induction on $n$. Suppose $n=1$. Let $\mathcal{I}$ denote the ideal sheaf of $\{x\}$. As in example 3 we have the free resolution $0\to\mathcal{O}\xrightarrow{a}\mathcal{O}\to0$ of $\mathcal{I}$, where $a$ is defined as multiplication by $z-x$. Tensoring with $\underline E$, we obtain the exact sequence
+\[
+0\to\underline E\to\underline E^x\to0,
+\]
+% Source PDF page 153; printed page 144
+where $\underline E^x=\mathcal{I}\otimes_{\mathcal{O}}\underline E$ and is the subsheaf of sections of $\underline E$ which vanish at $x$. Taking the cohomology sequence and applying our standing assumption we see that $H^p(\Omega,\underline E^x)=0$, $p\geq1$. Since $\underline E^x$ is a subsheaf of $\underline E$, we have the short exact sequence
+\[
+0\to\underline E^x\to\underline E\xrightarrow{P}E(x)\to0
+\]
+where $E(x)$ is the skyscraper sheaf with stalk $E_x$ at $x$ and zero stalk everywhere else and $P$ evaluates sections at $x$. Taking the cohomology sequence and using the vanishing of $H^1(\Omega,\underline E^x)$, we arrive at the exact sequence
+\[
+0\to\Omega(\underline E^x)\to\Omega(E)\xrightarrow{P}E_x\to0
+\]
+and so $P$ is onto, proving 1. Now suppose the result proven for $n-1$. Without loss of generality suppose $x=0\in\Omega$. Let $H$ denote the intersection of the hyperplane $z_1=0$ with $\Omega$. Since $H$ is obviously holomorphically convex, $H$ is a domain of holomorphy (in $\mathbb{C}^{n-1}$). We let $\mathcal{O}'$ denote the Oka sheaf of $H$ and remark that $\mathcal{O}'\approx{}_{n-1}\mathcal{O}|H$. We have the short exact sequence $0\to\mathcal{O}\xrightarrow{a}\mathcal{O}\xrightarrow{r}\mathcal{O}'\to0$ of sheaves over $\Omega$ where $a$ corresponds to multiplication by $z_1$ and $r$ is restriction of germs to $H$. Tensoring this sequence with $\underline E$ we obtain the short exact sequence
+\[
+0\to\underline E\to\underline E\xrightarrow{r}\underline E_H\to0
+\]
+where $\underline E_H$ is the sheaf of sections of the holomorphic bundle $E$ restricted to $H$. Taking the cohomology sequence we arrive at the short exact sequence
+\[
+0\to\Omega(E)\to\Omega(E)\xrightarrow{r}\Omega(E|H)\to0.
+\]
+By our inductive assumption, there exists $\widetilde s\in\Omega(E|H)$ such that $s(x)=e$. Since $r$ is onto, it follows that there exists $s\in\Omega(E)$ such that $s(x)=e$, completing the inductive step and proving 1.
+
+For the proof of 2 we note that for each $x\in\omega$, there exist, by 1, $s_1,\ldots,s_q\in\Omega(E)$ such that $\{s_1(x),\ldots,s_q(x)\}$ is a basis for $E_x$
+% Source PDF page 154; printed page 145
+$q=\dim(E)$. By the compactness of $\bar\omega$, we may therefore find sections $s_1^1,\ldots,s_q^1,s_1^2,\ldots,s_q^p\in\Omega(E)$ such that for any $x\in\bar\omega$, $\{s_1^1(x),\ldots,s_q^p(x)\}$ spans $E_x$. Taking $r=pq$, we see that the map $c=(s_1^1,\ldots,s_q^p):\mathcal{O}^r\to\underline E$ is onto.
+\end{proof}
+The next theorem provides a key step towards the proof of Theorem B.
+\begin{originaltheorem}{Theorem}{7.2.6}\FieldTarget{theorem:7.2.6}{7.2.6}
+Let $\mathcal{F}$ be a coherent sheaf on the Stein manifold $M$. Then there exists a free resolution of\IndexMark{idx-510}{resolution projective of coherent sheaf@Resolution (projective) of coherent sheaf} $\mathcal{F}$ over any relatively compact open subset $\omega$ of $M$:
+\[
+0\to\mathcal{O}_\omega^{p_m}\to\cdots\to\mathcal{O}_\omega^{p_0}\to\mathcal{F}\to0.
+\]
+\end{originaltheorem}
+Our proof of Theorem~\ref{theorem:7.2.6} will depend on several lemmas. Essentially, we shall first prove the theorem in case $M$ is a domain of holomorphy (hard) and then, using a lemma of Rossi, deduce the general case (easy).
+\begin{originaltheorem}{Definition}{7.2.7}\FieldTarget{definition:7.2.7}{7.2.7}
+An open subset $P$ of the Stein manifold $M$ is called an \emph{analytic polyhedron}\IndexMark{idx-022}{analytic polyhedron@Analytic polyhedron} if there exist $f_1,\ldots,f_k\in A(M)$ such that $P$ is a union of connected components of the set $\{z\in M:|f_j(z)|<1,\ j=1,\ldots,k\}$.
+\end{originaltheorem}
+\paragraph{Remark.} Just as in \hyperref[sec:2:4]{\S4, Chapter 2}, it is easily verified that an analytic polyhedron is holomorphically convex and therefore a Stein manifold.
+\begin{originaltheorem}{Lemma}{7.2.8}\FieldTarget{lemma:7.2.8}{7.2.8}
+Let $U$ be an open neighbourhood of the compact subset $K$ of the Stein manifold $M$. Suppose that $K$ is $A(M)$-convex (that is, $\widehat K=K$). Then we may find an analytic polyhedron $P\subset U$ which is a neighbourhood of $K$.
+\end{originaltheorem}
+\begin{proof}
+Without loss of generality we may suppose that $U$ is relatively compact. For each $x\in\partial U$, there exists $F\in A(M)$ such that $|F(x)|>1$, $\|F\|_K<1$. By the compactness of $\partial U$, we may therefore find $F_1,\ldots,F_q\in A(M)$ such that $\|F_1\|_K,\ldots,\|F_q\|_K<1$ and $\max|F_j(x)|>1$ for every $x\in\partial U$. Since $Q=\{z\in M:|F_j(z)|<1,\ j=1,\ldots,q\}$ is disjoint from $\partial U$, we may take $P=Q\cap U$.
+\end{proof}
+% Source PDF page 155; printed page 146
+Suppose $K$ is a compact $A(M)$-convex subset of the Stein manifold $M$. We say that $K$ possesses property (R\IndexMark{idx-474}{property r@Property (R)}) if given any open neighbourhood $U$ of $K$ and coherent sheaf $\mathcal{F}$ on $U$, we can find an open neighbourhood $V$ of $K$ contained in $U$ and exact sequence
+\[
+\mathcal{O}_V^p\to\mathcal{F}_V\to0
+\]
+($V$ and $p$ will depend on $\mathcal{F}$).
+\begin{originaltheorem}{Lemma}{7.2.9}\FieldTarget{lemma:7.2.9}{7.2.9}
+Suppose that the compact $A(M)$-convex subset $K$ possesses property (R). Then given an open neighbourhood $U$ of $K$ and coherent sheaf $\mathcal{F}$ on $U$, we can find a Stein open neighbourhood $\omega\subset U$ of $K$ and free resolution of\IndexMark{idx-511}{resolution projective of coherent sheaf@Resolution (projective) of coherent sheaf} $\mathcal{F}$ over $\omega$:
+\[
+0\to\mathcal{O}_\omega^{p_m}\to\cdots\to\mathcal{O}_\omega^{p_0}\xrightarrow{a_0}\mathcal{F}_\omega\to0.
+\]
+\end{originaltheorem}
+\begin{proof}
+Since $K$ possesses property (R), we may find an open neighbourhood $U_0\subset U$ of $K$ and exact sequence $\mathcal{O}_{U_0}^{p_0}\xrightarrow{a_0}\mathcal{F}_{U_0}\to0$. Now $\operatorname{Ker}(a_0)$ is a coherent sheaf on $U_0$ and so, since $K$ possesses property (R), we have an exact sequence $\mathcal{O}_{U_1}^{p_1}\xrightarrow{a_1}\operatorname{Ker}(a_0)_{U_1}\to0$ over some open neighbourhood $U_1\subset U_0$ of $K$. That is, we have the exact sequence $\mathcal{O}_{U_1}^{p_1}\xrightarrow{a_1}\mathcal{O}_{U_1}^{p_0}\xrightarrow{a_0}\mathcal{F}_{U_1}\to0$. We now proceed inductively, just as in the proof of Corollary~\ref{corollary:7.1.8}, to obtain a free resolution
+\[
+0\to\mathcal{O}_{U_m}^{p_m}\to\cdots\to\mathcal{O}_{U_m}^{p_0}\to\mathcal{F}_{U_m}\to0\tag{*}\label{eq:7:star:2}
+\]
+of $\mathcal{F}$ over some open neighbourhood $U_m\subset U$ of $K$. Finally, by Lemma~\ref{lemma:7.2.8} we may find a Stein neighbourhood $\omega\subset U_m$ of $K$ and restricting \eqref{eq:7:star:2} to $\omega$ we obtain the required result.
+\end{proof}
+\begin{originaltheorem}{Corollary}{7.2.10}\FieldTarget{corollary:7.2.10}{7.2.10}
+Suppose that the compact $A(M)$-convex compact subset $K$ possesses property (R) and that $\mathcal{F}$ is a coherent sheaf defined on some open neighbourhood of $K$. Then
+\begin{enumerate}[label=\arabic*.]
+\item For every open neighbourhood $V$ of $K$, we may find a Stein open neighbourhood $\omega\subset V$ of $K$ such that $H^q(\omega,\mathcal{F}_\omega)=0$, $q\geq1$.
+% Source PDF page 156; printed page 147
+\item If $f,f_1,\ldots,f_k$ are sections of $\mathcal F$ over some open neighbourhood $V$ of $K$ and if $f_1,\ldots,f_k$ generate $\mathcal F_V$, we may find a (Stein) open neighbourhood $\omega\subset V$ of $K$ and $a_1,\ldots,a_k\in A(\omega)$ such that
+\[
+f=\sum_{j=1}^k a_jf_j\quad\text{on }\omega.
+\]
+\end{enumerate}
+\end{originaltheorem}
+\begin{proof}
+Both 1 and 2 are immediate from Lemma~\ref{lemma:7.2.9} and Proposition~\ref{proposition:7.2.4}.
+\end{proof}
+We now come to our main lemma.
+\begin{originaltheorem}{Lemma}{7.2.11 (H. Cartan)}\FieldTarget{lemma:7.2.11}{7.2.11}
+Let $K$ be a compact $A(\Omega)$-convex subset of the domain of holomorphy $\Omega$. Suppose that $f\in A(\Omega)$ and that $K_a=\{z\in K:\operatorname{Re}(f(z))=a\}$ possesses property (R) for all $a\in\mathbb R$. Then $K$ possesses property (R).
+\end{originaltheorem}
+\begin{proof}
+Our proof is a combination of that due to H. Cartan together with a twist due to H\"ormander \cite{bib:II:hormander-l:1} which makes use of Theorem B for locally free sheaves.
+
+Let $\mathcal F$ be a coherent sheaf defined on some neighbourhood of $K$. For $-\infty\leq a\leq b\leq+\infty$ we set $K_{a,b}=\{z\in K:a\leq\operatorname{Re}(f(z))\leq b\}$. Certainly $K_{a,b}$ is $A(\Omega)$-convex since the condition $a\leq\operatorname{Re}(f(z))\leq b$ may be equivalently written as $|\exp(f(z))|\leq\exp(b)$; $|\exp(-f(z))|\leq\exp(-a)$.
+
+For sufficiently large negative numbers $a$, $K_{-\infty,a}=\varnothing$ and so $K_{-\infty,a}$ possesses property (R). Let $S$ denote the supremum of numbers $a$ such that $K_{-\infty,a}$ possesses property (R). It is enough to prove $S=+\infty$, since $K_{-\infty,+\infty}=K$.
+
+Suppose $S<+\infty$. Since $K_{S,S}=K_S$ possesses property (R), Proposition~\ref{proposition:7.2.4} and Corollary~\ref{corollary:7.2.10} imply that there exists a Stein open neighbourhood $U_1$ of $K_S$ and $f_1=(f_1^1,\ldots,f_1^p)\in\mathcal F(U_1)^p$, such that $f_1^1,\ldots,f_1^p$ generate $\mathcal F$ as an $\mathcal O$-module over $U_1$. Choose $a<S<b$ so that $K_{a,b}\subset U_1$. By definition of $S$ and Proposition~\ref{proposition:7.2.4}, Corollary~\ref{corollary:7.2.10}, there exists a Stein open neighbourhood $U_2$ of $K_{-\infty,a}$ and $f_2=(f_2^1,\ldots,f_2^q)\in\mathcal F(U_2)^q$ such that $f_2^1,\ldots,f_2^q$ generate $\mathcal F$ as an $\mathcal O$-module over $U_2$. By Corollary~\ref{corollary:7.2.10}, 2, we may find an open Stein neighbourhood $U_3$ of $K_{a,a}$ and $q\times p$ matrix $\theta_1$, with coefficients holomorphic on $U_3$, such that
+% Source PDF page 157; printed page 148
+\[
+\theta_1f_1=f_2\quad\text{on }U_3.
+\]
+Similarly, we may find a $p\times q$ matrix $\theta_2$, with coefficients holomorphic on some Stein open neighbourhood $U_4$ of $K_{a,a}$, such that
+\[
+\theta_2f_2=f_1\quad\text{on }U_4.
+\]
+Shrinking $U_1,\ldots,U_4$ we may suppose that $U_1\cap U_2=U_3=U_4$ (though, of course, the neighbourhoods need no longer be Stein). Since $K_{-\infty,b}$ is $A(\Omega)$-convex and contained in $U_1\cup U_2$, there exists a Stein open neighbourhood $U$ of $K_{-\infty,b}$ which is contained in $U_1\cup U_2$ (Lemma~\ref{lemma:7.2.8}). Replacing the neighbourhoods $U_j$ by their intersections with $U$, we may assume that $U_1\cup U_2=U$ and $U_1\cap U_2=U_3=U_4$.
+
+For $j=1,2$, we define homomorphisms $F_j:\mathcal O_{U_j}^{p+q}\to\mathcal F_{U_j}$ by
+\begin{align*}
+F_1(u_1^1,\ldots,u_{p+q}^1)&=\sum_{i=1}^p u_i^1f_1^i, &u^1&=(u_1^1,\ldots,u_{p+q}^1)\in A(U_1)^{p+q},\\
+F_2(u_1^2,\ldots,u_{p+q}^2)&=\sum_{i=1}^q u_{i+p}^2f_2^i; &u^2&=(u_1^2,\ldots,u_{p+q}^2)\in A(U_2)^{p+q}.
+\end{align*}
+Our construction guarantees that the sequences
+\[
+\mathcal O_{U_j}^{p+q}\xrightarrow{F_j}\mathcal F_{U_j}\to0
+\]
+are exact, $j=1,2$. In the remainder of the proof we show how to identify the sequences over $U_{12}$ to obtain a locally free resolution of $\mathcal F$ over $U$.
+
+Let $I_p$, $I_q$ denote the identity $p\times q$, $q\times q$ matrices respectively. We see that
+\[
+\begin{pmatrix}I_p&0\\\theta_1&I_q\end{pmatrix}\begin{pmatrix}f_1\\0\end{pmatrix}
+=\begin{pmatrix}I_p&\theta_2\\0&I_q\end{pmatrix}\begin{pmatrix}0\\f_2\end{pmatrix}\quad\text{on }U_{12}.
+\]
+Hence
+\[
+\begin{pmatrix}f_1\\0\end{pmatrix}
+=\begin{pmatrix}I_p&0\\-\theta_1&I_q\end{pmatrix}\begin{pmatrix}I_p&\theta_2\\0&I_q\end{pmatrix}\begin{pmatrix}0\\f_2\end{pmatrix}.
+\]
+% Source PDF page 158; printed page 149
+Let $\theta:U_{12}\to\operatorname{GL}(p+q,\mathbb C)$ denote the holomorphic matrix function defined by
+\[
+\theta=\begin{pmatrix}I_p&0\\-\theta_1&I_q\end{pmatrix}\begin{pmatrix}I_p&\theta_2\\0&I_q\end{pmatrix}.
+\]
+Observe that, over $U_{12}$, we have $F_1'=\theta F_2'$, where the prime denotes transpose. Therefore, $F_1=F_2\theta'$. Hence, if $u^j\in A(U_j)^{p+q}$, $j=1,2$, $F_1u^1=F_2u^2$ if and only if $F_2(\theta'u^1)=F_2u^2$. In particular, we have equality if $u^2=\theta'u^1$. Setting $\phi_{12}=(\theta')^{-1}$, $\phi_{21}=\phi_{12}^{-1}$ we see that $\{\phi_{12},\phi_{21}\}$ are the transition functions for a holomorphic vector bundle $E$ over $U=U_1\cup U_2$ and that the condition $\phi_{21}u^1=u^2$ amounts to saying that $u^1$, $u^2$ are local representatives of a holomorphic section $u$ of $E$ (over $U$). The morphisms $F_1$, $F_2$ determine a homomorphism $\underline E\to\mathcal F_U$ which is surjective since both $F_1$ and $F_2$ are surjective. We now apply Proposition~\ref{proposition:7.2.5}, 2, to deduce that $K_{-\infty,b}$ possesses property (R\IndexMark{idx-475}{property r@Property (R)}). Contradiction. Therefore $S=+\infty$ and $K$ possesses property (R).
+\end{proof}
+\begin{originaltheorem}{Lemma}{7.2.12}\FieldTarget{lemma:7.2.12}{7.2.12}
+Every compact $A(\Omega)$-convex subset $K$ of a domain of holomorphy $\Omega$ in $\mathbb C^n$ possesses property (R).
+\end{originaltheorem}
+\begin{proof}
+The set $\{z\in K:\operatorname{Re}(z_j)=a_j,\ \operatorname{Im}(z_j)=b_j,\ j=1,\ldots,n\}$ possesses property (R) for arbitrary $a_j,b_j\in\mathbb R$ since it either is empty or consists of a single point. By Lemma~\ref{lemma:7.2.11}, the set obtained by dropping one of the conditions $\operatorname{Re}(z_j)=a_j$, $\operatorname{Im}(z_j)=b_j$ still has property (R). Iteration of this argument $2n$ times gives the result.
+\end{proof}
+The first part of the next lemma will enable us easily to extend Lemma~\ref{lemma:7.2.12} to an arbitrary Stein manifold. We shall use the second part to prove a key approximation theorem needed in the proof of Theorem B.
+\begin{originaltheorem}{Lemma}{7.2.13}\FieldTarget{lemma:7.2.13}{7.2.13}
+Let $K$ be a compact $A(M)$-convex subset of the Stein manifold $M$. Then, given an open neighbourhood $U$ of $K$, we may find a Stein open neighbourhood $V\subset U$ of $K$ and holomorphic map $F:M\to\mathbb C^N$ such that
+% Source PDF page 159; printed page 150
+\begin{enumerate}[label=\arabic*.]
+\item $F$ maps $V$ biholomorphically onto a closed submanifold $P$ of the unit Euclidean disc $E=\{(z_1,\ldots,z_N):\sum_{i=1}^N|z_i|^2\}$ of $\mathbb C^N$.
+\item For $p\geq1$, $H^p(E,\mathcal I_P)=0$ ($\mathcal I_P$ denotes the ideal sheaf of $P$).
+\end{enumerate}
+\end{originaltheorem}
+\begin{proof}[Proof (Rossi \cite{bib:II:rossi-h:1})]
+Without loss of generality we may suppose that $U$ is relatively compact. For each $x\in\bar U$, we may find $f_1,\ldots,f_m\in A(M)$ which define local coordinates at $x$. Hence, by the compactness of $\bar U$, we may find a finite set $h_1,\ldots,h_p\in A(M)$ which give local coordinates at every point $x\in\bar U$. In particular, we may find an open neighbourhood $W$ of the diagonal in $\bar U\times\bar U$ such that if $x,y\in W$, $x\ne y$, there exists an $h_j$ with $h_j(x)\ne h_j(y)$. For each $x,y\in\bar U\times\bar U\setminus W$, we can find $f\in A(M)$ with $f(x)\ne f(y)$. Therefore since $\bar U\times\bar U\setminus W$ is compact we may find a finite set $h_{p+1},\ldots,h_r\in A(M)$ which separates points in $\bar U\times\bar U\setminus W$. We see at once that the set $h_1,\ldots,h_r$ separates points of $\bar U$ and gives local coordinates at every point of $\bar U$. In particular, the map $h=(h_1,\ldots,h_r):M\to\mathbb C^r$ restricts to an injective holomorphic immersion on some neighbourhood of $\bar U$. Multiplying $h$ by a sufficiently small scalar we may in addition suppose that
+\[
+\|h\|_K^2=\sum_{j=1}^r\|h_j\|_K^2<\tfrac12.
+\]
+Just as in the proof of Lemma~\ref{lemma:7.2.8}, we may find $f_1,\ldots,f_k\in A(M)$ such that $\|f_j\|_K<1$, $1\leq j\leq k$ and $\max_j|f_j(z)|>1$, all $z\in\partial U$. For positive integers $q$, define $g_q:M\to\mathbb R$ by
+\[
+g_q(z)=\sum_{j=1}^k|f_j^q|^2.
+\]
+Fix a value of $q$ so large that $\|g_q\|_K<\tfrac12$ and $|g_q(z)|>1$, $z\in\partial U$. For $z\in M$, define
+\[
+G(z)=g_q(z)+\sum_{j=1}^r|h_j(z)|^2
+\]
+and let $V=\{z\in U:G(z)<1\}$. Our construction guarantees that $V$ is an open neighbourhood of $K$ with $\bar V\subset U$. The map $F:M\to\mathbb C^{r+k}$ defined by $F=(h_1,\ldots,h_r,f_1^q,\ldots,f_k^q)$, maps $V$ biholomorphically onto a closed submanifold $P$ of $E$. In particular $P$ is Stein, since $E$ is Stein, and so $V$ is Stein.
+% Source PDF page 160; printed page 151
+To complete the proof, notice that for $\epsilon$ small and positive, $V_\epsilon=\{z\in U:G(z)<1+\epsilon\}$ will be mapped biholomorphically by $F$ onto a closed submanifold $P_\epsilon$ of the Euclidean disc $E_\epsilon$ of radius $1+\epsilon$. Now $\mathcal I_{P_\epsilon}|E=\mathcal I_P$ and so, since $\bar E$ is an $A(E_\epsilon)$-convex compact subset of $E_\epsilon$, Lemma~\ref{lemma:7.2.12} and Corollary~\ref{corollary:7.2.10} imply that $H^p(E,\mathcal I_P)=0$, $p\geq1$.
+\end{proof}
+\begin{proof}[Proof of Theorem~\ref{theorem:7.2.6}]
+Let $\omega$ be a relatively compact Stein open subset of $M$. Then $K=\widehat{\bar\omega}$ is a compact $A(M)$-convex subset of $M$. By Lemma~\ref{lemma:7.2.13}, we may find a Stein open neighbourhood $V$ of $K$ and holomorphic map $F$ of $M$ into some $\mathbb C^N$ such that $F$ maps $V$ biholomorphically onto a closed submanifold $P$ of the unit Euclidean disc $E$ in $\mathbb C^N$. Since $F$ maps $V$ biholomorphically onto $P$, $F_*\mathcal F_V$ is a coherent sheaf of $F_*\mathcal O_V=\mathcal O_P$-modules on $P$. Let $\widetilde{\mathcal F}$ denote the trivial extension of $F_*\mathcal F_V$ to $E$. $\widetilde{\mathcal F}$ is a coherent sheaf of $\mathcal O_E$-modules. Choose $\epsilon>0$ so that $(F|V)^{-1}E_\epsilon\supset K$, where $E_\epsilon$ denotes the open Euclidean disc of radius $1-\epsilon$ in $\mathbb C^N$. By Lemmas~\ref{lemma:7.2.9}, \ref{lemma:7.2.11}, we may find a free resolution $0\to\mathcal O_{E_\epsilon}^{p_m}\to\cdots\to\mathcal O_{E_\epsilon}^{p_0}\to\widetilde{\mathcal F}_{E_\epsilon}\to0$ of $\widetilde{\mathcal F}$ over $E_\epsilon$. Restrict the resolution to $P_\epsilon=E_\epsilon\cap P$ and apply Exercise 9, \hyperref[sec:7:1]{\S1} to obtain a free $\mathcal O_P$-resolution of $F_*\mathcal F$ over $P_\epsilon$. Pull back by $F$ to obtain a free $\mathcal O_M$-resolution of $\mathcal F$ over $(F|V)^{-1}(E_\epsilon)\supset K$. We have shown that $\mathcal F$ has a free resolution over some open neighbourhood of $K$ and, a fortiori, over $\omega$.
+\end{proof}
+As an immediate corollary of Theorem~\ref{theorem:7.2.6} we have
+\begin{originaltheorem}{Lemma}{7.2.14}\FieldTarget{lemma:7.2.14}{7.2.14}
+Every compact $A(M)$-convex subset $K$ of a Stein manifold $M$ possesses property (R\IndexMark{idx-476}{property r@Property (R)}).
+\end{originaltheorem}
+\begin{originaltheorem}{Proposition}{7.2.15}\FieldTarget{proposition:7.2.15}{7.2.15}
+Let $\mathcal F$ be a coherent sheaf on the Stein manifold $M$. Then $H^q(M,\mathcal F)=0$, $q\geq2$.
+\end{originaltheorem}
+\begin{proof}
+Using Lemma~\ref{lemma:7.2.8} we may choose an open cover $\mathcal U=\{U_i:i=1,2,\ldots\}$ of $M$ by relatively compact Stein open subsets of $M$ satisfying
+\[
+1.\quad\bar U_n\subset U_{n+1},\ n\geq1;\qquad2.\quad\bigcup_{n=1}^\infty U_n=M.
+\]
+By Example 2 and Theorem~\ref{theorem:7.2.6}, $\mathcal U$ is a Leray cover of $M$ for $\mathcal F$. Hence $H^q(M,\mathcal F)\approx H^q(\mathcal U,\mathcal F)$, $q\geq0$. Suppose $A\in Z^q(\mathcal U,\mathcal F)$. For $n\geq1$, let $\mathcal U_n=\{U_j:j=1,\ldots,n\}$ and $A_n$ denote the restriction of $A$ to $\mathcal U_n$. Since $\mathcal U_n$ is a Leray cover of $U_n$ for $\mathcal F$ and $H^q(U_n,\mathcal F)=0$, $q\geq1$, we
+% Source PDF page 161; printed page 152
+have $H^q(\mathcal U_n,\mathcal F)=0$, $q\geq1$. Now $A_n\in Z^q(\mathcal U_n,\mathcal F)$ and so there exists $b_n\in C^{q-1}(\mathcal U_n,\mathcal F)$ such that $D(b_n)=A_n$. Extend $b_n$ to $C^{q-1}(\mathcal U,\mathcal F)$ by setting $b_n|U_j=0$, $j>n$. We construct inductively a sequence $B_n\in C^{q-1}(\mathcal U,\mathcal F)$ satisfying
+\[
+1.\quad B_n|U_j=B_j|U_j,\ j\leq n;\qquad2.\quad A_n=D(B_n)|\mathcal U_n.
+\]
+Define $B_1=b_1$ and suppose $B_1,\ldots,B_n$ have been constructed. We have $D((b_{n+1}-B_n)|\mathcal U_n)=0$. So, provided that $q-1\geq1$, there exists $C_n\in C^{q-2}(\mathcal U_n,\mathcal F)$ such that $D(C_n)=(b_{n+1}-B_n)|\mathcal U_n$. Extend $C_n$ to $C^{q-2}(\mathcal U,\mathcal F)$ by taking $C_n|U_j=0$, $j>n$. We define $B_{n+1}=b_{n+1}-D(C_n)$. Finally define $B\in C^{q-1}(\mathcal U,\mathcal F)$ by $B|U_j=B_j$. Clearly $D(B)=A$.
+\end{proof}
+The proof of Proposition~\ref{proposition:7.2.15} clearly breaks down if $q=1$ and we have to use an approximation theorem for this case. First we need to topologise\IndexMark{idx-607}{topology@Topology!on sections of a coherent sheaf@on sections of a coherent sheaf} the space of sections of a coherent sheaf.
+
+Let $K$ be a compact $A(M)$-convex subset of the Stein manifold $M$ and $\mathcal F$ be a coherent sheaf on $M$. By Proposition~\ref{proposition:7.2.4} and Theorem~\ref{theorem:7.2.6} we may find sections $s_1,\ldots,s_k\in\mathcal F(K)$ which generate $\mathcal F$ as an $\mathcal O$-module over $K$ (see also Lemma~\ref{lemma:6.1.12}). Let $s\in\mathcal F(K)$. Define
+\[
+|s|_K=\inf\left\{\max_j\|c_j\|_K:s=\sum_{j=1}^k c_js_j,\ c_j\in\mathcal O(K)\right\}.
+\]
+The seminorm $|\ | _K$ may depend on the choice of generators $s_1,\ldots,s_k$ but another choice of generators gives an equivalent seminorm since the two sets of generators are related by a matrix with holomorphic entries analytic on $K$, Corollary~\ref{corollary:7.2.10}.
+\begin{originaltheorem}{Lemma}{7.2.16}\FieldTarget{lemma:7.2.16}{7.2.16}
+Let $s\in\mathcal F(K)$ and suppose that $|s|_K=0$. Then $s_z=0$, for all $z\in\mathring K$.
+\end{originaltheorem}
+\begin{proof}
+Choose generators $s_1,\ldots,s_k\in\mathcal F(K)$ for $\mathcal F$ over $K$ and suppose $s=\sum_{j=1}^k c_js_j$ on $K$. If $|s|_K=0$, we may find for every $\epsilon>0$, $c_j^\epsilon\in\mathcal O(K)$ such that $s=\sum_{j=1}^k c_j^\epsilon s_j$ and $\|c_j^\epsilon\|_K<\epsilon$, $1\leq j\leq k$. We certainly have
+\[
+(c_1-c_1^\epsilon,\ldots,c_k-c_k^\epsilon)_z\in\mathcal R(s_1,\ldots,s_k)_z,\quad z\in K.\tag{*}\label{eq:7:star:3}
+\]
+Fix $z\in\mathring K$ and let $P_1,\ldots,P_q\in\mathcal R(s_1,\ldots,s_k)_z$ be a set of generators over $\mathcal O_z$ for $\mathcal R(s_1,\ldots,s_k)_z$. By Theorem~\ref{theorem:3.6.2} and the Oka Theorem
+% Source PDF page 162; printed page 153
+(Theorem~\ref{theorem:7.1.6}), there exists an open neighbourhood $D\subset\mathring K$ of $z$ such that the sequence
+\[
+A_B(D)^q\xrightarrow{P}\mathcal R_B(s_1,\ldots,s_k)(D)\to0
+\]
+is \emph{split} exact (``B'' denotes bounded sections). In particular, letting $\epsilon\to0$ in (*), we see that $(c_1,\ldots,c_k)|D\in\operatorname{Im}(P)=\mathcal R(s_1,\ldots,s_k)(D)$. But therefore $s_y=0$, $y\in D$. Hence the result. Of course, our argument is just the closure of modules theorem\IndexMark{idx-088}{closure of modules theorem@Closure of modules theorem}, Exercise 3, \hyperref[sec:3:6]{\S6, Chapter 3}.
+\end{proof}
+Let $(K_n)_{n\geq1}$ be a normal exhaustion of $M$ by compact $A(M)$-convex subsets $K_n$ (see \hyperref[sec:2:4]{\S4, Chapter 2} and note that we require $K_n\subset\mathring K_{n+1}$, $n\geq1$). For each $n$ choose sections in $\mathcal F(K_n)$ which generate $\mathcal F$ over $K_n$ and let $|\ |_n=|\ |_{K_n}$ denote the corresponding seminorm. We take the topology on $H^0(M,\mathcal F)$ defined by the seminorms $|\ |_n$, $n\geq1$. It is quite straightforward to verify that any two normal exhaustions of $M$ will give rise to the same topology on $H^0(M,\mathcal F)$.
+\begin{originaltheorem}{Lemma}{7.2.17}\FieldTarget{lemma:7.2.17}{7.2.17}
+Suppose that we are given sections $f_n\in\mathcal F(K_n)$, $n\geq1$, such that for $p\geq1$, $|f_n-f_m|_p\to0$, $n,m\to\infty$. Then there exists a unique section $F\in\mathcal F(M)$ such that $|F-f_n|_p\to0$, $n\to\infty$, $p\geq1$.
+\end{originaltheorem}
+\begin{proof}
+Fix $p\geq1$ and let $s_1,\ldots,s_k\in\mathcal F(K_{p+1})$ be sections defining $|\ |_{p+1}$. Choose integers $n_1\leq n_2\leq\cdots$ such that
+\[
+|f_{n_{i+1}}-f_{n_i}|_{p+1}\leq2^{-i},\quad i\geq1.
+\]
+Set $u_0=f_{n_1}$, $u_i=f_{n_{i+1}}-f_{n_i}$, $i\geq1$. Choose $c_{ij}\in\mathcal O(K_{p+1})$ such that $u_i=\sum_{j=1}^k c_{ij}s_j$ and $\max_j\|c_{ij}\|_{K_{p+1}}\leq|u_i|_{p+1}+2^{-i}\leq2^{-i+1}$. Since $\sum_{i=1}^\infty\|c_{ij}\|_{K_{p+1}}<\infty$, the series $\sum_{i=0}^\infty c_{ij}$ converges uniformly on $K_{p+1}$ to a function $C_j$ which is analytic on $\mathring K_{p+1}$, $1\leq j\leq k$. Since $K_p\subset\mathring K_{p+1}$, $C_j\in\mathcal O(K_p)$. Define $F_p=\sum_{j=1}^k C_js_j$ and observe that
+\[
+|F_p-f_{n_{q+1}}|_p=\left|F_p-\sum_{i=0}^q u_i\right|_p\to0\quad\text{as }q\to\infty.
+\]
+% Source PDF page 163; printed page 154
+Now by the triangle-inequality it is clear that $|F_p-f_n|_p\to0$, $n\to\infty$. Moreover by Lemma~\ref{lemma:7.2.16}, this condition determines $F_p$ uniquely on $\mathring K_p$. In particular, $F_{p+r}|\mathring K_p=F_p|\mathring K_p$, $r\geq0$. Define $F\in\mathcal F(M)$ by $F|\mathring K_p=F_p$.
+\end{proof}
+\begin{originaltheorem}{Theorem}{7.2.18}\FieldTarget{theorem:7.2.18}{7.2.18}
+Let $\mathcal F$ be a coherent sheaf on the Stein manifold $M$ and give $H^0(M,\mathcal F)$ the topology described above. Then $H^0(M,\mathcal F)$ is a Fr\'echet space.
+\end{originaltheorem}
+\begin{proof}
+Lemmas~\ref{lemma:7.2.16}, \ref{lemma:7.2.17}.
+\end{proof}
+Next we prove our main approximation theorem.
+\begin{originaltheorem}{Theorem}{7.2.19}\FieldTarget{theorem:7.2.19}{7.2.19}\IndexMark{idx-033}{approximation on stein manifolds@Approximation on Stein manifolds!of sections of coherent sheaf over stein manifold@of sections of coherent sheaf over Stein manifold}
+Let $K$ be an $A(M)$-convex subset of the Stein manifold\IndexMark{idx-032}{approximation on stein manifolds@Approximation on Stein manifolds!analytic functions@analytic functions} $M$ and suppose that $f\in\mathcal O(K)$. Then there exists a sequence $f_n\in A(M)$ such that $\|f_n-f\|_K\to0$, $n\to\infty$.
+\end{originaltheorem}
+\begin{proof}
+We may suppose that $f\in A(U)$, where $U$ is an open neighbourhood of $K$. By Lemma~\ref{lemma:7.2.13}, we may find a Stein open neighbourhood $V\subset U$ of $K$ and analytic map $F:M\to\mathbb C^N$ such that $P=F(V)$ is a closed submanifold of the unit Euclidean disc $E$ in $\mathbb C^N$ and $H^p(E,\mathcal I_P)=0$, $p\geq1$. Let $g=f(F|V)^{-1}\in A(P)$. Taking the cohomology sequence of $0\to\mathcal I_P\to\mathcal O_E\to\mathcal O_P\to0$ we see that the restriction map $A(E)\to A(P)$ is onto. Therefore there exists $G\in A(E)$ such that $G|P=g$. Now polynomials are dense in $A(E)$ (Exercise 1, \hyperref[sec:2:2]{\S2, Chapter 2}). Therefore, for $n\geq1$ we may find a polynomial $p_n$ on $\mathbb C^N$ such that $|p_n-G|_{F(K)}\leq1/n$. Set $f_n=p_nF\in A(M)$. Then $\|f_n-f\|_K\to0$, $n\to\infty$.
+\end{proof}
+\begin{originaltheorem}{Theorem}{7.2.20}\FieldTarget{theorem:7.2.20}{7.2.20}
+Let $K$ be a compact $A(M)$-convex subset of the Stein manifold $M$ and $\mathcal F$ be a coherent sheaf on $M$. Suppose $f\in\mathcal F(K)$. Then there exists a sequence $f_n\in\mathcal F(M)$ such that $|f-f_n|_K\to0$, $n\to\infty$.
+\end{originaltheorem}
+\begin{proof}
+Choose a normal exhaustion $(K_p)$ of $M$ with $K_1=K$. Fix $n\geq1$. For $p>0$, we shall construct $g_p\in\mathcal F(K_p)$ such that
+\[
+g_1=f\quad\text{and}\quad |g_p-g_{p+1}|_r\leq2^{-p}/n,\ r\leq p.
+\]
+By Lemma~\ref{lemma:7.2.17} this will imply that there exists $f_n\in\mathcal F(M)$ such that $|f_n-g_j|_p\to0$, $j\to\infty$, $p\geq1$. Taking $p=1$ and noting that $f_n=\sum_{j=1}^\infty(g_{j+1}-g_j)+f$ on $K$, we therefore have $|f_n-f|_K\leq1/n$.
+% Source PDF page 164; printed page 155
+To construct the sections $g_p$ we proceed inductively and suppose $g_1,\ldots,g_p$ constructed. Let $s_1,\ldots,s_k\in\mathcal F(K_{p+1})$ generate $\mathcal F$ over $K_{p+1}$. Then $g_p=\sum_{j=1}^k c_js_j$, $c_j\in\mathcal O(K_p)$. By Theorem~\ref{theorem:7.2.19}, we may find $d_j\in A(M)$ such that $\|c_j-d_j\|_{K_p}\leq2^{-p}/n$. Clearly $g_{p+1}=\sum_{j=1}^k d_js_j$ satisfies our requirements.
+\end{proof}
+\begin{originaltheorem}{Theorem}{7.2.21 (Theorem B of Cartan)}\IndexMark{idx-062}{cartan theorems a and b@Cartan theorems A and B}\FieldTarget{theorem:7.2.21}{7.2.21}
+Let $\mathcal F$ be a coherent sheaf on the Stein manifold $M$. Then $H^q(M,\mathcal F)=0$, $q\geq1$.
+\end{originaltheorem}
+\begin{proof}
+We have already proved that $H^q(M,\mathcal F)=0$, $q\geq2$ (Proposition~\ref{proposition:7.2.15}). There remains the case $q=1$.
+
+Choose a normal exhaustion $(K_n)_{n\geq1}$ of $M$. For each $n$ we may, by Lemma~\ref{lemma:7.2.8}, find a relatively compact Stein open neighbourhood $U_n\subset\mathring K_{n+1}$ of $K_n$. Certainly $U_n\subset U_{n+1}$, $n\geq1$. As in the proof of Proposition~\ref{proposition:7.2.15}, $\mathcal U=\{U_n\}$ is a Leray cover of $M$ for $\mathcal F$. Set $\mathcal U_n=\{U_i:i=1,\ldots,n\}$, $n\geq1$. Given $A\in Z^1(\mathcal U,\mathcal F)$, let $A_n$ denote the restriction of $A$ to $\mathcal U_n$. Since $H^1(\mathcal U_n,\mathcal F)=0$, there exists $b_n\in C^0(\mathcal U_n,\mathcal F)$ such that $D(b_n)=A_n$, $n\geq1$. We construct inductively a sequence $B_n\in C^0(\mathcal U_n,\mathcal F)$ such that
+\begin{enumerate}[label=\arabic*.]
+\item $D(B_n)=A_n$.
+\item $|B_n-B_{n+1}|_r\leq2^{-n}$, $1\leq r\leq n$.
+\end{enumerate}
+(For 2 note that 1 implies $B_n-B_{n+1}\in\mathcal F(U_n)$). Take $B_1=b_1$ and suppose $B_1,\ldots,B_n$ have been constructed. Condition 1 implies $b_{n+1}-B_n\in\mathcal F(U_n)$ and so by Theorem~\ref{theorem:7.2.20} there exists $\eta\in\mathcal F(M)$ such that $|B_n-b_{n+1}-\eta|_n\leq2^{-n}$. Now take $B_{n+1}=b_{n+1}+\eta$. Next we shall construct $F_p\in\mathcal F(\mathring K_p)$ such that $B_p+F_p=B_{p+1}+F_{p+1}$ on $\mathring K_p$, $p\geq1$. Given $p\geq1$, let $s_1,\ldots,s_k\in\mathcal F(K_p)$ define the seminorm $|\ |_p$. We may choose $c_{ij}\in\mathcal O(K_p)$ such that for $i\geq p$, $(B_{i+1}-B_i)|K_p=\sum_{j=1}^k c_{ij}s_j$ and $\max_j\|c_{ij}\|_{K_p}\leq2^{-i+1}$. Just as in the proof of Lemma~\ref{lemma:7.2.17} these conditions imply that for $1\leq j\leq k$, $\sum_{i=p}^\infty c_{ij}$ converges uniformly on $K_p$ to a function $C_j$ which is analytic on $\mathring K_p$. Set $F_p=\sum_{j=1}^k C_js_j\in\mathcal F(\mathring K_p)$. For every $A(M)$-convex compact subset $K$ of $\mathring K_p$ we have
+% Source PDF page 165; printed page 156
+\[
+\lim_{n\to\infty}|(F_p+B_p)-B_{n+1}|_K
+=\lim_{n\to\infty}\left|F_p-\sum_{i=p}^n(B_{i+1}-B_i)\right|_K=0.
+\]
+It follows from Lemma~\ref{lemma:7.2.16} that $B_p+F_p=B_{p+1}+F_{p+1}$ on $\mathring K_p$. Hence we may define $B\in C^0(\mathcal U,\mathcal F)$ by $B|\mathring K_p=B_p+F_p$, $p\geq1$. Now as $D(B_{n+1})|\mathcal U_n=A_n$ and $F_{n+1}$ restricts to a section of $\mathcal F$ over $U_n$ -- that is a cocycle -- we see that $D(B)|\mathcal U_n=A_n$, $n\geq1$. Hence $D(B)=A$.
+\end{proof}
+\begin{originaltheorem}{Theorem}{7.2.22 (Theorem A of Cartan)}\FieldTarget{theorem:7.2.22}{7.2.22}
+Let $\mathcal F$ be a coherent sheaf on the Stein manifold $M$. For each $x\in M$, there exists $s_1,\ldots,s_p\in\mathcal F(M)$ such that $s_{1,x},\ldots,s_{p,x}$ generate $\mathcal F_x$ as an $\mathcal O_x$-module.
+\end{originaltheorem}
+\begin{proof}
+Let $\mathcal I$ denote the ideal sheaf of $\{x\}$. Then $\mathcal I\mathcal F$ is a coherent subsheaf of $\mathcal F$, Theorem~\ref{theorem:7.1.9}, 1. Therefore by Theorem B, $H^1(M,\mathcal I\mathcal F)=0$ and so taking the cohomology sequence of $0\to\mathcal I\mathcal F\to\mathcal F\to\mathcal F/\mathcal I\mathcal F\to0$ we obtain the exact sequence
+\[
+\mathcal F(M)\to(\mathcal F/\mathcal I\mathcal F)(M)\to0.\tag{*}\label{eq:7:star:4}
+\]
+For $y\ne x$, $(\mathcal I\mathcal F)_y=\mathcal F_y$ and so $(\mathcal F/\mathcal I\mathcal F)_y=0$. Hence $(\mathcal F/\mathcal I\mathcal F)(M)=\mathcal F_x/\mathfrak m_x\mathcal F_x$, where $\mathfrak m_x$ denotes the maximal ideal of $\mathcal O_x$ at $x$. Let $N$ denote the $\mathcal O_x$-submodule of $\mathcal F_x$ generated by $\{s_x:s\in\mathcal F(M)\}$. Since \eqref{eq:7:star:4} is exact we have $N+\mathfrak m_x\mathcal F_x=\mathcal F_x$. It now follows by Nakayama's Lemma that $N=\mathcal F_x$.
+\end{proof}
+We may now give a global version of Corollary~\ref{corollary:7.2.10}.
+\begin{originaltheorem}{Theorem}{7.2.23}\FieldTarget{theorem:7.2.23}{7.2.23}
+Let $\mathcal F$ be a coherent sheaf on the Stein manifold $M$. Suppose that $s_1,\ldots,s_p\in\mathcal F(M)$ generate $\mathcal F_x$ for every $x\in M$. Then given $S\in\mathcal F(M)$, there exist $f_j\in A(M)$ such that
+\[
+S=\sum_{j=1}^p f_js_j.
+\]
+\end{originaltheorem}
+\begin{proof}
+The sheaf map $s=(s_1,\ldots,s_p):\mathcal O_M^p\to\mathcal F\to0$ is onto. Since $\operatorname{Ker}(s)$ is coherent, Corollary~\ref{corollary:7.1.7}, $H^1(M,\operatorname{Ker}(s))=0$ by Theorem B. Hence taking the cohomology sequence of $0\to\operatorname{Ker}(s)\to\mathcal O_M^p\xrightarrow{s}\mathcal F\to0$ we obtain the exact sequence $A(M)^p\xrightarrow{s}\mathcal F(M)\to0$.
+\end{proof}
+\paragraph{Remarks.} Our proof of Theorem B is close to that of H\"ormander \cite{bib:II:hormander-l:1} in that it makes use of Theorem B for locally free sheaves of $\mathcal O$-modules. The main difference is that we make use of a
+% Source PDF page 166; printed page 157
+ device of Rossi \cite{bib:II:rossi-h:1} to give an elementary proof of the approximation theorem, Theorem~\ref{theorem:7.2.19}. Cartan's original proof starts by establishing Theorems A and B for cubes in $\mathbb C^n$ and then extends the result to Stein manifolds. For expositions of this approach to Theorems A and B see H. Cartan \cite{bib:II:cartan-h:1}, Grauert and Remmert \cite{bib:II:grauert-h-and-remmert-r:1} and Gunning and Rossi \cite{bib:II:gunning-r-c-and-rossi-h:1}. Rossi \cite{bib:II:rossi-h:1} gives a proof of Theorems A and B by starting from the relatively elementary result of Oka to the effect that $H^q(D,\mathcal O_D)=0$, $q\geq1$, for all polynomially convex domains $D$ in $\mathbb C^n$. Using this result he constructs arbitrarily fine Leray covers for coherent sheaves and then proves Grauert's finiteness theorem for strictly pseudoconvex domains (see \hyperref[sec:7:4]{\S4}). Rossi then shows that the cohomology of a coherent sheaf on a strictly pseudoconvex domain is supported on the compact analytic subsets of the domain (see also Rossi \cite{bib:II:rossi-h:2}, R. Narasimhan \cite{bib:II:narasimhan-r:3}). Since Stein manifolds have no non-trivial compact analytic subsets this is sufficient to deduce the vanishing theorem for relatively compact strictly pseudoconvex domains in a Stein manifold. The rest of his proof is similar to what we have presented here.
+
+One point about our proof should be noticed: We really only assume Theorem B for locally free sheaves defined over \emph{contractible} domains in $\mathbb C^n$. In fact by a theorem of Grauert, such locally free sheaves are free. Of course if we knew this, we could apply an appropriate version of the (elementary) Dolbeault-Grothendieck lemma to prove Theorems A and B. However, a direct proof that locally free sheaves over contractible domains in $\mathbb C^n$ are free is not easy. It is a main step in the original proof of H. Cartan (and then only for a restricted class of contractible domains in $\mathbb C^n$). A proof of the triviality of locally free sheaves over contractible domains in $\mathbb C^n$ which uses Theorem B for locally free sheaves may be found in Adams and Griffiths \cite{bib:II:adams-j-f-and-griffiths-p:1}.
+
+One merit of the partial differential equation techniques used in establishing the exactness of the $\bar\partial$-sequence on a Stein manifold is that they give good estimates on the growth of solutions to $\bar\partial f=g$. The resulting ``cohomology theory with bounds'' has important applications to the theory of partial differential equations and is described in H\"ormander \cite{bib:II:hormander-l:1}.
+% Source PDF page 167; printed page 158
+\paragraph{Exercises.}
+\begin{enumerate}[label=\arabic*.]
+\item Show that Theorem~\ref{theorem:7.2.20} is false if $K$ is not $A(M)$-convex.
+\item Prove that if $M$ is a complex manifold such that $H^1(M,\mathcal I)=0$ for all coherent sheaves of ideals $\mathcal I$ of $\mathcal O_M$ then $M$ is Stein (Hint: For the holomorphic convexity of $M$ show that given any discrete subset $\{x_i:i\geq1\}$ of $M$ there exists $f\in A(M)$ such that $f(x_i)=i$, $i\geq1$. See also Seminar number 20 by J. Serre in H. Cartan \cite{bib:II:cartan-h:2}).
+\item Show that if $M$ is an $m$-dimensional Stein manifold then $H^r(M,\mathbb C)=0$, $r>m$ (Use Example 23, \hyperref[sec:6:1]{\S1, Chapter 6}).
+\item Let $M$ be a Stein manifold and suppose $H^2(M,\mathbb Z)=0$. Show that any non-zero meromorphic function on $M$ may be written in the form $f/g$, $f,g\in A(M)$ and $(f_x,g_x)=1$, $x\in M$.
+\item Let $M$ be a Stein manifold and suppose $m$ is a meromorphic function on $M$. Show that there exist $f,g\in A(M)$ such that $m=f/g$ (Hint: for $z\in M$, let $\widehat{\mathcal F}_z$ denote the ideal of $\mathcal O_z$ consisting of all germs $g_z$ such that $g_zm_z\in\mathcal F_z$. Prove that the sheaf $\widehat{\mathcal F}$ is coherent and find a non-trivial section of $\widehat{\mathcal F}$). In Chapter 12 we give examples to show that we cannot generally require $(f_z,g_z)=1$, $z\in M$.
+\item Let $M$ be a Stein manifold with $H^2(M,\mathbb Z)=0$ and suppose that $H$ is an analytic hypersurface in $M$. Prove that $M\setminus H$ is Stein.
+\item Suppose that $\{x_i\}$ is a discrete subset of the Stein manifold $M$ and that for each $i$ we are given a Laurent series
+\[
+L_i=\sum_{m=-N(i)}^{P(i)} a_m(z-x_i)^m,\quad0\leq P(i),N(i)<\infty.
+\]
+Show that there exists a meromorphic function $m$ on $M$ such that for all $i$, $(m-L_i)$ is holomorphic on some neighbourhood of $x_i$ and has a zero of order $P(i)+1$ at $z_i$ (see Exercise, \hyperref[sec:1:3]{\S3, Chapter 1}).
+\item Let $H$ be an analytic hypersurface in the Stein manifold $M$. Show that $\mathcal O_H$ has a resolution by locally free sheaves of the form
+\[
+0\to\underline{[H]}^{-1}\to\mathcal O_M\to\mathcal O_H\to0.
+\]
+% Source PDF page 168; printed page 159
+\item Show that a coherent sheaf on $\mathbb C^n$, $n>1$, need not have a resolution by (locally) free sheaves of $\mathcal O_{\mathbb C^n}$-modules (Hint: Given $z\in\mathbb C^n$ and $p\geq1$, consider resolutions of the coherent sheaf $\mathcal O_{\mathbb C^n}/\mathcal I_{\{z\}}^p$).
+\end{enumerate}
+\section{The finiteness theorem of Cartan and Serre}\label{sec:7:3}
+The aim of this section is to prove that $\dim H^q(M,\mathcal F)<\infty$, $q\geq0$, for all coherent sheaves $\mathcal F$ on a compact complex manifold $M$. We start by reviewing some definitions and results about Fr\'echet spaces. A general reference for Fr\'echet spaces is Rudin \cite{bib:II:rudin-w:1}. See also Appendix B in Gunning and Rossi \cite{bib:II:gunning-r-c-and-rossi-h:1}.
+\begin{originaltheorem}{Lemma}{7.3.1}\FieldTarget{lemma:7.3.1}{7.3.1}
+Finite direct sums and countable products of Fr\'echet spaces are Fr\'echet. If $G$ is a closed subspace of the Fr\'echet space\IndexMark{idx-259}{frechet space@Fr\'echet space} $E$ then $G$ and $E/G$ are Fr\'echet.
+\end{originaltheorem}
+\begin{proof}
+We shall prove that $E/G$ is Fr\'echet if $G$ is a closed subspace of $E$ and leave the remaining assertions as elementary exercises for the reader. Suppose that the topology on $E$ is defined by the seminorms $|\ |_p$, $p\geq1$. Let $q:E\to E/G$ denote the quotient map. For $p\geq1$, define
+\[
+|q(u)|_p'=\inf_{g\in G}|u-g|_p,\quad u\in E.
+\]
+Then $|\ |_p'$ are seminorms on $E/G$ defining the quotient topology on $E/G$. Since $G$ is a closed subspace of $E$, $E/G$ is Hausdorff and it is straightforward to verify that the seminorms $|\ |_p'$ define the structure of a Fr\'echet space on $E/G$.
+\end{proof}
+\begin{originaltheorem}{Theorem}{7.3.2 (Open mapping theorem)}\IndexMark{idx-421}{open mapping theorem for frechet spaces@Open mapping theorem for Fr\'echet spaces}\FieldTarget{theorem:7.3.2}{7.3.2}
+Let $A:E\to F$ be a continuous surjective linear map between Fr\'echet spaces. Then $A$ is open. In particular, if $A$ is a continuous linear bijection, $A$ is a homeomorphism.
+\end{originaltheorem}
+\begin{proof}
+Rudin \cite[Corollary 2.12]{bib:II:rudin-w:1}, Gunning and Rossi \cite[Appendix B]{bib:II:gunning-r-c-and-rossi-h:1}.
+\end{proof}
+\begin{originaltheorem}{Theorem}{7.3.3}\FieldTarget{theorem:7.3.3}{7.3.3}
+A locally compact Fr\'echet space is finite dimensional.
+\end{originaltheorem}
+% Source PDF page 169; printed page 160
+\begin{proof}
+Rudin \cite[Theorem 1.22]{bib:II:rudin-w:1}, Gunning and Rossi \cite[Appendix B]{bib:II:gunning-r-c-and-rossi-h:1}.
+\end{proof}
+\begin{originaltheorem}{Definition}{7.3.4}\FieldTarget{definition:7.3.4}{7.3.4}
+Let $A:E\to F$ be a continuous linear map between Fr\'echet spaces. We say $A$ is \emph{compact}\IndexMark{idx-100}{compact linear map between frechet spaces@Compact linear map between Fr\'echet spaces} if there exists an open neighbourhood $V$ of $0$ in $E$ such that $A(V)$ is relatively compact.
+\end{originaltheorem}
+\begin{originaltheorem}{Theorem}{7.3.5 (L. Schwartz)}\FieldTarget{theorem:7.3.5}{7.3.5}\IndexMark{idx-539}{schwartz finiteness theorem@Schwartz finiteness theorem}
+Let $A,B:E\to F$ be continuous linear maps between Fr\'echet spaces and suppose that $A$ is surjective and $B$ is compact. Then $\operatorname{Im}(A+B)$ is a closed subspace of $F$ and $F/\operatorname{Im}(A+B)$ is finite dimensional.
+\end{originaltheorem}
+\begin{proof}
+Gunning and Rossi \cite[Appendix B]{bib:II:gunning-r-c-and-rossi-h:1}.
+\end{proof}
+Suppose that $U$ is an open subset of the complex manifold $M$. We may give $\mathcal O(U)$ the structure of a Fr\'echet space by taking as seminorms
+\[
+|f|_p=\|f\|_{K_p},\quad f\in\mathcal O(U),
+\]
+where $(K_p)_{p\geq1}$ is any increasing family of compact subsets of $U$ satisfying $\bigcup K_p=U$ and $K_p\subset\mathring K_{p+1}$, $p\geq1$. Indeed, the topology defined by the seminorms is just the topology of uniform convergence on compact subsets of $U$. In particular, it is independent of the choice of sequence $(K_p)_{p\geq1}$ and corresponding seminorms. It follows immediately from Lemma~\ref{lemma:7.3.1}, that $\mathcal O(U)^p$ has the structure of a Fr\'echet space, $p\geq1$.
+
+Now suppose $\mathcal K$ is a coherent subsheaf of $\mathcal O_U^p$. Just as in the proof of Lemma~\ref{lemma:7.2.16}, the closure of modules theorem implies that $\mathcal K(U)$ is a closed subspace of $\mathcal O(U)^p$. Hence, by Lemma~\ref{lemma:7.3.1}, $\mathcal K(U)$ is Fr\'echet.
+
+We shall say that an open relatively compact subset $U$ of $M$ is $C$-\emph{admissible} if $U$ is a Stein open subset of $M$ and there exists another Stein open subset $V$ of $M$ such that $\bar U\subset V$.
+
+Suppose that $U$ is $C$-admissible and $\mathcal F$ is a coherent sheaf on $M$. By Theorem~\ref{theorem:7.2.6} and Proposition~\ref{proposition:7.2.4} there exist $s_1,\ldots,s_k\in\mathcal F(U)$ which generate $\mathcal F(U)$ as an $\mathcal O(U)$-module. Taking the cohomology sequence
+% Source PDF page 170; printed page 161
+of the exact sequence $0\to\mathcal R(s_1,\ldots,s_k)\to\mathcal O_U^k\to\mathcal F_U\to0$ and applying Theorem B, we arrive at the exact sequence
+\[
+0\to\mathcal R(s_1,\ldots,s_k)(U)\to\mathcal O(U)^k\to\mathcal F(U)\to0.
+\]
+As noted above, $\mathcal R(s_1,\ldots,s_k)$ is a closed subspace of $\mathcal O(U)^k$ and so, by Lemma~\ref{lemma:7.3.1}, $\mathcal F(U)$ has the structure of a Fr\'echet space.
+
+We have already defined a Fr\'echet topology\IndexMark{idx-608}{topology@Topology!on sections of a coherent sheaf@on sections of a coherent sheaf} on $\mathcal F(U)$, Theorem~\ref{theorem:7.2.18}. Noting the definition of the seminorms on the quotient $\mathcal F(U)=\mathcal O^k(U)/\mathcal R(s_1,\ldots,s_k)(U)$, it is clear that the two topologies coincide. In particular, the topology we have defined on $\mathcal F(U)$ is independent of the choice of generators $s_1,\ldots,s_k$ (see the discussion in \hyperref[sec:7:2]{\S2}).
+
+From now on, assume that $\mathcal F(U)$ is topologised as a Fr\'echet space for all $C$-admissible subsets $U$ of $M$.
+\begin{originaltheorem}{Lemma}{7.3.6}\FieldTarget{lemma:7.3.6}{7.3.6}
+Let $U$, $V$ be $C$-admissible subsets of $M$ with $V\subset U$. Then the restriction map $r_{VU}:\mathcal F(U)\to\mathcal F(V)$ is continuous.
+\end{originaltheorem}
+\begin{proof}
+Certainly, the restriction maps are continuous if $\mathcal F=\mathcal O^p$. Hence they are continuous if $\mathcal F$ is a coherent subsheaf of $\mathcal O_U^p$ and so, taking quotients, the result follows in general.
+\end{proof}
+Suppose now that $U$ is an arbitrary open subset of $M$. Since $M$ has a basis of open sets consisting of $C$-admissible sets (for example, biholomorphic images of polydiscs), we may write
+\[
+U=\bigcup_{j=1}^\infty U_j,
+\]
+where the $U_j$ are $C$-admissible open subsets of $M$. By Lemma~\ref{lemma:7.3.1}, $\prod_{j=1}^\infty\mathcal F(U_j)$ has the structure of a Fr\'echet space. Let $Z\subset\prod_{j=1}^\infty\mathcal F(U_j)$ be the subset defined by $Z=\{(f_j):f_j=f_k\text{ on }U_{jk},\ j,k\geq1\}$ and $K:\prod_{j=1}^\infty\mathcal F(U_j)\to\prod_{1\leq j<k<\infty}\mathcal F(U_{jk})$ be the linear map defined by $K((f_j))=((f_j-f_k)|U_{jk})$. By Lemma~\ref{lemma:7.3.6}, $K$ is continuous and therefore $Z=K^{-1}(0)$ is a closed subspace of $\prod_{j=1}^\infty\mathcal F(U_j)$. Hence by Lemma~\ref{lemma:7.3.1}, $Z$ is Fr\'echet. Now define $\chi:\mathcal F(U)\to\prod_{j=1}^\infty\mathcal F(U_j)$ by $\chi(f)=(f|U_j)$.
+% Source PDF page 171; printed page 162
+We see that $\chi$ maps $\mathcal F(U)$ bijectively onto $Z$ and so $\mathcal F(U)$ inherits the Fr\'echet space structure of $Z$. Moreover, the Fr\'echet space structure we have defined on $\mathcal F(U)$ is independent of the decomposition of $U$ as a countable union of $C$-admissible sets. For suppose $U=\bigcup_{i=1}^\infty U_i^1=\bigcup_{j=1}^\infty U_j^2$ are two such decompositions of $U$. Then $U=\bigcup_{i,j}U_i^1\cap U_j^2$ is also a decomposition of $U$ as $C$-admissible sets. Denote the corresponding closed subspaces of $\prod\mathcal F(U_i^1)$, $\prod\mathcal F(U_j^2)$, $\prod\mathcal F(U_i^1\cap U_j^2)$ by $Z_1$, $Z_2$, $Z_{12}$ respectively. We have the commutative diagram
+\[
+\input{diagrams/II-29.tex}
+\]
+where $r_1$ and $r_2$ are induced by restriction and are therefore continuous by Lemma~\ref{lemma:7.3.6}. Now $r_1$ and $r_2$ restrict to continuous bijections of $Z_1$ and $Z_2$ on $Z_{12}$. Therefore by the open mapping theorem (Theorem~\ref{theorem:7.3.2}), $Z_1$ is homeomorphic to $Z_{12}$ which in turn is homeomorphic to $Z_2$.
+
+From now on assume that $\mathcal F(U)$ is topologised as a Fr\'echet space according to the recipe above for all open subsets $U$ of $M$.
+
+Suppose that $\mathcal G$ is another coherent sheaf on $M$ and $\phi:\mathcal F\to\mathcal G$ is a homomorphism. We claim that for all open subsets $U$ of $M$ the induced map $\phi_U:\mathcal F(U)\to\mathcal G(U)$ is continuous. By our definition of the topologies on $\mathcal F(U)$, $\mathcal G(U)$ it is clearly enough to verify that $\phi_U$ is continuous in case $U$ is $C$-admissible. If $U$ is $C$-admissible, there exist exact sequences $\mathcal O(U)^p\xrightarrow{s}\mathcal F(U)\to0$, $\mathcal O(U)^q\xrightarrow{t}\mathcal G(U)\to0$. Take the standard bases $\{E_1,\ldots,E_p\}$, $\{E_1,\ldots,E_q\}$ of $\mathcal O(U)^p$, $\mathcal O(U)^q$ (see \hyperref[sec:7:1]{\S1}). For $1\leq j\leq p$, there exist $r_{ij}\in\mathcal O(U)$ such that
+\[
+\phi_U(s(E_j))=\sum_{i=1}^q r_{ij}t(E_i).
+\]
+Defining $\psi_U:\mathcal O(U)^p\to\mathcal O(U)^q$ by the matrix $[r_{ij}]$ we obtain the commutative diagram
+% Source PDF page 172; printed page 163
+\[
+\input{diagrams/II-30.tex}
+\]
+Now $\psi_U$ is obviously continuous and so, since the quotient maps $s$ and $t$ are continuous, it follows from the Open Mapping theorem that $\phi_U$ is continuous.
+\begin{originaltheorem}{Definition}{7.3.7}\FieldTarget{definition:7.3.7}{7.3.7}
+A sheaf $\mathcal F$ of $\mathcal O$-modules on a complex manifold $M$ is said to be a \emph{Fr\'echet sheaf}\IndexMark{idx-260}{frechet sheaf@Fr\'echet sheaf} if
+\begin{enumerate}[label=\alph*)]
+\item For each open subset $U$ of $M$, $\mathcal F(U)$ is a Fr\'echet space.
+\item The restriction maps $r_{VU}:\mathcal F(U)\to\mathcal F(V)$, $V\subset U$, are all continuous.
+\end{enumerate}
+\end{originaltheorem}
+\begin{originaltheorem}{Theorem}{7.3.8}\FieldTarget{theorem:7.3.8}{7.3.8}
+Let $M$ be a complex manifold. Then there is a unique way of giving every coherent sheaf defined over an open subset of $M$ the structure of a Fr\'echet sheaf satisfying:
+\begin{enumerate}[label=\alph*)]
+\item If $U$ is an open subset of $M$ and $\mathcal F$ is a coherent subsheaf of $\mathcal O_U^p$, then $\mathcal F(U)\subset\mathcal O(U)^p$ has the topology of uniform convergence on compact subsets.
+\item If $\phi:\mathcal F\to\mathcal G$ is a homomorphism of coherent sheaves, defined over some open subset $V$ of $M$, then the induced maps $\phi_U:\mathcal F(U)\to\mathcal G(U)$ are continuous for every open subset $U\subset V$.
+\end{enumerate}
+\end{originaltheorem}
+\begin{proof}
+The existence part of the theorem follows from the discussion preceding Definition~\ref{definition:7.3.7}. For the uniqueness it is easily seen that it is enough to verify that conditions a) and b) determine the Fr\'echet space structure on $\mathcal F(U)$ for $U$ $C$-admissible. If $U$ is $C$-admissible we have an exact sequence
+\[
+0\to\mathcal R(U)\xrightarrow{s_U}\mathcal O^p(U)\xrightarrow{t_U}\mathcal F(U)\to0.
+\]
+Condition b) implies that $s_U$, $t_U$ are continuous. Condition a) determines the topology on $\mathcal R(U)$, $\mathcal O^p(U)$ and hence, by the open mapping theorem, the topology on $\mathcal F(U)$.
+\end{proof}
+% Source PDF page 173; printed page 164
+\paragraph{Remark.} Our discussion of the Fr\'echet sheaf structure on coherent sheaves is based on Gunning and Rossi \cite{bib:II:gunning-r-c-and-rossi-h:1}. For much more extensive treatments of the topologisation of spaces of sections of coherent sheaves over complex manifolds and analytic sets see Gunning and Rossi \cite{bib:II:gunning-r-c-and-rossi-h:1} and Grauert and Remmert \cite{bib:II:grauert-h-and-remmert-r:1}. In the latter text a very nice characterisation of the Fr\'echet sheaf structure on coherent sheaves is given based on the Fr\'echet space structure on the stalks (see Exercise 4, \hyperref[sec:3:6]{\S6, Chapter 3}).
+\begin{originaltheorem}{Lemma}{7.3.9}\FieldTarget{lemma:7.3.9}{7.3.9}
+Let $U$ and $V$ be open subsets of $M$ and suppose $\bar V\subset U$, $\bar V$ compact. Then $r_{VU}:\mathcal O^p(U)\to\mathcal O^p(V)$ is compact.
+\end{originaltheorem}
+\begin{proof}
+Montel's theorem.
+\end{proof}
+\begin{originaltheorem}{Lemma}{7.3.10}\FieldTarget{lemma:7.3.10}{7.3.10}
+Let $\mathcal F$ be a coherent sheaf on $M$ and suppose that $U$, $V$ are open subsets of $M$ with $\bar V\subset U$, $\bar V$ compact. Then $r_{VU}:\mathcal F(U)\to\mathcal F(V)$ is compact.
+\end{originaltheorem}
+\begin{proof}
+First suppose $U$ is $C$-admissible. We have a commutative diagram of continuous maps
+\[
+\input{diagrams/II-31.tex}
+\]
+Since $r_{VU}:\mathcal O^p(U)\to\mathcal O^p(V)$ is compact, Lemma~\ref{lemma:7.3.9}, it follows that $r_{VU}:\mathcal F(U)\to\mathcal F(V)$ is compact.
+
+For the general case, choose covers $\{U_j:j=1,\ldots,n\}$, $\{V_j:j=1,\ldots,n\}$ of $V$ by $C$-admissible sets such that $\bar V_j\subset U_j$ is compact and $U_j\subset U$, $j=1,\ldots,n$. Then $r_{V_jU_j}:\mathcal F(U_j)\to\mathcal F(V_j)$ is compact and so therefore is
+\[
+\prod_{j=1}^n r_{V_jU_j}:\prod_{j=1}^n\mathcal F(U_j)\to\prod_{j=1}^n\mathcal F(V_j).
+\]
+Set $\widetilde U=\bigcup_{j=1}^n U_j$. The map $r_{V\widetilde U}:\mathcal F(\widetilde U)\to\mathcal F(V)$ factors through $\prod r_{V_jU_j}$ and so is compact. Hence $r_{VU}=r_{V\widetilde U}r_{\widetilde UU}$ is compact.
+\end{proof}
+% Source PDF page 174; printed page 165
+\begin{originaltheorem}{Theorem}{7.3.11}\FieldTarget{theorem:7.3.11}{7.3.11}
+Let $\mathcal F$ be a coherent sheaf on the compact complex manifold $M$. Then $\dim_{\mathbb C}H^0(M,\mathcal F)<\infty$.
+\end{originaltheorem}
+\begin{proof}
+Take $U=V=M$ in Lemma~\ref{lemma:7.3.10} and apply Theorem~\ref{theorem:7.3.3}.
+\end{proof}
+\begin{originaltheorem}{Theorem}{7.3.12 (Cartan-Serre)}\IndexMark{idx-063}{cartan theorems a and b@Cartan theorems A and B}\FieldTarget{theorem:7.3.12}{7.3.12}
+Let $\mathcal F$ be a coherent sheaf on the compact complex manifold $M$. Then $\dim_{\mathbb C}H^q(M,\mathcal F)<\infty$, $q\geq0$.
+\end{originaltheorem}
+\begin{proof}
+Choose Leray covers $\mathcal U=\{U_1,\ldots,U_n\}$, $\mathcal U'=\{U_1',\ldots,U_n'\}$ of $M$ for $\mathcal F$ such that $\bar U_j'\subset U_j$, $j=1,\ldots,n$. For $p\geq0$, let
+\[
+C^p=\bigoplus\mathcal F(U_s),
+\]
+where the (finite) direct sum is taken over all distinct $(p+1)$-tuples $s=(s_0,\ldots,s_p)$ of integers satisfying $1\leq s_0,\ldots,s_p\leq n$. By Lemma~\ref{lemma:7.3.1}, $C^p$ has the structure of a Fr\'echet space. Now $C^p(\mathcal U,\mathcal F)$ clearly defines a closed subspace of $C^p$ (remember that $C^p(\mathcal U,\mathcal F)$ is the space of \emph{alternating} cochains). Hence, $C^p(\mathcal U,\mathcal F)$ has the structure of a Fr\'echet space. Similarly, $C^p(\mathcal U',\mathcal F)$ has the structure of a Fr\'echet space. Let $R:C^p(\mathcal U,\mathcal F)\to C^p(\mathcal U',\mathcal F)$ denote the restriction homomorphism. By our assumptions on the covers $\mathcal U$, $\mathcal U'$ and Lemma~\ref{lemma:7.3.10}, $R$ is compact. Since the covers $\mathcal U$, $\mathcal U'$ are Leray for $\mathcal F$, the natural map
+\[
+Z^p(\mathcal U,\mathcal F)\to Z^p(\mathcal U',\mathcal F)/B^p(\mathcal U',\mathcal F)
+\]
+is surjective and so
+\[
+C^{p-1}(\mathcal U',\mathcal F)\oplus Z^p(\mathcal U,\mathcal F)\xrightarrow{D\oplus R}Z^p(\mathcal U',\mathcal F)
+\]
+is surjective. But now take $A=D\oplus R$, $B=-0\oplus R$ in Schwartz' finiteness theorem (Theorem~\ref{theorem:7.3.5}) and we see that
+\[
+H^p(M,\mathcal F)=H^p(\mathcal U',\mathcal F)=C^{p-1}(\mathcal U',\mathcal F)\oplus Z^p(\mathcal U,\mathcal F)/\operatorname{Im}(D)
+\]
+is finite dimensional.
+\end{proof}
+% Source PDF page 175; printed page 166
+\paragraph{Remarks.}
+\begin{enumerate}[label=\arabic*.]
+\item We shall give an important application of the finiteness theorem in \hyperref[sec:7:5]{\S5}.
+\item For generalisations of the finiteness theorem to coherent sheaves over compact analytic spaces see Gunning and Rossi \cite{bib:II:gunning-r-c-and-rossi-h:1} and Grauert and Remmert \cite{bib:II:grauert-h-and-remmert-r:1} (the original theorem of Cartan and Serre was proved for compact analytic spaces).
+\end{enumerate}
+\paragraph{Exercises.}
+\begin{enumerate}[label=\arabic*.]
+\item Show that the finiteness theorem of Cartan-Serre is an immediate consequence of Grauert's direct image theorem (look at constant maps).
+\item[2*.] (Gunning \cite{bib:II:gunning-r-c:2}, Grauert and Remmert \cite{bib:II:grauert-h-and-remmert-r:1}). Let $(U,\phi)$ be a chart on the compact complex manifold $M$ such that $\phi$ maps $U$ biholomorphically onto a polydisc in $\mathbb C^m$ ($m=\dim(M)$). Set $\mathcal O_h(U)=L^2(U)$ and note that $\mathcal O_h(U)$ has the structure of a Hilbert space (\hyperref[sec:2:6]{\S6, Chapter 2}; $\mathcal O_h(U)$ will depend on the chart map $\phi$). Given a coherent sheaf $\mathcal F$ on $M$, show how to define the space $C_h^p(\mathcal U,\mathcal F)$ of square integrable cochains on $\mathcal U$, where $\mathcal U$ will be a cover of $M$ by open polydiscs, and prove that $C_h^p(\mathcal U,\mathcal F)$ has the structure of a Hilbert space. Let $H_h^p(\mathcal U,\mathcal F)$ denote the corresponding cohomology group defined using square integrable cochains and prove that $\check H_h^p(M,\mathcal F)\approx\check H^p(M,\mathcal F)$, $p\geq0$. Finally deduce the finiteness theorem of Cartan-Serre by using the elementary finiteness theorem of Schwartz for \emph{Hilbert} spaces (we shall prove this finiteness theorem in the appendix to Chapter 10).
+\end{enumerate}
+\section{The finiteness theorem of Grauert}\label{sec:7:4}
+Suppose that $M$ is a strictly Levi pseudoconvex (S.L.p) domain in $\widehat M$ and that $\mathcal F$ is a coherent sheaf on $\widehat M$. In this section we shall prove the theorem of Grauert that the cohomology groups $H^p(M,\mathcal F)$ are finite dimensional $\mathbb C$-vector spaces, $p\geq1$. As in the proof of the finiteness theorem of Cartan-Serre, we shall make use of Schwartz' finiteness theorem. We use Grauert's finiteness theorem in \hyperref[sec:7:6]{\S6} to give
+% Source PDF page 176; printed page 167
+ a proof of Kodaira's embedding theorem and again in Chapter 12 to construct real analytic embeddings.
+
+Let $\|\ \|$ denote the standard Euclidean norm on $\mathbb C^n$ and $E(r)$ denote the open Euclidean disc centre $0$, radius $r$ in $\mathbb C^n$. Given an open subset $U$ of $\mathbb C^n$ we let $C_B^2(U)$ denote the space of $C^2$ $\mathbb R$-valued functions on $U$ which, together with derivatives up to order $2$, are bounded on $U$. Define a norm on $C_B^2(U)$ by
+\[
+|\phi|=\sup_{x\in U}(\|\phi(x)\|+\|D^2\phi_x\|),\quad\phi\in C_B^2(U).
+\]
+($\|D^2\phi_x\|$ denotes the polynomial norm of the bilinear map $D^2\phi_x$. That is, $\|D^2\phi_x\|=\sup_{\|v\|=1}\|D^2\phi_x(v^2)\|$ -- see Dieudonn\'e \cite{bib:II:dieudonne-j:1} or Field \cite{bib:II:field-m-j:1}). Recall from \hyperref[sec:5:10]{\S10 of Chapter 5} that the Levi form $L(\phi)$ of a $C^2$ $\mathbb R$-valued map $\phi$ is the Hermitian quadratic form $\partial\bar\partial\phi$ given in local coordinates by the matrix $[\frac{\partial^2\phi}{\partial z_i\partial\bar z_j}]$.
+\begin{originaltheorem}{Lemma}{7.4.1}\FieldTarget{lemma:7.4.1}{7.4.1}
+Let $\phi$ be a $C^2$ $\mathbb R$-valued function defined on some neighbourhood of $0$ in $\mathbb C^n$. Suppose that for all $x\in\phi^{-1}(0)$, we have $d\phi(x)\ne0$ and $L(\phi)(x)$ positive definite. Then there exists $r>0$ and an open neighbourhood $N$ of $\phi$ in $C_B^2(E(r))$ such that
+\begin{enumerate}[label=\arabic*.]
+\item For all $\psi\in N$ and $x\in\psi^{-1}(0)$, $d\psi(x)\ne0$ and $L(\psi)(x)$ is positive definite.
+\item For all $\psi\in N$, $E(s)\cap\{z:\psi(z)<0\}$ is Stein, $0<s\leq r$.
+\end{enumerate}
+\end{originaltheorem}
+\begin{proof}
+Choose $R>0$ so that $\phi$ is defined on an open neighbourhood of $\overline{E(R)}$. Certainly $\phi|E(R)\in C_B^2(E(R))$ and moreover there exist $C(\phi),M(\phi)>0$ such that for all $z\in\phi^{-1}(0)\cap E(R)$ we have
+\begin{gather*}
+\|d\phi(z)\|>C(\phi)\tag{*}\label{eq:7:star:5}\\
+L(\phi)(z)(v)>M(\phi)\|v\|^2,\quad v\in\mathbb C^n.
+\end{gather*}
+From now on assume that $\phi$ is defined on $E(R)$ and that \eqref{eq:7:star:5} holds. By scalar valued Taylor's theorem, we have for $y\in\phi^{-1}(0)$ and $z\in E(R)$
+% Source PDF page 177; printed page 168
+\[
+\begin{split}
+\phi(z)&=2\operatorname{Re}\left(\sum_i\frac{\partial\phi}{\partial z_i}(y)(z_i-y_i)+\sum_{i,j}\frac{\partial^2\phi}{\partial z_i\partial z_j}(y)(z_i-y_i)(z_j-y_j)\right)\\
+&\qquad+L(\phi)(y)(z-y)+R_\phi(z,y),
+\end{split}
+\]
+where $R_\phi(z,y)=\frac12(D^2\phi_{y+\theta(z-y)}-D^2\phi_y)((z-y)^2)$ and $0<\theta<1$. Since $\phi$ is $C^2$, there exists $r>0$ such that $\|D^2\phi_y-D^2\phi_0\|\leq M(\phi)/2$ for all $y\in E(r)$. Consequently for $y\in\phi^{-1}(0)\cap E(r)$, $z\in E(r)$ we have
+\[
+|R_\phi(z,y)|\leq\frac{M(\phi)}2\|z-y\|^2.
+\]
+Hence
+\[
+L(\phi)(y)(z-y)+R_\phi(z,y)>\frac{M(\phi)}2\|z-y\|^2,\quad y\in\phi^{-1}(0)\cap E(r),\ z\in E(r).\tag{\#}\label{eq:7:star:6}
+\]
+Estimates (*), (\#) are open conditions in $C_B^2(E(r))$ and so there exists an open neighbourhood $N$ of $\phi$ in $C_B^2(E(r))$, such that \eqref{eq:7:star:5}, (\#) hold for all $\psi\in N$. We claim that our choice of $r$, $N$ implies the remaining statement of the Lemma. Let $\psi\in N$. We must prove that $D_s(\psi)=E(s)\cap\{z:\psi(z)<0\}$ is Stein, $0<s\leq r$. For this it is enough to prove that $D_s(\psi)$ is holomorphically convex. Suppose that $\{y_n:n\geq1\}$ is a discrete subset of $D_s(\psi)$ converging to the point $y\in\partial D_s(\psi)$. If $y\in\bar E(s)$, there certainly exists $f\in A(E(s))$ which is unbounded on $\{y_n\}$. So suppose $\psi(y)=0$ and let
+\[
+F_y(z)=\sum_i\frac{\partial\psi}{\partial z_i}(y)(z_i-y_i)+\sum_{i,j}\frac{\partial^2\psi}{\partial z_j\partial z_j}(y)(z_i-y_i)(z_j-y_j).
+\]
+The quadratic polynomial $F_y(z)$ is non-vanishing in $D_s(\psi)$. Indeed, if $F_y(z)=0$ and $\psi(z)<0$ we would have from the Taylor expansion of $\psi$ at $y$ that $L(\psi)(y)(z-y)+R_\psi(z,y)<0$, violating (\#). Observing that $F_y(y)=0$, we see that $F_y^{-1}\in A(D_s(\psi))$ and is unbounded on any sequence of points of $D_s(\psi)$ converging to $y$. Hence $D_s(\psi)$ is holomorphically convex, $0<s\leq r$.
+\end{proof}
+\begin{originaltheorem}{Theorem}{7.4.2 (Grauert \cite{bib:II:grauert-h:3})}\FieldTarget{theorem:7.4.2}{7.4.2}\IndexMark{idx-274}{grauert finiteness theorem for pseudoconvex domains@Grauert finiteness theorem for pseudoconvex domains}
+Let $M$ be an S.L.p. domain in $\widehat M$. Then for any coherent sheaf $\mathcal F$ on $\widehat M$ we have $\dim_{\mathbb C}H^p(M,\mathcal F)<\infty$, $p\geq1$.
+\end{originaltheorem}
+\begin{proof}
+Let $\phi\in C_{\mathbb R}^2(M)$ define $M$. That is, we suppose $M=\{z\in\widehat M:\phi(z)<0\}$, $d\phi\ne0$ on $\partial M$ and $L(\phi)$ is positive definite on
+% Source PDF page 178; printed page 169
+$\partial M$ (see \hyperref[sec:5:10]{\S10, Chapter 5}). Since $\partial M$ is compact, we may find a finite open cover $\{U_i:i=1,\ldots,n\}$ of $\partial M$, biholomorphic maps $\gamma_i:U_i\to E(r_i)$ and open neighbourhoods $N_i$ of $\phi\gamma_i^{-1}\in C_B^2(E(r_i))$ such that the conclusions of Lemma~\ref{lemma:7.4.1} hold for $\phi\gamma_i^{-1}$, $r_i$ and $N_i$, $i=1,\ldots,n$. In particular, the open sets $U_i$ (respectively $U_i\cap M$) will be Stein open subsets of $\widehat M$ (respectively $M$). Choose $0<s_i<r_i$ so that $\{V_i=\gamma_i^{-1}(E(s_i)):i=1,\ldots,n\}$ is an open cover of $\partial M$. By the openness assertions of Lemma~\ref{lemma:7.4.1}, we may clearly inductively choose positive functions $\eta_i\in C_c^\infty(U_i)$, $1\leq i\leq n$, such that
+\begin{enumerate}[label=\arabic*.]
+\item $(\phi-\sum_{i=1}^r\eta_i)\gamma_j^{-1}\in N_j$, $r,j=1,\ldots,n$.
+\item $\eta_i$ is strictly positive on $V_i\cap\partial M$.
+\end{enumerate}
+Set $\phi_0=\phi$, $\phi_j=\phi-\sum_{i=1}^j\eta_i$, $1\leq j\leq n$. Observe that, $d\phi_j\ne0$ on $\phi_j^{-1}(0)$ and $L(\phi_j)$ is positive definite on $\phi_j^{-1}(0)$, $0\leq j\leq n$. Set $M_0=M$, $M_j=\{z:\phi_j(z)<0\}$. We see that
+\[
+M=M_0\subset M_1\subset\cdots\subset M_n\subset\bigcup_{i=1}^n U_i.
+\]
+Moreover, $M$ is relatively compact in $M_n$ since $\phi_n$ is strictly negative on $\partial M$.
+
+\textbf{Step 1.} The natural restriction map $H^p(M_{j+1},\mathcal F)\to H^p(M_j,\mathcal F)$ is surjective, $p\geq1$.
+
+Fix $j$, $0\leq j<n$. For $1\leq i\leq n$, define
+\begin{align*}
+W_i&=U_i\cap M_j,\\
+W_i'&=U_i\cap M_j,\quad i\ne j+1\\
+&=U_{j+1}\cap M_{j+1},\quad i=j+1.
+\end{align*}
+Observe that $W_i=W_i'$ unless $i=j+1$ and that, by Lemma~\ref{lemma:7.4.1}, $W_i$, $W_i'$ are Stein open subsets of $\widehat M$. Adjoin Stein open subsets $W_{n+1}=W_{n+1}',\ldots,W_p=W_p'$ of $M$ so that $\mathcal W=\{W_1,\ldots,W_p\}$, $\mathcal W'=\{W_1',\ldots,W_p'\}$ are open covers of $M_j$, $M_{j+1}$ respectively.
+% Source PDF page 179; printed page 170
+\begin{center}
+    \begin{minipage}{\linewidth}
+        \centering
+        \input{figures/II-figure01.tex}
+        \FieldCaption{II}{1}{}
+    \end{minipage}
+\end{center}
+The covers $\mathcal W$, $\mathcal W'$ are Leray covers of $M_j$, $M_{j+1}$ for $\mathcal F$. Observe that any $p$-fold intersection of distinct elements of $\mathcal W$ is equal to a $p$-fold intersection of elements of $\mathcal W'$ provided only that $p>1$. Hence
+\[
+Z^p(\mathcal W,\mathcal F)\approx Z^p(\mathcal W',\mathcal F),\quad p\geq1.
+\]
+Therefore the natural restriction map $H^p(\mathcal W',\mathcal F)\to H^p(\mathcal W,\mathcal F)$ is surjective. Step 1 now follows by Leray's theorem.
+
+\textbf{Step 2.} For $1\leq j\leq n$, set $W_j=V_j\cap M$, $W_j'=U_j\cap M_n$ and observe that $W_j$ is a relatively compact subset of $W_j'$. Choose Stein open subsets $W_{n+1},W_{n+1}',\ldots,W_p,W_p'$ of $M$ so that $W_j$ is a relatively compact subset of $W_j'$, $n+1\leq j\leq p$, and $\mathcal W=\{W_1,\ldots,W_p\}$, $\mathcal W'=\{W_1',\ldots,W_p'\}$ are open covers of $M$, $M_n$ respectively. Just as in the proof of the finiteness theorem of Cartan-Serre the restriction map
+\[
+R:Z^p(\mathcal W',\mathcal F)\to Z^p(\mathcal W,\mathcal F)
+\]
+is a compact operator between Fr\'echet spaces. From Step 1, the restriction map $H^p(\mathcal W',\mathcal F)\to H^p(\mathcal W,\mathcal F)$ is surjective, $p\geq1$, and so, for $p\geq1$, the map
+\[
+D\oplus R:C^{p-1}(\mathcal W,\mathcal F)\oplus Z^p(\mathcal W',\mathcal F)\to Z^p(\mathcal W,\mathcal F)
+\]
+
+% Source PDF page 180; printed page 171
+is a surjective map between Fr\'echet spaces. Taking $A=D\oplus R$, $B=-0\oplus R$ in Schwartz' finiteness theorem we deduce the finiteness of $H^p(\mathcal W,\mathcal F)$, $p\geq1$.
+\end{proof}
+\begin{originaltheorem}{Theorem}{7.4.3 (Grauert \cite{bib:II:grauert-h:3})}\FieldTarget{theorem:7.4.3}{7.4.3}\IndexMark{idx-293}{holomorphic convexivity@Holomorphic convexivity!of s l p domain@of s.L.p. domain}
+An S.L.p. domain\IndexMark{idx-275}{grauert theorem on holomorphic convexivity of s l p domains@Grauert theorem on holomorphic convexivity of s.L.p. domains} is holomorphically convex.
+\end{originaltheorem}
+\begin{proof}
+Let $M$ be an S.L.p. domain in $\widehat M$. It is enough to show that given $p\in\partial M$, there exists $f\in A(M)$ which is unbounded on any sequence of points of $M$ converging to $p$. The method described in Exercise 2, \hyperref[sec:7:2]{\S2} will not work here as the ideal sheaf of an infinite discrete subset of $M$ does not extend to a coherent sheaf on $\widehat M$. Our proof follows that in R. Narasimhan \cite{bib:II:narasimhan-r:3}. As in the proof of Theorem~\ref{theorem:7.4.2} we suppose $M$ is defined by the $C^2$ function $\phi$. By Lemma~\ref{lemma:7.4.1}, we may choose an open neighbourhood $U$ of $p$ in $M$, biholomorphic map $\gamma:U\to E(r)$ and neighbourhood $N$ of $\phi\gamma^{-1}$ in $C_B^2(E(r))$ such that for all $\psi\gamma^{-1}\in N$, $D_r(\psi)=\{z:\psi(z)<0\}$ is Stein. Choose $\eta\in C_c^\infty(U)$ such that $\eta$ is positive, $\eta(p)>0$ and $(\phi-\eta)\gamma^{-1}\in N$. Let $\widetilde M=\{z\in\widehat M:\phi(z)-\eta(z)<0\}$. Certainly $\widetilde M\supset M$. As in the proof of Lemma~\ref{lemma:7.4.1}, there exists $F\in A(U)$ such that $F(p)=0$ and $F$ is non-zero in $D_r(\phi)$. Take the open cover $\mathcal U=\{U\cap\widetilde M,\widetilde M\setminus F^{-1}(0)\}$ of $\widetilde M$. Since the natural map $H^1(\mathcal U,\mathcal O_{\widetilde M})\to H^1(\widetilde M,\mathcal O_{\widetilde M})$ is injective (Exercise 4, \hyperref[sec:6:3]{\S3, Chapter 6}), and $\widetilde M$ is S.L.p., we have $\dim_{\mathbb C}H^1(\mathcal U,\mathcal O_{\widetilde M})<\infty$. Let $L$ denote the infinite dimensional linear subspace of $Z^1(\mathcal U,\mathcal O_{\widetilde M})$ defined by
+\[
+L=\left\{\sum_{j=1}^\infty c_jF^{-j}:c_j\in\mathbb C\text{ and all but finitely many }c_j\text{'s are zero}\right\}.
+\]
+Since $\dim_{\mathbb C}H^1(\mathcal U,\mathcal O_{\widetilde M})<\infty$, there exist elements of $L$ which are boundaries. Therefore we may find a combination
+\[
+G=\sum_{j=1}^n g_jF^{-j}\in L,
+\]
+with not all the $g_j$'s vanishing, such that $G=D(H)$, for some $H\in C^0(\mathcal U,\mathcal O_{\widetilde M})$. Hence there exist $H_0\in\mathcal O(U\cap\widetilde M)$, $H_1\in\mathcal O(\widetilde M\setminus F^{-1}(0))$ with $G=H_1-H_0$ on $(U\cap\widetilde M)\setminus F^{-1}(0)$. That is, we have
+\[
+H_1=H_0+\sum_{j=1}^n g_jF^{-1}\quad\text{on }(U\cap\widetilde M)\setminus F^{-1}(0).
+\]
+% Source PDF page 181; printed page 172
+Clearly $f=H_1|M\in A(M)$ is unbounded on every sequence of points of $M$ converging to $p$.
+\end{proof}
+We may now give a solution to Levi's problem\IndexMark{idx-365}{levi s problem@Levi's problem}.
+\begin{originaltheorem}{Theorem}{7.4.4}\FieldTarget{theorem:7.4.4}{7.4.4}
+An S.L.p. domain of a Stein manifold is Stein.
+\end{originaltheorem}
+\begin{proof}
+Immediate from Theorem~\ref{theorem:7.4.3}.
+\end{proof}
+\paragraph{Remarks.}
+\begin{enumerate}[label=\arabic*.]
+\item Suppose that $\Omega$ is a Levi pseudoconvex domain in $\mathbb C^n$ which is not S.L.p. Then it can easily be proved that $\Omega$ is the union of an increasing family of S.L.p. domains (see Oka \cite{bib:II:oka-k:1} or Gunning and Rossi \cite[Lemma 2, Section D, Chapter 10]{bib:II:gunning-r-c-and-rossi-h:1}). Hence, by Theorem~\ref{theorem:7.4.4}, $\Omega$ is the limit of an increasing family of domains of holomorphy and so, by a theorem of Behnke and Stein \cite{bib:II:behnke-h-and-stein-k:1}, a domain of holomorphy (see also Gunning and Rossi \cite[section D, Chapter 10]{bib:II:gunning-r-c-and-rossi-h:1}). This result was first obtained by Oka in case $n=2$ and then for general $n$ independently by Oka \cite{bib:II:oka-k:1}, Bremermann \cite{bib:II:bremermann-h-j:1} and Norguet \cite{bib:II:norguet-f:1}. Their result generalises to the case when $\Omega$ is a Levi pseudoconvex domain of a Riemann domain spread over $\mathbb C^n$ (see Gunning and Rossi \cite[section D, Chapter 10]{bib:II:gunning-r-c-and-rossi-h:1}). Moreover, it is not necessary to assume that the boundary of $\Omega$ is smooth. All that is required is that the function $-\log(d(z,\partial\Omega))$ is plurisubharmonic in $\Omega$ (see the above references and also H\"ormander \cite{bib:II:hormander-l:1}). It is not generally true that a Levi pseudoconvex domain of an arbitrary complex manifold is holomorphically convex. For an example of a non-holomorphically convex Levi pseudoconvex domain see Grauert \cite{bib:II:grauert-h:4} and also the survey article by Siu \cite{bib:II:siu-y-t:1}, especially \S7.
+\item R. Narasimhan \cite{bib:II:narasimhan-r:4} has shown that if $M$ is a complex manifold then $\dim H^p(M,\mathcal F)<\infty$, $p\geq1$, for all coherent sheaves $\mathcal F$ on $M$ if and only if $M$ is holomorphically convex. The proof that finiteness of cohomology implies holomorphic convexity is similar to that indicated in Exercise 2, \hyperref[sec:7:2]{\S2} and makes use of the observation that the space of bounded infinite sequences of complex numbers is of infinite codimension in the space of all infinite complex sequences. The converse is much deeper and uses Grauert's direct image theorem together with results of H. Cartan \cite{bib:II:cartan-h:3} and Remmert \cite{bib:II:remmert-r:1} to the effect that if $M$ is holomorphically convex then $M$ possesses a maximal non-%
+% Source PDF page 182; printed page 173
+trivial compact analytic subset, $A$. Narasimhan proves that the inclusion $A\to M$ induces isomorphisms $H^p(A,\mathcal F_A)\to H^p(M,\mathcal F)$, $p\geq1$. The finiteness theorem of Cartan-Serre for compact analytic spaces then gives the result. In particular, $M$ will be Stein if and only if $M$ has no non-trivial compact analytic subsets. See Rossi \cite{bib:II:rossi-h:2} for a discussion of the case of S.L.p. domains.
+\item Suppose $M$ is a strictly pseudoconvex manifold\IndexMark{idx-588}{strictly pseudoconvex manifold@Strictly pseudoconvex manifold}. That is, there exists a $C^\infty$ function $\phi:M\to\mathbb R$ such that $L(\phi)$ is everywhere positive definite and $M_a=\{z\in M:\phi(z)<a\}$ is relatively compact for all $a\in\mathbb R$. By Sard's theorem, $M_a$ is S.L.p. for a dense set $\Sigma\subset\mathbb R$ of values of $a$. Now it can be shown (see Gunning and Rossi \cite[Section C, Chapter 10]{bib:II:gunning-r-c-and-rossi-h:1}) that plurisubharmonic functions satisfy a maximal principle and so $M$ cannot have any non-trivial compact analytic subsets. It follows from Remark 2 that $M_a$ is Stein, $a\in\Sigma$. Thus we have expressed $M$ as a union of an increasing family of Stein manifolds parametrized by points in a dense subset of $\mathbb R$. It is shown in Docquier and Grauert \cite{bib:II:docquier-f-and-grauert-h:1} that this is enough to prove $M$ Stein. See also Siu \cite{bib:II:siu-y-t:1} and note that it is not generally true that an increasing union of Stein open sets, parametrized by the positive integers, need be Stein. Of course the union will be Stein if all the sets are domains in $\mathbb C^n$ or a Riemann domain (see Remark 1). If they are all subdomains of a Stein manifold it is not yet known whether their union must be Stein (see also Markoe \cite{bib:II:markoe-a:1}). We shall prove in Chapter 11 that every strictly pseudoconvex manifold is Stein. Our proof will depend on the existence theory for the $\bar\partial$-operator and follows the approach of Kohn \cite{bib:II:kohn-j-j:1}, Andreotti-Vesentini \cite{bib:II:andreotti-a-and-vesentini-e:1}, H\"ormander \cite{bib:II:hormander-l:1} and Vesentini \cite{bib:II:vesentini-e:1}.
+\end{enumerate}
+\paragraph{Exercise.} Let $M$ be an S.L.p. domain in the complex manifold $\widehat M$ and suppose that $M$ has $C^2$ defining function $\phi$. Show
+\begin{enumerate}[label=\alph*)]
+\item There exists $C>0$ such that $M_c=\{x\in M:\phi(x)<-c\}$ is S.L.p. for $0\leq c<C$.
+\item[b)*] If $M$ has no non-trivial compact analytic subvarieties then $M_c$ is Stein, $0<c<C$ (See Rossi \cite{bib:II:rossi-h:1} and note that we do not need to assume a maximal principle for strictly psh functions).
+\end{enumerate}
+% Source PDF page 183; printed page 174
+\section{Coherent sheaves on projective space}\label{sec:7:5}
+In this section we shall prove theorems A and B of Serre for coherent sheaves on projective space. These fundamental theorems play a similar r\^ole in the theory of projective varieties to that of Cartan's theorems A and B in Stein manifold theory.
+
+Throughout this section $\mathcal U=\{U_i\}$ will denote the standard open cover of $\mathbb P^n(\mathbb C)$ by the open sets $U_i=\{(z_0,\ldots,z_n):z_i\ne0\}$, $0\leq i\leq n$. Suppose that $\mathcal F$ is a coherent sheaf on $\mathbb P^n(\mathbb C)$. Since each $U_i$ is biholomorphic to $\mathbb C^n$ and is therefore Stein, $\mathcal U$ is a Leray cover of $\mathbb P^n(\mathbb C)$ for $\mathcal F$. It follows immediately from Leray's theorem that
+\[
+H^p(\mathbb P^n(\mathbb C),\mathcal F)=0,\quad p>n.
+\]
+Let $H$ denote the hyperplane section bundle\IndexMark{idx-198}{divisors@Divisors!complex projective space@complex projective space} of $\mathbb P^n(\mathbb C)$. Relative to the cover $\mathcal U$, $H$ has transition functions $\phi_{ij}=z_j/z_i$. For $m\in\mathbb Z$, we let $H^m$ denote the holomorphic line bundle with transition functions $(z_j/z_i)^m$ on $U_{ij}$. We may regard $H^m$ as the line bundle associated to the divisor $z_0^m=0$. That is, if we let $\mathbb P^{n-1}(\mathbb C)\subset\mathbb P^n(\mathbb C)$ denote the hyperplane $z_0=0$, we have $H^m=[m.\mathbb P^{n-1}(\mathbb C)]$. With this convention, $H^m$ has the ``canonical'' section $s^m$ given locally by $s_i^m=(z_0/z_i)^m$ and $\operatorname{div}(s^m)=m.\mathbb P^{n-1}(\mathbb C)$.
+
+As is conventional, we let $\mathcal O(m)$ denote the sheaf of germs of holomorphic sections of $H^m$, $m\in\mathbb Z$.
+\begin{originaltheorem}{Lemma}{7.5.1}\FieldTarget{lemma:7.5.1}{7.5.1}
+Let $\Sigma$ be a hyperplane in $\mathbb P^n(\mathbb C)$. For $m\in\mathbb Z$, we have a non-zero $\mathcal O$-morphism
+\[
+\phi_\Sigma:\mathcal O(m)\to\mathcal O(m+1)
+\]
+satisfying $\phi_{\Sigma,z}=0$ if and only if $z\in\Sigma$. In particular, $\phi_\Sigma$ restricts to an isomorphism of $\mathcal O(m)$ with $\mathcal O(m+1)$ over $\mathbb P^n(\mathbb C)\setminus\Sigma$.
+\end{originaltheorem}
+\begin{proof}
+Let $\Sigma$ have equation $s(z_0,\ldots,z_n)=0$. Define $\phi_\Sigma(f)=s_zf$, $f\in\mathcal O(m)_z$.
+\end{proof}
+\paragraph{Remark.} The morphism $\phi_\Sigma$ is given locally by $\phi_\Sigma(f_i)=f_is/z_i$, $f_i\in\mathcal O(m)(U_i)$.
+% Source PDF page 184; printed page 175
+Let $P^{(m)}(\mathbb C^{n+1})$ denote the space of homogeneous polynomials of degree $m$ on $\mathbb C^{n+1}$. Then (Proposition~\ref{proposition:5.9.2}),
+\[
+\begin{aligned}
+H^0(\mathbb P^n(\mathbb C),\mathcal O(m))&\approx P^{(m)}(\mathbb C^{n+1}),\quad m\geq0\\
+&=0,\quad m<0.
+\end{aligned}
+\]
+\begin{originaltheorem}{Theorem}{7.5.2}\FieldTarget{theorem:7.5.2}{7.5.2}\IndexMark{idx-098}{cohomology of o m sheaves on p n c@Cohomology of $O(m)$ sheaves on $\mathbb{P}^n(\mathbb{C})$}
+\begin{enumerate}[label=\arabic*.]
+\item For $m\geq0$, we have
+\[
+\begin{aligned}
+H^p(\mathbb P^n(\mathbb C),\mathcal O(m))&=0,\quad p\ne0\\
+&\approx P^{(m)}(\mathbb C^{n+1}),\quad p=0.
+\end{aligned}
+\]
+\item For $m<0$, we have
+\[
+\begin{aligned}
+H^p(\mathbb P^n(\mathbb C),\mathcal O(m))&=0,\quad p\ne n\\
+&\approx P^{(-m-n-1)}(\mathbb C^{n+1}),\quad p=n.
+\end{aligned}
+\]
+\end{enumerate}
+\end{originaltheorem}
+\begin{proof}
+Since we have already covered the cases $p=0$, $p>n$, we shall assume from now on that $1\leq p\leq n$. Let us start by considering the case $m=0$. Suppose $c\in Z^p(\mathcal U,\mathcal O)$. Then $c=\{c(s)=c(s_0,\ldots,s_p)\}$, where $c(s):U\to\mathbb C$ is holomorphic and $s=(s_0,\ldots,s_p)$ is a $(p+1)$-tuple of (distinct) integers lying between $0$ and $n$. We may regard each $c(s)$ as a holomorphic function on $U_s\subset\mathbb C^{n+1}$ which is homogeneous of degree zero. By Theorem~\ref{theorem:2.1.10}, we may take Laurent expansions of the $c(s)$. Thus
+\[
+\begin{aligned}
+c(s)(z_0,\ldots,z_n)&=\sum_{r_0+\cdots+r_n=0}c(s)_{r_0\cdots r_n}z_0^{r_0}\cdots z_n^{r_n}\\
+&=\sum_{|r|=0}c(s)_rz^r,\quad\text{using multi-index notation.}
+\end{aligned}
+\]
+Observe that the coefficient $c(s)_{r_0\cdots r_n}$ will be zero if any $r_j<0$ with $j\notin\{s_0,\ldots,s_p\}$. Define
+\[
+a(s_0,\ldots,s_{p-1})=\frac1{n-p+1}\sum{}'c(j,s_0,\ldots,s_{p-1})^+,
+\]
+% Source PDF page 185; printed page 176
+where $\sum{}'$ denotes the sum over all $j\notin\{s_0,\ldots,s_{p-1}\}$ and $c(j,s_0,\ldots,s_{p-1})^+$ is the holomorphic function on $U_{s_0}\cap\cdots\cap U_{s_{p-1}}$ with Laurent series
+\[
+\sum_{\substack{|r|=0\\r_j\geq0}}c(j,s_0,\ldots,s_{p-1})_rz^r.
+\]
+That is, we omit terms from the Laurent expansion of $c(j,s_0,\ldots,s_{p-1})$ having $r_j<0$. Our construction defines an element $a\in C^{p-1}(\mathcal U,\mathcal O)$. Now
+\[
+\begin{aligned}
+(Da)_{s_0\cdots s_p}
+&=\frac1{n-p+1}\left(\sum{}'\bigl(c(j,s_1,s_2,\ldots,s_p)-\cdots\pm c(j,s_0,\ldots,s_{p-1})\bigr)^+\right)\\
+&=\frac1{n-p+1}\left(\sum{}'c(s_0,\ldots,s_p)\right)^+,\quad\text{since }Dc=0\\
+&=c(s_0,\ldots,s_p).
+\end{aligned}
+\]
+We have shown that $Z^p(\mathcal U,\mathcal O)=DC^{p-1}(\mathcal U,\mathcal O)$ and so $H^p(\mathcal U,\mathcal O)=0$, $p>0$.
+
+Exactly the same proof shows that if $m>0$ then $H^p(\mathcal U,\mathcal O(m))=0$, $p>0$. Indeed, the only difference is that a cochain will now be a collection of holomorphic functions which are homogeneous of degree $m$. The same proof also works for $m<0$ provided that $p<n$. We conclude by considering the case $p=n$, $m<0$. Suppose $c\in Z^n(\mathcal U,\mathcal O(m))$. Then
+\[
+c:U_{01\cdots n}\to\mathbb C
+\]
+is holomorphic and homogeneous of degree $m$. Thus
+\[
+c(z_0,\ldots,z_n)=\sum_{|r|=m}c_rz^r.
+\]
+Write $c=C_0+C_1$, where $C_0$ is the sum over all terms $c_{r_0\cdots r_n}z_0^{r_0}\cdots z_n^{r_n}$ where at least one index $r_j$ is positive and $C_1$ is the sum over terms such that every index $r_j$ is negative. Notice that $C_1=0$ if $-m\leq n$. As above it is easily seen that $C_0=Da$ for some $(n-1)$-cochain $a$. A simple Laurent series argument shows that a non-zero $C_1$ can never be a coboundary. So suppose $m\leq-n-1$ and set
+% Source PDF page 186; printed page 177
+\[
+E=\left\{\sum_{|r|=m}c_rz^r:c_r\in\mathbb C,\ \text{every index }r_j<0\right\}.
+\]
+By what we have shown above $E\approx H^n(\mathcal U,\mathcal O(m))$. Given $c\in E$, we may write
+\[
+c=(z_0\cdots z_n)^{-1}\sum_{\substack{r_0,\ldots,r_n\leq0\\r_0+\cdots+r_n=m+m+1}}c_rz_0^{r_0+1}\cdots z_n^{r_n+1}.
+\]
+It follows that $H^n(\mathcal U,\mathcal O(m))\approx P^{(-m-n-1)}(\mathbb C^{n+1})$ where the isomorphism is given explicitly by mapping $P\in P^{(-m-n-1)}(\mathbb C)$ to
+\[
+c(z_0,\ldots,z_n)=(z_0\cdots z_n)^{-1}P(z_0^{-1},\ldots,z_n^{-1}).
+\]
+\end{proof}
+\paragraph{Remark.} For an alternative proof of Theorem~\ref{theorem:7.5.2}, using non-trivial facts from the Hodge theory of K\"ahler manifolds, see Seminar 18 by Serre in H. Cartan \cite{bib:II:cartan-h:2}.
+
+Given a coherent sheaf $\mathcal F$ on $\mathbb P^n(\mathbb C)$ we let
+\[
+\mathcal F(m)=\mathcal F\otimes_{\mathcal O}\mathcal O(m),\quad m\in\mathbb Z.
+\]
+We call $\mathcal F(m)$ the sheaf $\mathcal F$ ``twisted by\IndexMark{idx-624}{twisted sheaves on projective space@Twisted sheaves on projective space} $\mathcal O(m)$''. One feature of twisting is that we expect $\dim_{\mathbb C}H^0(\mathbb P^n(\mathbb C),\mathcal F(m))$ to be an increasing function of $m$. To explain why this should be so, let us consider the case when $\mathcal F$ is the sheaf of sections of a holomorphic vector bundle $E$. We claim that $H^0(\mathbb P^n(\mathbb C),E(m))\cong\{s\in\mathcal M(E):\operatorname{div}(s)+m.\mathbb P^{n-1}(\mathbb C)\geq0\}$. Certainly it follows from this isomorphism that $\dim_{\mathbb C}H^0(\mathbb P^n(\mathbb C),E(m))$ is an increasing function of $m$. Suppose that $E$ has transition functions $\phi_{ab}$ relative to a cover $\mathcal W$ of $\mathbb P^n(\mathbb C)$ where we suppose that $\mathcal W$ is a refinement of $\mathcal U$. Let $s\in\mathcal M^*(E)$ and $\operatorname{div}(s)+m.\mathbb P^{n-1}(\mathbb C)\geq0$. If $s_a\in\mathcal M^*(W_a)$ is the local representative of $s$ on $W_a\subset U_{i(a)}$, we have
+\[
+(z_0/z_{i(a)})^ms_a\in A(W_a).
+\]
+Clearly if $W_b\subset U_{i(b)}$, we have
+\[
+\phi_{ab}(z_{i(b)}/z_{i(a)})^m(z_0/z_{i(b)})^ms_b=(z_0/z_{i(a)})^ms_a\quad\text{on }W_{ab}.
+\]
+% Source PDF page 187; printed page 178
+Therefore $\{(z_0/z_{i(a)})^ms_a\}$ defines a holomorphic section of $E(m)$. Reversing the argument shows that every holomorphic section of $E(m)$ gives rise to a meromorphic section of $E$ such that $\operatorname{div}(s)+m.\mathbb P^{n-1}(\mathbb C)\geq0$. Of course, our argument depended on being able to show that $E$ admits at least one non-trivial meromorphic section.
+
+\paragraph{Remark.} We should point out that a holomorphic vector bundle $E$ on $\mathbb P^n(\mathbb C)$ always restricts to a holomorphically trivial bundle over $U_i$, $0\leq i\leq n$, Serre \cite{bib:II:serre-j-p:2}. This fact also follows from a general and difficult theorem of Grauert to the effect that a holomorphic vector bundle on a Stein manifold is holomorphically trivial if and only if it is topologically trivial. See also Adams and Griffiths \cite{bib:II:adams-j-f-and-griffiths-p:1} for a proof that holomorphic vector bundles over polydiscs in $\mathbb C^n$ are holomorphically trivial as well as references and discussion concerning Grauert's theorems.
+\begin{originaltheorem}{Theorem}{7.5.3 (Theorems A and B of Serre)}\IndexMark{idx-546}{serre theorems a and b@Serre theorems A and B}\FieldTarget{theorem:7.5.3}{7.5.3}
+Let $\mathcal F$ be a coherent sheaf on $\mathbb P^n(\mathbb C)$. Then there exists $m_0=m_0(\mathcal F)\in\mathbb Z$ such that
+\begin{enumerate}[label=\Alph*.]
+\item For each $z\in\mathbb P^n(\mathbb C)$, $H^0(\mathbb P^n(\mathbb C),\mathcal F(m))$ generates $\mathcal F(m)_z$ as a $\mathcal G_z$-module, $m\geq m_0$.
+\item For $m\geq m_0$, $H^p(\mathbb P^n(\mathbb C),\mathcal F(m))=0$, $p\geq1$.
+\end{enumerate}
+\end{originaltheorem}
+\begin{proof}[Proof (Seminar 19 by Serre, H. Cartan \cite{bib:II:cartan-h:2})]
+We start by looking at some special cases. Suppose $\mathcal F\cong\mathcal O(q)$. Take $m_0=-q$. Since $\mathcal O(q)(m)=\mathcal O(q+m)$, we see immediately from Theorem~\ref{theorem:7.5.2} that $H^p(\mathbb P^n(\mathbb C),\mathcal F(m))=0$, $p\geq1$, $m\geq m_0$. Clearly for all $z\in\mathbb P^n(\mathbb C)$, $H^0(\mathbb P^n(\mathbb C),\mathcal F(m))$ generates $\mathcal F(m)_z$, $m\geq m_0$. Since cohomology commutes with direct sums, A and B hold whenever $\mathcal F\cong\bigoplus_{i=1}^k\mathcal O(a_i)$ and we may take $m_0=-\min\{a_i\}$.
+
+We prove the theorem in general by an induction on $n$. Let $A_n$, $B_n$ denote statements A and B for dimension $n$. We shall show that $A_{n-1}$ and $B_{n-1}$ imply $A_n$ and $A_n$ implies $B_n$. The Theorem is, of course, trivial for $n=0$.
+
+\textbf{Step 1.} $A_{n-1}$ and $B_{n-1}$ imply $A_n$. Let $z\in\mathbb P^n(\mathbb C)$ and choose any hyperplane $\Sigma\subset\mathbb P^n(\mathbb C)$ not containing $z$. For $m\in\mathbb Z$, let
+
+% Source PDF page 188; printed page 179. Continuation of the proof of Theorem~\ref{theorem:7.5.3}.
+\[
+\widetilde\phi_\Sigma=\operatorname{id}\otimes\phi_\Sigma:\mathcal{F}(m)\longrightarrow\mathcal{F}(m+1),
+\]
+where $\phi_\Sigma$ is the map given by Lemma~\ref{lemma:7.5.1}. Observe that $\widetilde\phi_\Sigma$ restricts to an isomorphism of $\mathcal{F}(m)$ with $\mathcal{F}(m+1)$ over $\mathbb{P}^n(\mathbb{C})\setminus\Sigma$. Suppose $H^0(\mathbb{P}^n(\mathbb{C}),\mathcal{F}(m_0))$ generates $\mathcal{F}(m_0)_z$. Then $H^0(\mathbb{P}^n(\mathbb{C}),\mathcal{F}(m))$ generates $\mathcal{F}(m)_z$ for $m\geq m_0$. Indeed, $\widetilde\phi_\Sigma^{m-m_0}:\mathcal{F}(m_0)\to\mathcal{F}(m)$ restricts to an isomorphism over $\mathbb{P}^n(\mathbb{C})\setminus\Sigma$ and so maps any set of generators for $\mathcal{F}(m_0)_z$ to a set of generators for $\mathcal{F}(m)_z$. Let $A_n(z)$ (respectively $A'_n(z)$) be the statement ``There exists $m_0=m_0(\mathcal{F},z)$ such that $H^0(\mathbb{P}^n(\mathbb{C}),\mathcal{F}(m_0))$ (respectively $H^0(\mathbb{P}^n(\mathbb{C}),\mathcal{F}(m))$) generates $\mathcal{F}(m_0)_z$ (respectively $\mathcal{F}(m)_z$, $m\geq m_0$)''. By the coherence of $\mathcal{F}$, $A_n(z)$ implies $A_n(y)$ for $y$ in some open neighbourhood of $z$. Since $A_n(y)$ implies $A'_n(y)$, it follows from the compactness of $\mathbb{P}^n(\mathbb{C})$ that $A_n(z)$ for all $z\in\mathbb{P}^n(\mathbb{C})$ implies $A_n$. Therefore it is enough to prove that $A_{n-1}$ and $B_{n-1}$ imply $A_n(z)$.
+
+Without loss of generality suppose $z\in\mathbb{P}^{n-1}(\mathbb{C})\subset\mathbb{P}^n(\mathbb{C})$. Set $\phi=\widetilde\phi_{\mathbb{P}^{n-1}(\mathbb{C})}:\mathcal{F}(-1)\to\mathcal{F}$ and let
+\[
+\begin{aligned}
+\mathcal{K}&=\operatorname{Ker}\phi:\mathcal{F}(-1)\to\mathcal{F}\\
+\mathcal{G}&=\operatorname{Coker}\phi:\mathcal{F}(-1)\to\mathcal{F}.
+\end{aligned}
+\]
+We have the exact sequence
+\[
+0\to\mathcal{K}\to\mathcal{F}(-1)\xrightarrow{\phi}\mathcal{F}\to\mathcal{G}\to0.
+\]
+Tensoring with $O(m)$ we obtain the exact sequence
+\[
+0\to\mathcal{K}(m)\to\mathcal{K}(m-1)\xrightarrow{\phi_m}\mathcal{F}(m)\to\mathcal{G}(m)\to0.
+\]
+% Source prints K(m-1) here, rather than F(m-1); retained verbatim.
+Since $\phi_m|U_0$ is an isomorphism we see that $\mathcal{K}_{U_0}=\mathcal{G}_{U_0}=0$. Let $i$ denote the inclusion map of $\mathbb{P}^{n-1}(\mathbb{C})$ in $\mathbb{P}^n(\mathbb{C})$. For any sheaf $\mathcal{H}$ on $\mathbb{P}^n(\mathbb{C})$ we let $\mathcal{H}^*=i^{-1}\mathcal{H}$ denote the restriction of $\mathcal{H}$ to $\mathbb{P}^{n-1}(\mathbb{C})$. Observe that $\mathcal{I}_{\mathbb{P}^{n-1}(\mathbb{C})}\subset\mathcal{O}_{\mathbb{P}^n(\mathbb{C})}$ acts trivially on $\mathcal{K}$ and $\mathcal{G}$. Indeed if $s_z\in\mathcal{I}_{\mathbb{P}^{n-1}(\mathbb{C})}$, $f_z\in\mathcal{K}$, then $s_zf_z=0$ since $\mathcal{K}=\operatorname{Ker}(\phi)$. Similarly for $\mathcal{G}$ since $\mathcal{G}=\operatorname{Coker}(\phi)$. Hence $\mathcal{K}^*$, $\mathcal{G}^*$ have the natural structure of $\mathcal{O}_{\mathbb{P}^{n-1}(\mathbb{C})}=\mathcal{O}_{\mathbb{P}^n(\mathbb{C})}^*/\mathcal{I}_{\mathbb{P}^{n-1}(\mathbb{C})}^*$-modules and the reader may easily verify that $\mathcal{K}^*$, $\mathcal{G}^*$ are coherent $\mathcal{O}_{\mathbb{P}^{n-1}(\mathbb{C})}$-modules. Moreover, it is clear that $\mathcal{K}(m)^*\approx\mathcal{K}^*(m)$, $\mathcal{G}(m)^*\approx\mathcal{G}^*(m)$, $m\in\mathbb{Z}$.
+
+% Source PDF page 189; printed page 180.
+By Exercise 12, \hyperref[sec:6:3]{\S3, Chapter 6},
+\[
+H^p(\mathbb{P}^n(\mathbb{C}),\mathcal{K}(m))=H^p(\mathbb{P}^{n-1}(\mathbb{C}),\mathcal{K}(m)^*),\quad p\geq0,
+\]
+similarly for $\mathcal{G}(m)$. Applying our inductive assumption to $\mathcal{K}^*$, $\mathcal{G}^*$, there exists $m_1\in\mathbb{Z}$ such that for $p\geq1$
+\[
+\begin{aligned}
+H^p(\mathbb{P}^n(\mathbb{C}),\mathcal{K}(m))&=H^p(\mathbb{P}^{n-1}(\mathbb{C}),\mathcal{K}^*(m))=0,\quad m\geq m_1\\
+H^p(\mathbb{P}^n(\mathbb{C}),\mathcal{G}(m))&=H^p(\mathbb{P}^{n-1}(\mathbb{C}),\mathcal{G}^*(m))=0,\quad m\geq m_1.
+\end{aligned}
+\]
+We have the short exact sequences
+\[
+\begin{aligned}
+0&\to\mathcal{K}(m)\to\mathcal{F}(m-1)\to\operatorname{Im}(\phi_{m-1})\to0\\
+0&\to\operatorname{Im}(\phi_{m-1})\to\mathcal{F}(m)\to\mathcal{G}(m)\to0.
+\end{aligned}
+\]
+Taking the cohomology sequences of these short exact sequences we obtain the exact sequences
+\[
+\begin{aligned}
+H^1(\mathbb{P}^n(\mathbb{C}),\mathcal{F}(m-1))&\to H^1(\mathbb{P}^n(\mathbb{C}),\operatorname{Im}(\phi_{m-1}))\to H^2(\mathbb{P}^n(\mathbb{C}),\mathcal{K}(m))\\
+H^1(\mathbb{P}^n(\mathbb{C}),\operatorname{Im}(\phi_{m-1}))&\to H^1(\mathbb{P}^n(\mathbb{C}),\mathcal{F}(m))\to H^1(\mathbb{P}^n(\mathbb{C}),\mathcal{G}(m)).
+\end{aligned}
+\]
+Since $H^1(\mathbb{P}^n(\mathbb{C}),\mathcal{G}(m))$, $H^2(\mathbb{P}^n(\mathbb{C}),\mathcal{K}(m))=0$, $m\geq m_1$, we see that
+\[
+\begin{aligned}
+\dim_{\mathbb{C}}H^1(\mathbb{P}^n(\mathbb{C}),\mathcal{F}(m-1))&\geq\dim_{\mathbb{C}}H^1(\mathbb{P}^n(\mathbb{C}),\operatorname{Im}(\phi_{m-1}))\\
+&\geq\dim_{\mathbb{C}}H^1(\mathbb{P}^n(\mathbb{C}),\mathcal{F}(m)),
+\end{aligned}
+\]
+for $m\geq m_1$. Hence $\dim_{\mathbb{C}}H^1(\mathbb{P}^n(\mathbb{C}),\mathcal{F}(m))$ is a decreasing function of $m$, $m\geq m_1$. But now by the finiteness theorem of Cartan--Serre, $\dim_{\mathbb{C}}H^1(\mathbb{P}^n(\mathbb{C}),\mathcal{F}(m))<\infty$, and so we deduce that $\dim_{\mathbb{C}}H^1(\mathbb{P}^n(\mathbb{C}),\mathcal{F}(m))$ is independent of $m$ for $m>m_2$, say. In particular, for $m\geq m_2$ we have
+\[
+\begin{aligned}
+\dim_{\mathbb{C}}H^1(\mathbb{P}^n(\mathbb{C}),\mathcal{F}(m-1))&=\dim_{\mathbb{C}}H^1(\mathbb{P}^n(\mathbb{C}),\operatorname{Im}(\phi_{m-1}))\\
+&=\dim_{\mathbb{C}}H^1(\mathbb{P}^n(\mathbb{C}),\mathcal{F}(m)).
+\end{aligned}
+\]
+Since the surjective homomorphism $H^1(\mathbb{P}^n(\mathbb{C}),\operatorname{Im}(\phi_{m-1}))\to H^1(\mathbb{P}^n(\mathbb{C}),\mathcal{F}(m))$ is between spaces of the same finite dimension, it must be injective, $m\geq m_2$. Therefore, from the cohomology sequence we see that $H^0(\mathbb{P}^n(\mathbb{C}),\mathcal{F}(m))\to H^0(\mathbb{P}^n(\mathbb{C}),\mathcal{G}(m))$ is surjective, $m\geq m_2$. But $H^0(\mathbb{P}^n(\mathbb{C}),\mathcal{G}(m))=H^0(\mathbb{P}^{n-1}(\mathbb{C}),\mathcal{G}^*(m))$ and so by $A_{n-1}$ we see that $H^0(\mathbb{P}^n(\mathbb{C}),\mathcal{G}(m))$ generates $\mathcal{G}^*(m)_z=\mathcal{G}(m)_z$ for $m\geq m_0$, where we may suppose $m_0\geq m_2$. In particular, $H^0(\mathbb{P}^n(\mathbb{C}),\mathcal{F}(m))$ generates $\mathcal{G}(m)_z$ for
+% Source PDF page 190; printed page 181.
+$m\geq m_0$. We claim that for $m\geq m_0$, $H^0(\mathbb{P}^n(\mathbb{C}),\mathcal{F}(m))$ generates $\mathcal{F}(m)_z$. Suppose $z\in U_i$, $i\ne0$. Let $\psi:\mathcal{F}\to\mathcal{F}(1)$ be the homomorphism defined by $\psi(f)=z_i f$. As described above, $\psi^{-m}$ restricts to an isomorphism of $\mathcal{F}(m)_{U_i}$ with $\mathcal{F}_{U_i}$. Under this identification of $\mathcal{F}(m)_{U_i}$ with $\mathcal{F}_{U_i}$, the map $\phi$ corresponds to multiplication by $t_0=z_0/z_i$ and $\mathcal{G}(m)_z$ is therefore identified with $\mathcal{F}_z/t_0\mathcal{F}_z$. Let $M_z\subset\mathcal{F}_z$ be the submodule generated by the elements of $H^0(\mathbb{P}^n(\mathbb{C}),\mathcal{F}(m))$. Since $\mathcal{G}(m)_z$ is generated by the elements of $H^0(\mathbb{P}^n(\mathbb{C}),\mathcal{F}(m))$, $m\geq m_0$, the image of $M_z$ in $\mathcal{F}_z/t_0\mathcal{F}_z$ is the whole of $\mathcal{F}_z/t_0\mathcal{F}_z$. That is, $\mathcal{F}_z=t_0\mathcal{F}_z+M_z$. Since $t_0\in\mathfrak{m}_z\subset\mathcal{O}_z$, it follows from Nakayama's lemma that $\mathcal{F}_z=M_z$.
+
+\paragraph{Step 2.} $A_n$ implies $B_n$.
+
+For $p>n$, we have already shown that $H^p(\mathbb{P}^n(\mathbb{C}),\mathcal{F}(m))=0$ for all $m$. We prove $B_n$ by decreasing induction on $p$. So suppose that for every coherent sheaf $\mathcal{F}$ on $\mathbb{P}^n(\mathbb{C})$ there exists $m_0=m_0(\mathcal{F},p)$ such that $H^{p+1}(\mathbb{P}^n(\mathbb{C}),\mathcal{F}(m))=0$, $m\geq m_0$. By $A_n$ there exists $m\in\mathbb{Z}$ such that $H^0(\mathbb{P}^n(\mathbb{C}),\mathcal{F}(m))$ generates $\mathcal{F}(m)_z$ for all $z\in\mathbb{P}^n(\mathbb{C})$. Choose a basis $s_1,\ldots,s_k$ of $H^0(\mathbb{P}^n(\mathbb{C}),\mathcal{F}(m))$. We have the exact sequence
+\[
+0\to\mathcal{K}\to\mathcal{O}^k\xrightarrow{s}\mathcal{F}(m)\to0,
+\]
+where $s=(s_1,\ldots,s_k)$ and $\mathcal{K}=\operatorname{Ker}(s)$. Tensoring by $O(q)$ yields the exact sequence
+\[
+0\to\mathcal{K}(q)\to\mathcal{O}^k(q)\to\mathcal{F}(m+q)\to0
+\]
+and corresponding portion of the cohomology sequence
+\[
+H^p(\mathbb{P}^n(\mathbb{C}),\mathcal{O}^k(q))\to H^p(\mathbb{P}^n(\mathbb{C}),\mathcal{F}(m+q))\to H^{p+1}(\mathbb{P}^n(\mathbb{C}),\mathcal{K}(q)).
+\]
+By the special case of B described at the beginning of the proof, $H^p(\mathbb{P}^n(\mathbb{C}),\mathcal{O}^k(q))=0$ for $p>0$, $q\geq0$. By our inductive assumption, $H^{p+1}(\mathbb{P}^n(\mathbb{C}),\mathcal{K}(q))=0$ for sufficiently large $q$. Hence $H^p(\mathbb{P}^n(\mathbb{C}),\mathcal{F}(m+q))=0$ for sufficiently large $q$. This completes the inductive step and the proof of the theorem.
+\end{proof}
+% Source PDF page 191; printed page 182.
+\paragraph{Remark.} The reader should note the crucial r\^ole played by the finiteness theorem of Cartan--Serre in the proof of Theorem~\ref{theorem:7.5.3}. In \hyperref[sec:7:6]{\S6}, we give another proof of Theorem~\ref{theorem:7.5.3} depending on Grauert's finiteness theorem.
+
+Now for some applications of Serre's theorem.
+
+\begin{originaltheorem}{Theorem}{7.5.4}\FieldTarget{theorem:7.5.4}{7.5.4}
+Every holomorphic vector bundle $E$ on $\mathbb{P}^n(\mathbb{C})$ has a non-trivial meromorphic section\IndexMark{idx-305}{holomorphic vector bundles on p n c@Holomorphic vector bundles on $\mathbb{P}^n(\mathbb{C})$!existence of non trivial meromorphic sections@existence of non-trivial meromorphic sections}\IndexMark{idx-395}{meromorphic section@Meromorphic section!on p n c@on $\mathbb{P}^n(\mathbb{C})$}.
+\end{originaltheorem}
+\begin{proof}
+By statement A of Theorem~\ref{theorem:7.5.3}, there exists $m_0$ such that $H^0(\mathbb{P}^n(\mathbb{C}),\underline{E}(m_0))$ generates $\underline{E}(m_0)_z$ for all $z\in\mathbb{P}^n(\mathbb{C})$. In particular, $\dim_{\mathbb{C}}H^0(\mathbb{P}^n(\mathbb{C}),\underline{E}(m_0))\geq1$. But as we showed earlier,
+\[
+H^0(\mathbb{P}^n(\mathbb{C}),\underline{E}(m_0))\cong\{s\in \mathcal{M}(E):\operatorname{div}(s)+m_0.\mathbb{P}^{n-1}(\mathbb{C})\geq0\}.
+\]
+\end{proof}
+\paragraph{Remark.} Of course, we can prove much more than that $E$ has a non-trivial meromorphic section. Using statement B, we can show that for any $v\in E_z$, there exists $s\in \mathcal{M}^*(E)$ such that $s(z)=v$. See the exercises at the end of the section.
+
+\begin{originaltheorem}{Theorem}{7.5.5}\FieldTarget{theorem:7.5.5}{7.5.5}
+(Chow's theorem\IndexMark{idx-084}{chow s theorem@Chow's theorem}). Every analytic subset of $\mathbb{P}^n(\mathbb{C})$ is algebraic.
+\end{originaltheorem}
+\begin{proof}
+Let $X$ be an analytic subset of $\mathbb{P}^n(\mathbb{C})$ with ideal sheaf $\mathcal{I}$. Then $\mathcal{I}$ is coherent subsheaf of $\mathcal{O}$ (see \hyperref[sec:7:1]{\S1} for discussion and references). We prove: Given $z\in\mathbb{P}^n(\mathbb{C})\setminus X$, there exists a homogeneous polynomial $p=p(z_0,\ldots,z_n)$ which vanishes on $X$ and does not vanish at $x$. Granted this, we consider the set of all homogeneous polynomials which vanish on $X$. The common zero locus of these polynomials is $X$ and by the Hilbert basis theorem we may choose a finite subset of these polynomials with common zero locus $X$.
+
+Suppose then that $\mathcal{I}_z$ denotes the ideal sheaf of $X\cup\{z\}$. For $m\in\mathbb{Z}$, we have the exact sequence
+\[
+0\to\mathcal{I}_z(m)\to\mathcal{I}\to\mathbb{C}(z)(m)\to0,
+\]
+% The source prints I without a twist in this display; retained.
+where $\mathbb{C}(z)$ is the skyscrapper sheaf supported at $z$. Note that $\mathbb{C}(z)(m)=\mathbb{C}(z)$. By B of Theorem~\ref{theorem:7.5.3}, there exists $m_0$ such that $H^1(\mathbb{P}^n(\mathbb{C}),\mathcal{I}_z(m))=0$, $m\geq m_0$. Taking the cohomology sequence of our short exact sequence we obtain for $m\geq m_0$ the exact sequence
+% Source PDF page 192; printed page 183.
+\[
+H^0(\mathbb{P}^n(\mathbb{C}),\mathcal{I}(m))\to H^0(\mathbb{P}^n(\mathbb{C}),\mathbb{C}(z)(m))\to0.
+\]
+Now $H^0(\mathbb{P}^n(\mathbb{C}),\mathbb{C}(z)(m))\cong\mathbb{C}$ and so there exists $p\in H^0(\mathbb{P}^n(\mathbb{C}),\mathcal{I}(m))$ such that $p(z)\ne0$. But since $\mathcal{I}\subset\mathcal{O}$, it follows that $H^0(\mathbb{P}^n(\mathbb{C}),\mathcal{I}(m))$ is a subspace of $H^0(\mathbb{P}^n(\mathbb{C}),O(m))\approx P^{(m)}(\mathbb{C}^{n+1})$. Indeed, it is just the (non-empty!) subspace of homogeneous polynomials of degree $m$ which vanish on $X$.
+\end{proof}
+\paragraph{Remark.} Chow's theorem is a special instance of a general relationship between global analytic and algebraic structures on projective space. This relationship is explained fully in Serre's G.A.G.A. paper, Serre \cite{bib:II:serre-j-p:3}. In particular, Serre shows that there is an equivalence between coherent algebraic sheaves and coherent (analytic) sheaves on projective space. Chow's theorem is one corollary of this correspondence. Another is that every holomorphic vector bundle on projective space is ``algebraic''.
+
+\begin{originaltheorem}{Theorem}{7.5.6}\FieldTarget{theorem:7.5.6}{7.5.6}
+Let $\mathcal{F}$ be a coherent sheaf on $\mathbb{P}^n(\mathbb{C})$. Then $\mathcal{F}$ has a resolution\IndexMark{idx-512}{resolution projective of coherent sheaf@Resolution (projective) of coherent sheaf}
+\[
+0\to\underline{E}_n\to\underline{E}_{n-1}\to\cdots\to\underline{E}_0\to\mathcal{F}\to0
+\]
+by locally free sheaves\IndexMark{idx-382}{locally free resolution of coherent sheaves on p n c@Locally free resolution of coherent sheaves on $\mathbb{P}^n(\mathbb{C})$}. We may require that for $0\leq j<n$ the sheaf $\underline{E}_j$ is isomorphic to a direct sum $O(a_j)^{k_j}$.
+\end{originaltheorem}
+\begin{proof}
+Just as in the proof of Step 2 of Theorem~\ref{theorem:7.5.3}, statement A of Theorem~\ref{theorem:7.5.3} implies that there exists an exact sequence
+\[
+0\to\mathcal{K}_1\to\mathcal{O}^{k_0}\to\mathcal{F}(m_0)\to0.
+\]
+Setting $\mathcal{F}=\mathcal{K}_0$ and iterating this construction we obtain for $0\leq j\leq n$ exact sequences
+\[
+0\to\mathcal{K}_{j+1}\to\mathcal{O}^{k_j}\to\mathcal{K}_j(m_j)\to0.
+\]
+Tensoring each sequence by an appropriate power of $O(1)$ we obtain exact sequences
+% Source PDF page 193; printed page 184.
+\[
+\begin{aligned}
+0\to\mathcal{K}_{j+1}(-m_0-\cdots-m_j)&\to\mathcal{O}^{k_j}(-m_0-\cdots-m_j)\\
+&\to\mathcal{K}_j(-m_0-\cdots-m_{j-1})\to0
+\end{aligned}
+\]
+and hence a long exact sequence
+\[
+0\to\mathcal{K}_n(p_{n-1})\to\mathcal{O}^{k_{n-1}}(p_{n-1})\to\cdots\to\mathcal{O}^{k_0}(p_0)\to\mathcal{F}\to0.
+\]
+The coherence of $\mathcal{K}_n(p_{n-1})$ together with the Hilbert Syzygy theorem imply that $\mathcal{K}_n(p_{n-1})$ is locally free (see the proof of Corollary~\ref{corollary:7.1.8}).
+\end{proof}
+\paragraph{Remarks.}
+\begin{enumerate}
+\item In the exercises at the end of the section we show how, in certain cases, we can construct explicitly a resolution of a coherent sheaf on $\mathbb{P}^n(\mathbb{C})$ by locally free sheaves.
+\item To appreciate the significance of Theorem~\ref{theorem:7.5.6} we first need to discuss \emph{Serre's duality theorem}\IndexMark{idx-545}{serre duality theorem@Serre duality theorem}. In Chapter 10 we shall prove Serre's duality theorem for complex manifolds: Let $M$ be a compact complex manifold of dimension $m$ and $E$ be a holomorphic vector bundle on $M$. Then $H^p(M,\Omega^q(\underline{E}))$ is isomorphic (not canonically) to $H^{m-p}(M,\Omega^{m-q}(\underline{E}^*))$, $p,q\geq0$. In particular, if $q=0$, $H^p(M,\underline{E})\cong H^{m-p}(M,\underline{K}\otimes\underline{E}^*)$, where $K$ denotes the canonical bundle of $M$. Serre duality plays an important r\^ole in complex analysis. In particular, it gives an easy proof of the Riemann--Roch theorem for compact Riemann surfaces (see Chapter 10). Suppose that $M=\mathbb{P}^n(\mathbb{C})$. Then the canonical bundle of $\mathbb{P}^n(\mathbb{C})$ is canonically isomorphic to $H^{-n-1}$ (\hyperref[sec:5:9]{\S9, Chapter 5}). Theorem~\ref{theorem:7.5.2} implies immediately that
+\[
+H^p(\mathbb{P}^n(\mathbb{C}),O(m))\approx H^{n-p}(\mathbb{P}^n(\mathbb{C}),O(-m)\otimes\underline{K}),\quad p\geq0,\ m\in\mathbb{Z}.
+\]
+A simple computation shows that we have a (canonical) Serre duality for any sheaf on $\mathbb{P}^n(\mathbb{C})$ which is a direct sum of sheaves $O(m)$. Theorem~\ref{theorem:7.5.6}, together with some basic facts from homological algebra, now allows us to verify Serre duality for any locally free sheaf on $\mathbb{P}^n(\mathbb{C})$. Even more, we may prove a duality theorem for arbitrary coherent sheaves on $\mathbb{P}^n(\mathbb{C})$. However, the formulation of this duality theorem will now involve ``Ext'' groups. These matters are explained further in Griffiths and Harris \cite{bib:II:griffiths-p-and-harris-j:1} and Hartshorne \cite{bib:II:hartshorne-r:1,bib:II:hartshorne-r:2}. We should also mention that Ramis and Ruget \cite{bib:II:ramis-j-p-and-ruget-g:1} and Ramis, Ruget and Verdier \cite{bib:II:ramis-j-p-ruget-g-and-verdier-j-l:1} have
+% Source PDF page 194; printed page 185.
+developed a general duality theorem applicable to analytic spaces and proper analytic maps.
+\end{enumerate}
+
+For the remainder of this section we make a preliminary study of holomorphic vector bundles on projective space.
+
+\begin{originaltheorem}{Proposition}{7.5.7}\FieldTarget{proposition:7.5.7}{7.5.7}
+The group of holomorphic line\IndexMark{idx-295}{holomorphic line bundle@Holomorphic line bundle!on projective space group structure@on projective space, group structure} bundles on $\mathbb{P}^n(\mathbb{C})$ is isomorphic to the infinite cyclic group generated by the hyperplane section bundle\IndexMark{idx-319}{hyperplane section bundle@Hyperplane section bundle!chern class@Chern class} $H$.
+\end{originaltheorem}
+\begin{proof}
+First note that the group generated by $H$ in $\operatorname{HLB}(\mathbb{P}^n(\mathbb{C}))$ is infinite cyclic. Indeed, $H^p$ is isomorphic to $\mathbb{C}$ if and only if $H^0(\mathbb{P}^n(\mathbb{C}),O(p))\cong\mathbb{C}$ and by Theorem~\ref{theorem:7.5.2} this happens if and only if $p=0$. It follows from the cohomology sequence of $0\to\mathbb{Z}\to\mathcal{O}\to\mathcal{O}^*\to0$ and the vanishing of $H^1(\mathbb{P}^n(\mathbb{C}),\mathcal{O})$, $H^2(\mathbb{P}^n(\mathbb{C}),\mathcal{O})$ that
+\[
+H^1(\mathbb{P}^n(\mathbb{C}),\mathcal{O}^*)\cong H^2(\mathbb{P}^n(\mathbb{C}),\mathbb{Z}),
+\]
+where the isomorphism is given by $c_1$, 1st. Chern class\IndexMark{idx-082}{chern class first@Chern class (first)!of holomorphic line bundle on p n c@of holomorphic line bundle on $\mathbb{P}^n(\mathbb{C})$} map. By topology, $H^2(\mathbb{P}^n(\mathbb{C}),\mathbb{Z})\cong\mathbb{Z}$, $n\geq1$. Let $\mathbb{P}^1(\mathbb{C})\subset\mathbb{P}^n(\mathbb{C})$. We have the commutative diagram
+\[
+\input{diagrams/II-33.tex}
+\]
+where the vertical maps are induced by inclusion. Now we know from Example 13, \hyperref[sec:6:3]{\S3, Chapter 6} that $H$ generates $H^1(\mathbb{P}^1(\mathbb{C}),\mathcal{O}^*)$. But $r$ maps the hyperplane section bundle of $\mathbb{P}^n(\mathbb{C})$ to the hyperplane section bundle of $\mathbb{P}^1(\mathbb{C})$ and so $c_1r(H)$ generates $H^2(\mathbb{P}^1(\mathbb{C}),\mathbb{Z})$. By the commutativity of the diagram it follows that $H$ generates $H^1(\mathbb{P}^n(\mathbb{C}),\mathcal{O}^*)$.
+\end{proof}
+
+We now work towards a classification of holomorphic vector bundles on $\mathbb{P}^1(\mathbb{C})$\IndexMark{idx-301}{holomorphic vector bundle@Holomorphic vector bundle!on p 1 c@on $\mathbb{P}^1(\mathbb{C})$}. Suppose $L\in\operatorname{HLB}(\mathbb{P}^1(\mathbb{C}))$ and $s\in \mathcal{M}^*(L)$. Now $\deg(\operatorname{div}(s))$ is independent of $s$ and depends only on $L$---\hyperref[sec:1:5]{\S5, Chapter 1}. We set $\deg(L)=\operatorname{div}(s)$, where $s$ is any non-trivial meromorphic section of $L$. By Proposition~\ref{proposition:7.5.7}, $L\cong H^d$ for some $d\in\mathbb{Z}$. Since $H^d$ admits a meromorphic section whose divisor had degree\IndexMark{idx-168}{degree of holomorphic line bundle@Degree of holomorphic line bundle} $d$, we see
+% Source PDF page 195; printed page 186.
+that $\deg(L)=d$. Indeed, $\deg(L)=c_1(L)=c_1(H^d)=d$, where we make the usual identification of $H^2(\mathbb{P}^1(\mathbb{C}),\mathbb{Z})$ with $\mathbb{Z}$. Suppose that $E$ is a holomorphic vector bundle on $\mathbb{P}^1(\mathbb{C})$ of rank $k$ and let $s\in \mathcal{M}^*(E)$ (such sections exist by Theorem~\ref{theorem:7.5.4}). Since the zeroes and poles of $s$ are isolated points, $\operatorname{div}(s)$ is a well defined element of $\mathcal{D}(\mathbb{P}^1(\mathbb{C}))$ (this would not be the case if $E$ were a holomorphic vector bundle over a complex manifold of dimension greater than 1). For each $z\in\mathbb{P}^1(\mathbb{C})$, there exists $f_z\in\mathcal{M}_z$, $h_z\in\underline{E}_z$ such that $s_z=f_zh_z$ and $h_z(z)\ne0$. Define a subset $\mathcal{L}^s\subset\underline{E}$ by $\mathcal{L}^s_z=h_z\mathcal{O}_z$, $z\in\mathbb{P}^1(\mathbb{C})$. It is easily verified that $\mathcal{L}^s$ is a locally free subsheaf of $\underline{E}$ of rank 1. Hence $\mathcal{L}^s$ is the sheaf of holomorphic sections of a holomorphic line subbundle $L^s$ of $E$. By the construction $s_z\in\mathcal{M}^*(L^s)_z$ for all $z\in\mathbb{P}^1(\mathbb{C})$ and so we may regard $s$ as defining a meromorphic section of $L^s$. Clearly the bundle $L^s$ is uniquely determined by these conditions. Set $d(s)=\deg(L^s)$. We claim that $\max\{d(s):s\in \mathcal{M}^*(E)\}<\infty$. Since $\mathcal{L}^s\cong O(d(s))$, we have $\dim_{\mathbb{C}}H^0(\mathbb{P}^1(\mathbb{C}),\mathcal{L}^s)=d(s)+1$ (that is, the dimension of $P^{(d(s))}(\mathbb{C}^2)$). Clearly, $\dim_{\mathbb{C}}H^0(\mathbb{P}^1(\mathbb{C}),\underline{E})\geq\dim_{\mathbb{C}}H^0(\mathbb{P}^1(\mathbb{C}),\mathcal{L}^s)$ for all $s\in \mathcal{M}^*(E)$. So if $d(s)$ were unbounded, this would contradict the finiteness of $\dim_{\mathbb{C}}H^0(\mathbb{P}^1(\mathbb{C}),\underline{E})$. Set $a_1=\max_s d(s)$. Choose a holomorphic line subbundle $L$ of $E$ of degree $a_1$. Thus $\underline{L}\cong O(a_1)$ and we have the exact sequence
+\[
+0\to O(a_1)\to\underline{E}\to\underline{F}\to0,
+\]
+where $F=E/L$ is a vector bundle of rank $k-1$ on $\mathbb{P}^1(\mathbb{C})$.
+
+\begin{originaltheorem}{Theorem}{7.5.8}\FieldTarget{theorem:7.5.8}{7.5.8}\IndexMark{idx-277}{grothendieck splitting theorem for holomorphic vector bundles on p 1 c@Grothendieck splitting theorem for holomorphic vector bundles on $\mathbb{P}^1(\mathbb{C})$}
+(Grothendieck). Let $E$ be a holomorphic vector bundle on $\mathbb{P}^1(\mathbb{C})$ of rank $k$. Then there exists a unique sequence $a_1\geq\cdots\geq a_k$ of integers such that
+\[
+\underline{E}\cong O(a_1)\oplus\cdots\oplus O(a_k).
+\]
+\end{originaltheorem}
+\begin{proof}
+We prove by induction on $k$. Suppose true $k-1$. Then as we showed above there exists a holomorphic line subbundle $L\subset E$ of maximal degree, say $a_1$, and exact sequence
+\[
+0\to O(a_1)\to\underline{E}\to\underline{F}\to0,\tag{*}\label{eq:7:star:7}
+\]
+% Source PDF page 196; printed page 187.
+where $F$ is a holomorphic vector bundle of rank $k-1$. By the inductive assumption
+\[
+\underline{F}\cong O(a_2)\oplus\cdots\oplus O(a_k),\quad a_2\geq\cdots\geq a_k.
+\]
+We claim $a_1\geq a_2$. If not, $a_2\geq a_1+1$ and tensoring (*) by $O(-a_1-1)$ we obtain the exact sequence
+\[
+0\to O(-1)\to\underline{E}(-a_1-1)\to\underline{F}(a_1-1)\to0.
+\]
+% Source has F(a_1-1), without the minus before a_1; retained.
+Taking the cohomology sequence, together with the vanishing of $H^1(\mathbb{P}^1(\mathbb{C}),O(-1))$, we deduce that
+\[
+H^0(\mathbb{P}^1(\mathbb{C}),\underline{E}(-a_1-1))\cong H^0(\mathbb{P}^1(\mathbb{C}),\underline{F}(-a_1-1)).
+\]
+Now $\underline{F}(-a_1-1)\cong\bigoplus_{j=2}^k O(a_j-a_1-1)$. Therefore since $a_2-a_1-1\geq0$, $H^0(\mathbb{P}^1(\mathbb{C}),\underline{F}(-a_1-1))\ne0$ and so $E(-a_1-1)$ admits a non-trivial holomorphic section. Hence $E(-a_1-1)$ contains a holomorphic line bundle isomorphic to $H^p$, $p\geq0$. Consequently, $E$ contains a holomorphic line bundle isomorphic to $H^{p+a_1+1}$ which is of degree $p+a_1+1$, contradicting the definition of $a_1$.
+
+Next we claim that the sequence (*) splits. This is a consequence of a general splitting lemma.
+
+\begin{originaltheorem}{Lemma}{7.5.9}\FieldTarget{lemma:7.5.9}{7.5.9}
+Let $0\to\mathcal{F}\xrightarrow{a}\mathcal{G}\xrightarrow{b}\mathcal{H}\to0$ be an exact sequence of coherent sheaves on the complex manifold $M$. Suppose that $\mathcal{H}$ is locally free and that $H^1(M,\operatorname{Hom}(\mathcal{H},\mathcal{F}))=0$. Then the sequence splits.
+\end{originaltheorem}
+\begin{proof}
+We refer to the exercises at the end of \hyperref[sec:7:1]{\S1} for the definition of $\operatorname{Hom}(\mathcal{F},\mathcal{G})$. See also the exercises at the end of \hyperref[sec:6:1]{\S1, Chapter 6}. Since $\mathcal{H}$ is locally free the sequence
+\[
+0\to\operatorname{Hom}(\mathcal{H},\mathcal{F})\to\operatorname{Hom}(\mathcal{H},\mathcal{G})\to\operatorname{Hom}(\mathcal{H},\mathcal{H})\to0
+\]
+is exact. Taking the cohomology sequence we deduce that
+\[
+H^0(M,\operatorname{Hom}(\mathcal{H},\mathcal{G}))\to H^0(M,\operatorname{Hom}(\mathcal{H},\mathcal{H}))\to0
+\]
+% Source PDF page 197; printed page 188.
+is exact. Therefore there exists $c:\mathcal{H}\to\mathcal{G}$ which is mapped to the identity homomorphism of $\mathcal{H}$. That is, $bc=\operatorname{Id}$.
+\end{proof}
+
+Returning to the proof of our theorem we see that
+\[
+\operatorname{Hom}(\underline{F},O(a_1))=\underline{F}^*\otimes O(a_1)\cong\bigoplus_{j=2}^k O(a_1-a_j).
+\]
+Now $a_1-a_j\geq0$ and so $H^1(\mathbb{P}^1(\mathbb{C}),\operatorname{Hom}(\underline{F},O(a_1)))=0$. Hence we may apply the splitting lemma to deduce that \eqref{eq:7:star:7} splits. But then,
+\[
+\underline{E}\cong O(a_1)\oplus\bigoplus_{j=2}^k O(a_j).
+\]
+Finally the uniqueness of the sequence $a_1\geq\cdots\geq a_k$ follows by observing that the number of $a_i$'s equal to $m$ is precisely $\dim_{\mathbb{C}}H^0(\mathbb{P}^1(\mathbb{C}),\underline{E}(-m))$.
+\end{proof}
+\paragraph{Remark.} Much is known about the classification of holomorphic vector bundles on compact Riemann surfaces. See Gunning \cite{bib:II:gunning-r-c:3}, M. Narasimhan \cite{bib:II:narasimhan-m:1} and Tjurin \cite{bib:II:tyurin-a-n:1}.
+
+Theorem~\ref{theorem:7.5.8} does \emph{not} generalise to vector bundles over $\mathbb{P}^n(\mathbb{C})$, $n>1$.
+
+\paragraph{Example 1.} $T\mathbb{P}^2(\mathbb{C})$ is not a sum of holomorphic line bundles. Suppose the contrary. Then $\underline{T\mathbb{P}^2(\mathbb{C})}\cong O(a)\oplus O(b)$, where we may suppose $a\geq b$. Taking the Euler sequence for $T\mathbb{P}^2(\mathbb{C})$, we therefore have the exact sequence
+\[
+0\to\mathcal{O}\to O(1)^3\to O(a)\oplus O(b)\to0.
+\]
+Suppose $a\geq2$. Tensoring the Euler sequence by $O(-2)$ and taking the cohomology sequence of the resulting short exact sequence we find $H^0(\mathbb{P}^2(\mathbb{C}),O(-1)^3)\cong H^0(\mathbb{P}^2(\mathbb{C}),O(a-2)\oplus O(b-2))$, which cannot be since the first cohomology group is zero, the second non-zero. Therefore, $a,b\leq1$. Now take the cohomology sequence of the Euler sequence and count dimensions of the zero dimensional groups to derive a contradiction. (The same analysis will show that $T\mathbb{P}^n(\mathbb{C})$ is never a direct sum of line bundles for $n\geq2$).
+
+% Source PDF page 198; printed page 189.
+Suppose that $\ell\subset\mathbb{P}^n(\mathbb{C})$ is a line (that is, $\ell\cong\mathbb{P}^1(\mathbb{C})$). Grothendieck's theorem, together with a similar analysis to that presented in the example above, shows that
+\[
+\underline{T\mathbb{P}^n(\mathbb{C})}|\ell\cong O(2)\oplus O(1)^{n-1}.
+\]
+We say that a holomorphic vector bundle $E$ on $\mathbb{P}^n(\mathbb{C})$ of rank is \emph{uniform}\IndexMark{idx-625}{uniform holomorphic vector bundle@Uniform holomorphic vector bundle} of splitting type $(a_1,\ldots,a_k)$ if for every complex line $\ell\subset\mathbb{P}^n(\mathbb{C})$,
+\[
+\underline{E}|\ell=\bigoplus_{j=1}^k O(a_j).
+\]
+It can be shown that a uniform bundle of rank $k<n$ is a direct sum of line bundles and that if $k=n$ then it is either a direct sum of line bundles or of the form $T\mathbb{P}^n(\mathbb{C})(m)$, $T\mathbb{P}^n(\mathbb{C})^*(m)$ (see Okonek, Schneider and Spindler \cite[pages 70,71]{bib:II:okonek-c-schneider-m-and-spindler-h:1}).
+
+However, not every holomorphic vector bundle on $\mathbb{P}^n(\mathbb{C})$ is uniform, $n>1$, and the problem of classification is still open. Substantial progress has recently been made in the classification of a class of rank 2 vector bundles over $\mathbb{P}^3(\mathbb{C})$---the so called \emph{instanton bundles}\IndexMark{idx-327}{instanton bundle@Instanton bundle}---which give rise to self dual solutions of the Yang--Mills field equations. An important feature here is the appearance of moduli in the classification. For references, together with an up-to-date survey of the theory of holomorphic vector bundles on projective space, we refer to the book by Okonek, Schneider and Spindler \cite{bib:II:okonek-c-schneider-m-and-spindler-h:1}.
+
+\paragraph{Exercises.}
+\begin{enumerate}
+\item Let $E$ be a holomorphic vector bundle on $\mathbb{P}^n(\mathbb{C})$ and $v\in E_z$, $z\in\mathbb{P}^n(\mathbb{C})$. Show that there exists $s\in \mathcal{M}^*(E)$ such that $s(z)=v$.
+\item Let $M\subset\mathbb{P}^n(\mathbb{C})$ be algebraic. Show that Serre's Theorems A and\IndexMark{idx-547}{serre theorems a and b@Serre theorems A and B} B hold for all coherent sheaves on $M$ (twist with the hyperplane section bundle restricted to $M$).
+\item Verify that
+\begin{enumerate}
+\item $T\mathbb{P}^n(\mathbb{C})$ is not a sum of line bundles, $n>2$.
+\item $T\mathbb{P}^n(\mathbb{C})$ is uniform of splitting type $(2,1,\ldots,1)$, $n\geq1$.
+\end{enumerate}
+% Source PDF page 199; printed page 190.
+(Hint: It may be useful to recall that $\dim_{\mathbb{C}}P^{(m)}(\mathbb{C}^{n+1})=\binom{m+n}{n}$).
+\item Show that Grothendieck\IndexMark{idx-278}{grothendieck splitting theorem for holomorphic vector bundles on p 1 c@Grothendieck splitting theorem for holomorphic vector bundles on $\mathbb{P}^1(\mathbb{C})$}'s theorem (Theorem~\ref{theorem:7.5.8}) is equivalent to the following statement about invertible holomorphic matrices: Regarding $\mathbb{P}^1(\mathbb{C})$ as the 1-point compactification of $\mathbb{C}$, let $t>1$ and set $U_1=\{z\in\mathbb{P}^1(\mathbb{C}):|z|<t\}$, $U_2=\{z\in\mathbb{P}^1(\mathbb{C}):|z|>1\}$. Suppose $M\in\operatorname{GL}(n,A(U_{12}))$. Then there exist $P\in\operatorname{GL}(n,A(U_1))$, $Q\in\operatorname{GL}(n,A(U_2))$ such that $PMQ$ is a diagonal matrix with diagonal terms $z^{a_j}$, $a_j\in\mathbb{Z}$.
+\item (Koszul complex\IndexMark{idx-349}{koszul complex@Koszul complex}) Let $A$ be a commutative ring with 1 and for $m\geq1$, let $E_1,\ldots,E_m$ denote the standard $A$-module basis of $A^m$ (that is $E_1=(1,0,\ldots,0)$, $\ldots$, $E_m=(0,0,\ldots,1)$). The $A$-module $\Lambda^p A^m$ has $A$-module basis $\{E_J=E_{j_1}\wedge\cdots\wedge E_{j_p}:1\leq j_1<\cdots<j_p\leq n\}$. Suppose that $f_1,\ldots,f_m\in A$, set $f=(f_1,\ldots,f_m)\in A^m$ and let $I$ denote the ideal in $A$ generated by $f_1,\ldots,f_m$. Show
+\begin{enumerate}[label=\alph*)]
+\item We have the \emph{Koszul complex}
+\[
+0\to\Lambda^m A^m\xrightarrow{\partial}\Lambda^{m-1}A^m\xrightarrow{\partial}\cdots\xrightarrow{\partial}\Lambda^1 A^m\xrightarrow{\partial} A\to A/I\to0
+\]
+of $A$-module homomorphisms, where $\partial a=C_fa$. That is, if $a=a_J E_J\in\Lambda^p A^m$ then
+\[
+\partial a=\sum_J a_J\sum_{i=1}^p(-1)^{i+1}f_{j_i}E_{j_1}\wedge\cdots\wedge\widehat{E}_{j_i}\wedge\cdots\wedge E_{j_p}.
+\]
+Show also that $\partial(\Lambda^1 A^m)=I$.
+\item Let $I_k=(f_1,\ldots,f_k)$ denote the ideal in $I$ generated by $f_1,\ldots,f_k$. We say that $(f_1,\ldots,f_m)$ is a \emph{regular sequence} if $f_k$ is not a zero divisor in $A/I_{k-1}$, $k=1,\ldots,m$.
+
+Show that if $(f_1,\ldots,f_m)$ is a regular sequence, then the Koszul complex is exact (Hint: prove by induction on $m$. See also Griffiths and Harris \cite[pages 688--690]{bib:II:griffiths-p-and-harris-j:1}).
+\end{enumerate}
+Now suppose that $p_j\in\mathbb{C}[z_0,\ldots,z_n]$ is homogeneous of degree $d_j$, $1\leq j\leq m$, and let $p=(p_1,\ldots,p_m)$ denote the corresponding section of $E=O(d_1)\oplus\cdots\oplus O(d_m)$. Set $X=Z(p)\subset\mathbb{P}^n(\mathbb{C})$. Show
+% Source PDF page 200; printed page 191.
+\begin{enumerate}[label=\alph*),start=3]
+\item If $(p_1,\ldots,p_m)$ is a regular sequence in $\mathbb{C}[z_0,\ldots,z_n]$ then the Koszul complex
+\[
+\begin{aligned}
+0\to\Lambda^m\underline{E}^*\xrightarrow{\partial}\Lambda^{m-1}\underline{E}^*\xrightarrow{\partial}\cdots\xrightarrow{\partial}\Lambda^1\underline{E}^*
+\to\mathcal{O}_{\mathbb{P}^n(\mathbb{C})}\to\mathcal{O}_X\to0
+\end{aligned}
+\]
+is a locally free resolution of $\mathcal{O}_X$.
+\end{enumerate}
+(See also Exercise 14, \hyperref[sec:6:1]{\S1, Chapter 6}. The assumption on $(p_1,\ldots,p_m)$ amounts to saying that $X$ is a \emph{complete intersection}).
+\item Let $E$ be a holomorphic vector bundle on the compact Riemann\IndexMark{idx-528}{riemann roch theorem@Riemann--Roch theorem} surface $M$. Given $d\in \mathcal{D}(M)$, we set $E(d)=E\otimes[d]$. Suppose $d,d'\in \mathcal{D}(M)$ and that $d\leq d'$. Set $d'-d=\sum_{i=1}^k p_i.z_i$, where each $p_i>0$. Show
+\begin{enumerate}[label=\alph*)]
+\item We have a natural exact sequence
+\[
+0\to\underline{E}(d)\to\underline{E}(d')\to\mathcal{F}\to0
+\]
+where $\mathcal{F}$ is the ``Manhatten'' sheaf whose stalk is zero except at points $x_i\in|d'-d|$ where we have $\mathcal{F}_{x_i}=\mathbb{C}^{p_iq}$, $q=\dim(E)$.
+\item If we define $\chi(E)=\dim_{\mathbb{C}}H^0(M,E)-\dim_{\mathbb{C}}H^1(M,E)$ then
+\[
+\chi(E(d))=q\deg(d)+\chi(E).
+\]
+(Hint: The alternating sum of dimensions in an exact sequence $0\to L_0\to L_1\to\cdots\to L_n\to0$ of vector spaces is zero).
+\item $\dim_{\mathbb{C}}\Omega(E(d))\geq q\deg(d)+\chi(E)$.
+\item $E$ has non-trivial meromorphic sections.
+\item In case $E$ is a holomorphic line bundle on $M$, there exists $d\in \mathcal{D}(M)$ such that $E\cong[d]$ and $c_1(E)=\deg(d)$.
+\item $H^1(M,\mathcal{M}^*)=0$.
+\end{enumerate}
+\item Let $M$ be a compact Riemann surface. Given $d\in \mathcal{D}(M)$, set $l(d)=\dim_{\mathbb{C}}H^0(M,[d])$; $i(d)=\dim_{\mathbb{C}}H^1(M,[d])$. Show that
+\[
+l(d)-i(d)=\deg(d)+1-g,
+\]
+% Source PDF page 201; printed page 192.
+where $g=\dim_{\mathbb{C}}H^1(M,O)$.
+
+(Riemann--Roch formula).
+
+Deduce
+\begin{enumerate}[label=\alph*)]
+\item $l(d)\geq\deg(d)+1-g$ (Riemann's inequality\IndexMark{idx-530}{riemann s inequality@Riemann's inequality}).
+\item If $\deg(d)\geq g+1$, there exists $m\in \mathcal{M}^*(M)$ such that $\operatorname{div}(m)+d\geq0$.
+\item $M$ may be represented as a branched over\IndexMark{idx-392}{meromorphic function@Meromorphic function!on riemann surface@on Riemann surface} of $\mathbb{P}^1(\mathbb{C})$ with at most $g+1$ sheets. In particular, if $g=0$, $M=\mathbb{P}^1(\mathbb{C})$.
+\end{enumerate}
+(We remark that $g$ is actually the genus\IndexMark{idx-265}{genus@Genus} of $M$. In particular, $g$ is a topological rather than analytic invariant of $M$. To see that $g$ is the genus of $M$ (that is $\tfrac12\dim_{\mathbb{C}}H^1(M,\mathbb{C})$), we note that Serre-duality implies that $H^1(M,O)=H^0(M,\Omega^1)$. Now take the cohomology sequence of the short exact sequence $0\to\mathbb{C}\to O\xrightarrow{\partial=d}\Omega^1\to0$---see Example 23, \hyperref[sec:6:1]{\S1, Chapter 6}).
+\end{enumerate}
+
+\section{The Kodaira embedding theorem}\label{sec:7:6}
+In this section we prove a version of the Kodaira embedding theorem due to Grauert. The main step in the proof is a cohomology vanishing theorem for coherent sheaves on a compact complex manifold admitting a weakly positive vector bundle (for\IndexMark{idx-276}{grauert vanishing theorem for weakly positive vector bundles@Grauert vanishing theorem for weakly positive vector bundles} the definition of weak positivity, see \hyperref[sec:5:10]{\S10, Chapter 5}).
+
+First some notation. Suppose that $E$ is a holomorphic vector bundle on the complex manifold $M$. We let $E^{(s)}$ denote the $s$-fold \emph{symmetric} tensor product of $E$ (this is just the usual tensor product if $E$ is a line bundle). If $\mathcal{F}$ is a coherent sheaf on $M$, we let $\mathcal{F}^{(s)}(E)$ denote the $E$-twisted sheaf $\mathcal{F}\otimes_{\mathcal{O}}\underline{E}^{(s)}$.
+
+\begin{originaltheorem}{Theorem}{7.6.1}\FieldTarget{theorem:7.6.1}{7.6.1}
+(Grauert \cite{bib:II:grauert-h:1}). Let $E$ be a weakly positive vector bundle on the compact complex manifold $M$. Then for any coherent sheaf $\mathcal{F}$ on $M$, there exists $m_0=m_0(\mathcal{F})$ such that
+\[
+H^p(M,\mathcal{F}^{(m)}(E))=0,\quad p\geq1,\ m\geq m_0.
+\]
+\end{originaltheorem}
+% Source PDF page 202; printed page 193.
+\begin{proof}
+Let $\pi:E^*\to M$ denote the dual of $E$. Then $E^*$ is weakly negative and so there exists an s.L.p. neighbourhood $D$ of the zero section of $E^*$. Set $\widetilde{\mathcal{F}}=\pi^*\mathcal{F}|D$. Then $\widetilde{\mathcal{F}}$ is a coherent sheaf on $D$ (Example 6, \hyperref[sec:7:1]{\S1}). We shall show that for $N\geq0$, there exists a canonical linear injection
+\[
+\phi_N:\sum_{s=0}^N H^p(M,\mathcal{F}^{(s)}(E))\longrightarrow H^p(D,\widetilde{\mathcal{F}}).
+\]
+Since Grauert's finiteness theorem implies that $H^p(D,\widetilde{\mathcal{F}})$ is finite dimensional, $p\geq1$, the existence of such an injection certainly implies that $H^p(M,\mathcal{F}^{(s)}(E))$ is zero dimensional for all sufficiently large $s$, $p\geq1$.
+
+Let $\omega$ denote the zero section of $E^*$ and $i:M\to E^*$ the canonical inclusion of $M$ on $\omega$. Set $\widehat{\mathcal{O}}=i^{-1}\mathcal{O}_{E^*}$ and note that $\widehat{\mathcal{O}}$ has the natural structure of a sheaf of $\mathcal{O}_M$-modules (not of finite type). For $s\geq0$, we have a natural $\mathcal{O}_M$-morphism
+\[
+\chi_s:\underline{E}^{(s)}\longrightarrow\widehat{\mathcal{O}}
+\]
+defined by $\chi_s(f_z)(z)(v_z)=f_z(z)(v_z^s)$, $z\in M$, $f_z\in\underline{E}_z^{(s)}$, $v_z\in E_z^*$. That is, $f_z(z)\in E_z^{(s)}\approx(E_z^*)^{*(s)}$ and so defines a homogeneous polynomial map of degree $s$ from $E_z^*$ to $\mathbb{C}$. Evaluate $f_z(z)$ at points of the fibre $E_z^*$. The map $\chi_s$ is obviously injective. Moreover, if we set
+\[
+\chi^N=\bigoplus_{s=0}^N\chi_s:\bigoplus_{s=0}^N\underline{E}^{(s)}\longrightarrow\widehat{\mathcal{O}}
+\]
+it is clear that $\chi^N$ is also injective since the image of each $\chi_s$ consists of analytic germs which are homogeneous of degree $s$ in the fibre coordinates. Furthermore, we can define an $\mathcal{O}_M$-morphism $j^N:\widehat{\mathcal{O}}\to\bigoplus_{s=0}^N\underline{E}^{(s)}$ which is a right inverse for $\chi^N$ (that is, $j^N\chi^N=\operatorname{Id}$). To do this suppose $g_z\in\widehat{\mathcal{O}}_z$. Then, by Taylor's theorem, we may write $g_z=\sum_{j=0}^\infty f_jP_j$, where $f_j\in\mathcal{O}_{M,z}$, $P_j\in E_z^{**(s)}\approx E_z^{(s)}$. Now define $j^N(g_z)=(f_0P_0,\ldots,f_NP_N)$ ($j^Ng_z$ is the $N$-jet of $g_z$ along the fibres of $E^*$). Since $i$ is a biholomorphism, we have induced maps
+
+% Source PDF page 203; printed page 194. Continuation of Theorem~\ref{theorem:7.6.1} proof.
+\[
+\begin{aligned}
+I_N:\mathcal{F}\otimes\bigoplus_{s=0}^N\underline{E}^{(s)}&\longrightarrow\widetilde{\mathcal{F}}_\omega
+\ \left(=(\pi^{-1}\mathcal{F})_\omega\otimes_{\pi^{-1}(\mathcal{O}_M)}\mathcal{O}_\omega\right)\\
+J_N:\widetilde{\mathcal{F}}_\omega&\longrightarrow\mathcal{F}\otimes\bigoplus_{s=0}^N\underline{E}^{(s)}
+\end{aligned}
+\]
+satisfying $J_NI_N=\operatorname{Id}$, and induced maps on cohomology
+\[
+H^p\left(M,\mathcal{F}\otimes\bigoplus_{s=0}^N\underline{E}^{(s)}\right)
+\ \mathop{\rightleftarrows}^{I_N^*}_{J_N^*}\ H^p(\omega,\widetilde{\mathcal{F}}_\omega)
+\]
+(Exercise 14, \hyperref[sec:6:3]{\S3, Chapter 6}). In particular, $I_N^*$ is injective, $p,N\geq0$. Let $r=i^{-1}(\pi|D):D\to\omega$ and $k:\omega\to D$ denote the inclusion. Now $rk$ is the identity map on $\omega$ and so we have the commutative diagram
+\[
+\input{diagrams/II-34.tex}
+\]
+(see Exercise 15, \hyperref[sec:6:3]{\S3, Chapter 6} and note that $k^{-1}\widetilde{\mathcal{F}}=\widetilde{\mathcal{F}}_\omega$, $r^{-1}\widetilde{\mathcal{F}}_\omega=\widetilde{\mathcal{F}}$). But therefore $r^*$ is injective and so the map
+\[
+\phi_N=r^*I_N^*:H^p\left(M,\mathcal{F}\otimes\bigoplus_{s=0}^N\underline{E}^{(s)}\right)\longrightarrow H^p(D,\widetilde{\mathcal{F}})
+\]
+is injective, $p\geq0$.
+\end{proof}
+
+Suppose that $F$ is a holomorphic line bundle on the compact complex manifold $M$ and that for each $z\in M$, there exists $s\in H^0(M,\underline{F})$ such that $s(z)\ne0$. Choose a $\mathbb{C}$-basis $s_0,\ldots,s_k$ for $H^0(M,\underline{F})$. Then, as we showed in \hyperref[sec:5:9]{\S9, Chapter 5}, $s=(s_0,\ldots,s_k)$ defines a holomorphic map of $M$ in $\mathbb{P}^k(\mathbb{C})$. We shall say that $F$ is \emph{ample} (respectively \emph{very ample}\IndexMark{idx-007}{ample vector bundle@Ample vector bundle}\IndexMark{idx-646}{very ample vector bundle@Very ample vector bundle}) if $H^0(M,\underline{F})$ determines a holomorphic map (respectively embedding) of $M$ in some projective space. We remark that if $F$ is ample (respectively, very ample) then so is $F^k$, $k\geq1$.
+
+\begin{originaltheorem}{Theorem}{7.6.2}\FieldTarget{theorem:7.6.2}{7.6.2}
+(Kodaira embedding theorem\IndexMark{idx-345}{kodaira embedding theorem@Kodaira embedding theorem}). Let $M$ be a compact complex manifold and suppose that $E$ is a weakly positive vector bundle on $M$. Then $M$ admits an embedding in projective space.
+\end{originaltheorem}
+% Source PDF page 204; printed page 195.
+\begin{proof}
+(Grauert \cite{bib:II:grauert-h:1}). We shall prove the theorem in case $E$ is a weakly positive line bundle. The proof in case $E$ is a bundle of rank greater than 1 is similar except that $M$ gets embedded in a Grassmann manifold (which, of course, can be embedded in projective space).
+
+First we show that there exists $k_0$ such that $H^0(M,\underline{E}^k)$ determines a holomorphic immersion of $M$ in projective space, $k\geq k_0$.
+
+Fix $z\in M$ and let $\mathcal{I}_z^2=\mathcal{I}_z\mathcal{I}_z$, where $\mathcal{I}_z$ is the ideal sheaf of $z$. The sheaf $\mathcal{I}_z^2$ is coherent and we have the short exact sequence
+\[
+0\to\mathcal{I}_z^2\to\mathcal{O}_M\xrightarrow{T}J(z)\to0,\tag{*}\label{eq:7:star:8}
+\]
+where $J(z)$ is the skyscrapper sheaf supported at $z$ with stalk $\mathcal{O}_z/\mathfrak{m}_z^2$. Now $T(f_z)=(f_z(z),df_z(z))$. That is, $\mathcal{O}_z/\mathfrak{m}_z^2$ measures the first two terms in the Taylor expansion of $f_z$. By Theorem~\ref{theorem:7.6.1}, there exists $k(z)$ such that $H^1(M,\mathcal{I}_z^2\otimes\underline{E}^k)=0$, $k\geq k(z)$. Tensoring (*) with $\underline{E}^k$ and taking the cohomology sequence of the short exact sequence we deduce that
+\[
+H^0(M,\underline{E}^k)\xrightarrow{T^*}H^0(M,J(z)\otimes\underline{E}^k)
+\]
+is surjective, $k\geq k(z)$. Since $H^0(M,J(z)\otimes\underline{E}^k)\cong J(z)$, we deduce that $H^0(M,\underline{E}^k)$ determines a holomorphic embedding of some open neighbourhood $U_z$ of $z$ in projective space, $k\geq k(z)$ ($U_z$ may be chosen independently of $k\geq k(z)$. Indeed, a $U_z$ that works for $k(z)$ will work for $k>k(z)$). Doing this for every $z\in M$ and using the compactness of $M$ we obtain a finite cover $U_1,\ldots,U_n$ of $M$, corresponding integers $k_1,\ldots,k_n$, such that $H^0(M,\underline{E}^{k_j})$ determines a holomorphic embedding of $U_j$ in projective space. Taking $k_0=\max_j k_j$, we see that $H^0(M,\underline{E}^k)$ determines a holomorphic immersion of $M$ in projective space, $k\geq k_0$. Set $U=\bigcup_{j=1}^n(U_j\times U_j)\subset M\times M$. For $(x,y)\in(M\times M)\setminus U$, let $\mathcal{I}_{x,y}$ denote the sheaf of germs of holomorphic functions on $M$ vanishing on $\{x,y\}$. Just as we did above, we find that there exists $m(x,y)$ such that for $m\geq m(x,y)$ the natural map
+\[
+H^0(M,\underline{E}^m)\longrightarrow H^0(M,(\mathbb{C}(x)\oplus\mathbb{C}(y))\otimes\underline{E}^m)
+\]
+% Source PDF page 205; printed page 196.
+is onto. Hence there exists a neighbourhood $W$ of $(x,y)$ in $M\times M$ such that if $(x',y')\in W$, there exists $s\in H^0(M,\underline{E}^m)$ with $s(x')\ne s(y')$, $m\geq m(x,y)$. Since $(M\times M)\setminus U$ is compact, we may find an open cover $W_1,\ldots,W_p$ of $(M\times M)\setminus U$ and corresponding integers $m_1,\ldots,m_p$ such that given $(x,y)\in W_j$, there exists $s\in H^0(M,\underline{E}^m)$ with $s(x)\ne s(y)$, $m\geq m_j$. Now let $m_0=\max\{k_0,m_1,\ldots,m_p\}$. Our construction guarantees that $E^m$ is very ample for $m\geq m_0$.
+\end{proof}
+\paragraph{Remarks.}
+\begin{enumerate}
+\item Kodaira's original proof of Theorem~\ref{theorem:7.6.2} is rather different from that of Grauert. Theorem~\ref{theorem:7.6.1} is replaced by a cohomology vanishing theorem for cohomology with coefficients in a holomorphic vector bundle whose curvature satisfies certain positivity conditions. In the construction of the embedding, Kodaira uses blowing up arguments, in combination with his vanishing theorem, rather than the twisting arguments we used. The reader may consult Kodaira and Morrow \cite{bib:II:kodaira-k-and-morrow-j:1} and Wells \cite{bib:II:wells-r-o:1} for presentations of Kodaira's original proof. In Chapter 10, we shall prove the cohomology vanishing theorem (``Kodaira's vanishing theorem'') referred to above. One important feature of Grauert's proof of the Kodaira embedding theorem is that it generalises to compact analytic spaces admitting a weakly positive bundle. For details we refer to Grauert \cite{bib:II:grauert-h:1}.
+\item Since $\mathbb{P}^n(\mathbb{C})$ admits a weakly positive line bundle ($H!$), Theorem~\ref{theorem:7.6.2} implies part B of Theorem~\ref{theorem:7.5.3} of Serre. But part B easily implies part A by the usual cohomology sequence arguments and so we see that Theorem~\ref{theorem:7.6.1} may be regarded as a generalisation of Theorems A and B of Serre.
+\item Chow's theorem implies that the image of $M$ in $\mathbb{P}^N(\mathbb{C})$ given by Kodaira's embedding theorem is an algebraic set. We may actually embed $M$ in $\mathbb{P}^{2m+1}(\mathbb{C})$, $m=\dim_{\mathbb{C}}M$. We indicate briefly why this is so (for details see Griffiths and Harris \cite{bib:II:griffiths-p-and-harris-j:1} and also Hartshorne \cite{bib:II:hartshorne-r:1} for the case of curves). Let $\Sigma\subset\mathbb{P}^N(\mathbb{C})$ denote the union of all projective lines which are either chords or tangents to $M$ (that is, its image in $\mathbb{P}^N(\mathbb{C})$). It may be shown that $\Sigma$ is an algebraic subset of $\mathbb{P}^N(\mathbb{C})$ of dimension $\leq2m+1$. In particular, $\mathbb{P}^N(\mathbb{C})\setminus\Sigma$ will not be empty provided $N>2m+1$. Choose any $\mathbb{P}^{N-1}(\mathbb{C})\subset\mathbb{P}^N(\mathbb{C})$ and
+% Source PDF page 206; printed page 197.
+$P\in\mathbb{P}^N(\mathbb{C})\setminus(\Sigma\cup\mathbb{P}^{N-1}(\mathbb{C}))$. Project $M$ into $\mathbb{P}^{N-1}(\mathbb{C})$ from $P$. Clearly the projection is an injective immersion---$P\notin\Sigma$---and so defines an embedding of\IndexMark{idx-119}{complex torus@Complex torus!embedding of@embedding of} $M$ in $\mathbb{P}^{N-1}(\mathbb{C})$.
+\end{enumerate}
+
+We end with an example.
+
+\paragraph{Example.} Let $\Lambda\subset\mathbb{C}^n$ be a lattice and suppose that $\Lambda$ admits a Riemann form. That is, we shall assume that there exists a positive definite Hermitian form $H$ on $\mathbb{C}^n$ whose imaginary part is integer valued on $\Lambda$ (see \hyperref[sec:4:4]{Chapter 4, \S4}; \hyperref[sec:5:9]{Chapter 5, \S9}). We claim that $T=\mathbb{C}^n/\Lambda$ is an abelian variety\IndexMark{idx-002}{abelian variety@Abelian variety!projective embedding@projective embedding}\IndexMark{idx-229}{embedding@Embedding!of complex tori@of complex tori}\IndexMark{idx-468}{projective embedding@Projective embedding!of complex torus@of complex torus}. We shall prove this by showing that the holomorphic line bundle $L(H,1)$ on $T$ is weakly positive and applying Kodaira's embedding theorem. By Exercise 6, \hyperref[sec:5:9]{\S9, Chapter 5}, $\theta(z)=\exp\pi H(z,z)$, $z\in\mathbb{C}^n$, determines a smooth nowhere vanishing section of $L(H,1)\otimes\overline{L(H,1)}$. Define $\eta:\mathbb{C}^n\times\mathbb{C}\to\mathbb{R}$ by $\eta(z,t)=|t|^2\theta(z)$ and observe that $\eta$ induces a smooth map $\widetilde\eta:L(H,1)^*\cong L(-H,1)\to\mathbb{R}$ ($\widetilde\eta$ is the square of the radius function on $L(H,1)^*$ associated to the hermitian metric on $L(H,1)^*$ determined by $\theta$). A straightforward computation shows that $L(\eta)(z,t)$ is positive definite provided that $t\ne0$. Hence $L(\widetilde\eta)$ is certainly positive definite off the zero section of $L(H,1)^*$. Setting $D=\{v\in L(H,1)^*:\widetilde\eta(v)<1\}$, we see that $D$ is an s.L.p. neighbourhood of the zero section of $L(H,1)^*$ and so $L(H,1)^*$ is weakly negative. Hence $L(H,1)$ is weakly positive.
+
+\paragraph{Exercises.}
+\begin{enumerate}
+\item Prove Theorem~\ref{theorem:7.6.2} in case $E$ is of rank greater than 1.
+\item This exercise is a continuation of exercises 6, 7 of \hyperref[sec:7:5]{\S5}. Let $M$ be a compact Riemann surface\IndexMark{idx-228}{embedding@Embedding!of compact riemann surface@of compact Riemann surface}\IndexMark{idx-469}{projective embedding@Projective embedding!compact riemann surface@compact Riemann surface}. Show that if $z\in M$ then $\mathcal{I}_z^p=\underline{[-p.z]}$, $p\geq0$, where $\mathcal{I}_z$ denotes the ideal sheaf of $\{z\}$. Suppose that $E$ is a holomorphic line bundle on $M$. Prove
+\begin{enumerate}[label=\alph*)]
+\item If $c_1(E)\geq2g-1$, then $H^1(M,\underline{E})=0$.
+\item If $c_1(E)\geq2g$, then $E$ is ample\IndexMark{idx-008}{ample vector bundle@Ample vector bundle} (see the proof of Theorem~\ref{theorem:7.6.2}).
+\item If $c_1(E)\geq2g+1$, then $E$ is very ample.
+\end{enumerate}
+Deduce that every compact Riemann surface is algebraic.
+% Source PDF page 207; printed page 198.
+\item Show that every compact Riemann surface $M$ admits an open covering by two Stein\IndexMark{idx-581}{stein cover of compact riemann surface@Stein cover of compact Riemann surface} open sets (Hint: Embed $M$ in $\mathbb{P}^N(\mathbb{C})$. Consider the intersection of $M$ with two hyperplanes $H_1$, $H_2$ chosen so that $M\cap H_1\cap H_2=\varnothing$. Show that $\{M\setminus H_i:i=1,2\}$ is a Stein open cover of $M$). Deduce that $H^p(M,\mathcal{F})=0$, $p\geq2$, for every coherent sheaf $\mathcal{F}$ on $M$ (see also Grauert and Remmert \cite[page 210]{bib:II:grauert-h-and-remmert-r:1}).
+\end{enumerate}

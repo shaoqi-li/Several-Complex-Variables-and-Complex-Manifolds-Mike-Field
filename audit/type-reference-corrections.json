@@ -1,0 +1,82 @@
+[
+  {
+    "file": "chapter01.tex",
+    "original": "Definition 1.4.4",
+    "replacement": "Definition 1.5.1"
+  },
+  {
+    "file": "chapter01.tex",
+    "original": "Theorem A1.5",
+    "replacement": "Corollary A1.5"
+  },
+  {
+    "file": "chapter01.tex",
+    "original": "Theorem A1.5",
+    "replacement": "Corollary A1.5"
+  },
+  {
+    "file": "chapter02.tex",
+    "original": "Theorem 2.1.1)",
+    "replacement": "Theorem 2.1.12)"
+  },
+  {
+    "file": "chapter03.tex",
+    "original": "Lemma 3.4.2",
+    "replacement": "Lemma 3.4.3"
+  },
+  {
+    "file": "chapter03.tex",
+    "original": "Theorem 3.15.3",
+    "replacement": "Theorem 3.5.13"
+  },
+  {
+    "file": "chapter03.tex",
+    "original": "Theorem 3.5.2",
+    "replacement": "Theorem 3.6.2"
+  },
+  {
+    "file": "chapter05.tex",
+    "original": "Lemma 7.2.20",
+    "replacement": "Lemma 7.2.13"
+  },
+  {
+    "file": "chapter05.tex",
+    "original": "Theorem 2.1.9",
+    "replacement": "Corollary 2.1.9"
+  },
+  {
+    "file": "chapter06.tex",
+    "original": "Definition 4.4.4",
+    "replacement": "Definition 4.1.4"
+  },
+  {
+    "file": "chapter06.tex",
+    "original": "Definition 4.5.9",
+    "replacement": "Definition 4.6.9"
+  },
+  {
+    "file": "chapter06.tex",
+    "original": "Theorem 5.3.10",
+    "replacement": "Theorem 6.3.10"
+  },
+  {
+    "file": "chapter07.tex",
+    "original": "Lemma 7.2.1 and",
+    "replacement": "Lemma 7.2.9 and"
+  },
+  {
+    "file": "chapter07.tex",
+    "original": "Theorem 7.1.8",
+    "replacement": "Corollary 7.1.8"
+  },
+  {
+    "file": "chapter07.tex",
+    "original": "Theorem 7.1.2,",
+    "replacement": "Corollary 7.1.7,"
+  },
+  {
+    "file": "chapter07.tex",
+    "original": "Theorem 7.5.1,",
+    "replacement": "Theorem 7.6.1,"
+  }
+]

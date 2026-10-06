@@ -1,0 +1,48 @@
+{
+  "input_release": "field_volumes_I_II_notations_onepage_latex.zip",
+  "pdf_physical_pages": 277,
+  "order_part_I_pdf_pages": {
+    "divider": 8,
+    "title": 9,
+    "publication_data": 10,
+    "chapter_1": 11
+  },
+  "order_part_II_pdf_pages": {
+    "divider": 128,
+    "title": 129,
+    "publication_data": 130,
+    "chapter_5": 131
+  },
+  "publication_data_headings_removed": true,
+  "publication_data_contents_preserved_exactly": true,
+  "publication_data_pages_have_no_running_header_or_visible_page_number": true,
+  "changed_existing_tex_files": [
+    "main.tex"
+  ],
+  "removed_tex_files": [
+    "frontmatter/publication-data.tex"
+  ],
+  "new_tex_files": [
+    "frontmatter/publication-data-I.tex",
+    "frontmatter/publication-data-II.tex"
+  ],
+  "other_unchanged_tex_file_count": 71,
+  "all_chapter_figure_diagram_style_tex_files_byte_identical": true,
+  "notations_page_pdf_page": 7,
+  "notations_page_pixel_identical_to_previous_release": true,
+  "body_pages_compared": 265,
+  "body_text_difference_pages": [],
+  "logical_page_links_checked": 646,
+  "logical_page_link_errors": [],
+  "invalid_internal_pdf_links": [],
+  "index_location_records": 661,
+  "index_page_map_updated_rows": 661,
+  "undefined_reference_or_citation_warnings": false,
+  "overfull_boxes": 0,
+  "underfull_boxes_preexisting": 4,
+  "duplicate_equation_destination_warnings_preexisting": 38,
+  "renderers_checked": [
+    "PyMuPDF",
+    "pdftoppm"
+  ]
+}

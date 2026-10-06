@@ -1,0 +1,63 @@
+[
+  {
+    "part": "I",
+    "chapters": [
+      {
+        "chapter": 1,
+        "source_first_page": 1,
+        "source_last_page": 42,
+        "source_page_markers": 42,
+        "numbered_sections": 5
+      },
+      {
+        "chapter": 2,
+        "source_first_page": 43,
+        "source_last_page": 97,
+        "source_page_markers": 55,
+        "numbered_sections": 7
+      },
+      {
+        "chapter": 3,
+        "source_first_page": 98,
+        "source_last_page": 133,
+        "source_page_markers": 36,
+        "numbered_sections": 6
+      },
+      {
+        "chapter": 4,
+        "source_first_page": 134,
+        "source_last_page": 186,
+        "source_page_markers": 53,
+        "numbered_sections": 7
+      }
+    ],
+    "missing_source_page_markers": []
+  },
+  {
+    "part": "II",
+    "chapters": [
+      {
+        "chapter": 5,
+        "source_first_page": 1,
+        "source_last_page": 64,
+        "source_page_markers": 64,
+        "numbered_sections": 10
+      },
+      {
+        "chapter": 6,
+        "source_first_page": 65,
+        "source_last_page": 126,
+        "source_page_markers": 62,
+        "numbered_sections": 3
+      },
+      {
+        "chapter": 7,
+        "source_first_page": 127,
+        "source_last_page": 198,
+        "source_page_markers": 72,
+        "numbered_sections": 6
+      }
+    ],
+    "missing_source_page_markers": []
+  }
+]

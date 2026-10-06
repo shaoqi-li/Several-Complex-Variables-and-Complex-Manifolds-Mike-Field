@@ -1,0 +1,444 @@
+% Newly transcribed from Part I, printed pages 187--194 (PDF pages 198--205).
+% Bibliographic details follow the source, including its historical publication status.
+\bibauthor{Abraham, R. and Marsden, J.E.}
+\begin{enumerate}
+\item Foundations of Mechanics, 2nd. Edition, Bejamin/Cummings, Reading (1978).
+\end{enumerate}
+\bibauthor{Ahlfors, L.V.}
+\begin{enumerate}
+\item Complex analysis, McGraw-Hill, New York (1966).
+\item The complex analytic structure of the space of closed Riemann surfaces, Analytic Functions, Princeton University Press, Princeton (1960).
+\end{enumerate}
+\bibauthor{Ahlfors, L.V. and Sario, L.}
+\begin{enumerate}
+\item Riemann Surfaces, Princeton University Press, Princeton (1960).
+\end{enumerate}
+\bibauthor{Aizenberg, L.A.}
+\begin{enumerate}
+\item Integral representations of functions which are holomorphic in convex regions of $\mathbb C^n$ space, Sov. Math. Dokl., 4 (1963), 1149--1152.
+\end{enumerate}
+\bibauthor{Alexander, H.}
+\begin{enumerate}
+\item Holomorphic mappings from the ball and polydisc, Math. Ann. 209 (1974), 249--256.
+\end{enumerate}
+\bibauthor{Andreotti, A. and Frankel, T.}
+\begin{enumerate}
+\item The Lefschetz theorem on hyperplane sections, Ann. Math. 69 (1959), 713--717.
+\end{enumerate}
+\bibauthor{Andreotti, A. and Grauert, H.}
+\begin{enumerate}
+\item Th\'eor\`emes de finitude pour la cohomologie des espaces complexes, Bull. Soc. Math. France, 90 (1962), 193--259.
+\end{enumerate}
+\bibauthor{Atiyah, M.}
+\begin{enumerate}
+\item K theory, W.A. Benjamin Inc., Reading, Mass. (1967).
+\end{enumerate}
+\bibauthor{Behnke, H. and Stein, K.}
+\begin{enumerate}
+\item Entwicklung analytischer Functionen auf Riemannschen Fl\"achen, Math. Ann. 120 (1948), 430--461.
+\end{enumerate}
+\bibauthor{Bergman, S.}
+\begin{enumerate}
+\item Sur les fonctions orthogonales de plusieurs variables complexes avec les applications \`a la th\'eorie des fonctions analytiques, M\'emor. Sci. Math. 106, Gauthier-Villars, Paris (1947).
+\item The Kernel Function and Conformal Mapping, A.M.S. Math. Surveys, V, New York (1950).
+\end{enumerate}
+\bibauthor{Bers, L.}
+\begin{enumerate}
+\item Uniformization, Moduli and Kleinian groups, Colloquium Lectures, Amer. Math. Soc. (1971).
+\end{enumerate}
+\bibauthor{Bierstone, E. and Schwartz, G.W.}
+\begin{enumerate}
+\item Continuous linear division and extension of $C^\infty$ functions, to appear.
+\end{enumerate}
+\bibauthor{Bishop, E.}
+\begin{enumerate}
+\item Mappings of partially analytic spaces, Amer. J. Math., 83 (1961), 209--242.
+\end{enumerate}
+\bibauthor{Bochner, S.}
+\begin{enumerate}
+\item Analytic and meromorphic continuation by means of Green's formula, Ann. Math., 49 (1943), 652--673.
+\end{enumerate}
+\bibauthor{Bonnesen, T. and Fenchel, W.}
+\begin{enumerate}
+\item Theorie der Konvexen K\"orper, Ergenbisse der Math., Berlin (1934).
+\end{enumerate}
+% Original book page 188
+\bibauthor{Bremermann, H.J.}
+\begin{enumerate}
+\item \"Uber die \"Aquivalenz der pseudoconvexen Gebiete und der Holomorphiegebiete in Raume von $n$ komplexen Ver\"anderlichen, Math. Ann., 128 (1954), 63--91.
+\item Complex convexivity, Trans. Amer. Math. Soc., 82 (1956), 17--51.
+\item Die holomorphieh\"ullen der Tuben und Halbtubengebiete, Math. Ann., 127 (1954).
+\end{enumerate}
+\bibauthor{Brieskorn, E.}
+\begin{enumerate}
+\item Beispiele zur Differentialtopologie von Singularit\"aten, Invent. Math., 2 (1966), 1--14.
+\end{enumerate}
+\bibauthor{Brieskorn, E. and Van der Ven, A.}
+\begin{enumerate}
+\item Some complex structures on products of homotopy spheres, Topology, 7 (1968), 389--393.
+\end{enumerate}
+\bibauthor{Calabi, E. and Eckmann, B.}
+\begin{enumerate}
+\item A class of compact complex manifolds which are not algebraic, Ann. Math., 58 (1953), 494--500.
+\end{enumerate}
+\bibauthor{Cartan, E.}
+\begin{enumerate}
+\item Sur les domaines born\'es, homog\`enes de l'espace de $n$ variables complexes, Abh. Math. Sem. Univ. Hamburg, 11 (1936), 116--162.
+\end{enumerate}
+\bibauthor{Cartan, H.}
+\begin{enumerate}
+\item Les probl\`emes de Poincar\'e et de Cousin pour les fonctions de plusieurs variables complexes, C.R. Acad. Sci. Paris, 199 (1934), 1284--1287.
+\item S\'eminaire Henri Cartan, 1951/52, W.A. Benjamin Inc., New York (1967).
+\item S\'eminaire Henri Cartan, 1953/54, W.A. Benjamin Inc., New York (1967).
+\item Sur les groupes de transformations analytiques, Act. Sc. et Ind., Hermann, Paris (1935).
+\end{enumerate}
+\bibauthor{Chern, S.S.}
+\begin{enumerate}
+\item Complex manifolds without potential theory, Van Nostrand, Princeton (1967).
+\end{enumerate}
+\bibauthor{Chern, S.S. and Moser, J.}
+\begin{enumerate}
+\item Real hypersurfaces in complex manifolds, Acta. Math., 133 (1974), 219--271.
+\end{enumerate}
+\bibauthor{Chillingworth, D.R.J.}
+\begin{enumerate}
+\item Differential Topology with a view to applications, Pitman, London (1976).
+\end{enumerate}
+\bibauthor{Cornalba, M.}
+\begin{enumerate}
+\item Complex Tori and Jacobians, Complex Analysis and its Applications, 1, IAEA, Vienna (1976), 39--100.
+\end{enumerate}
+\bibauthor{De La Harpe, P.}
+\begin{enumerate}
+\item Introdution to Complex Tori, Complex Analysis and its Applications, 1, IAEA, Vienna (1976), 101--144.
+\end{enumerate}
+\bibauthor{Diederich, K.}
+\begin{enumerate}
+\item Some recent developments in the theory of the Bergman kernel function, A survey, Proc. A.M.S. Symp. in Pure Math., XXX, 1, Providence (1977), 127--138.
+\end{enumerate}
+\bibauthor{Dieudonn\'e, J.}
+\begin{enumerate}
+\item Foundations of Modern Analysis, Academic Press, New York (1960).
+\end{enumerate}
+% Original book page 189
+\bibauthor{Douady, A.}
+\begin{enumerate}
+\item Le probl\`eme des modules pour les sous-espaces analytiques compact d'un espace analytique donn\'e, Ann. Inst. Fourier, Univ. de Grenoble, XVI (1966), 11--95.
+\item Flatness and Privilege, Monographie 17 de l'Enseignment Math\'ematique, Geneva (1968), 47--74.
+\end{enumerate}
+\bibauthor{Ehrenpreis, L.}
+\begin{enumerate}
+\item A new proof and an extension of Hartog's theorem, Bull. Amer. Math. Soc., 67 (1961), 507--509.
+\end{enumerate}
+\bibauthor{Field, M.J.}
+\begin{enumerate}
+\item Differential Calculus and its Applications, Van Nostrand, London (1976).
+\end{enumerate}
+\bibauthor{Frankel, T.}
+\begin{enumerate}
+\item Manifolds with positive curvature, Pac. J. Math., 11 (1961), 165--174.
+\end{enumerate}
+\bibauthor{Fuks, B.A.}
+\begin{enumerate}
+\item Special Chapters in the Theory of Analytic Functions of Several Complex Variables, A.M.S. translations of mathematical monographs, 14 (1965).
+\item Analytic Functions of Several Complex Variables, A.M.S. translations of mathematical monographs, 8 (1963).
+\end{enumerate}
+\bibauthor{Gamelin, T.W.}
+\begin{enumerate}
+\item Uniform Algebras, Prentice-Hall, Englewood-Cliffs (1970).
+\end{enumerate}
+\bibauthor{Grauert, H.}
+\begin{enumerate}
+\item \"Uber Modifikation und exzeptionelle analytische Mengen, Math. Ann., 146 (1962), 331--368.
+\end{enumerate}
+\bibauthor{Grauert, H. and Fritzche, K.}
+\begin{enumerate}
+\item Several Complex Variables, Graduate Texts in Mathematics, Springer-Verlag, New York (1976).
+\end{enumerate}
+\bibauthor{Grauert, H. and Remmert, R.}
+\begin{enumerate}
+\item Theory of Stein spaces, Springer-Verlag, New York (1979).
+\end{enumerate}
+\bibauthor{Griffiths, P.}
+\begin{enumerate}
+\item Periods of integrals on algebraic manifolds: summary of main results and discussion of open problems, Bull. Amer. Math. Soc., 76 (1970), 228--296.
+\end{enumerate}
+\bibauthor{Griffiths, P. and Harris, J.}
+\begin{enumerate}
+\item Principles of Algebraic Geometry, Wiley-Interscience, J. Wiley and Sons, New York (1978).
+\end{enumerate}
+\bibauthor{Gunning, R.C.}
+\begin{enumerate}
+\item Lectures on Riemann Surfaces, Princeton Math. notes, 12, Princeton University Press (1966).
+\end{enumerate}
+\bibauthor{Gunning, R.C. and Rossi, H.}
+\begin{enumerate}
+\item Analytic Functions of Several Complex Variables, Prentice-Hall, Englewood-Cliffs, New Jersey (1965).
+\end{enumerate}
+\bibauthor{Hartshorne, R.}
+\begin{enumerate}
+\item Ample Subvarieties of Algebraic Varieties, Lecture notes in Mathematics 156, Springer-Verlag (1970).
+\item Algebraic Geometry, Springer-Verlag, New York (1977).
+\end{enumerate}
+% Original book page 190
+\bibauthor{Harvey, F.R.}
+\begin{enumerate}
+\item Integral formulae connected by Dolbeault's isomorphism, Rice University Studies 56 (1970), 77--97.
+\item Holomorphic chains and boundaries, Proc. A.M.S. Symp. in Pure Math., XXX, 2 (1977), 303--382.
+\end{enumerate}
+\bibauthor{Heins, M.}
+\begin{enumerate}
+\item Selected Topics in the Classical Theory of Functions of a Complex Variable, Holt, Rinehart and Winston, New York (1962).
+\end{enumerate}
+\bibauthor{Herv\'e, M.}
+\begin{enumerate}
+\item Several Complex Variables, Tata Inst., Bombay and OUP (1963).
+\end{enumerate}
+\bibauthor{Hille, E.}
+\begin{enumerate}
+\item Analytic Function Theory 1, Ginn and Company, Boston (1959).
+\end{enumerate}
+\bibauthor{Hironaka, H.}
+\begin{enumerate}
+\item Resolution of singularities of an algebraic variety over a field of characteristic zero, Ann. Math., 79 (1964), I: 109--203; II: 205--326.
+\item Memorias de Matem\'atica del Instituto ``Jorge Juan'', Madrid: 28, Introduction to the theory of infinitely near singular points (1974); 29, The theory of maximal contact (1975); 30, Desingularization theorems (1977).
+\end{enumerate}
+\bibauthor{Hirsch, M.W.}
+\begin{enumerate}
+\item Differential Topology, Graduate texts in mathematics, Springer-Verlag (1976).
+\end{enumerate}
+\bibauthor{Hirzebruch, F. and Kodaira, K.}
+\begin{enumerate}
+\item On complex projective spaces, J. Math. Pure Appl., 36 (1957), 201--216.
+\end{enumerate}
+\bibauthor{H\"ormander, L.}
+\begin{enumerate}
+\item An Introduction to Complex Analysis in Several Variables, D. Van Nostrand, Princeton (1967).
+\item Linear Partial Differential Operators, Springer-Verlag, Berlin (1964).
+\item $L^2$ estimates and existence theorems for the $\bar\partial$-operator, Acta. Math., 113 (1965), 89--152.
+\end{enumerate}
+\bibauthor{Hua, L-K.}
+\begin{enumerate}
+\item Harmonic Analysis of Functions of Several Complex Variables in the Classical Domains, A.M.S. Translations of Math. Monographs, 6 (1963).
+\end{enumerate}
+\bibauthor{Husmoller, D.}
+\begin{enumerate}
+\item Fibre Bundles, McGraw-Hill, New York (1966).
+\end{enumerate}
+\bibauthor{Jackson, D.}
+\begin{enumerate}
+\item Note on rational functions of several complex variables, J. Reine Angew. Math., 146 (1916), 185--188.
+\end{enumerate}
+\bibauthor{Kobayashi, S. and Nomizu, K.}
+\begin{enumerate}
+\item Foundations of Differential Geometry, Vol. 1, Wiley, Interscience, New York (1962).
+\item Foundations of Differential Geometry, Vol. 2, Wiley, Interscience, New York (1969).
+\end{enumerate}
+\bibauthor{Kodaira, K.}
+\begin{enumerate}
+\item On K\"ahler varieties of restricted type, Ann. Math., 60 (1954), 28--48.
+\item On the structure of compact complex analytic surfaces, I, II, III, IV, Amer. J. Math., 86 (1964), 751--798; 88 (1966), 682--721; 90 (1968), 55--83, 1048--1066.
+\end{enumerate}
+% Original book page 191
+\bibauthor{Kodaira, K. and Morrow, J.}
+\begin{enumerate}
+\item Complex Manifolds, Holt, Rinehart and Winston, New York (1971).
+\end{enumerate}
+\bibauthor{Kodaira, K. and Spencer, D.C.}
+\begin{enumerate}
+\item On deformations of complex analytic structures II, Ann. of Math., 67, 3 (1958), 403--466.
+\end{enumerate}
+\bibauthor{Kohn, J.J. and Nirenberg, L.}
+\begin{enumerate}
+\item A pseudoconvex domain not admitting a holomorphic support function, Math. Ann., 201 (1973), 265--268.
+\end{enumerate}
+\bibauthor{Lang, S.}
+\begin{enumerate}
+\item Differential Manifolds, Addison-Wesley (1972).
+\item Elliptic Functions, Addison-Wesley (1973).
+\end{enumerate}
+\bibauthor{Leray, J.}
+\begin{enumerate}
+\item Le calcul diff\'erentiel et int\'egral sur une vari\'et\'e analytique complexe (Probl\`eme de Cauchy III), Bull. Soc. Math. France, 87 (1959), 81--180.
+\end{enumerate}
+\bibauthor{Levi, E.E.}
+\begin{enumerate}
+\item Studii sui punti singolari essenziali delle funzioni analitiche di due o pi\`u variabili complesse, Ann. Math. Pura Appl., 17 (1910), 61--87.
+\end{enumerate}
+\bibauthor{Levinson, N.}
+\begin{enumerate}
+\item Transformation of an analytic function of several variables to a canonical form, Duke Math., J., 28 (1961), 345--358.
+\item A canonical form for an analytic function of several variables at a critical point, Bull. Amer. Math. Soc. (1960), 68--69.
+\end{enumerate}
+\bibauthor{Malgrange, B.}
+\begin{enumerate}
+\item Ideals of differentiable functions, Tata Inst., Bombay (1966).
+\end{enumerate}
+\bibauthor{Mather, J.N.}
+\begin{enumerate}
+\item Differentiable Invariants, Topology 16 (1977), 145--155.
+\end{enumerate}
+\bibauthor{Matsushima, Y.}
+\begin{enumerate}
+\item Differentiable Manifolds, Dekker, New York (1972).
+\end{enumerate}
+\bibauthor{Milnor, J.W.}
+\begin{enumerate}
+\item Lectures on Differential Topology, Princeton University Press, Princeton (1958).
+\item Singular points of Complex Hypersurfaces, Ann. Math. Studies, 61, Princeton University Press, Princeton (1968).
+\item On manifolds homeomorphic to the 7-sphere, Ann. Math., 64 (1956), 399--405.
+\end{enumerate}
+\bibauthor{Milnor, J.W. and Stasheff, J.D.}
+\begin{enumerate}
+\item Characteristic Classes, Ann. Math. Studies, 76, Princeton University Press, Princeton (1974).
+\end{enumerate}
+\bibauthor{Moishezon, B.G.}
+\begin{enumerate}
+\item On $n$-dimensional compact varieties with $n$-algebraically independent meromorphic functions, I, II, III, Amer. Math. Soc. translations, Ser. 2, 63 (1967), 51--177.
+\end{enumerate}
+\bibauthor{Mori, S.}
+\begin{enumerate}
+\item Projective manifolds with ample tangent bundles, Ann. Math., 110 (1979), 593--606.
+\end{enumerate}
+\bibauthor{Mumford, D.}
+\begin{enumerate}
+\item Algebraic Geometry I, Complex Projective Varieties, Springer-Verlag, Berlin, Heidelberg, New York (1970).
+\end{enumerate}
+\bibauthor{Nagata, M.}
+\begin{enumerate}
+\item Local rings, Interscience, New York (1962).
+\end{enumerate}
+% Original book page 192
+\bibauthor{Narasimhan, R.}
+\begin{enumerate}
+\item Analysis on Real and Complex Manifolds, Masson and Cie, Paris, North-Holland, Amsterdam (1968).
+\item Several Complex Variables, University of Chicago, Chicago (1971).
+\item Introduction to the Theory of Analytic Spaces, Lecture Notes in Mathematics, 25, Springer-Verlag (1966).
+\item On the homology groups of Stein spaces, Invent. Math., 2 (1967), 377--385.
+\item Compact analytical varieties, L'Enseignment Math., 14(1) (1968), 75--98.
+\item Imbedding of holomorphically complete complex spaces, Amer. J. Math., 82 (1960), 917--934.
+\end{enumerate}
+\bibauthor{Norgeut, F.}
+\begin{enumerate}
+\item Sur les domaines d'holomorphie des fonctions uniformes de plusieurs variables complex (passage du local au global), Bull. Soc. Math. France, 82 (1954), 139--159.
+\end{enumerate}
+\bibauthor{Oka, K.}
+\begin{enumerate}
+\item Domaines pseudoconvex, Tohoku Math. J., 49 (1942), 15--52.
+\item Domaines finis sans point critique int\'erior, Jap. J. Math., 23 (1953), 97--155.
+\item Sur Les Fonctions Analytiques de Plusieurs Variables (collected papers of Oka on several complex variables), Iwanami Shoten, Tokyo (1961).
+\end{enumerate}
+\bibauthor{Pyatetskii-Shapiro, I.I.}
+\begin{enumerate}
+\item Automorphic Function Theory and the Geometry of Classical Domains, Gordon and Breach, New York (1969).
+\end{enumerate}
+\bibauthor{Rauch, H.E.}
+\begin{enumerate}
+\item A trancendental view of the space of algebraic Riemann surfaces, Bull. Amer. Math. Soc., 71 (1965), 1--39.
+\end{enumerate}
+\bibauthor{Remmert, R.}
+\begin{enumerate}
+\item Holomorphe und meromorphe Abbildungen komplexer R\"aume, Math. Ann., 133 (1957), 328--360.
+\end{enumerate}
+\bibauthor{de Rham, G.}
+\begin{enumerate}
+\item Vari\'et\'es Differentiables, Hermann, Paris (1955).
+\end{enumerate}
+\bibauthor{Robert, A.}
+\begin{enumerate}
+\item Elliptic Curves, Lecture notes in Mathematics, 326, Springer-Verlag (1973).
+\end{enumerate}
+\bibauthor{Serre, J.P.}
+\begin{enumerate}
+\item Une propri\'et\'e topologoque des domaines de Runge, Proc. Amer. Math. Soc., 6 (1955), 133--134.
+\end{enumerate}
+\bibauthor{Siegel, C.L.}
+\begin{enumerate}
+\item Topics in Complex Function Theory, Vol. 1, Wiley-Interscience, New York (1969).
+\item Analytic Functions of Several Complex Variables, Lecture notes at the Institute for Advanced Study, Princeton, N.J. (1948) (reprinted with corrections (1962)).
+\end{enumerate}
+\bibauthor{Simha, R.R.}
+\begin{enumerate}
+\item Holomorphic mappings between balls and polydiscs, Proc. Amer. Math. Soc., 6 (1966), 133--134.
+\end{enumerate}
+\bibauthor{Siu, Y-T.}
+\begin{enumerate}
+\item Pseudoconvexivity and the problem of Levi, Bull. Amer. Math. Soc., 84(4) (1978), 481--512.
+\end{enumerate}
+% Original book page 193
+\bibauthor{Siu, Y-T. and Yau, S.T.}
+\begin{enumerate}
+\item Compact K\"ahler manifolds of positive bisectional curvature, Invent. Math., 59 (1980), 189--204.
+\end{enumerate}
+\bibauthor{Spivak, M.}
+\begin{enumerate}
+\item Calculus on Manifolds, Benjamin/Cummings, Reading, Mass. (1965).
+\end{enumerate}
+\bibauthor{Springer, G.}
+\begin{enumerate}
+\item Introduction to Riemann Surfaces, Addison-Wesley, Reading, Mass. (1957).
+\end{enumerate}
+\bibauthor{Sundararaman, D.}
+\begin{enumerate}
+\item Deformations and classification of compact Complex Manifolds, Complex Analysis and its Applications, Vol. 3, IAEA, Vienna (1976), 133--180.
+\end{enumerate}
+\bibauthor{Swinnerton-Dyer, H.P.F.}
+\begin{enumerate}
+\item Analytic Theory of Abelian Varieties, London Math. Soc. Lecture Notes, 14, Cambridge Univ. Press (1974).
+\end{enumerate}
+\bibauthor{Teichm\"uller, O.}
+\begin{enumerate}
+\item Bestimmung der extremalen quasikonformen Abbildungen bei geschlossenen orientierten Riemannschen Fl\"achen, Preuss. Akad. Ber., 4 (1943).
+\end{enumerate}
+\bibauthor{Thimm, W.}
+\begin{enumerate}
+\item Meromorphe Abbildungen Riemannschen Bereichen, Math. Z., 60 (1954), 435--457.
+\end{enumerate}
+\bibauthor{Tougeron, J.C.P.}
+\begin{enumerate}
+\item Id\'eaux de Fonctions Differentiables, Springer-Verlga, Berlin, Heidelberg, New York (1972).
+\end{enumerate}
+\bibauthor{Ueno, K.}
+\begin{enumerate}
+\item Classification theory of Algebraic Varieties and Compact Complex Spaces, Lecture notes in Math., 439, Springer-Verlag (1975).
+\end{enumerate}
+\bibauthor{Valentine, F.A.}
+\begin{enumerate}
+\item Convex Sets, McGraw-Hill, New York (1964).
+\end{enumerate}
+\bibauthor{Vladimirov, V.S.}
+\begin{enumerate}
+\item Methods of the Theory of Functions of Many Complex Variables, M.I.T. Press, Cambridge, Mass. (1966).
+\item The Laplace transform of tempered distributions, Global Analysis and its Applications, Vol. 3, IAEA, Vienna (1974), 243--270.
+\end{enumerate}
+\bibauthor{Waerden, B.L. van der}
+\begin{enumerate}
+\item Modern Algebra, Vol. 1, Frederick Unger (1966).
+\item Modern Algebra, Vol. 2, Frederick Unger (1964).
+\end{enumerate}
+\bibauthor{Walker, R.}
+\begin{enumerate}
+\item Algebraic Curves, Springer-Verlag, New York (1978).
+\end{enumerate}
+\bibauthor{Weil, A.}
+\begin{enumerate}
+\item Vari\'et\'es K\"ahl\'eriennes, Hermann, Paris (1971).
+\end{enumerate}
+\bibauthor{Wells, R.O. and Wolf, J.A.}
+\begin{enumerate}
+\item Poincar\'e series and the automorphic cohomology on flag domains, Ann. Math., 105 (1977), 397--448.
+\end{enumerate}
+\bibauthor{Whitney, H.}
+\begin{enumerate}
+\item Complex Analytic Varieties, Addison-Wesley, Reading, Mass. (1972).
+\item Local properties of analytic varieties, Differential and Combinatorial Topology, Princeton Univ. Press, Princeton (1965), 205--244.
+\end{enumerate}
+% Original book page 194
+\bibauthor{Whittaker, E.T. and Watson, G.N.}
+\begin{enumerate}
+\item A Course of Modern Analysis, 4th. Edition, Cambridge Univ. Press (1927).
+\end{enumerate}
+\bibauthor{Zariski, O. and Samuel, P.}
+\begin{enumerate}
+\item Commutative Algebra, Graduate Texts in Math., Springer-Verlag, New York (1975).
+\end{enumerate}

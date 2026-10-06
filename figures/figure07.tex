@@ -1,0 +1,19 @@
+% Figure 7. The gray fundamental region has the original solid/dashed sides.
+\begin{tikzpicture}[field/diagram, x=1.72cm, y=1.72cm]
+    \fill[FieldRegion]
+        (-0.5,2.65) -- (-0.5,{sqrt(3)/2})
+        arc[start angle=120, end angle=60, radius=1]
+        -- (0.5,2.65) -- cycle;
+    \draw[field/axis] (-1.85,0) -- (1.85,0);
+    \draw[field/axis] (0,0) -- (0,2.93);
+    \draw[field/secondary] (-1,0)
+        arc[start angle=180, end angle=0, radius=1];
+    \draw[field/boundary] (-0.5,{sqrt(3)/2}) -- (-0.5,2.67);
+    \draw[field/hidden] (0.5,{sqrt(3)/2}) -- (0.5,2.67);
+    \foreach \x/\lab in {-1/{-1},-0.5/{-\frac12},0/{0},0.5/{\frac12},1/{1}} {
+        \draw[field/secondary] (\x,-0.035) -- (\x,0.035);
+        \node[below, inner sep=5pt] at (\x,0) {$\lab$};
+    }
+    \node[fill=FieldRegion, inner sep=2pt] at (0.23,1.92) {$D$};
+    \node at (1.22,1.92) {$H$};
+\end{tikzpicture}

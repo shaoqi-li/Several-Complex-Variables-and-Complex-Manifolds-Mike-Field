@@ -1,0 +1,570 @@
+% !TeX root = ../main.tex
+\chapter{Local Rings of Analytic Functions}\label{ch:3}
+% Original book page 98
+\ChapterThreeIntroduction
+
+\section{Elementary properties of power series rings}\IndexMark{idx-454}{power series ring@Power series ring}\label{sec:3:1}
+Throughout this Chapter $\mathbb C\{z_1-a_1,\ldots,z_n-a_n\}$ or just $\mathbb C\{z-a\}$ will denote the ring of convergent power series at a point $(a_1,\ldots,a_n)=a\in\mathbb C^n$. We let $\mathcal U_a$ denote the set of all open neighbourhoods of a point $a\in\mathbb C^n$.
+
+We first remark that $\mathbb C\{z-a\}$ has the structure of a commutative ring with identity under the obvious definitions of multiplication and addition. Given $a,b\in\mathbb C^n$, there is a natural isomorphism between $\mathbb C\{z-a\}$ and $\mathbb C\{z-b\}$ defined by mapping $\sum a_m(z-a)^m$ to $\sum a_m(z-b)^m$. Because of this isomorphism we may safely take $a=0$ and this will result in no loss of generality as far as algebraic properties of these rings are concerned.
+
+We now show another way to construct the ring $\mathbb C\{z-a\}$ in a ``coordinate-free'' manner. We define an equivalence relation on the set of all analytic functions which are defined on some neighbourhood of $a$. Suppose $f\in A(U)$, $g\in A(V)$, $U,V\in\mathcal U_a$. We write $f\sim_a g$ if there
+% Original book page 99
+exists $W\in\mathcal U_a$ such that $f|W=g|W$. That is, $f\sim_a g$ if and only if $f=g$ on some neighbourhood of $a$. Clearly $\sim_a$ is an equivalence relation and we let $\mathcal O_a$ denote the set of equivalence classes of $\mathcal O_a$ (``$\mathcal O$'' in honour of the Japanese mathematician K. Oka who proved many of the fundamental results in the theory of several complex variables). If $f\in A(U)$, $U\in\mathcal U_a$, we let $f_a$ denote the $\sim_a$ equivalence class of $f$ in $\mathcal O_a$. We call $f_a$ the \emph{germ} of $f$ at $a$. Obviously, $\mathcal O_a$ inherits the structure of a commutative ring with $1$ from the corresponding structures on the $A(U)$. We claim that $\mathbb C\{z-a\}$ and $\mathcal O_a$ are naturally isomorphic. Indeed, if $P\in\mathbb C\{z-a\}$, we may define $\theta(P)\in\mathcal O_a$ to be the germ at $a$ of the analytic function defined on some neighbourhood of $a$ by the power series $P$. Conversely, if $f_a\in\mathcal O_a$ is the germ of an analytic function\IndexMark{idx-267}{germ@Germ!of function@of function} $f\in A(U)$, $U\in\mathcal U_a$, we define $\theta^{-1}(f_a)$ to be the convergent power series of $f$ at $a$. Clearly $\theta$ is a ring isomorphism. In the sequel, we identify the rings $\mathbb C\{z-a\}$, $\mathcal O_a$ via $\theta$ and generally use the more abbreviated notation $\mathcal O_a$ in preference to $\mathbb C\{z-a\}$. We generally omit reference to $n$. If essential we write ${}_n\mathcal O_a$ to denote the ring of germs of analytic functions at a point $a\in\mathbb C^n$.
+
+\paragraph*{Remark.} Our construction of $\mathcal O_a$ as the ring of germs of analytic functions at $a$ works equally well for other classes of functions. For example, we may construct the ring $C_a$ of \emph{germs of continuous functions} at $a$ or the ring $\mathcal D_a$ of \emph{germs of $C^\infty$ functions} at $a$. Clearly $\mathcal O_a\subset\mathcal D_a\subset C_a$. However, the rings $C_a$ and $\mathcal D_a$ do not have a simple representation in terms of power series rings nor do they have the rich algebraic structure of $\mathcal O_a$ and most of the results we prove for $\mathcal O_a$ fail for $C_a$ and $\mathcal D_a$.
+
+\FieldHeading{Lemma}{3.1.1}{}\FieldTarget{lemma:3.1.1}{3.1.1} The ring $\mathcal O_a$ is an integral domain. That is, if $f,g\in\mathcal O_a$ and $fg=0$, then either $f=0$ or $g=0$.
+\begin{proof}
+We may choose a connected open neighbourhood $U$ of $a$ and $F,G\in A(U)$ such that $F_a=f$ and $G_a=g$. Now $fg=0$ implies that $FG=0$ on $U$ by uniqueness of analytic continuation. Suppose $F\ne0$. Then $F$ is non-zero on a non-empty subset $V$ of $U$. Hence $G$ is zero on $V$ and, by uniqueness of analytic continuation, identically zero on $U$. Hence $g=0$.
+\end{proof}
+% Original book page 100
+Before giving the next lemma we recall
+\FieldHeading{Definition}{3.1.2}{}\FieldTarget{definition:3.1.2}{3.1.2} Let $R$ be an integral domain with identity. An element $u\in R$ is said to be a \emph{unit} if there exists $u^{-1}\in R$ such that $uu^{-1}=1$.
+\FieldHeading{Lemma}{3.1.3}{}\FieldTarget{lemma:3.1.3}{3.1.3}
+\begin{enumerate}
+\item An element $u\in\mathcal O_a$ is a unit if and only if $u(a)\ne0$.
+\item $\mathcal O_a$ has a unique maximal ideal $\mathfrak m_a$ which is characterised as being the set of non-units of $\mathcal O_a$. That is, $f\in\mathfrak m_a$ if and only if $f(a)=0$.
+\end{enumerate}
+\begin{proof}
+We first remark that if $f\in\mathcal O_a$ then $f(a)$ is, of course, just the value of any representative function for $f$ at $a$; equivalently, the constant term in the power series for $f$. The lemma follows from the observations that if $f$ is an analytic function which is non-zero at $a$, then $1/f$ is defined and analytic on some neighbourhood of $a$ and any ideal of $\mathcal O_a$ which contains a unit is equal to $\mathcal O_a$.
+\end{proof}
+\subsection*{Exercises}
+\begin{enumerate}
+\item Let $U$ be an open subset of $\mathbb C^n$. Prove that $A(U)$ is an integral domain if and only if $U$ is connected.
+\item Show that $\mathcal D_a$, the ring of germs of $C^\infty$ complex valued functions at a point $a\in\mathbb C^n$, has a unique maximal ideal. Show also that $\mathcal D_a$ is not an integral domain.
+\item Prove that $\mathcal O_a/\mathfrak m_a^{k+1}$ is naturally isomorphic to the complex vector space of complex valued complex polynomials on $\mathbb C^n$ of degree $\leq k$. (Hint: Look at the Taylor polynomial of degree $k$ of an analytic function).
+\item If $\mathfrak m_a^\infty$ denotes the maximal ideal of $\mathcal D_a$, prove that $\mathcal D_a/(\mathfrak m_a^\infty)^{k+1}$ is naturally isomorphic to the vector space of complex valued real polynomials on $\mathbb C^n$ of degree $\leq k$.
+\item Show that there is a natural isomorphism of $\mathfrak m_a^k/\mathfrak m_a^{k+1}$ onto the complex vector space of complex valued homogeneous polynomials on $\mathbb C^n$ of degree $k$.
+\end{enumerate}
+% Original book page 101
+\section{Weierstrass Division and Preparation Theorems}\label{sec:3:2}
+In this section we prove the basic technical result which allows us to prove in \hyperref[sec:3:3]{\S3} that $\mathcal O_a$ is a Noetherian unique factorization domain. Before giving the main result, we remark that we take coordinates $z=(z',z_n)=(z_1,\ldots,z_{n-1},z_n)$ on $\mathbb C^n$, always using the prime to denote the $\mathbb C^{n-1}$ variable.
+\FieldHeading{Theorem}{3.2.1}{ (The Weierstrass Division Theorem)}\IndexMark{idx-650}{weierstrass@Weierstrass!division theorem@Division theorem}\FieldTarget{theorem:3.2.1}{3.2.1}
+Let $f$ be analytic on a neighbourhood $\Omega$ of $0\in\mathbb C^n$ and suppose that $f(0,\ldots,0,z_n)$ has a zero of multiplicity $p\geq0$ at $z_n=0$. Then we may find an open polydisc neighbourhood $D\subset\Omega$ of $0$ such that every bounded analytic function $g$ on $D$ may be written uniquely in the form
+\[g=qf+h,\]
+where $q$ and $h$ are bounded analytic functions on $D$ and $h$ is a polynomial in $z_n$ of degree $\leq p-1$ with coefficients depending analytically on $z'$. $q$ and $h$ depend continuously on $g$ in the sense that there exists a constant $M$, independent of $g$, such that
+\[\|q\|_D,\ \|h\|_D\leq M\|g\|_D.\]
+\begin{proof}
+Choose a polydisc neighbourhood $\omega$ of $0$, contained in $\Omega$, on which $f$ is bounded. On $\omega$ we may write
+\[f(z)=\sum_{j=0}^\infty f_j(z')z_n^j\]
+and, as is easily seen using Cauchy's inequalities (Corollary~\ref{corollary:2.1.7}), each $f_j$ is bounded on $\omega$. Our hypotheses on $f$ imply that $f_p(0)\ne0$ and $f_j(0)=0$, $j<p$. From now on we shall always work inside $\omega$. Choose $d,s>0$ such that if
+\begin{align*}
+D'&=\{z'\in\mathbb C^{n-1}:|z_j|<d,\ 1\leq j\leq n-1\},\\
+D&=\{z\in\mathbb C^n:z'\in D'\text{ and }|z_n|<s\},
+\end{align*}
+% Original book page 102
+then $f_p$ is nonvanishing on $D'$ and $1/f_p$ is bounded on $D'$. Multiplying $f$ by $1/f_p$, it is no loss of generality to suppose that $f_p=1$ on $D'$.
+
+Let $A^B(D)$ denote the algebra of bounded analytic functions on $D$. Define $\|u\|=\|u\|_D=\sup_D|u(z)|$, $u\in A^B(D)$. Then $A^B(D)$ is complete with respect to $\|\ \|$ and so has the structure of a Banach algebra.
+
+Since $f_j(0)=0$, $j<p$, there exists $C_1\geq0$ such that $\|f_j(z')z_n^j\|\leq C_1ds^j/p$, $j<p$. Here $C_1$ is independent of $d$ and $s$ and depends only on, say, $\|f_j\|_\omega$. Similarly there exists $C_2\geq0$, independent of $d$ and $s$, such that
+\[\left\|\sum_{j>p}f_j(z')z_n^j\right\|\leq C_2s^{p+1}.\]
+Hence
+\[\|f-z_n^p\|\leq C_1d(1+s^p)+C_2s^{p+1}.\]
+Now choose $d$ and $s$ sufficiently small so that
+\begin{equation}\|f-z_n^p\|\leq s^p/(2(p+1))\tag{1}\label{eq:3:1:1}\end{equation}
+From now on $d,s$ and the corresponding polydiscs $D',D$ will remain fixed. We now prove the division theorem in the special, trivial, case $f=z_n^p$. We derive the general case by regarding $f$ as a perturbation of $z_n^p$, using estimate 1 above.
+
+Given $g\in A^B(D)$, write
+\[g=q(g)z_n^p+h(g),\]
+where $q(g),h(g)\in A^B(D)$ and $h(g)$ is a polynomial in $z_n$ of degree $\leq p-1$. $q(g)$ and $h(g)$ are unique. Moreover
+\[h(g)(z)=\sum_{j=0}^{p-1}\frac{\partial^jg}{\partial z_n^j}(z',0)\frac{z_n^j}{j!}\]
+% Original book page 103
+and so it follows from Cauchy's inequalities (Corollary~\ref{corollary:2.1.7}) that
+\begin{equation}\|h(g)\|\leq p\|g\|\tag{2}\label{eq:3:2:1}\end{equation}
+Hence, by the triangle inequality, $\|q(g)z_n^p\|\leq(p+1)\|g\|$ and so by Schwarz' Lemma (exercise 7, \hyperref[sec:1:1]{\S1, Chapter 1})
+\begin{equation}\|q(g)\|\leq(p+1)s^{-p}\|g\|\tag{3}\label{eq:3:3:1}\end{equation}
+(Equivalently, argue using the maximum modulus theorem on polydiscs $\varepsilon D$, $0<\varepsilon<1$, and let $\varepsilon\to1$).
+
+Estimates 2 and 3 imply that the linear endomorphisms $g\mapsto h(g),q(g)$ of $A^B(D)$ are continuous.
+
+We define a continuous linear map $A:A^B(D)\to A^B(D)$ by
+\[A(u)=q(u)f+h(u).\]
+Now
+\begin{align*}
+\|(A-I)u\|&=\|q(u)f+h(u)-u\|\\
+&=\|q(u)(f-z_n^p)\|\\
+&\leq\|q(u)\|\|f-z_n^p\|\\
+&\leq\tfrac12\|u\|,
+\end{align*}
+using estimates 1 and 3. Hence $\|A-I\|\leq\tfrac12$ and so $A$ is a linear isomorphism (for a proof of this elementary result from Banach space theory see Dieudonn\'e \cite[page 148]{bib:I:dieudonne-j:1} or Field \cite[page 189]{bib:I:field-m-j:1}). It follows that for any $g\in A^B(D)$, there exists $u\in A^B(D)$ such that
+\[g=A(u)=q(u)f+h(u).\]
+This proves the first part of the theorem. Now $q(u)=q(A^{-1}(g))$ and so by estimate 3 we have
+\begin{align*}
+\|q(u)\|&\leq(p+1)s^{-p}\|A^{-1}(g)\|\\
+&\leq\|A^{-1}\|s^{-p}/(p+1)\|g\|.
+\end{align*}
+% Original book page 104
+Similarly $\|h(u)\|\leq p\|A^{-1}\|\|g\|$ and so we have obtained the required estimates on $\|q\|$ and $\|h\|$. Finally the uniqueness of $q$ and $h$ is a trivial consequence of the injectivity of $A$.
+\end{proof}
+\paragraph*{Remarks.}
+\begin{enumerate}
+\item The proof we give here is based on one due to Grauert and Remmert (See R. Narasimhan \cite{bib:I:narasimhan-r:3} and also H\"ormander \cite{bib:I:hormander-l:1}). For alternative proofs based on Cauchy's integral formula, we refer the reader to Gunning and Rossi \cite{bib:I:gunning-r-c-and-rossi-h:1}, R. Narasimhan \cite{bib:I:narasimhan-r:3}, Whitney \cite{bib:I:whitney-h:1}.
+\item Notice that if $f$ is any non-identically zero analytic function defined on a neighbourhood of $0\in\mathbb C^n$, we may always find a $\mathbb C$-linear change of coordinates on $\mathbb C^n$ such that the conditions of the Theorem hold for $f$. We then say $f$ is \emph{normalised in direction $z_n$}. Of course, we can always simultaneously normalise any finite set of analytic functions\IndexMark{idx-410}{normalised analytic function@Normalised analytic function}.
+\item An immediate consequence of Theorem~\ref{theorem:3.2.1} is the Weierstrass Division Theorem for germs of analytic functions: Suppose $f\in\mathcal O_0$ and that for some representative $F$ of $f$, $F(0,z_n)$ has a zero of multiplicity $p$ at $z_n=0$. Then any $g\in\mathcal O_0$ may be written uniquely in the form $g=qf+h$, where $q\in\mathcal O_0$ and $h$ is the germ of a polynomial in $z_n$ of degree less than $p$ and with coefficients analytic in $z'$.
+\end{enumerate}
+Examining the proof of Theorem~\ref{theorem:3.2.1}, we see that the result remains true if we replace $D=D'\times D_s(0)$ by $D''\times D_s(0)$ where $D''$ is any open neighbourhood of $0$ in $\mathbb C^{n-1}$ which is contained in $D'$. Indeed estimates 1 and 3 obviously continue to hold on the smaller neighbourhood $D''\times D_s(0)$. Moreover, given a finite set $f_1,\ldots,f_k$ of analytic functions defined on a neighbourhood of $0$ in $\mathbb C^n$, we may, by Remark 2, above, assume that the functions are simultaneously normalised\IndexMark{idx-411}{normalised analytic function@Normalised analytic function!simultaneous normalisation@simultaneous normalisation} in the $z_n$-direction. We can then choose a polydisc $D'\times D_s(0)$ in $\mathbb C^n$ for which estimates 1, 2 and 3 are valid for all the functions $f_j$. A straightforward consequence of these observations is the following strengthened form of the Division Theorem that we shall need in \hyperref[sec:3:6]{\S6}.
+\FieldHeading{Theorem}{\ensuremath{3.2.1'}}{}\FieldTarget{theorem:3.2.1prime}{\ensuremath{3.2.1'}} Let $f_1,\ldots,f_k$ be analytic functions defined on a neighbourhood of $0$ in $\mathbb C^n$ and suppose that each $f_j$ is normalised in direction $z_n$. Fix a complementary subspace $\mathbb C^{n-1}$ of $\mathbb Cz_n$. Then we may
+% Original book page 105
+find an open neighbourhood $W$ of $0$ in $\mathbb C^{n-1}$ and $s>0$ such that if $U$ is any open neighbourhood of $0$ in $\mathbb C^{n-1}$ contained in $W$ then the conclusions of the Weierstrass Division theorem hold for all bounded analytic functions on $U\times D_s(0)$ with respect to each divisor $f_j$, $1\leq j\leq k$.
+\paragraph*{Remark.} As an exercise the reader may verify that the Division Theorem does not hold for arbitrary neighbourhoods of $0$ contained in $W\times D_s(0)$.
+
+Our first application of the Weierstrass Division theorem will be to put the germ of an analytic function in a normalised form. First, we give a definition.
+\FieldHeading{Definition}{3.2.2}{}\FieldTarget{definition:3.2.2}{3.2.2} A germ $P\in\mathcal O_0$ is said to be a \emph{Weierstrass polynomial (of degree $p$)}\IndexMark{idx-653}{weierstrass polynomial@Weierstrass polynomial} if (on some neighbourhood of $0$)
+\[P(z_1,\ldots,z_n)=z_n^p+\sum_{j=0}^{p-1}a_j(z')z_n^j\]
+where the $a_j$ are analytic functions defined on some neighbourhood of $0\in\mathbb C^{n-1}$ and vanishing at $0$ for every $j$.
+
+We similarly define a Weierstrass polynomial $P\in\mathcal O_a$, $a\in\mathbb C^n$.
+
+In what follows we let $\mathcal O'_0$ denote the ring of germs of analytic functions at $0\in\mathbb C^{n-1}$.
+\FieldHeading{Theorem}{3.2.3}{ (The Weierstrass Preparation Theorem).}\IndexMark{idx-651}{weierstrass@Weierstrass!preparation theorem@Preparation theorem}\FieldTarget{theorem:3.2.3}{3.2.3}
+Let $f\in\mathcal O_0$ and suppose that $f(0,z_n)$ has a zero of order $p\geq0$ at $z_n=0$. Then there exists a unique unit $h\in\mathcal O_0$ and Weierstrass polynomial $W$ of degree $p$ such that $f=hW$. That is, on some neighbourhood of $0\in\mathbb C^n$ we have
+\[f(z)=h(z)\left(z_n^p+\sum_{j=0}^{p-1}a_j(z')z_n^j\right)\]
+where $h(0)\ne0$ and $a_j(0)=0$, $j<p$.
+\begin{proof}Take $g=z_n^p$ in Theorem~\ref{theorem:3.2.1}.\end{proof}
+\paragraph*{Remarks.}
+\begin{enumerate}
+\item There are analogues of the Division and Preparation theorems for differentiable functions which were first proved by Malgrange \cite{bib:I:malgrange-b:1}.
+% Original book page 106
+These results are important in the theory of singularities of differentiable mappings and we refer to Malgrange \cite{bib:I:malgrange-b:1} and Tougeron \cite{bib:I:tougeron-j-c-p:1} for further details.
+\item In Whitney \cite[\S10]{bib:I:whitney-h:2} there is a discussion about the set of directions $z_n$ which lead to a Weierstrass polynomial of minimal degree. In Levinson \cite{bib:I:levinson-n:1,bib:I:levinson-n:2} the reader may find results showing that we can make a local holomorphic change of coordinates to put an analytic function in the standard Weierstrass polynomial form.
+\end{enumerate}
+\section{\texorpdfstring{Factorization and finiteness properties of $\mathcal O_0$}{Factorization and finiteness properties of O0}}\label{sec:3:3}
+Let us start by recalling some definitions from algebra.
+\FieldHeading{Definition}{3.3.1}{}\FieldTarget{definition:3.3.1}{3.3.1} Let $R$ be a commutative ring with identity
+\begin{enumerate}
+\item $f\in R$ is said to be \emph{irreducible}\IndexMark{idx-338}{irreducible@Irreducible!element of ring@element of ring} or \emph{prime} if any relation $f=gh$, $g,h\in R$, implies that one or other of $f$ and $g$ is a unit.
+\item $R$ is said to be a \emph{unique factorization domain} if every $f\in R$ can be written as a finite product of irreducible factors and this decomposition of $f$ is unique up to the order of the factors and multiplication by units.
+\item $R$ is said to be \emph{Noetherian} if every ideal $I\lhd R$ is finitely generated. That is, if there exist $g_1,\ldots,g_k\in I$ such that
+\[I=\{\textstyle\sum a_jg_j:\text{all }a_j\in R\}.\]
+\item If $M\subset R^m$ ($R^m$ denotes the module of $m$-tuples of elements in $R$), $M$ is said to be a \emph{submodule} of $R^m$ if $M$ is closed under (coordinate-wise) addition and scalar multiplication by elements of $R$.
+\end{enumerate}
+\paragraph*{Notation.} Given a commutative ring $R$, $R[X]$ will always denote the ring of polynomials in the indeterminate $X$ and with coefficients in $R$.
+\FieldHeading{Lemma}{3.3.2}{}\FieldTarget{lemma:3.3.2}{3.3.2} Let $W\in\mathcal O'_0[z_n]$ be a Weierstrass polynomial and suppose that
+\[W=P_1\cdots P_q,\]
+% Original book page 107
+where $P_j\in\mathcal O'_0[z_n]$. Then each $P_j$ is a Weierstrass polynomial\IndexMark{idx-341}{irreducible@Irreducible!weierstrass polynomial@Weierstrass polynomial} up to multiplication by units in $\mathcal O'_0$.
+\begin{proof}
+Set $p=\operatorname{degree}(W)$, $p_j=\operatorname{degree}(P_j)$, $1\leq j\leq q$. Taking $z'=0$ we have
+\[z_n^p=\prod_{i=1}^q P_j(0,z_n).\]
+Since $p=\sum p_j$, we must have the coefficient of $z_n^{p_j}$ in $P_j$ non-vanishing at $z'=0$. Since $\mathbb C[z_n]$ is a unique factorization domain, the coefficients of all the lower order terms in $P_j$ vanish at $z'=0$. Hence $P_j=u_jW_j$, where $W_j$ is a Weierstrass polynomial and $u_j$, the coefficient of $z_n^{p_j}$ in $P_j(0,z_n)$, is a unit in $\mathcal O'_0$.
+\end{proof}
+\FieldHeading{Lemma}{3.3.3}{}\FieldTarget{lemma:3.3.3}{3.3.3} Let $W\in\mathcal O'_0[z_n]$ be a Weierstrass polynomial. Then $W$ is irreducible\IndexMark{idx-339}{irreducible@Irreducible!germ@germ} in the ring $\mathcal O'_0[z_n]$ if and only if it is irreducible in $\mathcal O_0$.
+\begin{proof}
+The other implication being trivial, it is enough to show that if $W$ is not irreducible in $\mathcal O_0$ then it is not irreducible in $\mathcal O'_0[z_n]$. Suppose then that $W=fg$, where $f,g\in\mathcal O_0$ are not units. By the Weierstrass Preparation theorem we may write $f=UW_1$, $g=VW_2$, where $W_1,W_2\in\mathcal O'_0[z_n]$ are Weierstrass polynomials and $U$ and $V$ are units. Thus $W=uW_1W_2$ for some unit $u\in\mathcal O_0$. Since $W_1W_2$ is a Weierstrass polynomial and $W=uW_1W_2=1W$, the uniqueness part of the preparation theorem implies that $u=1$ and $W=W_1W_2$. Hence we have shown that $W$ is not irreducible in $\mathcal O'_0[z_n]$.
+\end{proof}
+\FieldHeading{Theorem}{3.3.4}{}\FieldTarget{theorem:3.3.4}{3.3.4} $\mathcal O_0$ is a unique factorization domain.
+\begin{proof}
+Our proof goes by induction on $n$. For $n=0$, $\mathcal O_0=\mathbb C$ and the result is trivial. Suppose true for $n-1$. By Gauss' theorem (see Van der Waerden \cite[page 70]{bib:I:waerden-b-l-van-der:1}) $\mathcal O'_0[z_n]$ is a unique factorization domain. Let $f\in\mathcal O_0$. Then $f=uW$, where $u$ is a unit in $\mathcal O_0$ and $W$ is a Weierstrass polynomial. Since $\mathcal O'_0[z_n]$ is a unique factorization domain, $W$ may be written as a unique, up to order, product of irreducible polynomials $W_j\in\mathcal O'_0[z_n]$: $W=W_1\cdots W_q$. By Lemma~\ref{lemma:3.3.3}, each $W_j$ is irreducible in $\mathcal O_0$ and so we have expressed $f$ as a finite product of
+% Original book page 108
+irreducible elements of $\mathcal O_0$. We leave the proof of uniqueness, up to order and multiplication by units, as an exercise for the reader.
+\end{proof}
+Before proving that $\mathcal O_0$ is Noetherian, we recall
+\FieldHeading{Lemma}{3.3.5}{}\FieldTarget{lemma:3.3.5}{3.3.5} Let $R$ be a Noetherian ring and $M$ be a submodule of $R^p$, then $M$ is a finitely generated $R$-module.
+\begin{proof}
+Let $\pi:R^p\to R$ denote the projection on the first factor and set $M_1=\pi M\subset R$ and $M_2=\operatorname{Kernel}\pi|M\subset R^{m-1}$. $M_1$ is an ideal and so we may find $f_1,\ldots,f_m\in M$ such that the set $\pi(f_1),\ldots,\pi(f_k)$ generates $M_1$. Let $\widetilde M_1$ denote the submodule of $M$ generated by $f_1,\ldots,f_k$. The inductive hypothesis implies that $M_2$ is finitely generated. Since $M=\widetilde M_1+M_2$, it therefore follows that $M$ is finitely generated.
+\end{proof}
+\FieldHeading{Theorem}{3.3.6}{}\FieldTarget{theorem:3.3.6}{3.3.6} The ring $\mathcal O_0$ is Noetherian.
+\begin{proof}
+Our proof goes by induction on $n$. For $n=1$, the result is trivially true since every ideal is generated by a power of $z_1$. Suppose the result is true for $n-1$ and let $I$ be a non-zero ideal of $\mathcal O_0$. Changing coordinates if necessary and applying the Preparation theorem we may find a Weierstrass polynomial $W\in I$. For any $f\in I$ we then have by the Division theorem
+\[f=q(f)W+r(f),\]
+where $r(f)$ is a polynomial in $z_n$ of degree less than $p$, the degree of $W$. Let $M=\{r(f):f\in I\}$. If we write $r(f)=a_1(z')z_n^{p-1}+\cdots+a_p(z')$, where $a_j\in\mathcal O'_0$, we see that the set of coefficients $(a_1,\ldots,a_p)$ corresponding to polynomials $r(f)$, $f\in I$, defines a submodule of $\mathcal O_0'{}^p$. By Lemma~\ref{lemma:3.3.5} and our inductive hypothesis, we may find a finite set of generators $(h_{11},\ldots,h_{1p}),\ldots,(h_{s1},\ldots,h_{sp})$ for this submodule. In other words, the set of polynomials
+\[p_j(z',z_n)=h_{j1}(z')z_n^{p-1}+\cdots+h_{jp}(z'),\quad1\leq j\leq s,\]
+generates $M$ over $\mathcal O'_0$. Therefore $\{W,p_1,\ldots,p_s\}$ is a finite set of generators for $I$.
+\end{proof}
+% Original book page 109
+\subsection*{Exercises}
+\begin{enumerate}
+\item Let $U$ be a connected subset of $\mathbb C^n$. Show that if $n=1$ or $U$ is a domain of holomorphy then $A(U)$ is not a unique factorization domain. (Hint: For the case $n=1$, use the Weierstrass theorem. For domains of holomorphy see the proof of Theorem~\ref{theorem:2.4.8}). In fact $A(U)$ is never a unique factorization domain. For further details on uniqueness of factorization in $A(U)$ we refer the reader to Whitney \cite[pages 37--40, 332]{bib:I:whitney-h:1}.
+\item Let $f$ be a representative of $f_0\in\mathcal O_0$. Show that if $Df(0)\ne0$, then $f_0$ is irreducible (Hint: Apply the implicit function theorem).
+\item Let $f(y,z)=y^2-z^2(1-z)$. Show that $f_0$ is not irreducible even though $f$ is irreducible as a polynomial in $\mathbb C[y,z]$.
+\end{enumerate}
+\section{Meromorphic functions}\label{sec:3:4}
+In this section we apply the theory of \S\S2,3 to show how we may give a satisfactory definition of a meromorphic function of more than one complex variable.
+\FieldHeading{Lemma}{3.4.1}{}\FieldTarget{lemma:3.4.1}{3.4.1} Let $W,P\in\mathcal O'_0[z_n]$, $U\in\mathcal O_0$ and suppose that $P=WU$. If $W$ is a Weierstrass polynomial then $U\in\mathcal O'_0[z_n]$.
+\begin{proof}
+The leading coefficient of $W$ is a unit in $\mathcal O'_0$ and so we may apply the polynomial division algorithm to obtain $P=WU'+R$, where $U',R\in\mathcal O'_0[z_n]$ and $R$ is of degree less than $W$. But the uniqueness part of the Weierstrass Division theorem implies that $R=0$, $U'=U$.
+\end{proof}
+\FieldHeading{Proposition}{3.4.2}{}\FieldTarget{proposition:3.4.2}{3.4.2} Let $f$ and $g$ be analytic functions defined on some neighbourhood of $0\in\mathbb C^n$. Suppose that $f_0$ and $g_0$ are relatively prime in $\mathcal O_0$ (that is, they have no common irreducible factor). Then we may find an open neighbourhood $D$ of $0\in\mathbb C^n$ such that $f_a,g_a\in\mathcal O_a$ are relatively prime for all $a\in D$.
+\begin{proof}
+Without loss of generality we may suppose that $f$ and $g$ are Weierstrass polynomials. By Lemma~\ref{lemma:3.3.3}, $f_0$ and $g_0$ are relatively prime in $\mathcal O'_0[z_n]$. Since $\mathcal O'_0$ is an integral domain, we may form its
+% Original book page 110
+quotient field $\mathcal M'_0$. It follows from Gauss' lemma that $f_0$ and $g_0$ are relatively prime in $\mathcal M'_0[z_n]$. Hence there exist $a_0,b_0\in\mathcal O'_0[z_n]$ and $h_0\in\mathcal O'_0$, $h_0\ne0$, such that $h_0=a_0f_0+b_0g_0$. On some neighbourhood of $0\in\mathbb C^n$ we therefore have
+\[h(z')=a(z)f(z)+b(z)g(z).\]
+(As usual, $a,b$ and $h$ denote representatives for the germs $a_0,b_0$ and $h_0$ respectively). Since $f$ and $g$ are Weierstrass polynomials we may choose a polydisc neighbourhood $D'$ of $0\in\mathbb C^{n-1}$ such that for all $z'\in D'$ the polynomials $f(z',z_n)$ and $g(z',z_n)$ do not vanish identically. Choose $r>0$ so that $f,g,a,b,h\in A(D)$, where $D=\{z\in\mathbb C^n:z'\in D'\text{ and }|z_n|<r\}$. Let $\zeta=(\zeta',\zeta_n)\in D$. Making the substitution $z_n=(z_n-\zeta_n)+\zeta_n$ in $a,b,f$ and $g$ we may consider the relation $h_\zeta=a_\zeta f_\zeta+b_\zeta g_\zeta$ as defining an equation in $\mathcal O'_0[z_n-\zeta_n]$. Since $f_\zeta$ and $g_\zeta$ are not identically zero, we may assume that any common factor of $f_\zeta$ and $g_\zeta$ is the germ of a Weierstrass polynomial $W$ in $\mathcal O'_0[z_n-\zeta_n]$. But then by Lemma~\ref{lemma:3.4.1}, this gives a factorization of $h_\zeta$ into a product $WP$, where $P\in\mathcal O'_0[z_n-\zeta_n]$. Hence $W$ must be of degree zero and so equal to $1$. Therefore $W$ is a unit.
+\end{proof}
+\paragraph*{Remark.} Proposition~\ref{proposition:3.4.2} gives a beautiful example of a characteristic ``coherence'' result in complex analysis: An algebraic result that holds at a point tends to hold in a neighbourhood of the point. In other words we have a transition from algebra (results holding in the ring of germs at a point) to a local result (statements holding on an open set).
+
+From now on we shall let $\mathcal M_a$ denote the quotient field of $\mathcal O_a$. Thus $\mathcal M_a=\{f_a/g_a:f_a,g_a\in\mathcal O_a\text{ with }g_a\ne0\}$. Since $\mathcal O_a$ is a unique factorization domain each $m\in\mathcal M_a$ may be written uniquely (up to multiplication by units) in the form $f_a/g_a$ where $f_a$ and $g_a$ are relatively prime.
+
+Suppose that $m\in\mathcal M_a$. Write $m=f_a/g_a$, where $f_a$ and $g_a$ are relatively prime. If $g_a(a)\ne0$, we may define the value of $m$ at $a$, $m(a)$, to be $f_a(a)/g_a(a)$. Clearly $m(a)$ does not depend on our choices for $f_a$ and $g_a$ provided only that they are relatively prime. In case $n=1$, if $g_a(a)=0$ then $f_a(a)\ne0$ and we can define $m(a)=\infty$ (see
+% Original book page 111
+\hyperref[sec:1:4]{Chapter 1, \S4}, Example 1). For $n>1$, it is certainly possible for us to have $g_a(a)=f_a(a)=0$ and then there is no sensible way to define $m(a)$ as the next lemma shows.
+\FieldHeading{Lemma}{3.4.3}{}\FieldTarget{lemma:3.4.3}{3.4.3} Let $f$ and $g$ be analytic on some neighbourhood of $0\in\mathbb C^n$, $n>1$, and suppose $f(0)=g(0)=0$ and $f_0$ and $g_0$ are relatively prime. Then given any $\zeta\in\mathbb C$, there exist $z$ arbitrarily close to $0$ such that $g(z)\ne0$ and $f(z)/g(z)=\zeta$.
+\begin{proof}
+Replacing $f$ by $f-\zeta g$, it is no loss of generality to suppose that $\zeta=0$. We may then assume that $f$ and $g$ are Weierstrass polynomials and, exactly as in the proof of Proposition~\ref{proposition:3.4.2}, we may find $a,b\in\mathcal O'_0[z_n]$ and $h\in\mathcal O'_0$, $h\ne0$, such that on some neighbourhood of $0$ we have
+\begin{equation}h(z')=a(z)f(z',z_n)+b(z)g(z',z_n)\tag{1}\label{eq:3:1:2}\end{equation}
+If the lemma is false, there exists an open neighbourhood $D$ of $0$ such that $f(z)=0$ implies $g(z)=0$, $z\in D$. But for small $z'$, the polynomial $f(z',z_n)$ certainly has a small zero $z_n$ and so it follows from 1 that $h(z')=0$ for all $z'$ in some neighbourhood of $0$. Contradiction.
+\end{proof}
+Let us set
+\[\mathcal M=\bigcup_{a\in\mathbb C^n}\mathcal M_a.\]
+(Disjoint union over $\mathbb C^n$). $\mathcal M$ is called the \emph{sheaf of germs of meromorphic functions}\IndexMark{idx-564}{sheaf of germs@Sheaf of germs!meromorphic functions@meromorphic functions} on $\mathbb C^n$.
+\FieldHeading{Definition}{3.4.4}{}\FieldTarget{definition:3.4.4}{3.4.4}\IndexMark{idx-387}{meromorphic function@Meromorphic function!of several variables@of several variables} Let $\Omega$ be an open subset of $\mathbb C^n$. A map $m:\Omega\to\mathcal M$ is said to define a \emph{meromorphic function} on $\Omega$ if
+\begin{enumerate}
+\item $m(z)\in\mathcal M_z$ for all $z\in\Omega$ ($m$ is a ``section'' of $\mathcal M$)
+\item For every $z\in\Omega$, there exists $V\in\mathcal U_z$ and $f,g\in A(V)$ such that $m(a)=f_a/g_a$, for all $a\in V$.
+\end{enumerate}
+We denote the set of meromorphic functions on $\Omega$ by $M(\Omega)$.
+\paragraph*{Example 1.} Let $\Omega\subset\mathbb C^n$ be open and $f,g\in A(\Omega)$, where $g$ is not identically zero on any connected component of $\Omega$. We may define $m\in M(\Omega)$ by
+% Original book page 112
+\[m(z)=f_z/g_z,\quad z\in\Omega.\]
+We often write $m=f/g$.
+\FieldHeading{Proposition}{3.4.5}{}\FieldTarget{proposition:3.4.5}{3.4.5} Let $\Omega\subset\mathbb C^n$ be open and $m\in M(\Omega)$. We may find an open cover $\{U_j\}$ of $\Omega$ and $m_j\in M(U_j)$ such that
+\begin{enumerate}
+\item $m_j=m|U_j$
+\item For every $j$, there exist $f_j,g_j\in A(U_j)$ such that $m_j=f_j/g_j$ and $f_{j,a}$ and $g_{j,a}$ are relatively prime\IndexMark{idx-506}{relatively prime germs@Relatively prime germs} for all $a\in U_j$.
+\end{enumerate}
+\begin{proof}Immediate from Proposition~\ref{proposition:3.4.2}.\end{proof}
+\paragraph*{Remark.} Proposition~\ref{proposition:3.4.5} is, of course, relatively trivial if $n=1$: Every meromorphic function $m$ on $\Omega\in\mathbb C$ may be written in the form $u(z)(z-a)^p$ on some neighbourhood of each point $a\in\Omega$ with $u(a)\ne0$ and $p\in\mathbb Z$. In fact by Corollary~\ref{corollary:1.3.4} we can write $m=f/g$, with $f_a$ and $g_a$ relatively prime at every point $a\in\Omega$. It is true, though hard to prove, that a meromorphic function on an arbitrary domain in $\mathbb C^n$ can be written as a quotient $f/g$ (problem of Poincar\'e). However, as we shall see later in Chapter 12, it is not true for arbitrary domains in $\mathbb C^n$ that we can require $f_a$ and $g_a$ to be everywhere relatively prime.
+\paragraph*{Notation.} If $f_a,g_a\in\mathcal O_a$ are relatively prime we shall write $(f_a,g_a)=1$. More generally, if $f,g\in A(U)$ and $(f_a,g_a)=1$ for all $a\in U$ we shall write $(f,g)=1$.
+
+The local description of meromorphic functions given by Proposition~\ref{proposition:3.4.5} is essentially unique as the next lemma shows.
+\FieldHeading{Lemma}{3.4.6}{}\FieldTarget{lemma:3.4.6}{3.4.6} Let $\Omega\subset\mathbb C^n$ be open and $m\in M(\Omega)$. Suppose that for some open subset $V\subset\Omega$ we may find $f,f',g,g'\in A(V)$ such that
+\begin{enumerate}
+\item $m|V=f/g=f'/g'$.
+\item $(f,g)=1$, $(f',g')=1$.
+\end{enumerate}
+Then there exists $u\in A(V)$ such that
+\begin{enumerate}
+\item[A.] $f=uf'$, $g=ug'$.
+\item[B.] $u$ is non-vanishing on $V$. That is, $u_a$ is a unit for all $a\in V$.
+\end{enumerate}
+% Original book page 113
+\begin{proof}
+At each point $a\in V$ we have $f_a/g_a=f'_a/g'_a$. Hence $f_ag'_a=g_af'_a$. If $f_a$ is not a unit, $f_a$ must divide $f'_a$, since $(f_a,g_a)=1$. Hence there exists a unique $u_a\in\mathcal O_a$ such that $u_af_a=f'_a$. Since $f'_a$ is therefore not a unit and $(f'_a,g'_a)=1$, there exists $v_a\in\mathcal O_a$ such that $v_af'_a=f_a$. Substituting, we find that $u_av_a=1$ and so $u_a$ is a unit. Hence $f'_a/f_a$ is a unit in $\mathcal O_a$. Similarly, if $g_a$ is not a unit, $g'_a/g_a$ is a unit in $\mathcal O_a$. It follows that for all $a\in V$, there exists a unique unit $u_a\in\mathcal O_a$ such that $f'_a/f_a=g'_a/g_a=u_a$. But the equation $f_au_a=f'_a$ uniquely defines an analytic function $u$ on $V$ satisfying conditions A and B of the lemma.
+\end{proof}
+Using the above results we are now able to define the pole and zero sets of a meromorphic function and prove that they are analytic subsets (see Definition~\ref{definition:2.2.1}).
+
+Suppose that $\Omega\subset\mathbb C^n$ is open and $m\in M(\Omega)$. By Proposition~\ref{proposition:3.4.5}, we may find an open cover $\{U_j\}$ of $\Omega$ and $m_j\in M(U_j)$ such that $m_j=m|U_j$ and $m_j=f_j/g_j$ with $(f_j,g_j)=1$. We define the subsets $Z(m)$, $P(m)$, $T(m)$ by
+\begin{align*}
+Z(m)\cap U_j&=\{z\in U_j:f_j(z)=0\},\\
+P(m)\cap U_j&=\{z\in U_j:g_j(z)=0\},\\
+T(m)\cap U_j&=\{z\in U_j:f_j(z)=g_j(z)=0\}.
+\end{align*}
+We claim that $Z(m)$, $P(m)$ and $T(m)$ are well defined analytic subsets of $\Omega$ which depend only on $m$ (not on the local representation of $m$ on $U_j$). To see this, choose another open cover $\{U'_k\}$ of $\Omega$ together with relatively prime $f'_k,g'_k\in A(U'_k)$ satisfying $m|U'_k=f'_k/g'_k$. On the overlap $U_j\cap U'_k$ we have $f_j/g_j=f'_k/g'_k$ and so, by Lemma~\ref{lemma:3.4.6}, there exists a nowhere zero $u\in A(U_j\cap U'_k)$ such that on $U_j\cap U'_k$
+\[f_j=uf'_k\quad\text{and}\quad g_j=ug'_k.\]
+But this implies that $f_j(z)=0$ if and only if $f'_k(z)=0$ and $g_j(z)=0$ if and only if $g'_k(z)=0$. Hence $Z(m)$, $P(m)$ and $T(m)$ are well defined analytic sets.
+% Original book page 114
+\FieldHeading{Definition}{3.4.7}{}\FieldTarget{definition:3.4.7}{3.4.7} Let $m$ be a meromorphic function defined on a domain in $\mathbb C^n$. The analytic sets $Z(m)$, $P(m)$ and $T(m)$ constructed above are called the \emph{zero set}\IndexMark{idx-659}{zero set@Zero set!of several variables@of several variables} of $m$, \emph{pole set}\IndexMark{idx-449}{pole set@Pole set!several variables@several variables} of $m$ and \emph{indeterminancy set} of $m$ respectively.
+\paragraph*{Example 2.} For $n=1$, the indeterminancy set is always empty (see the comments immediately preceding Lemma~\ref{lemma:3.4.3}). For $n>1$, the indeterminancy set may be non-empty: Let $f(z_1,z_2)=z_1^2-z_2^3$, $g(z_1,z_2)=z_1z_2$. Define $m\in M(\mathbb C^2)$ by $m=f/g$. Then $Z(m)=\{(t^3,t^2):t\in\mathbb C\}$, $P(m)=\{(z_1,z_2):z_1=0\text{ or }z_2=0\}$ and $T(m)=\{(0,0)\}$.
+
+As follows from Lemma~\ref{lemma:3.4.3} there is no way to define the value of a meromorphic function at points of its indeterminancy set. However, we do have
+\FieldHeading{Proposition}{3.4.8}{}\FieldTarget{proposition:3.4.8}{3.4.8} Let $m$ be a meromorphic function on the domain $\Omega$ in $\mathbb C^n$. Then $m$ defines an analytic function on $\Omega\setminus P(m)$.
+\begin{proof}
+Let $\{U_j\}$ be an open cover of $\Omega$ and $f_j,g_j\in A(U_j)$ satisfy the conditions of Proposition~\ref{proposition:3.4.5}. We may define $m:\Omega\setminus P(m)\to\mathbb C$ by
+\[m(z)=f_j(z)/g_j(z),\quad z\in U_j\setminus P(m).\]
+We leave it to the reader to check that this construction gives a well defined analytic function on $\Omega\setminus P(m)$.
+\end{proof}
+To conclude this section, we briefly return to the problem of constructing meromorphic functions with specified principal parts or pole and zero sets (see \hyperref[sec:2:7]{\S7 of Chapter 2}).
+\FieldHeading{Definition}{3.4.9}{}\FieldTarget{definition:3.4.9}{3.4.9} Let $\Omega$ be a domain in $\mathbb C^n$ and $\{U_i:i\in I\}$ be an open cover of $\Omega$. Suppose we are given $m_i\in M(U_i)$ such that $m_i-m_j\in A(U_{ij})$ for all $i,j\in I$. The \emph{Cousin I problem}\IndexMark{idx-146}{cousin domains@Cousin domains}\IndexMark{idx-150}{cousin problems@Cousin problems} is to construct $m\in M(\Omega)$ such that $m-m_i\in A(U_i)$ for all $i\in I$.
+
+If we can always solve the Cousin I problem on $\Omega$, we call $\Omega$ a \emph{Cousin I domain}.
+\paragraph*{Remark.} If $\Omega$ is a Cousin A domain, it is certainly a Cousin I domain.
+% Original book page 115
+\paragraph*{Notation.} Let $A^*(U)$ and $M^*(U)$ denote the groups of units in $A(U)$ and $M(U)$ respectively.
+\FieldHeading{Definition}{3.4.10}{}\FieldTarget{definition:3.4.10}{3.4.10} Let $\Omega$ be a domain in $\mathbb C^n$ and $\{U_i:i\in I\}$ be an open cover of $\Omega$. Suppose we are given $m_i\in M^*(U_i)$ such that $m_im_j^{-1}\in A^*(U_{ij})$ for all $i,j\in I$. The \emph{Cousin II problem}\IndexMark{idx-147}{cousin domains@Cousin domains}\IndexMark{idx-151}{cousin problems@Cousin problems} is to construct $m\in M(\Omega)$ such that $mm_i^{-1}\in A^*(U_i)$ for all $i\in I$.
+
+If we can always solve the Cousin II problem on $\Omega$, we call $\Omega$ a \emph{Cousin II domain}.
+\paragraph*{Remarks.}
+\begin{enumerate}
+\item If $\Omega$ is a Cousin B domain, it is certainly a Cousin II domain.
+\item Suppose that we can construct $m\in M(\Omega)$ satisfying the conditions of the Cousin II problem. Then, with the notation of Definition~\ref{definition:3.4.10}, we see that
+\[Z(m)=\bigcup_{i\in I}Z(m_i)\]
+and similarly for the pole and indeterminancy sets. We return in Chapter~\ref{ch:5} to the question of multiplicities.
+\item The definition of Cousin II domain we have given above is equivalent to that given in Definition~\ref{definition:2.7.2}, as the reader may easily verify using Proposition~\ref{proposition:3.4.5}.
+\end{enumerate}
+\subsection*{Exercises}
+\begin{enumerate}
+\item Show that Lemma~\ref{lemma:3.4.1} need not be true if $W$ is a polynomial in $z_n$ but not a Weierstrass polynomial.
+\item Let $U$ be an open subset of $\mathbb C^n$ and $f,g\in A(U)$. Suppose that for some $a\in U$, $(f_a,g_a)=1$. Show that in general $(f,g)\ne1$.
+\end{enumerate}
+\section{Local properties of analytic sets}\label{sec:3:5}
+In this section we show how the unique factorization and Noetherian properties of the ring $\mathcal O_0$ are reflected in the local structure theory of analytic sets.
+% Original book page 116
+We start by examining the case of the zero set of an analytic function $f$ defined on some neighbourhood of $0$ in $\mathbb C^n$. By uniqueness of factorization, we may write $f_0=p_1^{r_1}\cdots p_k^{r_k}$, where $p_1,\ldots,p_k\in\mathcal O_0$ are distinct primes. Suppose that $f,p_1,\ldots,p_k$ are defined as analytic functions on some neighbourhood $U$ of $0$. Since $f=p_1^{r_1}\cdots p_k^{r_k}$ on $U$ we have
+\[Z(f)=\bigcup_{j=1}^k Z(p_j).\]
+Therefore as a first step in the local study of the zero sets of analytic functions it is natural to examine the zero sets of primes in $\mathcal O_0$. Suppose then that $p\in\mathcal O_0$ is prime. Changing coordinates if necessary and multiplying by a unit, we may find a polydisc neighbourhood $D'$ of $0$ in $\mathbb C^{n-1}$ and $s>0$ such that if $D=\{z\in\mathbb C^n:z'\in D'\text{ and }|z_n|<s\}$, then $p$ is a Weierstrass polynomial on $D$:
+\[p(z,z_n)=z_n^p+\sum_{j=0}^{p-1}a_j(z')z_n^j.\]
+Let $\delta\in A(D')$ denote the discriminant of $p$ (we recall that $\delta$ is the resultant of $p$ and $p'=\partial p/\partial z_n$, $\delta$ is a polynomial in the coefficients of $p$ and $\delta(z')=0$ if and only if $p(z',z_n)$ has a multiple root. For further details we refer the reader to Van der Waerden \cite{bib:I:waerden-b-l-van-der:1}). Since $p$ is prime, $\delta\ne0$ (for otherwise $p$ and $p'$ would have a non-constant common factor see Van der Waerden \cite{bib:I:waerden-b-l-van-der:1}). Let $\Sigma=\{z'\in D':\delta(z')=0\}$ ($\Sigma$ is the \emph{discriminant locus}\IndexMark{idx-175}{discriminant locus@Discriminant locus} of $p$). We let $\pi:D\to D'$ denote the projection on the first $n-1$ coordinates. Figure~\ref{fig:I:6} describes $Z(p)\subset D$.
+% Original book page 117
+\begin{center}
+    \begin{minipage}{\linewidth}
+        \centering
+        \setlength{\unitlength}{0.8pt}
+        \input{figures/figure06.tex}
+        \FieldCaption{I}{6}{}
+    \end{minipage}
+\end{center}
+At each point $z'_0\in D'\setminus\Sigma$, $p(z'_0,z_n)$ has precisely $p$ distinct roots. Denote these roots by $\lambda_1(z'_0),\ldots,\lambda_p(z'_0)$. Since $\delta(z'_0)\ne0$, $\frac{\partial p}{\partial z_n}(z'_0,\lambda_j(z'_0))\ne0$, $1\leq j\leq n$, and we may apply the implicit function theorem to deduce that the roots $\lambda_j$ depend analytically on $z'$, $z'\notin\Sigma$ (see Remark 4, \hyperref[sec:2:1]{\S1 of Chapter 2}). It follows that $Z(p)\setminus\pi^{-1}(\Sigma)$ is a (complex) submanifold of $D$ of complex codimension 1 (see Chapter~\ref{ch:4} for terminology). Moreover, $\pi$ clearly restricts to a $p$-fold covering map of $Z(p)\setminus\pi^{-1}(\Sigma)$ over $D'\setminus\Sigma$. The zero set $Z(p)$ may have ``singularities'' (points where $Z(p)$ fails to be a submanifold of $D$) at points lying over $\Sigma$.
+\paragraph*{Examples.}
+\begin{enumerate}
+\item Let $f(z,w)=z^2-w^3$. Then $f_0$ is prime and is a Weierstrass polynomial in $z$. The discriminant locus of $f$ is the origin of $\mathbb C$ (the $w$-axis). The reader may verify that at the origin of $\mathbb C^2$ it is not possible to find a submanifold chart (analytic or $C^\infty$) for $Z(f)$. However, $Z(f)$ is a topological manifold as the map $t\mapsto(t^3,t^2)$ defines a homeomorphism of $\mathbb C$ onto $Z(f)$.
+\item Let $f(u,v,w)=u^{2p}-vw$, for some positive integer $p$. Then $f_0$ is prime and is a Weierstrass polynomial in $u$. The discriminant locus
+% Original book page 118
+of $f$ is the origin of the $(v,w)$-plane. We claim that $Z(f)$ is not a topological manifold. If it were, it would have to be modelled on $\mathbb C^2$ since $Z(f)\setminus\{0\}$ is of complex dimension 2. Moreover, since $\mathbb C^2\setminus\{0\}$ is simply connected, it would be possible to find simply connected neighbourhoods of $0$ in $Z(f)\setminus\{0\}$. But the map $\phi:\mathbb C^2\setminus\{0\}\to Z(f)\setminus\{0\}$ defined by $\phi(t,s)=(ts,t^p,s^p)$ is a $p$-fold covering map. Hence there is no neighbourhood of zero in $Z(f)\setminus\{0\}$ which is simply connected and so $Z(f)$ cannot be a topological manifold.
+\end{enumerate}
+We shall now make a more general study of the local structure of analytic sets. Our approach is close to that given in Gunning and Rossi \cite{bib:I:gunning-r-c-and-rossi-h:1}. We start by defining the germ at a point of a subset of $\mathbb C^n$. Suppose $X,Y$ are subsets of $\mathbb C^n$. We say that $X$ and $Y$ are equivalent at $a\in\mathbb C^n$ if there exists $U\in\mathcal U_a$ such that $X\cap U=Y\cap U$. This relation is certainly an equivalence relation on subsets of $\mathbb C^n$. We denote the equivalence class of a subset $X$ by $X_a$ and refer to $X_a$ as the \emph{germ} of $X$ at $a$.
+
+If $\alpha$ and $\beta$ are germs of sets at $a$, we define
+\[\alpha\cup\beta=(X\cup Y)_a;\quad\alpha\cap\beta=(X\cap Y)_a;\quad\alpha-\beta=(X\setminus Y)_a,\]
+where $X$ and $Y$ are representatives for $\alpha$ and $\beta$ respectively. Just as for germs of functions, it is easy to verify that the finite union, intersection and difference of germs of sets are well defined. As an exercise, the reader may show that arbitrary unions or intersections of germs of sets need not be well defined.
+
+We write $\alpha\subset\beta$, if there exist representatives $X$ and $Y$ of $\alpha$ and $\beta$ respectively such that $X\subset Y$.
+
+Suppose $f_a\in\mathcal O_a^p$. Choose a representative $f=(f_1,\ldots,f_p)$ for $f_a$. We let $Z(f_a)$ denote the germ of $Z(f)$ at $a$. That is, $Z(f_a)=f^{-1}(0)_a$. $Z(f_a)$ clearly depends only on $f_a$ and not on the choice of representative function for $f_a$. We let $\mathcal A_a$ denote the set of all germs\IndexMark{idx-268}{germ@Germ!set@set} at $a$ of analytic sets. Thus $X_a\in\mathcal A_a$ if and only if there exists $f_a\in\mathcal O_a^p$ such that $X_a=Z(f_a)$.
+% Original book page 119
+\FieldHeading{Lemma}{3.5.1}{}\FieldTarget{lemma:3.5.1}{3.5.1} Suppose $f=(f_1,\ldots,f_p)$ is a representative function for $f_a\in\mathcal O_a^p$. Then
+\begin{align*}
+Z(f_a)&=\bigcap_{i=1}^p Z(f_i)_a\\
+&=\bigcap_{i=1}^p Z(f_{i,a}).
+\end{align*}
+(Here $f_{i,a}$ denotes the germ of $f_i$ at $a$).
+\begin{proof}Trivial.\end{proof}
+\paragraph*{Notation.} If $f=(f_1,\ldots,f_p)\in A(U)^p$, we shall adopt the conventions that $Z(f_1,\ldots,f_p)=Z(f)$ and $Z(f_{1,a},\ldots,f_{p,a})=Z(f_1,\ldots,f_p)_a=Z(f)_a$.
+\FieldHeading{Proposition}{3.5.2}{}\FieldTarget{proposition:3.5.2}{3.5.2} Let $X_a,Y_a\in\mathcal A_a$. Then $X_a\cup Y_a$, $X_a\cap Y_a\in\mathcal A_a$.
+\begin{proof}
+We may suppose that $X_a=Z(f_1,\ldots,f_p)$, $Y_a=Z(g_1,\ldots,g_q)$ for suitable $f_i,g_j\in\mathcal O_a$. Clearly
+\begin{align*}
+X_a\cup Y_a&=Z(f_ig_j:1\leq i\leq p,\ 1\leq j\leq q),\\
+X_a\cap Y_a&=Z(f_1,\ldots,f_p,g_1,\ldots,g_q).
+\end{align*}
+\end{proof}
+\FieldHeading{Definition}{3.5.3}{}\FieldTarget{definition:3.5.3}{3.5.3} Suppose $X_a\in\mathcal A_a$. We say $f_a\in\mathcal O_a$ \emph{vanishes on $X_a$} if for some representatives $X$ of $X_a$ and $f$ of $f_a$ we have $f|X\equiv0$. We write $f_a=0$ on $X_a$.
+\FieldHeading{Definition}{3.5.4}{}\FieldTarget{definition:3.5.4}{3.5.4} Let $X_a\in\mathcal A_a$. We define
+\[I(X_a)=\{f_a\in\mathcal O_a:f_a=0\text{ on }X_a\}.\]
+\FieldHeading{Proposition}{3.5.5}{}\FieldTarget{proposition:3.5.5}{3.5.5} Let $X_a\in\mathcal A_a$. Then $I(X_a)$ is an ideal of $\mathcal O_a$.
+\begin{proof}Trivial.\end{proof}
+\paragraph*{Notation.} We write $I\lhd\mathcal O_a$ to signify that $I$ is an ideal of $\mathcal O_a$.
+% Original book page 120
+\paragraph*{Example.} Let $X$ be an analytic subset of the domain $\Omega$ in $\mathbb C^n$. For each $a\in\Omega$, we set $I_a(X)=I(X_a)$. Then $I_a(X)\lhd\mathcal O_a$ for every $a\in\Omega$. If $a\notin X$, $I_a(X)=\mathcal O_a$.
+
+Before stating the next proposition recall that if $R$ is a commutative ring and $I\lhd R$, then the \emph{radical}\IndexMark{idx-498}{radical of ideal@Radical (of ideal)} of $I$, $\operatorname{Rad}(I)$, is defined by
+\[\operatorname{Rad}(I)=\{r\in R:\text{For some positive integer }p,\ r^p\in I\}.\]
+\FieldHeading{Proposition}{3.5.6}{}\FieldTarget{proposition:3.5.6}{3.5.6} For every germ $X_a\in\mathcal A_a$
+\[I(X_a)=\operatorname{Rad}(I(X_a)).\]
+\begin{proof}If $f_a^p$ vanishes on $X_a$ then certainly $f_a$ vanishes on $X_a$.\end{proof}
+\FieldHeading{Proposition}{3.5.7}{}\FieldTarget{proposition:3.5.7}{3.5.7} Let $I$ be an ideal in $\mathcal O_a$ and let $\{a_1,\ldots,a_p\}$ be a finite set of generators for $I$. Then
+\begin{enumerate}
+\item If $f\in I$, $f$ vanishes on $Z(a_1,\ldots,a_p)$.
+\item $Z(a_1,\ldots,a_p)$ depends only on $I$ and not on the particular choice of generators for $I$.
+\end{enumerate}
+\begin{proof}
+Let $f\in I$. Then $f=\sum_{j=1}^p f_ja_j$, $f_j\in\mathcal O_a$, $1\leq j\leq p$. Hence $f\in Z(a_1,\ldots,a_p)$, proving 1. Statement 2 follows straightforwardly from 1.
+\end{proof}
+\FieldHeading{Definition}{3.5.8}{}\FieldTarget{definition:3.5.8}{3.5.8} Suppose $I\lhd\mathcal O_a$. We define
+\[Z(I)=Z(a_1,\ldots,a_p),\]
+where $\{a_1,\ldots,a_p\}$ is any finite set of generators for $I$.
+
+It follows from Propositions~\ref{proposition:3.5.6} and \ref{proposition:3.5.7} that we have a correspondence between radical ideals in $\mathcal O_a$ and germs of analytic sets. In the next theorem we list further properties of this correspondence.
+% Original book page 121
+\FieldHeading{Theorem}{3.5.9}{}\FieldTarget{theorem:3.5.9}{3.5.9}
+\begin{enumerate}
+\item[1.] If $X_a,Y_a\in\mathcal A_a$ and $X_a\subset Y_a$ then $I(X_a)\supset I(Y_a)$.
+\item[$1'$.] If $I,J\lhd\mathcal O_a$ and $I\subset J$ then $Z(I)\supset Z(J)$.
+\item[2.] If $X_a,Y_a\in\mathcal A_a$ and $X_a\ne Y_a$ then $I(X_a)\ne I(Y_a)$.
+\item[3.] If $X_a\in\mathcal A_a$, $I(X_a)=\operatorname{Rad}(I(X_a))$.
+\item[$3'$.] If $I\lhd\mathcal O_a$, $Z(I)=Z(\operatorname{Rad}(I))$.
+\item[4.] If $X_a\in\mathcal A_a$, then $Z(I(X_a))=X_a$.
+\item[$4'$.] If $I\lhd\mathcal O_a$, $I(Z(I))\supseteq\operatorname{Rad}(I)$.
+\end{enumerate}
+\begin{proof}
+We shall prove statements 2, 4 and $4'$. Statement 3 is Proposition~\ref{proposition:3.5.6}. We leave the remaining cases as exercises for the reader (the full proof may be found in Gunning and Rossi \cite{bib:I:gunning-r-c-and-rossi-h:1}).
+
+Proof of 2. For some $U\in\mathcal U_a$ and $f_j\in A(U)$, $1\leq j\leq p+q$, we may write $X=Z(f_1,\ldots,f_p)$, $Y=Z(f_{p+1},\ldots,f_{p+q})$, where $X,Y$ are representatives for $X_a,Y_a$ respectively. Since $X_a\ne Y_a$, we may find $z_W\in((X\setminus Y)\cup(Y\setminus X))\cap W$ for every $W\in\mathcal U_a$. Hence there exists $j(W)\in\{1,\ldots,p+q\}$ such that $f_{j(W)}(z_W)\ne0$. This is true for all sufficiently small neighbourhoods $W$ of $a$ and so there must exist a $j_0$ such that $f_{j_0}$ does not vanish identically on $((X\setminus Y)\cup(Y\setminus X))\cap W$ for any $W\in\mathcal U_a$. If $1\leq j_0\leq p$, this implies $f_{j_0}\ne0$ on $Y_a$ and if $p+1\leq j_0\leq p+q$, $f_{j_0}\ne0$ on $X_a$. Hence $I(X_a)\ne I(Y_a)$.
+
+Proof of 4. If $f_a\in I(X_a)$ then certainly $f_a=0$ on $X_a$ and so $Z(I(X_a))\supseteq Z_a$. On the other hand we may write $X_a=Z(f_1,\ldots,f_k)$ for some $f_j\in\mathcal O_a$. Since $f_j=0$ on $X_a$, $f_j\in I(X_a)$ and so $Z(f_j)\supseteq Z(I(X_a))$. This holds for all $j$ and so $X_a=Z(f_1,\ldots,f_k)\supseteq Z(I(X_a))$.
+
+Proof of $4'$. Obviously, $I(Z(I))\supseteq I$ for any $I\lhd\mathcal O_a$. By $3'$, $Z(I)=Z(\operatorname{Rad}(I))$ and so $I(Z(I))=I(Z(\operatorname{Rad}(I)))\supseteq\operatorname{Rad}(I)$.
+\end{proof}
+\paragraph*{Remark.} A consequence of Theorem~\ref{theorem:3.5.9} is that the map $X_a\to I(X_a)$ is injective into the set of radical ideals in $\mathcal O_a$ with left inverse defined by mapping $I$ to $Z(I)$, for radical $I\lhd\mathcal O_a$. To show that this map is onto we need to know that $I(Z(I))=I$ for all radical ideals $I$ of $\mathcal O_a$ and not just that $I(Z(I))\supseteq I$ (condition $4'$). In fact we do have equality and this fundamental result is the \emph{Nullstellensatz}\IndexMark{idx-412}{nullstellensatz@Nullstellensatz}
+% Original book page 122
+for germs of analytic sets. The proof of the Nullstellensatz lies much deeper than the other results of this section and may be found in Gunning and Rossi \cite{bib:I:gunning-r-c-and-rossi-h:1}, Gunning \cite{bib:I:gunning-r-c:1}, Herv\'e \cite{bib:I:herve-m:1} or R. Narasimhan \cite{bib:I:narasimhan-r:3}. We shall prove a special case, the Nullstellensatz for principal ideals, later in this section and this will suffice for our intended applications.
+\FieldHeading{Definition}{3.5.10}{}\FieldTarget{definition:3.5.10}{3.5.10} We say that a germ $X_a\in\mathcal A_a$ is \emph{irreducible}\IndexMark{idx-340}{irreducible@Irreducible!germ@germ} if whenever $X_a=Y_a\cup Z_a$, $Y_a,Z_a\in\mathcal A_a$, we have either $X_a=Y_a$ or $X_a=Z_a$.
+\FieldHeading{Theorem}{3.5.11}{}\FieldTarget{theorem:3.5.11}{3.5.11} A germ $X_a$ is irreducible if and only if $I(X_a)$ is prime.
+\begin{proof}
+Suppose $I(X_a)$ is not prime. Then there exist $f,g\in\mathcal O_a$ such that $fg\in I(X_a)$ but neither $f$ nor $g$ lie in $I(X_a)$. Now $X_a=X_a\cap Z(fg)=X_a\cap(Z(f)\cup Z(g))=(X_a\cap Z(f))\cup(X_a\cap Z(g))$. Since $f,g\notin I(X_a)$, $X_a\cap Z(f)$ and $X_a\cap Z(g)$ are strictly contained in $X_a$ and so $X_a$ is not irreducible. Conversely, suppose that $X_a$ is not irreducible. Then $X_a=Y_a\cup Z_a$, where $Y_a$ and $Z_a$ are strictly contained in $X_a$. By 2 of Theorem~\ref{theorem:3.5.9}, $I(Y_a),I(Z_a)\ne I(X_a)$ and so, by 1 of Theorem~\ref{theorem:3.5.9}, $I(Y_a),I(Z_a)$ strictly contain $I(X_a)$. Pick $f\in I(Y_a)\setminus I(X_a)$, $g\in I(Z_a)\setminus I(X_a)$. Since $fg\in I(Y_a)\cap I(Z_a)=I(X_a)$, we see that $I(X_a)$ is not prime.
+\end{proof}
+\FieldHeading{Theorem}{3.5.12}{}\FieldTarget{theorem:3.5.12}{3.5.12} Let $X_a\in\mathcal A_a$. We may decompose $X_a$ into a finite union $X_a^1\cup\cdots\cup X_a^k$ of irreducible germs satisfying
+\begin{enumerate}
+\item $X_a^j\not\subset\bigcup_{i\ne j}X_a^i$ for $j=1,\ldots,k$.
+\item The $X_a^i$ are uniquely determined (up to order) by $X_a$.
+\end{enumerate}
+\begin{proof}
+Set $I=I(X_a)$. It follows from the theory of Noetherian rings that we may write $I=\bigcap_{j=1}^s I_j$, where the $I_j$ are primary ideals (that is, $\operatorname{rad}(I_j)$ is prime). See, for example, Van der Waerden \cite{bib:I:waerden-b-l-van-der:2} or Zariski and Samuel \cite{bib:I:zariski-o-and-samuel-p:1}. Set $P_j=\operatorname{Rad}(I_j)$. By 4 of Theorem~\ref{theorem:3.5.9}, $X_a=Z(I)=\bigcup_{j=1}^s Z(P_j)$. We may throw away any germs $Z(P_j)$ which are contained in the union of the remaining germs to obtain the required decomposition of $X_a$ as a union of irreducible germs. Suppose that
+% Original book page 123
+$X_a=X_a^1\cup\cdots\cup X_a^k=Y_a^1\cup\cdots\cup Y_a^p$ are two decompositions of $X_a$ as unions of irreducible germs which satisfy condition 1 of the theorem. For $j\in\{1,\ldots,k\}$, $X_a^j=\bigcup_{i=1}^p(Y_a^i\cap X_a^j)$ and since $X_a^j$ is irreducible, we must have $X_a^j=Y_a^{\tau(j)}\cap X_a^j$ for some $\tau(j)\in\{1,\ldots,p\}$. Hence $X_a^j\subset Y_a^{\tau(j)}$, $1\leq j\leq k$. Similarly, $Y_a^i\subset X_a^{\rho(i)}$ for some $\rho(i)\in\{1,\ldots,k\}$, $1\leq i\leq p$. It follows that for all $i,j$ we have
+\[X_a^j\subset Y_a^{\tau(j)}\subset X_a^{\rho\tau(j)}\quad\text{and}\quad Y_a^i\subset X_a^{\rho(i)}\subset Y_a^{\tau\rho(i)}.\]
+Since the decompositions satisfy condition 1, $\rho\tau$ and $\tau\rho$ are the identity maps. Therefore $k=p$ and $X_a^j=Y_a^{\tau(j)}$, $1\leq j\leq k$.
+\end{proof}
+We conclude this section by proving three results about germs of analytic sets whose ideals are principal.
+\FieldHeading{Theorem}{3.5.13}{ (Nullstellensatz for principal prime ideals).}\FieldTarget{theorem:3.5.13}{3.5.13} Let $f_a\in\mathcal O_a$ be irreducible. Then $I(Z(f_a))=(f_a)$.
+\begin{proof}
+From $4'$ of Theorem~\ref{theorem:3.5.9} we already know that $I(Z(f_a))\supset(f_a)$. If $g_a\notin(f_a)$, then $(f_a,g_a)=1$ since $f_a$ is irreducible. Let $f$ and $g$ be representatives for $f_a$ and $g_a$ respectively. By Lemma~\ref{lemma:3.4.3}, we may find $z$ arbitrarily close to $a$ such that $f(z)=0$ and $g(z)\ne0$. Hence $g_a\notin I(Z(f_a))$. Therefore $I(Z(f_a))\subset(f_a)$.
+\end{proof}
+\FieldHeading{Corollary}{3.5.14}{ (Nullstellensatz for principal ideals).}\IndexMark{idx-413}{nullstellensatz@Nullstellensatz!for principal ideals@for principal ideals}\FieldTarget{corollary:3.5.14}{3.5.14} Let $f_a\in\mathcal O_a$. Then $I(Z(f_a))=\operatorname{Rad}((f_a))$.
+\begin{proof}
+Write $f_a=p_1^{r_1}\cdots p_s^{r_s}$, where the $p_j\in\mathcal O_a$ are irreducible and distinct. We certainly have $Z(f_a)=\bigcup_{i=1}^s Z(p_i)$ and so, by Theorem~\ref{theorem:3.5.13}, $I(Z(f_a))=\bigcap_{i=1}^s(p_i)=\operatorname{Rad}(f_a)$.
+\end{proof}
+\FieldHeading{Corollary}{3.5.15}{}\FieldTarget{corollary:3.5.15}{3.5.15} Let $p_s^{r_1}\cdots p_s^{r_s}$ be the prime factorization of $f_a\in\mathcal O_a$. Then $Z(f_a)=\bigcup_{i=1}^s Z(p_i)$ is the unique decomposition of $Z(f_a)$ into irreducible germs given by Theorem~\ref{theorem:3.5.12}.
+\begin{proof}
+All we need to check is that for every $i$, $Z(p_i)\not\subset\bigcup_{j\ne i}Z(p_j)$. By the Nullstellensatz for principal prime ideals, this condition is
+% Original book page 124
+equivalent to $(p_i)\not\supset(p_1\cdots p_{i-1}p_{i+1}\cdots p_s)$. This is certainly true since $p_i$ is not divisible by $p_j$, $i\ne j$.
+\end{proof}
+\FieldHeading{Theorem}{3.5.16}{}\FieldTarget{theorem:3.5.16}{3.5.16} Let $U$ be a domain in $\mathbb C^n$ and suppose that $f\in A(U)$ is not identically zero. Set $X=f^{-1}(0)$. Given $x\in X$, suppose that $p_x$ is a generator of the principal ideal $I_x(X)$. Then we can choose a representative $p$ for $p_x$, defined on some neighbourhood $V$ of $x$ in $U$, such that $I_y(X)=(p_y)$ for all $y\in V$.
+\begin{proof}
+It is clearly sufficient to prove the result for the special case when $p_x$ is irreducible. Changing coordinates and multiplying by a unit we may assume that $x=0$ and that we may find a polydisc neighbourhood $D'$ of $0$ in $\mathbb C^{n-1}$ and $s>0$ such that if $D=\{z\in\mathbb C^n:z'\in D',\ |z_n|<s\}$, then $p_0$ is the germ of a Weierstrass polynomial $p$ on $D$:
+\[p(z',z_n)=z_n^p+\sum_{j=0}^{p-1}a_j(z')z_n^j.\]
+Assuming that $D\subset U$, we have $p^{-1}(0)=X\cap D$. The discriminant locus $\Sigma$ of $p$ is a proper analytic subset of $D$ and so, in particular, $D'\setminus\Sigma$ is an open dense subset of $D'$. If $y=(y',y_n)\in p^{-1}(0)$ and $y'\notin\Sigma$, then $\partial p/\partial z_n(y',y_n)\ne0$. Consequently $p_y$ is irreducible (See Exercise 2, \hyperref[sec:3:3]{\S3}). On the other hand suppose that $y=(y',y_n)\in p^{-1}(0)$ and $y'\in\Sigma$. Let $\phi_y$ be a generator of $I_y(X)$. Then for some positive integer $k$ and unit $u_y\in\mathcal O_y$, $p_y=u_y\phi_y^k$. This equation holds on a neighbourhood of $y$ in $D$ and so holds for points $z=(z',z_n)\in p^{-1}(0)$ with $z'\notin\Sigma$. Consequently, $k=1$. Our arguments prove that $I_y(X)=(p_y)$ for all $y\in D$.
+\end{proof}
+\paragraph*{Remark.} Theorem~\ref{theorem:3.5.16} is a special case of the fundamental coherence theorem of H. Cartan which asserts that if $g_x^1,\ldots,g_x^k$ generate $I_x(X)$ then $g_y^1,\ldots,g_y^k$ generate $I_y(X)$ for $y$ in some neighbourhood of $x$. Here $X$ is an arbitrary analytic subset. The proof of this result is considerably harder than the special case given above and the reader may find proofs in H. Cartan \cite{bib:I:cartan-h:2}, Gunning and Rossi \cite{bib:I:gunning-r-c-and-rossi-h:1}, R. Narasimhan \cite{bib:I:narasimhan-r:3} and Whitney \cite{bib:I:whitney-h:1}.
+% Original book page 125
+\subsection*{Exercises}
+\begin{enumerate}
+\item Suppose $p(z',z_n)$ is an irreducible Weierstrass polynomial of degree $p$ defined on the polydisc $D=D'\times D_s(0)$, with discriminant $\delta\in A(D')$ and discriminant locus $\Sigma$. Let $\pi:D\to D'$ denote the projection on $D'$ and set $X=p^{-1}(0)$.
+\begin{enumerate}
+\item[i)] Suppose $Y$ is a connected component of $X\setminus\pi^{-1}(\Sigma)$. Show that $\pi|Y$ is an $s$-fold cover of $D'\setminus\Sigma$ for some $s$, $1\leq s\leq p$. (Hint: Fix $z'_0\in D'\setminus\Sigma$ and a root $\lambda_j(z'_0)\in Y$. Consider the unique lifts through $\lambda_j(z'_0)$ of all closed paths in $D'\setminus\Sigma$ starting at $z'_0$. Note that $D'\setminus\Sigma$ is connected (Corollary~\ref{corollary:2.2.3})).
+\item[ii)] Using the analyticity of the roots of $p(z',z_n)$ together with the Riemann removable singularities theorem, prove that $\overline Y$ is the zero locus of a polynomial in $z_n$ with coefficients analytic in $z'\in D'$.
+\item[iii)] Deduce from ii) that $\overline Y=X$ and that $X\setminus\pi^{-1}(\Sigma)$ is connected.
+\end{enumerate}
+\item Suppose that $f(y,z)$ is a Weierstrass polynomial in $z$ of degree $p$ defined on an open polydisc $D_a(0)\times D_b(0)\subset\mathbb C^2$ and that the discriminant locus is equal to $\{0\}\subset D_a(0)$. Set $c=a^{1/p}$. Show that
+\begin{enumerate}
+\item[i)] There exists an analytic function $\phi:D_c(0)\to\mathbb C$ such that $f(t^p,\phi(t))=0$, $t\in D_c(0)$.
+\item[ii)] If $\omega=\exp(2\pi i/p)$, then given $y=t^p\in D_a(0)$, $f(y,z)=0$ if and only if $z=\phi(\omega^jt)$ for some integer $j$, $a\leq j\leq p-1$. (Hint for i): Define $\gamma:D_c(0)\to D_a(0)$ by $\gamma(t)=t^p$. Now show using Q1 and the Riemann removable singularities theorem that lifts to an analytic map $\widetilde\gamma:D_c(0)\to D_a(0)\times D_b(0)$ with image $X$). (Observe that if $y=t^p$ and we define $y^{r/p}=t^r$ then we obtain the \emph{fractional power series}\IndexMark{idx-258}{fractional power series@Fractional power series}\IndexMark{idx-484}{puiseux series@Puiseux series} or \emph{Puiseaux series} solution $z=\phi(y^{1/p})$ to $f(y,z)=0$. Further details may be found in Walker \cite{bib:I:walker-r:1}).
+\end{enumerate}
+\item Let $f=(f_1,\ldots,f_p)\in\mathcal O_0^p$. Show that if $Df(0)$ is of maximal rank then $Z(f)$ is irreducible.
+\end{enumerate}
+% Original book page 126
+\section{\texorpdfstring{Modules over $\mathcal O_0$}{Modules over O0}}\label{sec:3:6}
+Suppose that $M$ is a finitely generated $\mathcal O_0$-module. Let $U_1^0,\ldots,U_{p(0)}^0$ be a set of generators for $M$ and define $U^0:\mathcal O_0^{p(0)}\to M$ by $U^0(f_1,\ldots,f_{p(0)})=\sum_{j=1}^{p(0)}f_jU_j^0$. The sequence $\mathcal O_0^{p(0)}\xrightarrow{U^0}M\to0$ is exact. The kernel of $U^0$, $\operatorname{Ker}(U^0)$, is a submodule of $\mathcal O_0^{p(0)}$ and so, by Lemma~\ref{lemma:3.3.5}, is finitely generated. If $U_1^1,\ldots,U_{p(1)}^1$ is a set of generators for $\operatorname{Ker}(U^0)$ we may repeat the above construction to obtain an exact sequence $\mathcal O_0^{p(1)}\xrightarrow{U^1}\mathcal O_0^{p(0)}\xrightarrow{U^0}M\to0$. Iterating this construction we obtain a long exact sequence
+\[\cdots\xrightarrow{U^{n+1}}\mathcal O_0^{p(n)}\xrightarrow{U^n}\cdots\xrightarrow{U^1}\mathcal O_0^{p(0)}\xrightarrow{U^0}M\to0.\]
+Such a sequence is called a \emph{free resolution}\IndexMark{idx-261}{free resolution@Free resolution} of $M$ (it is also referred to as a \emph{chain of syzygies} for $M$---see Gunning and Rossi \cite{bib:I:gunning-r-c-and-rossi-h:1} or Nagata \cite{bib:I:nagata-m:1}). Suppose that for some $s$, $\operatorname{Ker}(U^{s-1})$ is a \emph{free} $\mathcal O_0$-module. That is, $\operatorname{Ker}(U^{s-1})\cong\mathcal O_0^q$ for some integer $q$. Then we may replace the original free resolution by the finite free resolution
+\[0\to\mathcal O_0^q\xrightarrow{\mu}\mathcal O_0^{p(s-1)}\longrightarrow\cdots\to\mathcal O_0^{p(0)}\to M\to0,\]
+where $\mu$ denotes an isomorphism of $\mathcal O_0^q$ onto $\operatorname{Ker}(U^{s-1})$. Such a finite free resolution of $M$ is said to have \emph{length}\IndexMark{idx-356}{length of resolution@Length (of resolution)} $s$.
+\FieldHeading{Theorem}{3.6.1}{ (Hilbert Syzygy theorem).}\IndexMark{idx-290}{hilbert syzygy theorem@Hilbert Syzygy theorem}\IndexMark{idx-597}{syzygy theorem@Syzygy theorem}\FieldTarget{theorem:3.6.1}{3.6.1} Every $\mathcal O_0$-module has a free resolution of\IndexMark{idx-508}{resolution of module@Resolution of module} length $n$.
+\begin{proof}
+It is sufficient to show that for any free resolution of $M$,
+\[\xrightarrow{U^s}\mathcal O_0^{p(s-1)}\xrightarrow{U^{s-1}}\cdots\xrightarrow{U^1}\mathcal O_0^{p(0)}\xrightarrow{U^0}M\to0,\]
+$\operatorname{Ker}(U^{n-1})$ is free.
+
+To simplify notation, we set $K_s=\operatorname{Ker}(U^s)$ and let $M_s$ denote the ideal of $\mathcal O_0$ generated by $z_1,\ldots,z_s$. In particular, $M_n=\mathfrak m_0$, the maximal ideal of $\mathcal O_0$.
+% Original book page 127
+\paragraph*{Step 1.} For $s\geq j$, we have $K_s\cap M_j\mathcal O_0^{p(s)}=M_jK_s$. Obviously, we have $K_s\cap M_j\mathcal O_0^{p(s)}\supset M_jK_s$ and so it remains to verify the reverse inclusion. Our proof goes by induction on $j$. Suppose $j=1$, and that $f\in K_s\cap M_1\mathcal O_0^{p(s)}$. Then $f=z_1g$, $g\in\mathcal O_0^{p(s)}$. Since $U^s(f)=0$, $z_1U^s(g)=0$ and so $U^s(g)=0$. Therefore $g\in K_s$ and $f\in M_1K_s$. Now suppose that we have proved the result for $j-1$ and all $s\geq j-1$. Let $f\in K_s\cap M_j\mathcal O_0^{p(s)}$. Then $f=z_1g_1+\cdots+z_jg_j$, $g_1,\ldots,g_j\in\mathcal O_0^{p(s)}$. Since $f\in K_s$, $U^s(f)=z_1U^s(g_1)+\cdots+z_jU^s(g_j)=0$. Therefore, $z_jU^s(g_j)=-(z_1U^s(g_1)+\cdots+z_{j-1}U^s(g_{j-1}))$ and so, dividing through by $z_j$ we see that $U^s(g_j)\in M_{j-1}\mathcal O_0^{p(s-1)}$. Now $U^{s-1}U^s=0$ and so $U^s(g_j)\in K_{s-1}\cap M_{j-1}\mathcal O_0^{p(s-1)}$. By the inductive hypothesis, $U^s(g_j)\in M_{j-1}K_{s-1}$. Since $K_{s-1}=\operatorname{Image}(U^s)$, there exist $h_1,\ldots,h_{j-1}\in\mathcal O_0^{p(s)}$ such that
+\[U^s(g_j)=z_1U^s(h_1)+\cdots+z_{j-1}U^s(h_{j-1}).\]
+Now set $h_j=g_j-z_1h_1-\cdots-z_{j-1}h_{j-1}$. Certainly $h_j\in K_s$. We claim that $f-z_jh_j\in M_{j-1}K_s$. This follows from the inductive hypothesis since $f-z_jh_j=\sum_{i=1}^{j-1}z_i(g_i+z_jh_i)$ and so $f-z_jh_j\in K_s\cap M_{j-1}\mathcal O_0^{p(s)}=K_sM_{j-1}$. Since $h_j\in K_s$, $f\in M_jK_s$.
+\paragraph*{Step 2.} Choose a set of generators $U_1,\ldots,U_q$ for $K_{n-1}$ which is minimal---that is, no proper subset of $U_1,\ldots,U_q$ generates $K_{n-1}$. Define $U:\mathcal O_0^q\to\mathcal O_0^{p(n-1)}$ by $U(f_1,\ldots,f_q)=\sum_{j=1}^q f_jU_j$. We claim that $U$ is an isomorphism onto $K_{n-1}$. For this it is sufficient to verify that $\operatorname{Ker}(U)$ is zero.
+
+Modify the original free resolution of $M$ at the $n$th step to obtain the new free resolution
+\[\mathcal O_0^q\xrightarrow{U}\mathcal O_0^{p(n-1)}\xrightarrow{U^{n-1}}\cdots\xrightarrow{U^0}M\to0.\]
+Applying Step 1 to this resolution with $j=n$ we see that
+\[\operatorname{Ker}(U)\cap\mathfrak m_0\mathcal O_0^q=\mathfrak m_0\operatorname{Ker}(u).\]
+In fact, $\operatorname{Ker}(U)\subset\mathfrak m_0\mathcal O_0^q$. To see this, suppose $(f_1,\ldots,f_q)\in\operatorname{Ker}(U)\subset\mathcal O_0^q$. Then
+% Original book page 128
+\[0=U(f_1,\ldots,f_q)=\sum_{j=1}^q f_jU_j.\]
+Since $U_1,\ldots,U_q$ is a minimal set of generators, no $f_j$ can be a unit. That is, $f_j\in\mathfrak m_0$, $1\leq j\leq q$.
+
+We have now shown that $\operatorname{Ker}(U)=\mathfrak m_0\operatorname{Ker}(U)$. This implies that $\operatorname{Ker}(U)=0$, for otherwise we may find $a_{ij}\in\mathfrak m_0$ such that
+\[U_i=\sum_{i=1}^q a_{ij}U_j.\]
+Therefore $\det[\delta_{ij}-a_{ij}]=0$ and so, expanding the determinant, we see that $1\in\mathfrak m_0$ which is a contradiction.
+\end{proof}
+\paragraph*{Remark.} The last paragraph of the proof of Theorem~\ref{theorem:3.6.1} is a special case of
+\paragraph*{Nakayama's Lemma:}\IndexMark{idx-406}{nakayama s lemma@Nakayama's Lemma} Let $R$ be a local ring with maximal ideal $\mathfrak m$ and $M$ be a finite $R$-module. Then
+\begin{enumerate}
+\item[a)] If $M=\mathfrak mM$, $M=0$.
+\item[b)] If $N$ is a submodule of $M$ such that $M=N+\mathfrak mM$, $N=M$.
+\end{enumerate}
+The proof of a) is the same as that used in the last paragraph of the proof of Theorem~\ref{theorem:3.6.1}. Statement b) follows by applying a) to $M/N$.
+
+Suppose that $M$ is a submodule of $\mathcal O_0^p$. Since $\mathcal O_0$ is Noetherian, $M$ has a finite set of generators $U_1,\ldots,U_q$ and so we have an exact sequence $\mathcal O_0^q\xrightarrow{U}M\to0$ where $U$ is defined by mapping $(f_1,\ldots,f_q)$ to $\sum_{j=1}^q f_jU_j$. The question naturally arises as to whether this sequence is \emph{split} exact. Certainly it is not generally split exact as a sequence of $\mathcal O_0$-modules! However, it makes sense to ask whether it splits as a sequence of vector spaces. That is, can we find a $\mathbb C$-linear map $\xi:M\to\mathcal O_0^q$ such that $U\xi$ is the identity map of $M$? Equivalently, can we write every $m\in M$ in the form $\sum\xi_i(m)U_i$, where $\xi_i$ is linear, $1\leq i\leq q$? In view of the continuity conditions in the Weierstrass Division Theorem it is reasonable to ask whether we can topologise the spaces $M$ and $\mathcal O_0^q$ and further require that $\xi$ is a \emph{continuous} linear map. In fact we shall prove a result of this type but instead of working with spaces of germs we shall consider modules of bounded analytic functions defined on
+% Original book page 129
+some neighbourhood of zero in $\mathbb C^n$ (for the splitting of sequences of germs and the topologization of $\mathcal O_0^p$ and $M$ we refer to H\"ormander \cite{bib:I:hormander-l:1}, H. Cartan \cite[Seminar 11]{bib:I:cartan-h:2} and the exercises at the end of this section).
+
+Suppose $U$ is an open neighbourhood of zero in $\mathbb C^n$. We let $A_B(U)^p$ denote the $A_B(U)$-module of $p$-tuples of bounded analytic functions on $U$. We define a norm on $A^B(U)^p$ by
+\[\|f\|=\max_{1\leq i\leq p}\|f_i\|_U,\]
+where $f=(f_1,\ldots,f_p)\in A_B(U)^p$. Clearly $A_B(U)^p$ is a Banach space in this norm. If $M$ is a submodule of $\mathcal O_0^p$, we define
+\[M_B(U)=\{f\in A_B(U)^p:f_0\in M\}.\]
+$M_B(U)$ is a normed vector subspace of $A_B(U)^p$. However, it is by no means evident that $M_B(U)$ need be closed in $A_B(U)^p$.
+\FieldHeading{Theorem}{3.6.2}{}\FieldTarget{theorem:3.6.2}{3.6.2} Let $M$ be a submodule of $\mathcal O_0^p$ and $W$ be an open neighbourhood of zero in $\mathbb C^n$. Suppose that we are given $U_1,\ldots,U_q\in A(W)^p$ such that the germs of these functions at zero generate $M$. Then we may find an open neighbourhood $D\subset W$ of zero in $\mathbb C^n$ such that the $U_j$ are bounded analytic functions on $D$ such that if we define
+\[U:A_B(D)^q\to M_B(D)\]
+by $U(f_1,\ldots,f_q)=\sum_{j=1}^q f_jU_j$, then the sequence
+\[A_B(D)^q\xrightarrow{U}M_B(D)\to0\]
+is split exact as a sequence of normed vector spaces.
+
+Moreover, given any finite set of submodules and generators we can choose an open neighbourhood $D$ of zero that works for all the submodules and generators simultaneously.
+
+Before starting the proof, we remark that the splitting assumption implies that there exists a continuous linear map $\xi=(\xi_1,\ldots,\xi_q):M_B(D)\to A_B(D)^q$ such that every $m\in M_B(D)$ may be written as a sum $\sum_{i=1}^q\xi_i(m)U_i$, where $\xi_i:M_B(D)\to A_B(D)$ is continuous
+% Original book page 130
+linear, $1\leq i\leq q$. In particular, there exists $M_i\geq0$ such that $\|\xi_i(m)\|\leq M_i\|m\|$, for all $m\in M_B(D)$, $1\leq i\leq q$.
+\begin{proof}
+Our proof goes by induction on $n$ and $p$. Certainly the theorem is trivially true if $n=0$. So assume the result for $n-1$ and all positive integers $p$.
+\paragraph*{Step 1.} The theorem is true for $n$ and $p=1$. We suppose $U_1$ is normalised in the $z_n$-direction and we fix a complimentary subspace $\mathbb C^{n-1}$ to $\mathbb Cz_n$ in $\mathbb C^n$. By the Preparation theorem it is no loss of generality to suppose that $U_1$ is a Weierstrass polynomial in $z_n$ of degree $r$, say. By the Division theorem for germs (Remark 3, following Theorem~\ref{theorem:3.2.1}), every $f\in M$ may be written uniquely in the form $f=qU_1+h$, where $q\in\mathcal O_0$ and $h\in\mathcal O'_0[z_n]\cap M$ is a polynomial of degree $<r$. The set of such germs $h$ defines a $\mathcal O'_0$-module $M^*$ which we may regard as a submodule of $\mathcal O_0'{}^r$ (see the proof of Theorem~\ref{theorem:3.3.6}). Let $P_1,\ldots,P_s$ be a set of generators for this submodule. We may write
+\[P_i=\sum_{j=1}^q a_{ij}U_j,\]
+for suitable $a_{ij}\in\mathcal O_0$, since $M^*\subset M$. Choose an open neighbourhood $W^*\subset W$ of zero such that all the germs $P_i,a_{ij}$ are represented by bounded analytic functions on $W^*$. By Theorem~\ref{theorem:3.2.1prime}, we can find $s>0$ and an open neighbourhood $V$ of $0$ in $\mathbb C^{n-1}$ such that the conditions for the Division theorem hold for the divisor $U_1$ on any open neighbourhood $D'\times D_s(0)$ of $0$ in $\mathbb C^n$, provided that $D'\subset V$. By the induction hypothesis applied to $M^*$, we may find an open neighbourhood $D^*\subset V\cap W^*$ of $0$ in $\mathbb C^{n-1}$ such that if we define $P(f_1,\ldots,f_s)=\sum_{j=1}^s f_jP_j$, then the sequence
+\[A_B(D^*)^s\xrightarrow{P}M_B^*(D^*)\to0\]
+is split exact. That is, there exists a continuous linear $\xi^*:M_B^*(D^*)\to A_B(D^*)^s$ such that $P\xi^*$ is the identity. We now set $D=D^*\times D_s(0)$. The conditions of the Weierstrass Division theorem hold on $D$ for the divisor $U_1$. Hence there exist continuous linear maps
+\[q,h:M_B(D)\to A_B(D)\]
+% Original book page 131
+such that $F=q(F)U_1+h(F)$, $F\in A_B(D)$. We now define $\xi=(\xi_1,\ldots,\xi_q):M_B(D)\to A_B(D)^q$ by
+\begin{align*}
+\xi_1(F)&=q(F)+\sum_{i=1}^s\xi_i^*(h(F))a_{i1},\\
+\xi_j(F)&=\sum_{i=1}^s a_{ij}\xi_i^*(h(F))z_n^i.
+\end{align*}
+Clearly $\xi$ is a continuous linear map and $U\xi=1$. In particular, since $U\xi=1$, $U$ is onto and so we see that the sequence
+\[A_B(D)^q\mathrel{\mathop{\rightleftarrows}\limits^{U}_{\xi}}M_B(D)\to0\]
+is split exact. Since Theorem~\ref{theorem:3.2.1prime} holds for a finite set of divisors, it is clear that the proof we have given above goes through for any finite set of $\mathcal O_0$-submodules and generators. Hence the first inductive step is proved.
+\paragraph*{Step 2.} The theorem is true for $n$ and $p>1$. Let $\pi:\mathcal O_0^p\to\mathcal O_0^{p-1}$ denote the projection on the first $p-1$ coordinates. Set $M'=\pi M$ and $U'_j=\pi U_j$, $1\leq j\leq q$. We define $M''=\{g\in\mathcal O_0:(0,\ldots,0,g)\in M\}\cong\ker(\pi|M)$. $M'$ is a submodule of $\mathcal O_0^{p-1}$ generated by $U'_1,\ldots,U'_q$ and $M''$ is an ideal of $\mathcal O_0$. Let $P_1,\ldots,P_s$ be a set of generators for $M''$. Since $\operatorname{Ker}(\pi|M)\subset M$, there exist $a_{ij}\in\mathcal O_0$ such that
+\[(0,\ldots,0,P_i)=\sum_{i=1}^q a_{ij}U_j,\quad1\leq i\leq s.\]
+Choose an open neighbourhood $V\subset W$ of zero such that $a_{ij},P_i$ are represented by bounded analytic functions in $V$. By the inductive hypothesis we may find an open neighbourhood $D\subset V$ of zero such that the conclusions of the theorem hold in $D$ for $M'$ and $M''$. That is, the sequences of normed vector spaces
+\[A_B(D)^{p-1}\xrightarrow{U'}M'_B(D)\to0\quad\text{and}\quad A_B(D)^s\xrightarrow{P}M''_B(D)\to0\]
+are split exact. We denote the splitting maps for these sequences by
+\begin{align*}
+\xi'&=(\xi'_1,\ldots,\xi'_{p-1}):M'_B(D)\to A_B(D)^{p-1}\quad\text{and}\\
+\xi''&=(\xi''_1,\ldots,\xi''_s):M''_B(D)\to A_B(D)^s.
+\end{align*}
+% Original book page 132
+We now define $\xi=(\xi_1,\ldots,\xi_p):M_B(D)\to A_B(D)^p$ by
+\[\xi_i(m)=\xi'_i(\pi(m))+\sum_{j=1}^s\xi''_j(m-\pi(m))a_{ji},\quad1\leq i\leq q.\]
+$\xi$ is obviously a continuous linear map and $U\xi=\text{identity}$. In particular, $U$ is onto and so the sequence
+\[A_B(D)^q\mathrel{\mathop{\rightleftarrows}\limits^{U}_{\xi}}M_B(D)\to0\]
+is split exact.
+
+It is clear from the proof that we may choose $D$ so that the result holds in $D$ for any finite set of $\mathcal O_0$-submodules and generators. This proves the second inductive step.
+\end{proof}
+The following remarkable result is a straightforward consequence of Theorem~\ref{theorem:3.6.2}.
+\FieldHeading{Theorem}{3.6.3}{}\FieldTarget{theorem:3.6.3}{3.6.3} Let $\Omega$ be a domain in $\mathbb C^n$ and $F$ be any subset of $A(\Omega)$. Then $Z(F)=\bigcap_{f\in F}Z(f)$ is an analytic subset of $\Omega$.
+\begin{proof}
+Fix $z\in\Omega$. Let $I_z$ denote the ideal generated by $\{f_z:f\in F\}$. $\mathcal O_z$ is Noetherian and so we may find a finite set $g_1,\ldots,g_p$ of generators for $I_z$. Since $I_z$ is generated by the germs $f_z$, $f\in F$, there exists $f_1,\ldots,f_q$ and $h_{ij}\in\mathcal O_z$ such that
+\begin{equation}g_i=\sum_{j=1}^q h_{ij}f_i,\quad i=1,\ldots,p,\tag{1}\label{eq:3:1:3}\end{equation}
+Choosing representatives for $g_i$ and $h_{ij}$ we may suppose that \eqref{eq:3:1:3} holds on some neighbourhood $U$ of $z$ contained in $\Omega$. By Theorem~\ref{theorem:3.6.2}, we may find an open relatively compact neighbourhood $D$ of $z$, with $\overline D\subset U$, such that for all $f\in F$, there exist bounded analytic functions $a_j$ on $D$ such that $f=\sum_{i=1}^p a_ig_i$. But therefore by \eqref{eq:3:1:3}, $f=\sum_{j=1}^q a'_jf_j$ on $D$, where $a'_j=\sum a_ih_{ij}$. It now follows that $Z(f)\cap D\supset Z(f_1,\ldots,f_q)\cap D$. This holds for all $f\in F$ and so $Z(F)\cap D\supset Z(f_1,\ldots,f_q)\cap D$. The reverse inclusion is trivial, since $f_1,\ldots,f_q\in F$.
+\end{proof}
+\paragraph*{Remarks.}
+\begin{enumerate}
+\item An alternative proof of Theorem~\ref{theorem:3.6.3} may be found in Whitney \cite[page 100]{bib:I:whitney-h:1}.
+% Original book page 133
+\item Theorem~\ref{theorem:3.6.2} is a special case of a general splitting theorem for coherent sheaves over ``privileged'' polycylinders due to Douady. See Douady \cite{bib:I:douady-a:1,bib:I:douady-a:2}.
+\item As an example of an important splitting theorem in differential analysis we might mention Mather's splitting theorem for smooth invariants [1]. For more examples and references see Bierstone and Schwarz \cite{bib:I:bierstone-e-and-schwartz-g-w:1}.
+\end{enumerate}
+\subsection*{Exercises}
+\begin{enumerate}
+\item Show that a finitely generated $\mathcal O_0$-module need not be isomorphic to any submodule of $\mathcal O_0^p$, $p\geq0$ (Hint: $\mathbb C$ is a finitely generated $\mathcal O_0$-module if we define $f.z=f(0)z$, $f\in\mathcal O_0$).
+\item Let $M$ be a submodule of $\mathcal O_0^p$ with generators $U_1,\ldots,U_q$. Show that, with the notation of Theorem~\ref{theorem:3.6.2}, if $A_B(D)^q\xrightarrow{U}M_B(D)\to0$ is split exact for some open neighbourhood $D$ of zero then $M_B(D)$ is a closed normed subspace of $A_B(D)^p$.
+\item (Closure of modules theorem\IndexMark{idx-087}{closure of modules theorem@Closure of modules theorem}). Suppose $M$ is a submodule of $\mathcal O_0^p$ and $F\in A(U)^p$ for some open neighbourhood $U$ of zero in $\mathbb C^n$. Show that if $F$ can be uniformly approximated on compact subsets of $U$ by functions whose germs at zero belong to $M$ then $F_0\in M$ (Hint: Use Q2 and Theorem~\ref{theorem:3.6.2}).
+\item Let $f=\sum a_mz^m\in\mathcal O_0$. Define $q_m(f)=|a_m|$. Show that
+\begin{enumerate}
+\item[i)] $q_m$ defines a semi-norm on $\mathcal O_0$, $m\in\mathbb N^n$.
+\item[ii)] $d(f,g)=\sum2^{-|m|}q_m(f-g)/(1+q_m(f-g))$ defines a metric on $\mathcal O_0$.
+\item[iii)] The completion of $\mathcal O_0$ with respect to the metric defined in ii) is the ring $\mathbb C[[z_1,\ldots,z_n]]$ of formal power series in $z_1,\ldots,z_n$.
+\end{enumerate}
+\item[$5^*$.] Suppose $M$ is a submodule of $\mathcal O_0^p$ and that $U_1,\ldots,U_q$ is a set of generators for $M$. Prove that the sequence $\mathcal O_0^q\xrightarrow{U}M\to0$ is split exact as a sequence of topological vector spaces. Deduce that $M$ is a closed subspace of $\mathcal O_0^p$.
+\end{enumerate}

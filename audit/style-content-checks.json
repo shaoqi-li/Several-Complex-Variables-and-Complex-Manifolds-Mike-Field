@@ -1,0 +1,76 @@
+{
+  "chapters": {
+    "files": 7,
+    "modified": [],
+    "sha256": {
+      "chapters/chapter03.tex": "49843179800fbb335ca217e56cf207200e4ac3caebfd6a0046a2c8c97efeb9c6",
+      "chapters/chapter02.tex": "0339264ecb8f8052aed51535fde68d79297d78f27f1f5268222f0a8c4c47fd9d",
+      "chapters/chapter04.tex": "90f34df87fbcf5518197b8a0d0646c36bb8aaf2c4ed001d26fc073f5c1aa0abb",
+      "chapters/chapter01.tex": "daf984703f1256ae649b54ad01110f898b3cfd8fb758aed7180c312626da9526",
+      "chapters/chapter07.tex": "4fcf320740e278aaa802f610d2461bb48e66264aa9c9b295db96c1bf0374e649",
+      "chapters/chapter06.tex": "5fda31578708f1b50ee58897b53e07d7a1fa8bf95528dda2c673e62b5fd896e1",
+      "chapters/chapter05.tex": "1240fb6ba258533c9fb655f1e6f8955acfd5baf910cf7a64f463e799df2c3d9b"
+    }
+  },
+  "figures": {
+    "files": 15,
+    "modified": [],
+    "sha256": {
+      "figures/II-figure01.tex": "7ed9f7cbaf414e0735533f4c099a2cb12c7d2222ec30d200057e1795ad1299cb",
+      "figures/implications.tex": "f5630ea904b16fe39bba1de80d7ec1dbd7ea6e66842436874d113ceb534cb46a",
+      "figures/figure02.tex": "e245d94ed0027bee58a9696a7ad84673f4f6ec773464a762f56052a96401fb3f",
+      "figures/figure05.tex": "a0df574863d289695d0b7d6cd9aeb2c0c77ba59c1e64cd7ca45d85c638233893",
+      "figures/figure03.tex": "55d5344b021ae183f849105c68f31259f9c3c504f9ef70bb667510b3e12e9d78",
+      "figures/figure08.tex": "57865959bbff3de1421e9639ab3deacb0213208cfd25ccd7a5cdcca8de3b447f",
+      "figures/figure11.tex": "f58ebc5af61a0ae6757579ad6890786d15ecd435cff071691973a262c531b95f",
+      "figures/figure13.tex": "e1eb3e15a8929fd233fef07f9b66a3d173f39feee30afb743d41af01d3900211",
+      "figures/figure06.tex": "5aa54a112b7473b0d0ccb2895f45a025f76bc377b5ea7178c344677f8c605a09",
+      "figures/figure07.tex": "401acd71426a05cfbeadd62e99c2fbbc2702b000b7f49d6726326fad7d7efe43",
+      "figures/figure12.tex": "3a95ad4de9c4216bf0043627e59fc5161a2e159a0c5c6b409a5e5a9cdec237d7",
+      "figures/figure01.tex": "bbffbeff3f2442797a5f9265c0dd1e11f533665ad18b3c2e49b92da464cc4660",
+      "figures/figure04.tex": "f669ddd1445052e055364ec36a964af4610ffd406a4ed4c08e60e053d419ba8b",
+      "figures/figure10.tex": "3d5a26828dbc47e9622caf601fadd59ae1a7ded7fedf6190e7cdca79862a4b07",
+      "figures/figure09.tex": "1000ae82b997438aac11ac857d52b8ad371f759779e6bd3287a6e72850f3cc0e"
+    }
+  },
+  "diagrams": {
+    "files": 34,
+    "modified": [],
+    "sha256": {
+      "diagrams/II-07.tex": "54137489a636d7134d059c03bfcf8f843c9b46146691b67bba85b724ef5a061a",
+      "diagrams/II-21.tex": "ffea9b96f48a04ffc7fe06233046de6c9745ee34d7eeae67e1e1461de137fa92",
+      "diagrams/II-14.tex": "aeaa6d51a74b8f21138a3ad4d729e681b4a10cd0fc8ddd62ad2e14798a32760d",
+      "diagrams/II-16.tex": "fa06cfd5dac29c039db2cdf5a9c73b2eeef24252fb63d2ddba35b5162c4f30b3",
+      "diagrams/II-01.tex": "4fe8531bb4dfdbbd80e315f7d77e5ef7cb48ea61e5ea5ec584665ea34baa38d0",
+      "diagrams/II-03.tex": "d485c62cad48bc8f6455739223ffc8705206a0fa24512f0a536c899b333f0a33",
+      "diagrams/II-09.tex": "798a48c37756b3a8135ebee12bf781e68544bbc0134486169fdde2c8751c7cfc",
+      "diagrams/II-11.tex": "496bdbd432b128fac0020b22ffb18d4e7ea2805f2837bc09d32d3f373cbf485a",
+      "diagrams/II-30.tex": "cd6a8e80fa7052fb6b8a9864640455ebd07739610c0d69bbb257e42862af748e",
+      "diagrams/II-02.tex": "01e36f9fac3483a52e8a16b8eb5786c84af4e374b67357f810ab2f76ba2f2089",
+      "diagrams/II-20.tex": "0fbced8eb883b3c5b0692058f9df64ae24f5c85cc9ace8bfda51d8b08af7b9f0",
+      "diagrams/II-17.tex": "20b32ff536f17ecd8d4bfa1f9227164bc66cf189f01fed36a6b289cc800e5b17",
+      "diagrams/II-34.tex": "e1cd4d0fc4b217b2659feaba7d12cde06c189cad404b5fd116c5bb7e35a414ab",
+      "diagrams/II-27.tex": "31ef684a683697ab7a078d0835c3525bf55a71119810c7e76900a3f197800274",
+      "diagrams/II-25.tex": "d2367ab274aa833aa3cb08d1b51a6a8b1ea8d7e7bf55ec4878282c3b4fd72dc1",
+      "diagrams/II-33.tex": "35f4b40ce9bd771309e4ab6d68c82a6aad4b546532cdfb040c870ec9d7d5c11e",
+      "diagrams/II-06.tex": "408a307ba78795f5b72ea25de7a14383005f0f1dd6b427fc35ab0b2b74c94441",
+      "diagrams/II-12.tex": "6b2eb9e9e74bac3245514f79c65847d9f57a9f2add6544dca1bf85c7f8eb6695",
+      "diagrams/II-22.tex": "d1a6a457fa5a0c5cbc719fe4bca9f738640412ce600b605afd6947dce43a6637",
+      "diagrams/II-18.tex": "4b6e219507db07f5dbb630ad59977bf324d0bb1a5aed92b9a58946fd6bceec41",
+      "diagrams/II-23.tex": "6268a17957531e2b0df98d47f0a909c63b71b1081a353d086bba2eef7dab57fd",
+      "diagrams/II-05.tex": "bddf5f749ceb0374a691c25e48b416efd0517a1575fa21fff85d6027306fe67a",
+      "diagrams/II-04.tex": "50ddbc07bd34b4c87099b878430a533daf6d02ffc9ebbb0d93563377b48b7c2e",
+      "diagrams/II-26.tex": "108d42ab80121fe3410882800d82c13182abc29e5e42bab769285ff99c1406fa",
+      "diagrams/II-13.tex": "fc918685292b51d14cb12bfb944dc37993529d27d2a3cfcc7407899f37d572ce",
+      "diagrams/II-15.tex": "4eccb8346c917574873b8522998467e4efea212cdd59baeddab75756461eb4bc",
+      "diagrams/II-28.tex": "23928a00e9c51b94d9e943c2e9f6b276b325a8649aceecbd7acad987601b1933",
+      "diagrams/II-29.tex": "e10eaaefa36fb3ab66e839ce5742f7ad7519023402f46beb3ad2410003834397",
+      "diagrams/II-24.tex": "1ac6475500300f3adbf8ece911b69b0efc59c0c4c5746a50b1e9ed10ced95f3a",
+      "diagrams/II-10.tex": "76446e7304fc1ba919714c770c1ff929345a5d844729b505f3e82eb9627102a9",
+      "diagrams/II-08.tex": "5e7bbbedd2368228c0a4c3052cc3d402d31238d2e0533fb1467234c500c9a4a9",
+      "diagrams/II-31.tex": "480c490f57cfc12e7aeecb7d3fb683f4e8300a25916ae49a1bee38f25c58790b",
+      "diagrams/II-19.tex": "8c2d7cd34e24212c703270d3178a4a026bd5db86da73711433dd0d009abc5df8",
+      "diagrams/I-tori.tex": "5213a142f57f16027437ab6ba146bd19ad763db52accb0e679646d3ceed59ee8"
+    }
+  }
+}

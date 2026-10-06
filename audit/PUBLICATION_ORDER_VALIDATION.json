@@ -1,0 +1,23 @@
+{
+  "pdf_physical_pages": 278,
+  "part_I_title_pdf_page": 10,
+  "publication_data_pdf_pages": [
+    11,
+    12
+  ],
+  "chapter_1_pdf_page": 13,
+  "part_II_title_pdf_page": 131,
+  "changed_tex_files": [
+    "main.tex"
+  ],
+  "all_other_tex_files_byte_identical_to_previous_release": true,
+  "non_header_footer_text_difference_pages_13_to_270": [],
+  "logical_page_links_checked": 646,
+  "logical_page_link_errors": [],
+  "invalid_internal_pdf_links": [],
+  "index_location_records": 661,
+  "overfull_boxes": 0,
+  "underfull_boxes": 4,
+  "undefined_reference_warnings": false,
+  "unmodified_preexisting_duplicate_equation_destination_warnings": 38
+}

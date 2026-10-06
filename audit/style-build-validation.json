@@ -1,0 +1,57 @@
+{
+  "pdf_physical_pages": 277,
+  "main_text_final_page_label": "266",
+  "pdf_parse_repair_needed": false,
+  "total_pdf_links": 1809,
+  "logical_page_links_checked": 646,
+  "logical_page_link_errors": [],
+  "invalid_internal_pdf_links": [],
+  "overfull_boxes": 0,
+  "undefined_references": [],
+  "latex_warnings_and_box_errors": [
+    "Underfull \\hbox (badness 1721) in paragraph at lines 104--105",
+    "Underfull \\hbox (badness 1789) in paragraph at lines 758--760",
+    "Underfull \\hbox (badness 2334) in paragraph at lines 932--935",
+    "Underfull \\hbox (badness 1337) in paragraph at lines 1096--1098"
+  ],
+  "unique_labels": 413,
+  "duplicate_label_keys": [],
+  "unresolved_native_ref_keys": [],
+  "bibliography_entry_keys": 210,
+  "unresolved_native_citation_keys": [],
+  "index_body_marks": 661,
+  "index_shipout_records": 661,
+  "index_cross_references": 10,
+  "makeindex_log": "This is makeindex, version 2.17 [TeX Live 2025/dev] (kpathsea + Thai support).\nScanning style file ./styles/index.ist......done (6 attributes redefined, 0 ignored).\nScanning input file main.idx....done (671 entries accepted, 0 rejected).\nSorting entries........done (6763 comparisons).\nGenerating output file main.ind....done (763 lines written, 0 warnings).\nOutput written in main.ind.\nTranscript written in main.ilg.\n",
+  "source_page_coverage_is_structural_not_a_word_by_word_certification": true,
+  "unresolved_original_prose_references": [
+    {
+      "file": "chapter06.tex",
+      "original": "Theorem 6.3.13",
+      "number": "6.3.13",
+      "existing_targets": [
+        "lemma:6.3.13"
+      ],
+      "context": "hcal G$ and $\\mathcal H$, fix an open cover $\\mathcal U$ of $X$ and take appropriate complexes of cochains over each term in the canonical resolutions as in the proof of Theorem 6.3.13. We obtain a 3-dimensional commutative diagram of sequences. It is then a straightforward diagram chase to verify that the definition of $\\widetilde\\delta:\\widetilde H^p"
+    }
+  ],
+  "main_pdf_sha256": "c24a21a9412528f72e011bebc4e323e452aef609a01b89c6cc0f3c7d0fab72b0",
+  "style_source": "field-vol-ii-latex.zip: field-vol-ii/main.tex, bibliography.tex, index.tex",
+  "clipped_text_outside_pdf_pages": [],
+  "content_preservation": {
+    "chapters": {
+      "file_count": 7,
+      "modified": []
+    },
+    "figures": {
+      "file_count": 15,
+      "modified": []
+    },
+    "diagrams": {
+      "file_count": 34,
+      "modified": []
+    }
+  },
+  "source_index_pagination_updated": true,
+  "index_stable_after_last_compile": true
+}

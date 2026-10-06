@@ -1,0 +1,1278 @@
+\chapter{Calculus on Complex Manifolds}\label{ch:5}
+\ChapterFiveIntroduction
+% Source PDF page 10; printed page 1
+\section{Review of linear algebra}\label{sec:5:1}
+In this section we shall review some elementary linear algebra that does not depend on the assumption of an inner product structure. We shall generally omit proofs (usually simple) referring the reader to any one of the many texts in linear algebra. All vector spaces in this section will be assumed real and finite dimensional.
+
+\begin{originaltheorem}{Definition}{5.1.1}\FieldTarget{definition:5.1.1}{5.1.1}
+A \emph{graded vector space}\IndexMark{idx-270}{graded vector space@Graded vector space} $\mathbf E$ is a collection $\{E_0,E_1,\ldots\}$ of vector spaces indexed by the positive integers. We write $\mathbf E=\{E_0,E_1,\ldots\}$ and set $\mathbf E_n=E_n$. We call $E_n$ the $n$th. component of $\mathbf E$. A \emph{morphism} $\mathbf T:\mathbf E\longrightarrow\mathbf F$, of degree $r\geq0$, of graded vector spaces is a collection of linear maps $T_i:E_i\to F_{i+r}$ indexed by the positive integers.
+\end{originaltheorem}
+% Source PDF page 11; printed page 2
+\paragraph{Examples.}
+\begin{enumerate}
+\item Associated to the vector space $E$ we may define the graded vector spaces $\boldsymbol\otimes E$, $\boldsymbol\Lambda E$ and $\boldsymbol\odot E$ whose $n$th. components are respectively $\otimes^n E$, $\Lambda^n E$ and $\odot^n E$ ($n$th. tensor, exterior and symmetric powers of $E$ respectively).
+\item A linear map $T:E\to F$ induces degree zero morphisms $\boldsymbol\otimes T:\boldsymbol\otimes E\longrightarrow\boldsymbol\otimes F$, $\boldsymbol\Lambda T:\boldsymbol\Lambda E\longrightarrow\boldsymbol\Lambda F$, $\boldsymbol\odot T:\boldsymbol\odot E\longrightarrow\boldsymbol\odot F$ whose $n$th. components are $\otimes^n T$, $\Lambda^n T$ and $\odot^n T$ respectively.
+\end{enumerate}
+\begin{originaltheorem}{Definition}{5.1.2}\FieldTarget{definition:5.1.2}{5.1.2}
+Let $\mathbf E$ and $\mathbf F$ be graded vector spaces. Then
+\begin{enumerate}
+\item The \emph{direct sum} of $\mathbf E$ and $\mathbf F$ is the graded vector space $\mathbf E\boldsymbol\oplus\mathbf F$ whose $n$th. component is $E_n\oplus F_n$.
+\item The \emph{tensor product} of $\mathbf E$ and $\mathbf F$ is the graded vector space $\mathbf E\boldsymbol\otimes\mathbf F$ whose $n$th. component is $\displaystyle\bigoplus_{r+s=n}E_r\otimes F_s$.
+\end{enumerate}
+\end{originaltheorem}
+\begin{originaltheorem}{Definition}{5.1.3}\FieldTarget{definition:5.1.3}{5.1.3}
+A \emph{graded vector space algebra}\IndexMark{idx-271}{graded vector space@Graded vector space!algebra@algebra} consists of a graded vector space $\mathbf E$ together with a morphism of degree zero $\phi:\mathbf E\boldsymbol\otimes\mathbf E\longrightarrow\mathbf E$, written $\phi(A\otimes B)=AB$, satisfying the following properties
+\begin{enumerate}
+\item The multiplication defined by $\phi$ is associative.
+\item There exists a unit element in $\mathbf E$ for the multiplication.
+\end{enumerate}
+The algebra is said to be \emph{commutative} if $AB=(-1)^{pq}BA$, $A\in E_p$, $B\in E_q$.
+\end{originaltheorem}
+\paragraph{Remark.} The universal factorization property for the tensor product implies that we may equivalently suppose that $\phi$ is a bilinear map on $\mathbf E\times\mathbf E$.
+\paragraph{Example 3.} Given a vector space $E$, $\boldsymbol\otimes E$, $\boldsymbol\Lambda E$ and $\boldsymbol\odot E$ are graded vector space algebras with respective algebra operations of tensor\IndexMark{idx-603}{tensor algebra of vector space@Tensor algebra of vector space} product, exterior\IndexMark{idx-248}{exterior algebra of vector space@Exterior algebra of vector space} or wedge product and symmetric\IndexMark{idx-596}{symmetric tensor algebra of vector space@Symmetric tensor algebra of vector space} product. $\boldsymbol\Lambda E$ is commutative\IndexMark{idx-099}{commutative vector space algebra@Commutative vector space algebra}.
+\begin{originaltheorem}{Proposition}{5.1.4}\FieldTarget{proposition:5.1.4}{5.1.4}
+Let $E$ and $F$ be vector spaces. Then $\boldsymbol\Lambda E\boldsymbol\otimes\boldsymbol\Lambda F$ has the natural structure of a commutative graded algebra with wedge product defined by
+% Source PDF page 12; printed page 3
+\[
+(X\otimes Y)\wedge(X'\otimes Y')=(-1)^{pq}(X\wedge X')\otimes(Y\wedge Y'),
+\]
+where $X\in\boldsymbol\Lambda E$, $Y\in\Lambda^p F$, $X'\in\Lambda^q E$, $Y'\in\boldsymbol\Lambda F$.
+\end{originaltheorem}
+\begin{proof}
+We remark only that in all results of this type it is enough to define the operation or map on a set of generators for the algebra.
+\end{proof}
+Before stating the next result we remark that we say a morphism of graded vector spaces is an \emph{isomorphism} if it is invertible and of degree zero. An isomorphism of graded vector space algebras will, in addition, preserve the algebra structures.
+\begin{originaltheorem}{Theorem}{5.1.5}\FieldTarget{theorem:5.1.5}{5.1.5}
+If $E$ and $F$ are vector spaces we have a canonical isomorphism of commutative graded algebras
+\[
+\boldsymbol\Lambda(E\oplus F)\approx\boldsymbol\Lambda E\boldsymbol\otimes\boldsymbol\Lambda F.
+\]
+In particular,
+\[
+\boldsymbol\Lambda(E\oplus F)_p\approx\bigoplus_{r+s=p}\Lambda^r E\otimes\Lambda^s F,\quad p\geq0.
+\]
+\end{originaltheorem}
+\begin{proof}
+For $r,s\geq0$ we define $\mu_{r,s}:\Lambda^r E\otimes\Lambda^s F\to\boldsymbol\Lambda(E\oplus F)_{r+s}$ by
+\[
+\begin{split}
+\mu_{r,s}(e_1\wedge\cdots\wedge e_r\otimes f_1\wedge\cdots\wedge f_s)
+={}&(e_1+0)\wedge\cdots\wedge(e_r+0)\\
+&\wedge(f_1+0)\wedge\cdots\wedge(f_s+0),
+\end{split}
+\]
+where $e_i\in E$, $1\leq i\leq r$, $f_j\in F$, $1\leq j\leq s$, and the wedge product on the right hand side of the above relation is taken in $\Lambda^{r+s}(E\oplus F)$. We leave it to the reader to verify that the maps $\mu_{r,s}$ define the required morphism.
+\end{proof}
+Given a vector space $E$ it is possible to identify $\boldsymbol\Lambda E$ and $\boldsymbol\odot E$ with graded subspaces (\emph{not} subalgebras) of $\boldsymbol\otimes E$ and we now indicate how to do this in the case of exterior powers of $E$. Fix a positive integer $p$ and let $S_p$ denote the symmetric group on $p$ symbols. We define a representation $T:S_p\to\operatorname{GL}(\otimes^p E)$ of $S_p$ by
+\[
+T(\sigma)(e_1\otimes\cdots\otimes e_p)=\operatorname{sign}(\sigma)e_{\sigma(1)}\otimes\cdots\otimes e_{\sigma(p)},
+\]
+where $e_j\in E$, $1\leq j\leq p$, $\sigma\in S_p$. Let $\operatorname{Alt}_p(E)$ denote the fixed point set of the corresponding action of $S_p$ on $\otimes^p E$. Elements of $\operatorname{Alt}_p(E)$
+% Source PDF page 13; printed page 4
+are called \emph{alternating tensors}\IndexMark{idx-006}{alternating tensor@Alternating tensor} of order $p$. The map $\wedge:\otimes^p E\to\Lambda^p E$ defined by mapping $e_1\otimes\cdots\otimes e_p$ to $e_1\wedge\cdots\wedge e_p$ induces a linear isomorphism of $\operatorname{Alt}_p(E)$ with $\Lambda^p E$. To see this observe that we have a projection map $\operatorname{Alt}:\otimes^p E\to\operatorname{Alt}_p(E)$ defined by
+\[
+\operatorname{Alt}(e_1\otimes\cdots\otimes e_p)=\frac1{p!}\sum_{\sigma\in S_p}T(\sigma)(e_1\otimes\cdots\otimes e_p).
+\]
+Clearly $\operatorname{Kernel}(\operatorname{Alt})=\operatorname{Kernel}(\wedge)$ and so $\operatorname{Alt}_p(E)\approx\Lambda^p E$.
+\paragraph{Remark.} Under the identification of $\Lambda^p E$ with $\operatorname{Alt}_p(E)$ given by this isomorphism we see that
+\[
+e_1\wedge\cdots\wedge e_p=\frac1{p!}\sum_{\sigma\in S_p}\operatorname{sign}(\sigma)e_{\sigma(1)}\otimes\cdots\otimes e_{\sigma(p)}.
+\]
+Let $E'=L_{\mathbb R}(E,\mathbb R)$ denote the dual space of $E$ and $\langle\ ,\ \rangle:E\times E'\to\mathbb R$ denote the dual pairing\IndexMark{idx-213}{dual pairing@Dual pairing} between $E$ and $E'$. For $p\geq0$, we have dual pairings $\otimes^p E\times\otimes^p E'\to\mathbb R$, $\Lambda^p E\times\Lambda^p E'\to\mathbb R$ respectively defined by
+\[
+\langle e_1\otimes\cdots\otimes e_p,\phi_1\otimes\cdots\otimes\phi_p\rangle=\prod_{i=1}^p\langle e_i,\phi_i\rangle
+\]
+\[
+\langle e_1\wedge\cdots\wedge e_p,\phi_1\wedge\cdots\wedge\phi_p\rangle=\det[\langle e_i,\phi_j\rangle],
+\]
+where $e_i\in E$, $\phi_i\in E'$, $1\leq i\leq p$. Using these pairings we identify the dual spaces of $\otimes^p E$, $\Lambda^p E$ with $\otimes^p E'$, $\Lambda^p E'$ respectively. Notice that the dual pairing of $\otimes^p E$ with $\otimes^p E'$ induces a pairing of $\operatorname{Alt}_p(E)$ with $\operatorname{Alt}_p(E')$ and so a pairing of $\Lambda^p E$ with $\Lambda^p E'$. This pairing differs from the pairing we have defined between $\Lambda^p E$ and $\Lambda^p E'$ by a factor $p!$
+
+We leave the case of the dual pairing for the symmetric powers of $E$ as an exercise.
+
+For $p>0$, we define the linear map $U:\Lambda^p E\to E\otimes\Lambda^{p-1}E$ by
+\[
+U(e_1\wedge\cdots\wedge e_p)=\sum_{j=1}^p(-1)^{j+1}e_j\otimes e_1\wedge\cdots\wedge\widehat e_j\wedge\cdots\wedge e_p,
+\]
+where $e_j\in E$, $1\leq j\leq p$, and ``$\widehat{\ }$'' as usual denotes omission.
+% Source PDF page 14; printed page 5
+\paragraph{Properties of the map $U$.}
+\begin{enumerate}
+\item The operator $U$ is the transpose of $\wedge$, that is,
+\[
+\langle UX,\phi\otimes\psi\rangle=\langle X,\phi\wedge\psi\rangle,
+\]
+for all $X\in\Lambda^p E$, $\phi\in E'$, $\psi\in\Lambda^{p-1}E'$.
+\item If $X\in\Lambda^p E$, $\wedge U(X)=pX$.
+\item If $Z\in E\otimes\Lambda^p E$, then $U(\wedge Z)=Z-\wedge^{13}(I\otimes U)(Z)$, where $\wedge^{13}$ denotes the operation of wedging the first factor of $E\otimes E\otimes\Lambda^{p-1}E$ into the third factor.
+\item If we iterate $U$, the map $U^p:\Lambda^q E\to\otimes^p E\otimes\Lambda^{q-p}E$ satisfies the relation $\wedge U^p=q!/(q-p)!\ I$, where $\wedge:\otimes^p E\otimes\Lambda^{q-p}E\to\Lambda^q E$ is just the operation of wedge product. In particular, if we identify $\Lambda^p E$ with $\operatorname{Alt}_p(E)$, we see that $\operatorname{Alt}\,U^p=p!I$, $p\geq0$.
+\end{enumerate}
+Properties 1--3 are easily proved by working on generators, property 4 may be proved by induction on $p$.
+
+We conclude this section by describing the operation of \emph{contraction}\IndexMark{idx-133}{contraction@Contraction} or \emph{interior product}\IndexMark{idx-329}{interior product@Interior product} of tensors. First observe that since the dual pairing $E'\times E\to\mathbb R$ is bilinear it corresponds to a linear map $E'\otimes E\to\mathbb R$. This map is usually referred to as ``trace\IndexMark{idx-613}{trace@Trace}'' as if we use the natural identification of $E'\otimes E$ with $L(E,E)$ it corresponds to the operation of taking the trace of a linear map. Trace is the simplest example of a contraction operation and we shall now consider generalisations. With a view to later applications we work with tensor products of \emph{exterior} powers of vector spaces. Actually this is no loss of generality since $\Lambda^1 E=E$, $\Lambda^1 E'=E'$.
+
+Suppose $p\geq q\geq0$. We define the linear map
+\[
+\mathsf C:\Lambda^p E\otimes\Lambda^q E'\longrightarrow\Lambda^{p-q}E
+\]
+by requiring that
+\[
+\langle\mathsf C(X\otimes\phi),\psi\rangle=\langle\phi\wedge\psi,X\rangle
+\]
+% Source PDF page 15; printed page 6
+for all $X\in\Lambda^p E$, $\psi\in\Lambda^{p-q}E'$, $\phi\in\Lambda^q E'$. We similarly define
+\[
+\mathsf C:\Lambda^p E\otimes\Lambda^q E'\to\Lambda^{q-p}E'
+\]
+in case $q\geq p$.
+
+Given $X\in\Lambda^p E$ and $q\geq p$ we define
+\[
+\mathsf C_X:\Lambda^q E'\to\Lambda^{q-p}E'
+\]
+by $\mathsf C_X(\phi)=\mathsf C(X\otimes\phi)$, $\phi\in\Lambda^q E'$. We similarly define $\mathsf C_\phi$ for $\phi\in\Lambda^p E'$. We call $\mathsf C$ a \emph{contraction} (operator) and $\mathsf C_X$ \emph{contraction with $X$}.
+
+\paragraph{Properties of the contraction operators $\mathsf C$, $\mathsf C_X$, $\mathsf C_\phi$.}
+\begin{enumerate}
+\item For $p\geq0$, the map $\mathsf C:\Lambda^p E\otimes\Lambda^p E'\to\mathbb R$ is equal to the dual pairing of $\Lambda^p E$ with $\Lambda^p E'$.
+\item $\mathsf C_X$ is the transpose of the operator ``wedge product with $X$''. That is,
+\[
+\langle\mathsf C_X\phi,Y\rangle=\langle\phi,X\wedge Y\rangle,\quad X\in\Lambda^p E,\quad Y\in\Lambda^{s-p}E,\quad\phi\in\Lambda^s E'.
+\]
+\item $\mathsf C_X\mathsf C_Y=\mathsf C_{Y\wedge X}=(-1)^{rs}\mathsf C_{X\wedge Y}$, $X\in\Lambda^r E$, $Y\in\Lambda^s E$.
+\item For $X\in E$, $\mathsf C_X:\Lambda^p E'\to\Lambda^{p-1}E'$ is defined on generators by
+\[
+\mathsf C_X(\phi_1\wedge\cdots\wedge\phi_p)=\sum_{j=1}^p(-1)^{j+1}\langle X,\phi_j\rangle\phi_1\wedge\cdots\wedge\widehat\phi_j\wedge\cdots\wedge\phi_p.
+\]
+\end{enumerate}
+We have similar properties holding for contraction with forms. We omit proofs of the above properties which all follow straightforwardly from the definition and standard properties of wedge products.
+
+We now wish to define contractions between factors of an arbitrary finite tensor product of exterior powers of $E$ and $E'$. Suppose that $V=\bigotimes_{i=1}^n V_i$, where each $V_i$ is either $\Lambda^{p_i}E$ or $\Lambda^{p_i}E'$. Assume that the $j$th. and $k$th. factors are equal to $\Lambda^{p_j}E$ and $\Lambda^{p_k}E'$ respectively. Set $\widetilde V=\bigotimes_{i=1}^n\widetilde V_i$, where $\widetilde V_i=V_i$ if $i\neq j,k$ and $\widetilde V_j=\mathbb R$, $\widetilde V_k=\Lambda^{p_k-p_j}E'$ if $p_j\leq p_k$ and $\widetilde V_j=\Lambda^{p_j-p_k}E$, $\widetilde V_k=\mathbb R$ if $p_j\geq p_k$ (Notice that $\widetilde V$ is really
+% Source PDF page 16; printed page 7
+ a tensor product of $n-1$ factors but inclusion of the trivial factor for the present simplifies our indexing). The contraction\IndexMark{idx-135}{contraction@Contraction!composition@composition} between the $j$th. and $k$th. factors of $V$ will be the linear map $\mathsf C_k^j:V\to\widetilde V$ defined on generators by
+\[
+\begin{split}
+\mathsf C_k^j(\cdots\otimes X_j\otimes\cdots\otimes\phi_k\otimes\cdots)
+&=\cdots\otimes1\otimes\cdots\otimes\mathsf C(X_j\otimes\phi_k)\otimes\cdots,\quad p_j\leq p_k\\
+&=\cdots\otimes\mathsf C(X_j\otimes\phi_k)\otimes\cdots\otimes1\otimes\cdots,\quad p_j\geq p_k.
+\end{split}
+\]
+Notice that our convention is that superscripts refer to factors which are exterior powers of $E$, subscripts to factors which are exterior powers of $E'$. The \emph{product} $\mathsf C_k^j\mathsf C_m^l$ of the contractions $\mathsf C_k^j$ and $\mathsf C_m^l$ is defined if $\{i,j\}\cap\{l,m\}=\varnothing$ and is the simultaneous contraction of the $j$th. and $k$th. and $l$ and $m$th. factors of $V$. Necessarily, $\mathsf C_k^j\mathsf C_m^l=\mathsf C_m^l\mathsf C_k^j$. The \emph{composition} $\mathsf C_k^j.\mathsf C_m^l$ is defined to be the composite of the contraction $\mathsf C_m^l$ with the contraction $\mathsf C_k^j$, where $\mathsf C_k^j$ is a contraction of the space $\widetilde V$ not $V$. We may also use brackets to describe compositions of contractions. Thus if $Z\in V$, $\mathsf C_k^j.\mathsf C_m^l(Z)=\mathsf C_k^j(\mathsf C_m^l(Z))$. Notice that $\widetilde V$ has fewer factors than $V$ and so, in general, $\mathsf C_k^j.\mathsf C_m^l\neq\mathsf C_k^j\mathsf C_m^l$.
+\paragraph{Example 4.} Let $p\geq r+s$. Then the following diagram of contractions commutes.
+\[
+\input{diagrams/II-01.tex}
+\]
+Indeed, let $X\in\Lambda^r E$, $Y\in\Lambda^s E$, $Z\in\Lambda^{p-r-s}E$, $\phi\in\Lambda^p E'$. Then
+\[
+\begin{aligned}
+\langle\mathsf C(\mathsf C_2^3(X\otimes\phi\otimes Y)),Z\rangle
+&=\langle\mathsf C_{X\wedge Y}\phi,Z\rangle\\
+&=(-1)^{rs}\langle\mathsf C_Y\mathsf C_X\phi,Z\rangle,\quad\text{Property 2 of contractions.}\\
+&=(-1)^{rs}\langle\mathsf C_2^1(\mathsf C(X\otimes\phi\otimes Y)),Z\rangle.
+\end{aligned}
+\]
+Since this is true for all $Z\in\Lambda^{p-r-s}E$, our assertion follows. In our notation above we have shown $\mathsf C.\mathsf C_2^3=(-1)^{rs}\mathsf C.\mathsf C_2^1$.
+% Source PDF page 17; printed page 8
+
+We now list, without proof, some additional properties of contraction operators.
+\paragraph{Properties of the contraction operators $\mathsf C$, $\mathsf C_X$, $\mathsf C_\phi$ continued.}
+\begin{enumerate}[start=5]
+\item Let $X\in\Lambda^p E$, $\phi\in\Lambda^q E'$ and suppose $q\geq p$. Then
+\[
+\mathsf C_X\phi=\frac1{(q-p)!p!}\mathsf C_{p+1}^1\cdots\mathsf C_{2p}^p(U^p X\otimes U^p\phi).
+\]
+In particular, if $X\in E$,
+\[
+\mathsf C_X\phi=\mathsf C_2^1(X\otimes U\phi).
+\]
+\item Let $X\in\Lambda^p E$, $\phi\in\Lambda^{p+1}E'$ then
+\[
+\mathsf C_X\phi=(-1)^p\mathsf C_1^3(\phi\otimes UX).
+\]
+\item Let $X\in E$, $\phi\in\Lambda^p E'$, $\psi\in\Lambda^q E'$. Then
+\[
+\mathsf C_X(\phi\wedge\psi)=\mathsf C_X(\phi)\wedge\psi+(-1)^p\phi\wedge\mathsf C_X\psi.
+\]
+\item Let $p\geq q>0$ and define
+\[
+\mathsf C_1:\Lambda^p E\otimes\Lambda^q E'\longrightarrow\Lambda^{p-1}E\otimes\Lambda^{q-1}E'
+\]
+by
+\[
+\mathsf C_1(X\otimes\phi)=\mathsf C_3^1(UX\otimes U\phi),\quad X\in\Lambda^p E,\quad\phi\in\Lambda^q E'.
+\]
+Then $\mathsf C=(\mathsf C_1)^p/p!:\Lambda^p E\otimes\Lambda^q E'\to\Lambda^{p-q}E$.
+\end{enumerate}
+We end this section with an example giving another characterization of trace.
+\paragraph{Example 5.} Let $A\in L(E,E)$ and $\dim(E)=n$. Then the map $\widetilde A:\Lambda^n E\to\Lambda^n E$, defined on generators by
+\[
+\widetilde A(Z_1\wedge\cdots\wedge Z_n)=\sum_{i=1}^n Z_1\wedge\cdots\wedge A(Z_i)\wedge\cdots\wedge Z_n,
+\]
+is equal to scalar multiplication by $-\operatorname{trace}(A)$. Working on generators in $L(E,E)$, let $A=\phi\otimes X\in E'\otimes E\approx L(E,E)$ and $Z\in\Lambda^n E$. Then $\widetilde A(Z)=X\wedge\mathsf C_\phi Z=-(\mathsf C_\phi X)Z$, Property 7 of contractions. But $\mathsf C_\phi X$ is just $\operatorname{trace}(A)$.
+% Source PDF page 18; printed page 9
+\paragraph{Exercises.}
+\begin{enumerate}
+\item Verify that $\otimes^p E'$ is naturally isomorphic to the space $L^p(E;\mathbb R)$ of $p$-linear real valued maps on $E$. Show also that $\Lambda^p E'$ and $\Lambda^p E'$ are naturally isomorphic to the spaces of $p$-linear alternating and symmetric real valued maps on $E$ respectively.
+\item Let $p\leq q$. Show that $\mathsf C:\Lambda^p E\otimes\Lambda^q E'\to\Lambda^{q-p}E'$ is defined in terms of generators by the formula
+\[
+\begin{split}
+&\mathsf C(X_1\wedge\cdots\wedge X_p\otimes\phi_1\wedge\cdots\wedge\phi_q)\\
+&\qquad=\sum_{I,J}\operatorname{sign}(I,J)\langle X_1,\phi_{i_1}\rangle\cdots\langle X_p,\phi_{i_p}\rangle\phi_{j_1}\wedge\cdots\wedge\phi_{j_{q-p}},
+\end{split}
+\]
+where the sum is taken over all $p$-tuples $I=(i_1,\ldots,i_p)$ satisfying $1\leq i_1,\ldots,i_p\leq q$ and $(q-p)$-tuples $J=(j_1,\ldots,j_{q-p})$ satisfying $1\leq j_1<\cdots<j_{q-p}\leq q$, subject to the condition that $\{i_1,\ldots,j_{q-p}\}$ is a permutation of $\{1,\ldots,q\}$. $\operatorname{Sign}(I,J)$ denotes the signature of this permutation.
+\item Work out $\mathsf C_1:\Lambda^2 E\otimes\Lambda^2 E'\to E\otimes E'$ in terms of generators and verify that $(\mathsf C_1)^2=2\mathsf C$.
+\item Generalise the example at the end of the section to find other invariants of the map $A$.
+\item Let $0\to E\xrightarrow{A}F\xrightarrow{B}G\to0$ be a short exact sequence of vector spaces and linear maps. Suppose that the dimensions of $E$, $F$, $G$ are $p$, $q$, $r$ respectively. Prove that there exists a canonical isomorphism $\Lambda^q F\approx\Lambda^p E\otimes\Lambda^r G$ (Hint: Prove that there exists a natural monomorphism $k:\Lambda^r G'\otimes\Lambda^q F\to\Lambda^{q-r}F$ defined by $\langle k(\phi\otimes X),\psi\rangle=\langle\Lambda^r B'(\phi)\wedge\psi,X\rangle$, $\phi\in\Lambda^r G'$, $X\in\Lambda^q F$, $\psi\in\Lambda^{q-r}F'$. Show that $\operatorname{Image}(k)=\operatorname{Image}(\Lambda^p A)$). More generally, show that for $n\geq1$ we have a natural exact sequence
+\[
+0\to\Lambda^n E\to\Lambda^n F\to\Lambda^{n-1}E\otimes F\to0.
+\]
+\item Let $\dim(E)=n$ and $\phi\in E'$, $\phi\neq0$. Show that the sequence
+\[
+0\to\Lambda^n E\xrightarrow{\mathsf C_\phi}\Lambda^{n-1}E\to\cdots\xrightarrow{\mathsf C_\phi}\Lambda^1 E\xrightarrow{\mathsf C_\phi}\mathbb R\to0
+\]
+is exact (Hint: Choose an orthonormal basis for $E$ such that $\phi$ is an element of the dual orthonormal basis for $E'$).
+% Source PDF page 19; printed page 10
+\item Continuing with the assumptions of question 6, verify that
+\begin{enumerate}[label=\alph*)]
+\item $L(\Lambda^p E,\mathbb R)\approx\Lambda^p E'\approx\Lambda^n E'\otimes\Lambda^{n-p}E$, $0\leq p\leq n$.
+\item The diagram
+\[
+\input{diagrams/II-02.tex}
+\]
+commutes, $0\leq p\leq n$.
+\end{enumerate}
+(Part b) amounts to saying that the sequence of question 6 is ``self-dual'').
+\end{enumerate}
+\section{Calculus on differential manifolds}\label{sec:5:2}
+In this section we review that portion of calculus on manifolds that does not depend on a choice of Riemannian metric. Proofs and further details may be found in Kobayashi and Nomizu \cite{bib:II:kobayashi-s-and-nomizu-k:1} and Abraham and Marsden \cite{bib:II:abraham-r-and-marsden-j-e:1}. For the theory of vector bundles we refer in addition to the books by Husmoller \cite{bib:II:husmoller-d:1} and Lang \cite{bib:II:lang-s:1} and to the basic theory outlined in \hyperref[sec:1:5]{\S5 of Chapter 1}.
+
+Throughout this section $M$ will denote a $C^\infty$ differential manifold of dimension $m$. For this section only, $C^r(M)$ will denote the space of \emph{real} valued $C^r$ functions on $M$, $0\leq r\leq\infty$.
+
+Let $E$ be a smooth (that is, $C^\infty$) vector bundle on $M$. For $r\geq0$ we let $C^r(E)$ denote the vector space of $C^r$ sections of $E$ and $C_c^r(E)$ denote the space of $C^r$ sections with compact support.
+\paragraph{Notation and examples (see also \hyperref[sec:1:5]{\S5 of Chapter 1}).}
+\begin{enumerate}
+\item We let $\underline{\mathbb R}=M\times\mathbb R$ denote the trivial real line bundle\IndexMark{idx-622}{trivial vector bundle@Trivial vector bundle} over $M$. Notice that $C^r(\underline{\mathbb R})=C^r(M)$.
+\item We let $\mathcal T M$ and $\mathcal T'M$ respectively denote the tangent and cotangent bundles of $M$.
+\end{enumerate}
+As described in \hyperref[sec:1:5]{\S5 of Chapter 1}, we may form the dual bundle $E'$ of a vector bundle $E$ and tensor products of tensor, exterior and symmetric powers of $E$ and $E'$. The contraction operations described in
+% Source PDF page 20; printed page 11
+\hyperref[sec:5:1]{\S1} of this chapter all extend to these bundles and their sections. By way of example, there is a natural vector bundle map $\operatorname{trace}:E\otimes E'\to\underline{\mathbb R}$\IndexMark{idx-614}{trace@Trace} defined by: $\operatorname{trace}(e_x\otimes\phi_x)=\langle e_x,\phi_x\rangle$, $e_x\in E_x$, $\phi_x\in E'_x$, $x\in M$. If $S$ and $\phi$ are $C^r$ sections of $E$ and $E'$ respectively, we may define the $C^r$ section $\operatorname{trace}(S\otimes\phi)$ of $\underline{\mathbb R}$ by: $\operatorname{trace}(S\otimes\phi)(x)=\operatorname{trace}(S(x)\otimes\phi(x))$. In the sequel we use the same notation for contractions on vector bundles and their sections that we developed in the previous section for vector spaces.
+\paragraph{Differential forms.}\IndexMark{idx-173}{differential form@Differential form!real@real} A section of\IndexMark{idx-136}{contraction@Contraction!of sections of vector bundle@of sections of vector bundle} the bundle $\Lambda^p\mathcal T'M$ is called a \emph{differential $p$-form} (on $M$). For $p\geq0$ we have the operation $d:C^\infty(\Lambda^p\mathcal T'M)\to C^\infty(\Lambda^{p+1}\mathcal T'M)$ of \emph{exterior differentiation}\IndexMark{idx-160}{d exterior differentiation@$d$ (exterior differentiation)}\IndexMark{idx-250}{exterior differentiation@Exterior differentiation} and the corresponding sequence
+\[
+C^\infty(M)\xrightarrow{d}C^\infty(\mathcal T'M)\xrightarrow{d}\cdots\xrightarrow{d}C^\infty(\Lambda^p\mathcal T'M)\xrightarrow{d}\cdots.
+\]
+\paragraph{Properties of exterior differentiation.}
+\begin{enumerate}
+\item $d$ is $\mathbb R$-linear.
+\item $d^2=0$.
+\item $d(\phi\wedge\zeta)=d\phi\wedge\zeta+(-1)^p\phi\wedge d\zeta$, $\phi\in C^\infty(\Lambda^p\mathcal T'M)$, $\zeta\in C^\infty(\Lambda^q\mathcal T'M)$.
+\item If $f\in C^\infty(M)$, $x\in M$, then $df(x)=T_x f\in L(T_x M,\mathbb R)=\mathcal T'_x M$.
+\item If $f:M\to N$ is $C^\infty$ and $\phi\in C^\infty(\Lambda^p\mathcal T'N)$, then $d(f^*\phi)=f^*d\phi$ ($f^*$ denotes the operation of pull-back of differential forms induced by $f$).
+\item In local coordinates, if $\phi=\sum_{1\leq i_1<\cdots<i_p\leq m}\phi_{i_1\cdots i_p}\,dx_{i_1}\wedge\cdots\wedge dx_{i_p}$, where the coefficients $\phi_{i_1\cdots i_p}$ are $C^\infty$ functions, then
+\[
+d\phi=\sum_{j=1}^m\sum_{1\leq i_1<\cdots<i_p\leq m}\frac{\partial\phi_{i_1\cdots i_p}}{\partial x_j}\,dx_j\wedge dx_{i_1}\wedge\cdots\wedge dx_{i_p}.
+\]
+\end{enumerate}
+We say that a $p$-form $\phi$ is \emph{closed} if $d\phi=0$ and that it is \emph{exact} if, in addition, there exists a $(p-1)$-form $\zeta$ such that $d\zeta=\phi$. A closed form\IndexMark{idx-086}{closed form@Closed form} need not be exact\IndexMark{idx-237}{exact form@Exact form} though by Poincar\'e's lemma it is always \emph{locally exact}. That is, if $\phi$ is an exact $p$-form on $M$ and $x\in M$ we may find an open neighbourhood $U$ of $x$ (typically contractible) and a $(p-1)$-form $\zeta$ defined on $U$ such that $d\zeta=\phi|U$.
+% Source PDF page 21; printed page 12
+
+The bundles $\Lambda^p\mathcal T'M$ are zero bundles for $p>m$ and $\Lambda^m\mathcal T'M$ is a real line bundle. We say that $M$ is \emph{orientable}\IndexMark{idx-426}{orientable manifold@Orientable manifold} if $\Lambda^m\mathcal T'M$ is isomorphic to the trivial line bundle $\underline{\mathbb R}$. If $M$ is orientable we have a natural $\mathbb R$-linear map $\int_M:C_c^0(\Lambda^m\mathcal T'M)\to\mathbb R$ called \emph{integration}\IndexMark{idx-328}{integration of forms@Integration (of forms)}. If $M$ has boundary $\partial M$ (necessarily orientable) then we have \emph{Stokes' theorem}\IndexMark{idx-584}{stokes theorem@Stokes' theorem}:
+\[
+\int_{\partial M}\phi=\int_M d\phi,\quad\phi\in C_c^1(\Lambda^{m-1}\mathcal T'M).
+\]
+For $p\geq0$, we define the $p$th. \emph{de Rham cohomology group}\IndexMark{idx-516}{de rham cohomology group@de Rham cohomology group}, $H_{\mathrm{DR}}^p(M,\mathbb R)$, of $M$ to be the quotient vector space
+\[
+H_{\mathrm{DR}}^p(M,\mathbb R)=\bigl(\operatorname{Ker}d:C^\infty(\Lambda^p\mathcal T'M)\to C^\infty(\Lambda^{p+1}\mathcal T'M)\bigr)/dC^\infty(\Lambda^{p-1}\mathcal T'M).
+\]
+Clearly, $H_{\mathrm{DR}}^p(M,\mathbb R)=0$, $p>m$. It is true, though by no means trivial, that if $M$ is compact the de Rham cohomology groups are all finite dimensional vector spaces. It is also true that integration defines a dual pairing between $H_{\mathrm{DR}}^p(M,\mathbb R)$ and the singular homology group $H_p(M,\mathbb R)$, $p\geq0$. As a consequence, $H_{\mathrm{DR}}^p(M,\mathbb R)$ is isomorphic to $H^p(M,\mathbb R)$, $p\geq0$. We give a proof of this isomorphism in \hyperref[sec:6:3]{Chapter 6, \S3}.
+\paragraph{Vector fields and Lie derivatives.} We say that a map $\delta:C^\infty(M)\to C^\infty(M)$ is a \emph{derivation}\IndexMark{idx-169}{derivation@Derivation} if $\delta$ is $\mathbb R$-linear and
+\[
+\delta(fg)=(\delta f)g+f(\delta g),
+\]
+for all $f,g\in C^\infty(M)$. We denote the set of derivations of $C^\infty(M)$ by $D(M)$. We have a natural map of $C^\infty(\mathcal T M)$ into $D(M)$, denoted $X\mapsto L_X$, defined by
+\[
+L_X f=\mathsf C_X df,\quad f\in C^\infty(M).
+\]
+$L_X f$ is called the \emph{Lie derivative}\IndexMark{idx-370}{lie derivative@Lie derivative} of $f$ with respect to $X$. It is a basic result that this map of $C^\infty(\mathcal T M)$ into $D(M)$ is a bijection. This allows us to think of vector fields as (1st. order) linear partial differential operators on $C^\infty(M)$.
+
+Given $X,Y\in C^\infty(\mathcal T M)$, the map $L_X L_Y-L_Y L_X$ is a derivation of $C^\infty(M)$ and so there exists a vector field $Z$ such that $L_X L_Y-L_Y L_X=L_Z$. In the sequel we call $Z$ the \emph{Lie bracket}\IndexMark{idx-368}{lie bracket@Lie bracket} of $X$ and $Y$ and denote it by $[X,Y]$.
+% Source PDF page 22; printed page 13
+\paragraph{Properties of the Lie bracket.}
+\begin{enumerate}
+\item $[\ ,\ ]$ is $\mathbb R$-bilinear.
+\item $[X,Y]=-[Y,X]$, $X,Y\in C^\infty(\mathcal T M)$.
+\item $[X,[Y,Z]]+[Y,[Z,X]]+[Z,[X,Y]]=0$ for all $X,Y,Z\in C^\infty(\mathcal T M)$ (Jacobi identity\IndexMark{idx-343}{jacobi identity@Jacobi identity}).
+\item If $f:M\to N$ is a $C^\infty$ diffeomorphism then $[f_*X,f_*Y]=f_*[X,Y]$, for all $X,Y\in C^\infty(\mathcal T M)$ ($f_*$ is the operation of push-forward of vector fields induced by $f$).
+\end{enumerate}
+We may give an invariant definition of exterior differentiation in terms of Lie derivatives and brackets. Suppose that $\phi$ is a differential $p$-form and $X_0,\ldots,X_p$ are vector fields on $M$ then
+\[
+\begin{split}
+\langle d\phi,X_0\wedge\cdots\wedge X_p\rangle
+={}&\sum_{i=0}^p(-1)^i L_{X_i}\langle\phi,X_0\wedge\cdots\wedge\widehat X_i\wedge\cdots\wedge X_p\rangle\\
+&+\sum_{0\leq i<j}(-1)^{i+j}\langle\phi,[X_i,X_j],X_0\wedge\cdots\wedge\widehat X_i\wedge\cdots\wedge\widehat X_j\wedge\cdots\wedge X_p\rangle.
+\end{split}
+\]
+For each $X\in C^\infty(\mathcal T M)$ define $L_X:C^\infty(\mathcal T M)\to C^\infty(\mathcal T M)$ by $L_XY=[X,Y]$. We refer to $L_XY$ as the \emph{Lie derivative}\IndexMark{idx-371}{lie derivative@Lie derivative} of $Y$ with respect to $X$. We now extend the operator $L_X$ to $C^\infty$ sections of arbitrary finite tensor and exterior products of $\mathcal T M$ and $\mathcal T'M$. We first define $L_X$ on sections of $\mathcal T'M$. Suppose $\phi\in C^\infty(\mathcal T'M)$ then $L_X\phi$ will be the differential 1-form characterised by
+\[
+L_X\langle\phi,Y\rangle=\langle L_X\phi,Y\rangle+\langle\phi,L_XY\rangle,\quad\text{for all }Y\in C^\infty(\mathcal T M).
+\]
+It is quite straightforward, using the basic properties of Lie derivatives, to check that this relation does indeed define $L_X\phi$ as a section of $\mathcal T'M$. We shall extend $L_X$ to arbitrary tensor and exterior powers by requiring that it is a derivation. Thus, for $p\geq0$, we define $L_X:C^\infty(\Lambda^p\mathcal T M)\to C^\infty(\Lambda^p\mathcal T M)$ by
+\[
+L_X(X_1\wedge\cdots\wedge X_p)=\sum_{i=1}^p X_1\wedge\cdots\wedge L_XX_i\wedge\cdots\wedge X_p
+\]
+% Source PDF page 23; printed page 14
+and $L_X:C^\infty(\Lambda^p\mathcal T'M)\to C^\infty(\Lambda^p\mathcal T'M)$ by
+\[
+L_X(\phi_1\wedge\cdots\wedge\phi_p)=\sum_{i=1}^p\phi_1\wedge\cdots\wedge L_X\phi_i\wedge\cdots\wedge\phi_p,
+\]
+where $X_i$ and $\phi_i$ are $C^\infty$ vector fields and 1-forms on $M$ respectively. Suppose that $V$ and $W$ are vector bundles which are finite tensor products of tensor and exterior powers of $\mathcal T M$ and $\mathcal T'M$ and that we have defined $L_X$ on $C^\infty$ sections of $V$ and $W$. We define $L_X:C^\infty(V\otimes W)\to C^\infty(V\otimes W)$ by
+\[
+L_X(S\otimes T)=L_XS\otimes T+S\otimes L_XT,\quad S\in C^\infty(V),\quad T\in C^\infty(W).
+\]
+Again it is not hard to verify that $L_X$ is well defined. Since we have already defined $L_X$ on sections of exterior powers of $\mathcal T M$ and $\mathcal T'M$ the above construction allows us to extend $L_X$ to arbitrary finite tensor products of tensor and exterior powers of $\mathcal T M$ and $\mathcal T'M$.
+
+A most important property of Lie derivatives is that they commute with contractions. Indeed this property is built into the definition of Lie differentiation on differential 1-forms for we have
+\[
+L_X\mathsf C(\phi\otimes Y)=\mathsf C(L_X\phi\otimes Y)+\mathsf C(\phi\otimes L_XY),
+\]
+$\phi\in C^\infty(\mathcal T'M)$, $X,Y\in C^\infty(\mathcal T M)$. We leave it to the reader to verify that Lie derivatives commute with any of the contraction operations we have so far defined on tensor products of $\mathcal T M$ and $\mathcal T'M$.
+\paragraph{Exercises.}
+\begin{enumerate}
+\item Let $X\in C^\infty(\mathcal T M)$, $\phi\in C^\infty(\Lambda^p\mathcal T'M)$, $f\in C^\infty(M)$. Verify the identities
+\begin{enumerate}[label=\roman*)]
+\item $L_X\phi=d\mathsf C_X\phi+\mathsf C_Xd\phi$
+\item $L_{fX}\phi=fL_X\phi+df\wedge\mathsf C_X\phi$.
+\end{enumerate}
+\item Let $A\in C^\infty(\mathcal T'M\otimes\mathcal T M)$. Define $\widetilde A:C^\infty(\mathcal T M)\to C^\infty(\mathcal T M)$ by $A(X)=\mathsf C_2^1(X\otimes A)$. Show that we can extend $\widetilde A$, as a derivation, to sections of any finite tensor product of tensor and exterior powers of $\mathcal T M$ and $\mathcal T'M$ in such a way that $\widetilde A$ is the zero operator on $C^\infty(M)$ and commutes with contractions. Show further that if $\Omega$ is any operator defined on sections of tensor
+% Source PDF page 24; printed page 15
+products of $\mathcal T M$ and $\mathcal T'M$ that is a derivation and commutes with contractions then there exist unique $X\in C^\infty(\mathcal T M)$ and $A\in C^\infty(\mathcal T'M\otimes\mathcal T M)$ such that $\Omega=L_X+\widetilde A$.
+\item Verify the following local forms for the Lie derivative and Lie bracket
+\begin{enumerate}[label=\alph*)]
+\item $\displaystyle L_X f=\sum_{i=1}^n X^i\frac{\partial f}{\partial x_i}$.
+\item $\displaystyle [X,Y]^i=\sum_{j=1}^n\left(X_j\frac{\partial Y_i}{\partial x_j}-Y_j\frac{\partial X_i}{\partial x_j}\right)$.
+\end{enumerate}
+\end{enumerate}
+\section{Complexification}\IndexMark{idx-120}{complexification@Complexification}\label{sec:5:3}
+Throughout this section tensor products over $\mathbb R$ and $\mathbb C$ will be denoted by $\otimes_{\mathbb R}$ and $\otimes_{\mathbb C}$ respectively. We use similar notation for exterior and symmetric powers. Omission of a subscript will generally indicate a product over $\mathbb C$ unless the contrary is clearly indicated.
+\begin{originaltheorem}{Definition}{5.3.1}\FieldTarget{definition:5.3.1}{5.3.1}
+Let $E$ be a real vector space. The \emph{complexification} ${}_cE$ of $E$ is the vector space $E\otimes_{\mathbb R}\mathbb C$.
+\end{originaltheorem}
+\paragraph{Properties of complexification.}
+\begin{enumerate}
+\item ${}_cE$ has the natural structure of a complex vector space with scalar multiplication defined by $c(e\otimes_{\mathbb R}d)=e\otimes_{\mathbb R}cd$, $e\in E$, $c,d\in\mathbb C$.
+\item $\dim_{\mathbb C}({}_cE)=\dim_{\mathbb R}E$.
+\item ${}_cE$ has a natural splitting $E_R\oplus E_I$ into real and imaginary parts defined by $E_R=\{e\otimes_{\mathbb R}1:e\in E\}$; $E_I=\{e\otimes_{\mathbb R}i:e\in E\}$.
+\item The operation of complexification commutes with tensor, exterior and symmetric products. For example, if $p\geq0$, ${}_c(\otimes_{\mathbb R}^p E)\approx\otimes^p({}_cE)$ (as complex vector spaces).
+\item ${}_c(E')\approx L_{\mathbb R}(E,\mathbb C)$. This isomorphism is defined by mapping $\phi\otimes_{\mathbb R}c$ to $c\phi$. In the sequel we set ${}_c(E')={}_cE'$.
+\item The dual pairing $E\times E'\to\mathbb R$ complexifies to the dual pairing ${}_cE\times{}_cE'\to\mathbb C$. On generators, this pairing is defined by $\langle e\otimes_{\mathbb R}c,\phi\otimes_{\mathbb R}d\rangle=cd\langle\phi,e\rangle$, $c,d\in\mathbb C$, $\phi\in E'$, $e\in E$. Using this dual
+% Source PDF page 25; printed page 16
+pairing we identify the dual spaces of $\otimes^p{}_cE$, $\Lambda^p{}_cE$ with $\otimes^p{}_cE'$, $\Lambda^p{}_cE'$ respectively. We should stress that we shall \emph{always} use this dual pairing in the sequel.
+\end{enumerate}
+One of the main reasons that we introduce complexification is so that we can define conjugation\IndexMark{idx-130}{conjugation@Conjugation}.
+\begin{originaltheorem}{Definition}{5.3.2}\FieldTarget{definition:5.3.2}{5.3.2}
+The map $S:{}_cE\to{}_cE$ defined by $S(e\otimes_{\mathbb R}c)=e\otimes_{\mathbb R}\bar c$, $e\in E$, $c\in\mathbb C$, is called \emph{conjugation}. We usually write $S(X)=\bar X$, $X\in{}_cE$.
+\end{originaltheorem}
+\paragraph{Properties of conjugation.}
+\begin{enumerate}
+\item $Si=-iS$ (conjugation is a conjugate complex linear map).
+\item Let $X\in{}_cE$. Then $X=\bar X$ iff $X\in E_R$: $X=-\bar X$ iff $X\in E_I$.
+\item Conjugation commutes with the operations of tensor, exterior and symmetric products. For example, conjugation on $\Lambda^p{}_cE$ may be defined as $\Lambda^p S$ or, equivalently, as conjugation on ${}_c(\Lambda_{\mathbb R}^p E)$. In particular, notice that if $X_1\wedge\cdots\wedge X_p\in\Lambda^p{}_cE$, then $\bar X_1\wedge\cdots\wedge\bar X_p=\overline{X_1\wedge\cdots\wedge X_p}\in\Lambda^p{}_cE$.
+\item Using the natural isomorphism between ${}_cE'$ and $L_{\mathbb R}(E,\mathbb C)$, we may regard conjugation as conjugation of functions. That is, if $f\in{}_cE$, we define $\bar f\in{}_cE'$ by $\bar f(e)=\overline{f(e)}$, $e\in E$.
+\item Conjugation commutes with the dual pairing ${}_cE\times{}_cE'\to\mathbb C$ and so for all $X\in{}_cE$, $\phi\in{}_cE'$ we have
+\[
+\overline{\langle X,\phi\rangle}=\langle\bar X,\bar\phi\rangle.
+\]
+\item The conjugate of a map $A\in L_{\mathbb C}({}_cE,{}_cF)$ is given by $\bar A=S.A.S$.
+\end{enumerate}
+Finally, we remark that if $\phi$ is an element of some finite tensor product of tensor and exterior powers of ${}_cE$, ${}_cE'$ then $\phi$ is said to be \emph{real} if $\phi=\bar\phi$. By property 2 above this is clearly equivalent to the existence of a real tensor $\gamma$ such that $\phi=\gamma\otimes_{\mathbb R}1$.
+\paragraph{Exercises.}
+\begin{enumerate}
+\item Let $X\in{}_cE$. Show that $X+\bar X$ is real, $X-\bar X$ is imaginary (that is, a point of $E_I$).
+% Source PDF page 26; printed page 17
+\item Let $A\in L_{\mathbb R}(E,F)$ and ${}_cA=A\otimes_{\mathbb R}1\in L_{\mathbb C}({}_cE,{}_cF)$ denote the complexification of $A$. Show that $\det_{\mathbb C}({}_cA)=\det_{\mathbb R}(A)$.
+\item Let $A\in L_{\mathbb C}({}_cE,{}_cF)$. Show that $\det_{\mathbb C}(\bar A)=\overline{\det_{\mathbb C}(A)}$.
+\end{enumerate}
+\section{Complex linear algebra}\label{sec:5:4}
+This section, which may be regarded as a synthesis of \S\S1,3, summarizes the main results of complex linear algebra that we need in the sequel. Again we defer any consideration of inner product structures.
+
+Suppose that $E$ is a complex vector space. We let $E^*$ denote the complex dual space $L_{\mathbb C}(E,\mathbb C)$ of $E$. The theory of contractions that we described in \hyperref[sec:5:1]{\S1} immediately extends to (complex) tensor products of tensor, exterior and symmetric powers of $E$ and $E^*$. We continue to use the notation developed in \hyperref[sec:5:1]{\S1}.
+\begin{originaltheorem}{Definition}{5.4.1}\FieldTarget{definition:5.4.1}{5.4.1}
+(See also \hyperref[sec:1:5]{\S5, Chapter 1}). Let $E$ be a real vector space. An endomorphism $J$ of $E$ is said to define a \emph{complex structure}\IndexMark{idx-112}{complex structure@Complex structure!on vector space@on vector space} on $E$ if $J^2=-I$.
+\end{originaltheorem}
+If $E$ has complex structure $J$ then $E$ may be given the structure of a complex vector space if we define $(a+ib)e=a+bJ(e)$, $a,b\in\mathbb R$, $e\in E$. In particular, $\dim_{\mathbb R}E$ must be even. Conversely, if $E$ is a complex vector space we may define a complex structure $J$ on $E$ by $J(e)=ie$, $e\in E$.
+\begin{originaltheorem}{Definition}{5.4.2}\FieldTarget{definition:5.4.2}{5.4.2}
+If $E$ is a vector space with complex structure $J$, we define $\bar E$, the \emph{conjugate}\IndexMark{idx-126}{conjugate@Conjugate!vector space@vector space} of $E$, to be the vector space $E$ with complex structure $-J$.
+\end{originaltheorem}
+\paragraph{Remark.} Suppose $E$ is a complex vector space and that $X\in E$ has coordinates $(z_1,\ldots,z_n)$ relative to some (complex) basis $B$ of $E$. Then $B$ is also a basis of $\bar E$ and the coordinates of $X\in\bar E$ are $(\bar z_1,\ldots,\bar z_n)$. In this sense, taking the conjugate of a complex vector space corresponds to taking conjugates of the coordinates. Shortly, we shall use the device of complexification to give a ``coordinate-free'' version of this important operation. Indeed, much of the formalism we now develop
+% Source PDF page 27; printed page 18
+is directed towards obtaining a satisfactory definition of conjugation for complex vector spaces that does not depend on a choice of coordinate system and can be extended to complex manifolds.
+\paragraph{Properties of complex structures and conjugate spaces.}\IndexMark{idx-128}{conjugate@Conjugate!dual space@dual space}
+\begin{enumerate}
+\item Let $E,F$ be vector spaces with complex structures $J_E$, $J_F$ respectively. A map $A\in L_{\mathbb R}(E,F)$ is complex linear iff $A.J_E=J_F.A$. The space $L_{\mathbb C}(E,F)$ has the natural complex structure $J$ defined by $J(A)=A.J_E=J_F.A$. We may define two \emph{distinct} complex structures $J_1$, $J_2$ on $L_{\mathbb R}(E,F)$ by $J_1(A)=A.J_E$; $J_2(A)=J_F.A$.
+\end{enumerate}
+From now on assume that $E$ is a vector space with complex structure $J$.
+\begin{enumerate}[start=2]
+\item The complex structure on $E^*$ is defined by $J(\phi)=\phi.J=i\phi$, $\phi\in E^*$.
+\item $\bar E^*\approx\overline{E^*}$ as complex vector spaces. The isomorphism is defined by mapping $\phi\in\bar E^*$ ($=L(\bar E,\mathbb C)$) to $\bar\phi\in E^*$, where $\bar\phi(e)=\overline{\phi(e)}$, $e\in E$. Notice that the complex structure on $\bar E^*$ is defined by $J(\phi)=\phi.(-J)=i\phi$. In particular, $\bar E^*$ is the space of conjugate complex linear maps on $E$.
+\item The operation of taking the conjugate space commutes with the operations of taking dual, tensor, exterior and symmetric powers. For example $\overline{\otimes^p E}\approx\otimes^p\bar E$ as complex vector spaces.
+\end{enumerate}
+As we described in \hyperref[sec:5:3]{\S3}, we may give ${}_cE$ the structure of a complex vector space. Clearly the complexification of $J$, which we continue to denote by $J$, also defines a complex structure on ${}_cE$. As we shall soon see these two complex structures on ${}_cE$ are different. In the sequel, we always give ${}_cE$ the complex vector space structure induced from $\mathbb C$ and never that induced from $J$.
+
+Define $P,\bar P:{}_cE\to{}_cE$ by
+\[
+P=\tfrac12(I-iJ),\quad\bar P=\tfrac12(I+iJ).
+\]
+Clearly, $P$, $\bar P$ are complementary projections: $P^2=P$, $\bar P^2=\bar P$ and $P+\bar P=I$. We set $\mathcal E=P({}_cE)$, $\bar{\mathcal E}=\bar P({}_cE)$. Then $\mathcal E$, $\bar{\mathcal E}$ are complementary complex subspaces of ${}_cE$ and so ${}_cE=\mathcal E\oplus\bar{\mathcal E}$. Observe that $J|\mathcal E=+i$,
+% Source PDF page 28; printed page 19
+$J|\bar{\mathcal E}=-i$ and $S(\mathcal E)=\bar{\mathcal E}$ (hence the notation). We have natural isomorphisms $j:E\to\mathcal E$; $\bar j:\bar E\to\bar{\mathcal E}$ defined by
+\[
+j(e)=\tfrac12(e\otimes1-Je\otimes i);\quad\bar j(e)=\tfrac12(e\otimes1+Je\otimes i).
+\]
+Hence we see that ${}_cE\approx E\oplus\bar E$. Notice that if we regard this isomorphism as an identification then $E$, $\bar E$ become complementary complex subspaces of ${}_cE$ in such a way that the complex structure on ${}_cE$ restricts to the complex structure $J$ on $E$ and the conjugate complex structure $-J$ on $\bar E$.
+
+Let us now examine how conjugation fits into this framework. We have the commutative diagram
+\[
+\input{diagrams/II-03.tex}
+\]
+We see that the identity map $I:E\to\bar E$, which is associated to taking conjugates of coordinates, corresponds to the invariantly defined operation of conjugation on ${}_cE$.
+\paragraph{Properties of complexified linear maps.}
+\begin{enumerate}
+\item Suppose $E,F$ are complex vector spaces and $A\in L_{\mathbb R}(E,F)$. Let ${}_cA=A\otimes_{\mathbb R}1\in L_{\mathbb C}({}_cE,{}_cF)$ denote the complexification\IndexMark{idx-121}{complexification@Complexification!of linear map@of linear map} of $A$. We say that ${}_cA$ respects the splittings $E\oplus\bar E$, $F\oplus\bar F$ of ${}_cE$, ${}_cF$ (or just \emph{splits}) if ${}_cA=A_1\oplus A_2$, where $A_1:E\to F$, $A_2:\bar E\to\bar F$. We have the useful result that ${}_cA$ splits iff $A\in L_{\mathbb C}(E,F)$. Moreover, if ${}_cA$ splits, $A_2=\bar A_1$. In the sequel, if $A\in L_{\mathbb C}(E,F)$ we write ${}_cA=A\oplus\bar A$ and observe that the following diagrams commute
+\[
+\input{diagrams/II-04.tex}
+\qquad
+\input{diagrams/II-05.tex}
+\]
+The map $\bar A:\bar E\to\bar F$ is defined to be equal to $A$ on the underlying real vector spaces of $\bar E$ and $\bar F$.
+% Source PDF page 29; printed page 20
+\item If $A\in L_{\mathbb R}(E,F)$, then $\det_{\mathbb C}({}_cA)=\det_{\mathbb R}(A)$ (Exercise 2, \hyperref[sec:5:3]{\S3}). Hence if $A\in L_{\mathbb C}(E,F)$,
+\[
+\begin{split}
+\det_{\mathbb R}(A)&=\det_{\mathbb C}(A\oplus\bar A)=\det_{\mathbb C}A\,\det_{\mathbb C}\bar A\\
+&=\det_{\mathbb C}A\,\overline{\det_{\mathbb C}A}=|\det_{\mathbb C}A|^2=|\det_{\mathbb C}A|^2,
+\end{split}
+\]
+since $A=jAj^{-1}$. In particular, the real determinant of a complex linear map is always positive (this implies, for example, the orientability of complex manifolds).
+\end{enumerate}
+Next we turn to dual spaces. Recall from \hyperref[sec:5:3]{\S3} that ${}_cE'$ may be identified with $L_{\mathbb R}(E,\mathbb C)$. As described above we have complementary projection maps $P,\bar P:{}_cE'\to{}_cE'$ defined by
+\[
+P(\phi)=\tfrac12(\phi-i\phi.J),\quad\bar P(\phi)=\tfrac12(\phi+i\phi.J),\quad\phi\in{}_cE'.
+\]
+Observe that for all $\phi\in{}_cE'$, $P(\phi)\in E^*$, $\bar P(\phi)\in\bar E^*$. Hence we have the splitting
+\[
+{}_cE'=E^*\oplus\bar E^*.
+\]
+This splitting amounts to saying that every complex valued $\mathbb R$-linear form on $E$ has a unique decomposition as a sum of a complex linear and conjugate complex linear form.
+
+Let us see how conjugation\IndexMark{idx-131}{conjugation@Conjugation} fits into this picture. The conjugation map $S:E^*\to\bar E^*$, defined by taking conjugates of linear forms, is the restriction to $E^*$ of the conjugate operator $S:{}_cE'\to{}_cE'$ defined in \hyperref[sec:5:3]{\S3}. Hence we have the commutative diagram
+\[
+\input{diagrams/II-06.tex}
+\]
+The maps $j$, $\bar j$ are just inclusion maps. Notice that the conjugation map $S:E^*\to\bar E^*$ factors through $\overline{E^*}$ and compare with the previous diagram that we gave for conjugation on ${}_cE$.
+
+As described in \hyperref[sec:5:3]{\S3}, the dual pairing $E\times E'\to\mathbb R$ complexifies to the dual pairing $\langle\ ,\ \rangle:{}_cE\times{}_cE'\to\mathbb C$. We now investigate how this pairing behaves with respect to the factors $\mathcal E$, $\bar{\mathcal E}$ of ${}_cE$ and $E^*$, $\bar E^*$ of ${}_cE'$.
+% Source PDF page 30; printed page 21
+\begin{originaltheorem}{Proposition}{5.4.3}\FieldTarget{proposition:5.4.3}{5.4.3}
+The dual pairing $\langle\ ,\ \rangle:{}_cE\times{}_cE'\to\mathbb C$ induces
+\begin{enumerate}
+\item[1.] The zero pairing between $\mathcal E$ and $\bar E^*$.
+\item[$\bar1$.] The zero pairing between $\bar{\mathcal E}$ and $E^*$.
+\item[2.] A dual pairing of $\mathcal E$ and $E^*$.
+\item[$\bar2$.] A dual pairing of $\bar{\mathcal E}$ and $\bar E^*$.
+\end{enumerate}
+Moreover, the dual pairings between $\mathcal E$, $E^*$ and $\bar{\mathcal E}$, $\bar E^*$ are given explicitly by
+\[
+\langle j(e),\phi\rangle=\phi(e),\quad e\in E,\ \phi\in E^*
+\]
+\[
+\langle\bar j(e),\psi\rangle=\psi(e),\quad e\in E,\ \psi\in\bar E^*.
+\]
+\end{originaltheorem}
+\begin{proof}
+It is enough to verify statements 1, 2 as $\bar1$, $\bar2$ follow by conjugation. Suppose $X\in\mathcal E$, $\phi\in\bar E^*$. Then there exist $e\in E$, $\zeta\in E'$ such that $X=j(e)=\tfrac12(e\otimes1-Je\otimes i)$, $\phi=\bar j(e)=\tfrac12(\zeta\otimes1+\zeta.J\otimes i)$. Now $\langle\phi,X\rangle=\tfrac14(\langle\zeta,e\rangle-i^2\langle\zeta,J^2e\rangle+i\langle\zeta,Je\rangle-i\langle\zeta,Je\rangle)=0$, proving 1. If instead $\phi\in E^*$, there exists $\zeta\in E'$ such that $\phi=\tfrac12(\zeta\otimes1-\zeta.J\otimes i)$ and computing we find that
+\[
+\langle\phi,X\rangle=\tfrac12(\zeta(e)-i\zeta(Je))=\phi(e).
+\]
+\end{proof}
+We now use Proposition~\ref{proposition:5.4.3} to examine how complex linear maps and their duals behave under complexification and conjugation. If $A:E\to F$ is $\mathbb C$-linear, we have induced $\mathbb C$-linear maps $\bar A:\bar E\to\bar F$, $A^*:F^*\to E^*$, $\bar A^*:\bar F^*\to\bar E^*$ defined by
+\begin{enumerate}
+\item $\bar A(e)=A(e)$, $e\in\bar E$ (where, as real vector spaces, $\bar E=E$).
+\item $\langle A^*(f^*),e\rangle=f^*(A(e))$, $e\in E$, $f^*\in F^*$.
+\item $\langle\bar A^*(\bar f^*),e\rangle=\bar f^*(A(e))$, $e\in E$, $\bar f^*\in\bar F^*$.
+\end{enumerate}
+Since $A$ is assumed $\mathbb C$-linear, ${}_cA=\mathcal A\oplus\bar{\mathcal A}$, ${}_cA'=A^*\oplus\bar A^*$ and we have, by Proposition~\ref{proposition:5.4.3}, the following alternative characterizations of $\bar A$, $A^*$, $\bar A^*$.
+% Source PDF page 31; printed page 22
+\begin{enumerate}
+\item[$1'$.] $\bar A=\bar j^{-1}\bar{\mathcal A}\bar j$.
+\item[$2'$.] $\langle A^*(f^*),e\rangle=\langle\mathcal A(e),f^*\rangle$, $e\in\mathcal E$, $f^*\in F^*$.
+\item[$3'$.] $\langle\bar A^*(\bar f^*),\bar e\rangle=\langle\bar{\mathcal A}(\bar e),\bar f^*\rangle$, $\bar e\in\bar{\mathcal E}$, $\bar f^*\in\bar F^*$.
+\end{enumerate}
+The pairings here are all induced from the dual pairing of $E$ and $E'$. Observe how the definitions are now much more natural. In particular, $3'$ is just the conjugate of $2'$. This naturality, that allows us to commute conjugation with other operations such as contraction or tensor product, is one of the main advantages of working with the complexifications of $E$ and $E'$.
+
+Next we look at the exterior algebras of\IndexMark{idx-249}{exterior algebra of vector space@Exterior algebra of vector space!of complexification of complex vector space@of complexification of complex vector space} ${}_cE$ and ${}_cE'$. By Theorem~\ref{theorem:5.1.5} we have the canonical isomorphisms
+\[
+\mu:\Lambda^p{}_cE\longrightarrow\bigoplus_{r+s=p}\Lambda^r\mathcal E\otimes\Lambda^s\bar{\mathcal E}
+\]
+\[
+\mu:\Lambda^p{}_cE'\longrightarrow\bigoplus_{r+s=p}\Lambda^r E^*\otimes\Lambda^s\bar E^*.
+\]
+We set $\Lambda^{r,s}(E)=\mu^{-1}(\Lambda^r\mathcal E\otimes\Lambda^s\bar{\mathcal E})$; $\Lambda^{r,s}(E')=\mu^{-1}(\Lambda^r E^*\otimes\Lambda^s\bar E^*)$, $r,s\geq0$. For $p\geq0$ we therefore have the direct sum decomposition
+\[
+\Lambda^p{}_cE=\bigoplus_{r+s=p}\Lambda^{r,s}(E);\quad\Lambda^p{}_cE'=\bigoplus_{r+s=p}\Lambda^{r,s}(E').
+\]
+An element of $\Lambda^{r,s}(E)$ (resp. $\Lambda^{r,s}(E')$) is called a \emph{complex $(r,s)$-vector} (resp. a \emph{complex $(r,s)$-form}\IndexMark{idx-110}{complex r s vector form@Complex $(r,s)$-vector/form}).
+\paragraph{Properties of the exterior algebras of ${}_cE$ and ${}_cE'$.}
+For properties 1 and 2 below we suppose $\dim_{\mathbb C}(E)=m$.
+\begin{enumerate}
+\item $\Lambda^{r,s}(E)=0$ if either $r>m$ or $s>m$. Similarly for forms.
+\item $\Lambda^{2m}{}_cE=\Lambda^{m,m}(E)$. Similarly for forms.
+\item $\overline{\Lambda^{r,s}(E)}=\Lambda^{s,r}(E)$, $r,s\geq0$. A necessary condition for a complex $(r,s)$-vector to be real is $r=s$. Similarly for forms.
+\item If $X\in\Lambda^{r,s}(E)$, $Y\in\Lambda^{u,v}(E)$ then $X\wedge Y\in\Lambda^{r+u,s+v}(E)$, $r,s,u,v\geq0$. Similarly for forms.
+% Source PDF page 32; printed page 23
+\item The dual pairing $\Lambda^p{}_cE\times\Lambda^p{}_cE'\to\mathbb C$ restricts to a dual pairing $\Lambda^{r,s}(E)\times\Lambda^{r,s}(E')\to\mathbb C$ which is given on generators by
+\[
+\begin{split}
+&\langle X_1\wedge\cdots\wedge X_r\wedge Y_{\bar1}\wedge\cdots\wedge Y_{\bar s},\phi_1\wedge\cdots\wedge\phi_r\wedge\psi_{\bar1}\wedge\cdots\wedge\psi_{\bar s}\rangle\\
+&\quad=\langle X_1\wedge\cdots\wedge X_r,\phi_1\wedge\cdots\wedge\phi_r\rangle\langle Y_{\bar1}\wedge\cdots\wedge Y_{\bar s},\psi_{\bar1}\wedge\cdots\wedge\psi_{\bar s}\rangle,
+\end{split}
+\]
+where $X_j\in\mathcal E$, $Y_{\bar i}\in\bar{\mathcal E}$, $\phi_j\in E^*$, $\psi_{\bar i}\in\bar E^*$, $1\leq j\leq r$, $1\leq i\leq s$. If $r+s=u+v$ but $r\neq u$, then the induced pairing $\Lambda^{r,s}(E)\times\Lambda^{u,v}(E')\to\mathbb C$ is always zero (both properties follow from Proposition~\ref{proposition:5.4.3}).
+\item If $A\in L_{\mathbb C}(E,F)$, then $\Lambda^p{}_cA:\Lambda^p{}_cE\to\Lambda^p{}_cF$ induces maps $\Lambda^{r,s}(A):\Lambda^{r,s}(E)\to\Lambda^{r,s}(F)$, $r+s=p$. Similarly for forms.
+\item If $r\geq u$, $s\geq v$, we have the contraction\IndexMark{idx-134}{contraction@Contraction} operation
+\[
+\mathsf C:\Lambda^{r,s}(E)\otimes\Lambda^{u,v}(E')\longrightarrow\Lambda^{r-u,s-v}(E)
+\]
+obtained as the restriction of the contraction between $\Lambda^{r+s}{}_cE$ and $\Lambda^{u+v}{}_cE$. Similar remarks hold for the other contraction operations defined in \hyperref[sec:5:1]{\S1}.
+\end{enumerate}
+We conclude this section by looking at bases\IndexMark{idx-036}{basis for complexification of complex vector space@Basis for complexification of complex vector space} for the spaces we have been considering.
+
+Suppose $B=\{e_1,\ldots,e_m\}$ is a complex basis for $E$. Then $B$ is a complex basis for $\bar E$ and $B_R=\{e_1,Je_1,\ldots,e_m,Je_m\}$ is a real basis for $E$. The dual real basis $B_R'$ for $E'$ is given by
+\[
+\begin{split}
+B_R'&=\{e_1',(Je_1)',\ldots,e_m',(Je_m)'\}\\
+&=\{e_1',-Je_1',\ldots,e_m',-Je_m'\},\quad\text{since }(Je_j)'=-Je_j'.
+\end{split}
+\]
+We now define bases $\mathcal B$, $\bar{\mathcal B}$, $B^*$, $\bar B^*$ for $\mathcal E$, $\bar{\mathcal E}$, $E^*$, $\bar E^*$ respectively. Set
+\[
+\mathcal B=\{f_j\in\mathcal E:f_j=j(e_j),\ 1\leq j\leq m\}.
+\]
+\[
+\bar{\mathcal B}=\{f_{\bar j}\in\bar{\mathcal E}:f_{\bar j}=\bar j(e_j),\ 1\leq j\leq m\}
+\]
+% Source PDF page 33; printed page 24
+\[
+B^*=\{f_j^*\in E^*:f_j^*=e_j'-i(Je_j)'=e_j'+iJe_j',\ 1\leq j\leq m\}
+\]
+\[
+\bar B^*=\{f_{\bar j}^*\in\bar E^*:f_{\bar j}^*=e_j'+i(Je_j)'=e_j'-iJe_j',\ 1\leq j\leq m\}.
+\]
+Notice that $\bar f_j=f_{\bar j}$, $\overline{f_j^*}=f_{\bar j}^*$, $1\leq j\leq m$. Hence our notation for the bases $\mathcal B$, $\bar{\mathcal B}$ and $B^*$, $\bar B^*$ (such pairs of bases are called \emph{self-conjugate}). We see also that $\mathcal B$ and $B^*$ are dual bases (for the pairing $\langle\ ,\ \rangle$) since
+\[
+\langle f_j,f_j^*\rangle=\tfrac12\langle e_j-iJe_j,e_j'-i(Je_j)'\rangle=\tfrac12+\tfrac12=1
+\]
+\[
+\langle f_j,f_k^*\rangle=0,\quad j\neq k.
+\]
+Similarly, $\bar{\mathcal B}$ and $\bar B^*$ are dual bases.
+
+With respect to the self-conjugate basis\IndexMark{idx-543}{self conjugate basis@Self-conjugate basis} that we have constructed on ${}_cE$, every $X\in{}_cE$ may be written uniquely in the form
+\[
+X=\sum_{j=1}^m z^j f_j+\sum_{j=1}^m z^{\bar j}f_{\bar j}
+\]
+where $z^j$, $z^{\bar j}\in\mathbb C$. The coordinates $(z^1,\ldots,z^m,z^{\bar1},\ldots,z^{\bar m})$ are called \emph{self-conjugate} coordinates on ${}_cE$.
+
+Suppose that $F$ is another complex vector space with complex basis $C$ and associated bases $\mathcal C$, $\bar{\mathcal C}$, $C^*$, $\bar C^*$ as described above for the basis $B$ of $E$. Let $A\in L_{\mathbb C}(E,F)$ have matrix $[a_{ij}]$ with respect to the bases $B$ and $C$. Then
+\[
+[\bar A]=[\bar a_{ij}];\quad[A^*]=[a_{ji}];\quad[\bar A^*]=[\bar a_{ji}];\quad[\mathcal A]=[a_{ij}];\quad[\bar{\mathcal A}]=[\bar a_{ij}],
+\]
+where the matrices are computed relative to the appropriate bases associated to $B$ and $C$.
+
+Finally suppose that $X\in\Lambda^{r,s}(E)$, $\phi\in\Lambda^{r,s}(E')$. In coordinates we may write $X$ and $\phi$ uniquely in the form
+\[
+X=\sum_{I,J}X^{I\bar J}f_I f_{\bar J};\qquad\phi=\sum_{I,J}\phi_{I\bar J}f_I^*f_{\bar J}^*,
+\]
+where the summations are over all $r$-tuples $I=(i_1,\ldots,i_r)$ satisfying $1\leq i_1<\cdots<i_r\leq m$ and $s$-tuples $J=(j_1,\ldots,j_s)$ satisfying
+% Source PDF page 34; printed page 25
+$1\leq j_1<\cdots<j_s\leq m$ and we have used the abbreviated notations $f_If_{\bar J}$ and $f_I^*f_{\bar J}^*$ for $f_{i_1}\wedge\cdots\wedge f_{i_r}\wedge f_{\bar j_1}\wedge\cdots\wedge f_{\bar j_s}$ and $f_{i_1}^*\wedge\cdots\wedge f_{i_r}^*\wedge f_{\bar j_1}^*\wedge\cdots\wedge f_{\bar j_s}^*$ respectively.
+
+Notice that we use subscripts for coordinates of forms and superscripts for coordinates of vectors.
+\paragraph{Examples.}
+\begin{enumerate}
+\item Suppose $X$ and $\phi$ are as above. Then
+\[
+\bar\phi=\sum_{I,J}\overline{\phi_{I\bar J}}\,\overline{f_I^*}\,\overline{f_{\bar J}^*}
+=\sum_{I,J}\overline{\phi_{I\bar J}}f_{\bar I}^*f_J^*
+=(-1)^{rs}\sum_{I,J}\overline{\phi_{I\bar J}}f_J^*f_{\bar I}^*.
+\]
+A similar formula holds for $\bar X$.
+\item Same assumptions on $X$ and $\phi$. We have
+\[\langle X,\phi\rangle=\sum_{I,J}X^{I\bar J}\phi_{I\bar J}.\]
+\end{enumerate}
+\paragraph{Exercises.}
+\begin{enumerate}
+\item Show that ${}_cE^*\ (=({}_cE)^*)$ is naturally isomorphic to ${}_cE'$ and deduce that ${}_cE'\approx E^*\oplus\bar E^*$.
+\item Let $E$ be a real vector space, $F$ a complex vector space. Show that there is a natural operation of conjugation $S:{}_cE\otimes_{\mathbb C}F\to{}_cE\otimes_{\mathbb C}\bar F$ that is the identity if $E=\mathbb R$ and conjugation on ${}_cE$ if $F=\mathbb C$.
+\item Show that the set of complex structures on $\mathbb R^{2m}$ is in bijective correspondence with $\operatorname{GL}(2m,\mathbb R)/\operatorname{GL}(m,\mathbb C)$ (Here we take the standard complex structure on $\mathbb R^{2m}$ and regard $\operatorname{GL}(m,\mathbb C)$ as a subgroup of $\operatorname{GL}(2m,\mathbb R)$).
+\end{enumerate}
+\section{Generalities on complex vector bundles.}\label{sec:5:5}
+In this section we collect together a number of definitions and elementary facts about complex and holomorphic vector bundles. The reader should be familiar with \hyperref[sec:1:5]{\S5, Chapter 1}.
+% Source PDF page 35; printed page 26
+\paragraph{Complexification.}\IndexMark{idx-122}{complexification@Complexification!of complex vector bundle@of complex vector bundle} Let $E\xrightarrow{p}M$ be a (smooth) real vector bundle over the differential manifold $M$. The \emph{complexification} ${}_cE$ of $E$ is defined to be the complex vector bundle $E\otimes_{\mathbb R}\mathbb C$ over $M$. Notice that if $E$ has transition functions $\phi_{ij}:U_{ij}\to\operatorname{GL}(m,\mathbb R)$ then ${}_cE$ has transition functions ${}_c\phi_{ij}:U_{ij}\to\operatorname{GL}(m,\mathbb C)$, where ${}_c\phi_{ij}(x)=\phi_{ij}(x)\otimes_{\mathbb R}1$, $x\in U_{ij}$. We remark that all the results on complexification described in \hyperref[sec:5:3]{\S3} extend immediately to vector bundles and their sections. In particular, we have a conjugation operator $S$ defined on ${}_cE$ and $C^\infty({}_cE)$ and this operator commutes with tensor product operations and duals in the manner outlined in \hyperref[sec:5:3]{\S3}.
+
+\paragraph{Complex structures.} Let $E\xrightarrow{p}M$ be a (smooth) real vector bundle over the differential manifold $M$. A \emph{complex structure} $J$ on $E$ is a vector bundle\IndexMark{idx-114}{complex structure on vector bundle@Complex structure on vector bundle} morphism $J:E\to E$ satisfying $J^2=-I$. Equivalently, a complex structure on $E$ is a $C^\infty$ section $J$ of the vector bundle $L(E,E)$ over $M$ such that $J(x)^2=-I|_{E_x}$ for all $x\in M$ (see exercise 6, \hyperref[sec:1:5]{\S5, Chapter 1}). If $E$ is a complex vector bundle over $M$ then $E$ has a complex structure defined by scalar multiplication by $i$ in the fibres of $E$. Conversely, it is not hard to show that if $E$ has a complex structure then $E$ has the structure of a complex vector bundle (the proof uses Exercise 3, \hyperref[sec:5:4]{\S4}, together with the fact that the quotient map $\operatorname{GL}(2m,\mathbb R)\to\operatorname{GL}(2m,\mathbb R)/\operatorname{GL}(m,\mathbb C)$ admits local sections).
+\begin{originaltheorem}{Definition}{5.5.1}\FieldTarget{definition:5.5.1}{5.5.1}
+Let $M$ be a differential manifold. A complex structure $J$ on $\mathcal TM$ is called an \emph{almost complex structure} on $M$. We refer to $M$ as an \emph{almost complex manifold}\IndexMark{idx-005}{almost complex manifold@Almost complex manifold}.
+\end{originaltheorem}
+\paragraph{Example 1.} Let $M$ be a complex manifold with atlas $\{(U_i,\phi_i):i\in I\}$. The transition functions for the tangent bundle $\mathcal TM$ of $M$ are given by $\phi_{ij}=D(\phi_i\phi_j^{-1})\phi_j$. Since $\phi_i\phi_j^{-1}$ is biholomorphic, $\phi_{ij}:U_{ij}\to\operatorname{GL}(m,\mathbb C)$ for all $i,j\in I$. Hence $\mathcal TM$ has the structure of a complex vector bundle and so $M$ has the structure of an almost complex manifold.
+\paragraph{Holomorphic and anti-holomorphic vector bundles.} For the remainder of this section we shall suppose that $M$ is a complex manifold.
+\begin{originaltheorem}{Definition}{5.5.2}\FieldTarget{definition:5.5.2}{5.5.2}
+An $m$-dimensional \emph{holomorphic vector bundle}\IndexMark{idx-299}{holomorphic vector bundle@Holomorphic vector bundle} $E$ over $M$ consists of a complex manifold $E$ and holomorphic map $p:E\to M$ together with a family $\phi_i:E|U_i\to U_i\times\mathbb C^m$ of biholomorphic trivialisations of $E$.
+\end{originaltheorem}
+% Source PDF page 36; printed page 27
+\paragraph{Remarks.}
+\begin{enumerate}
+\item A holomorphic vector bundle necessarily has the structure of a complex vector bundle\IndexMark{idx-129}{conjugate@Conjugate!complex vector bundle@complex vector bundle}.
+\item An $m$-dimensional holomorphic vector bundle may equivalently be described by specifying a family $\phi_{ij}:U_{ij}\to\operatorname{GL}(m,\mathbb C)$ of transition functions such that $\phi_{ij}$ is holomorphic for all $i,j$. It is clear from the transition function description of holomorphic vector bundles that if $E$ is a holomorphic vector bundle then so is $E^*$ and any finite tensor product of tensor, exterior and symmetric powers of $E$ and $E^*$.
+\item We denote the space of holomorphic sections of $E$ by $\Omega(M,E)$ or just $\Omega(E)$, if $M$ is implicit from the context.
+\end{enumerate}
+\paragraph{Example 2.} Let $M$ be a complex manifold. Then $\mathcal TM$ has the structure of a holomorphic vector bundle.
+
+Suppose that $E$ is a holomorphic vector bundle with transition functions $\phi_{ij}:U_{ij}\to\operatorname{GL}(\mathbb C^m)\ (=\operatorname{GL}(m,\mathbb C))$. If $E$ has complex structure $J$ we let $\bar E$ denote the complex vector bundle over $M$ with complex structure $-J$. The transition functions for $\bar E$ are given by
+\[\bar\phi_{ij}:U_{ij}\to\operatorname{GL}(\overline{\mathbb C^m}),\]
+where $\bar\phi_{ij}(x)=\phi_{ij}(x)$, $x\in U_{ij}$, as real linear maps of $\mathbb C^m$. Obviously the $\bar\phi_{ij}$ are no longer holomorphic maps. Instead they are \emph{anti-holomorphic}. That is, in a local holomorphic coordinate system on $M$ we have $\partial\bar\phi_{ij}/\partial z_k=0$, $1\leq k\leq\dim(M)$.
+
+In the sequel we shall say that a complex vector bundle $E$ over $M$ is \emph{anti-holomorphic} if the transition functions for $E$ are anti-holomorphic or, equivalently, if $\bar E$ is a holomorphic vector bundle.
+\paragraph{Remark.} The dual\IndexMark{idx-214}{dual vector bundle@Dual vector bundle} of an anti-holomorphic vector bundle\IndexMark{idx-029}{anti holomorphic@Anti-holomorphic!vector bundle@vector bundle} is anti-holomorphic as are finite tensor, exterior and symmetric products.
+% Source PDF page 37; printed page 28
+\section{Tangent and cotangent bundles of a complex manifold.}\IndexMark{idx-116}{complex tangent cotangent bundle@Complex tangent (cotangent) bundle}\IndexMark{idx-141}{cotangent bundle@Cotangent bundle}\label{sec:5:6}
+In this section we show how the theory of \hyperref[sec:5:4]{\S4} can be applied to the study of the tangent and cotangent bundles of a complex manifold. Our results provide the framework we need for the construction of the global Cauchy--Riemann operators on an arbitrary complex manifold that we carry out in \hyperref[sec:5:7]{\S7}.
+
+We start this section by briefly indicating how the theory outlined in \hyperref[sec:5:2]{\S2} for differential manifolds can be ``complexified''.
+
+Let $M$ be a differential manifold with tangent bundle $\mathcal TM$. We call the complex vector bundles ${}_c\mathcal TM$ and ${}_c\mathcal T'M$ the \emph{complex tangent} and \emph{complex cotangent bundles} of $M$ respectively. Sections of the bundle $\Lambda^p{}_c\mathcal T'M$ are called complex differential $p$-forms\IndexMark{idx-101}{complex differential form@Complex differential form} on $M$, $p\geq0$. Exterior differentiation\IndexMark{idx-251}{exterior differentiation@Exterior differentiation} complexifies to give an operator on complex differential forms which we shall continue to denote by $d$. We note that this operator on complex differential forms obeys all the properties described in \hyperref[sec:5:3]{\S3}, or rather their complexified analogues, and in addition is a real\IndexMark{idx-174}{differential form@Differential form!complex@complex} operator:
+\[\overline{d\phi}=d\bar\phi,\quad\phi\in C^\infty(\Lambda^p{}_c\mathcal T'M),\ p\geq0.\]
+The Lie bracket\IndexMark{idx-369}{lie bracket@Lie bracket} complexifies to give a Lie bracket on $C^\infty({}_c\mathcal TM)$ defined by
+\[[X_1+iY_1,X_2+iY_2]=[X_1,X_2]-[Y_1,Y_2]+i([Y_1,X_2]+[X_1,Y_2]),\]
+where $X_1,X_2,Y_1,Y_2\in C^\infty(\mathcal TM)$. Similarly the Lie derivative\IndexMark{idx-372}{lie derivative@Lie derivative} complexifies to give a derivation $L_Z$ of the full tensor algebra of ${}_c\mathcal TM$ for all $Z\in C^\infty({}_c\mathcal TM)$. We remark that the Lie bracket and derivative that we have constructed are real operators, that is they commute with conjugation. For example, if $X,Y\in C^\infty({}_c\mathcal TM)$ we have $\overline{[X,Y]}=[\bar X,\bar Y]$.
+
+Suppose now that $M$ is an $m$-dimensional complex manifold with atlas $\{(U_i,\phi_i):i\in I\}$. We let $\phi_{ij}=D(\phi_i\phi_j^{-1})\phi_j:U_{ij}\to\operatorname{GL}(m,\mathbb C)$ denote the transition functions for the tangent bundle $\mathcal TM$ of $M$ and $J$ denote the complex structure on $\mathcal TM$. Applying the theory of \hyperref[sec:5:4]{\S4}, we see that the transition function ${}_c\phi_{ij}$ of ${}_c\mathcal TM$ splits as a sum $\theta_{ij}\oplus\bar\theta_{ij}$, where
+% Source PDF page 38; printed page 29
+$\theta_{ij}:U_{ij}\to\operatorname{GL}(\mathbb C^m)$ and $\bar\theta_{ij}:U_{ij}\to\operatorname{GL}(\overline{\mathbb C^m})$ (here we have identified ${}_c\mathbb C^m$ with $\mathbb C^m\oplus\overline{\mathbb C^m}$ using the maps $j$, $\bar j$ described in \hyperref[sec:5:4]{\S4}). Clearly $\theta_{ij}$ and $\bar\theta_{ij}$ are the transition functions for complex vector bundles on $M$ which we shall denote by $TM$ and $\overline{TM}$ respectively. By our construction we see that $TM$ and $\overline{TM}$ are complementary complex subbundles of ${}_c\mathcal TM$ and so we have ${}_c\mathcal TM=TM\oplus\overline{TM}$. Moreover $J=+i$ on $TM$, $J=-i$ on $\overline{TM}$ and $S(TM)=\overline{TM}$ (Hence the ``bar'' notation).
+
+We have the natural inclusion map $j:\mathbb C^m\to{}_c\mathbb C^m\approx\mathbb C^m\oplus\overline{\mathbb C^m}$ and projection $P:{}_c\mathbb C^m\to\mathbb C^m$. Since $\theta_{ij}=j\phi_{ij}P$ and $j$ and $P$ are complex linear the $\theta_{ij}$ are holomorphic and so $TM$ has the structure of a holomorphic vector bundle. Indeed the map $j$ induces a holomorphic vector bundle isomorphism between $\mathcal TM$ and $TM$. Similarly $\overline{TM}$ has the structure of an anti-holomorphic\IndexMark{idx-030}{anti holomorphic@Anti-holomorphic!tangent cotangent bundle@tangent (cotangent) bundle} vector bundle. We call $TM$ the \emph{holomorphic tangent bundle}\IndexMark{idx-297}{holomorphic tangent cotangent bundle@Holomorphic tangent (cotangent) bundle}\IndexMark{idx-600}{tangent bundle@Tangent bundle!holomorphic@holomorphic}\IndexMark{idx-602}{tangent bundle@Tangent bundle!anti holomorphic@anti-holomorphic} of $M$ and $\overline{TM}$ the \emph{anti-holomorphic tangent bundle} of $M$. We reserve these terms for the appropriate subbundles of ${}_c\mathcal TM$ and continue to refer to $\mathcal TM$ as the real tangent bundle of $M$ even though it is isomorphic to $TM$.
+
+Taking the standard basis of $\mathbb C^m$ we can easily compute the matrices of the transition functions $\theta_{ij}$, $\bar\theta_{ij}$. To simplify notation, set $\phi=\phi_i\phi_j^{-1}$, $\theta=\theta_{ij}$ and let $(z_1,\ldots,z_m)$ denote the coordinate system on $U_{ij}$ given by the chart $(U_j,\phi_j)$. We follow the basis notation given in \hyperref[sec:5:4]{\S4}. The $q$th. column of $[\theta(z)]$ is the vector
+\[
+\begin{split}
+\theta(z)(f_q)&=\theta(z)(\tfrac12(e_q\otimes1-Je_q\otimes i))\\
+&=\tfrac12({}_cD\phi_z(e_q\otimes1)-i\,{}_cD\phi_z(Je_q\otimes1))\\
+&=\tfrac12(\partial\phi/\partial x_q-i\partial\phi/\partial y_q)=\partial\phi/\partial z_q.
+\end{split}
+\]
+Hence $[\theta]=[\partial\phi_p/\partial z_q]$. Conjugating we have $[\bar\theta]=[\partial\bar\phi_p/\partial\bar z_q]=[\overline{\partial\phi_p/\partial z_q}]$. Notice that our expression for $[\theta]$ gives an alternative verification that $TM$ has the structure of a holomorphic vector bundle.
+
+Turning now to dual bundles we let $TM^*$ and $\overline{TM}^*$ denote the complex dual and conjugate complex dual bundles of $\mathcal TM$ respectively. We have the direct sum decomposition ${}_c\mathcal T'M=TM^*\oplus\overline{TM}^*$ and, as above, $TM^*$ is a holomorphic vector bundle, $\overline{TM}^*$ an anti-holomorphic vector
+% Source PDF page 39; printed page 30
+bundle. We call $TM^*$ and $\overline{TM}^*$ the \emph{holomorphic cotangent} and \emph{anti-holomorphic cotangent bundles}\IndexMark{idx-143}{cotangent bundle@Cotangent bundle!holomorphic anti holomorphic@holomorphic, anti-holomorphic} of $M$ respectively. The transition functions $\psi_{ij}$ for ${}_c\mathcal T'M$ are given by $\psi_{ij}={}_c\phi_{ji}'$ and so the transition functions for $TM^*$ and $\overline{TM}^*$ are given by $\theta_{ji}^*$ and $\bar\theta_{ji}^*$ respectively. In local coordinates, the matrices of $\theta_{ji}^*$ and $\bar\theta_{ji}^*$ are the transpose and conjugate transpose of the matrix $[\theta_{ji}]$ respectively.
+
+Next we consider the exterior algebras of ${}_c\mathcal TM$ and ${}_c\mathcal T'M$. Working with transition functions we may construct for $r,s\geq0$, $r+s=p$, subbundles $\Lambda^{r,s}(M)$ and $\Lambda^{r,s}(M)'$ of $\Lambda^p{}_c\mathcal TM$ and $\Lambda^p{}_c\mathcal T'M$ respectively such that
+\[\Lambda^p{}_c\mathcal TM=\bigoplus_{r+s=p}\Lambda^{r,s}(M);\quad\Lambda^p{}_c\mathcal T'M=\bigoplus_{r+s=p}\Lambda^{r,s}(M)'.\]
+We call $\Lambda^{r,s}(M)$ (resp. $\Lambda^{r,s}(M)'$) the bundle of $(r,s)$-vectors (resp. $(r,s)$-forms) on $M$. If $s=0$, we see that $\Lambda^{r,0}(M)\approx\Lambda^rTM$ and $\Lambda^{r,0}(M)'\approx\Lambda^rTM^*$. In particular, these bundles are holomorphic vector bundles on $M$, $r\geq0$.
+
+\paragraph{Notation.} For $r,s,p\geq0$, we let $C^p(M)$ (resp. $C_p(M)$) denote the space of $C^\infty$ sections of $\Lambda^p{}_c\mathcal T'M$ (resp. $\Lambda^p{}_c\mathcal TM$). (From now on we shall never need to refer to $C^p$ functions on $M$ unless $p=\infty$, when we write $C^\infty(M)$). We let $C^{r,s}(M)$ (resp. $C_{r,s}(M)$) denote the space of $C^\infty$ sections of $\Lambda^{r,s}(M)'$ (resp. $\Lambda^{r,s}(M)$). We let $\Omega^p(M)$ (resp. $\Omega_p(M)$) denote the space of holomorphic sections of $\Lambda^{p,0}(M)'$ (resp. $\Lambda^{p,0}(M)$).
+
+All the theory described in \hyperref[sec:5:4]{\S4} extends immediately to the exterior algebras of ${}_c\mathcal TM$ and ${}_c\mathcal T'M$ and the corresponding spaces of sections. In particular for $r,s\geq0$ we have a conjugation operator $S:\Lambda^{r,s}(M)'\to\Lambda^{s,r}(M)'$ and induced conjugation operator $S:C^{r,s}(M)\to C^{s,r}(M)$ (similarly for $(r,s)$-vectors). We usually write $S(\phi)=\bar\phi$, for $\phi$ a complex form or vector. Notice that a necessary condition for an $(r,s)$-form $\phi$ to be real---$\phi=\bar\phi$---is that $r=s$.
+
+Suppose that $N$ is a complex manifold and $f:M\to N$ is a holomorphic map with tangent map $\mathcal Tf:\mathcal TM\to\mathcal TN$. The complexification ${}_c\mathcal Tf$ of $\mathcal Tf$ splits as a sum $Tf\oplus\overline{Tf}:TM\oplus\overline{TM}\to TN\oplus\overline{TN}$. Similarly the complexification ${}_c\mathcal T'f$ of the cotangent map $\mathcal T'f:\mathcal T'N\to\mathcal T'M$ splits as a sum $Tf^*\oplus\overline{Tf}^*:TN^*\oplus\overline{TN}^*\to TM^*\oplus\overline{TM}^*$. Consequently, for $r,s\geq0$, the tangent and cotangent maps of $f$ induce vector bundle maps
+% Source PDF page 40; printed page 31
+\[\Lambda^{r,s}(f):\Lambda^{r,s}(M)\to\Lambda^{r,s}(N)\quad\text{and}\quad\Lambda^{r,s}(f)':\Lambda^{r,s}(N)'\to\Lambda^{r,s}(M)'.\]
+We now give a local description of complex $(r,s)$-vectors and forms in terms of the self-conjugate bases given in \hyperref[sec:5:4]{\S4}.
+
+Suppose $\phi\in C^{r,s}(M)$ and $(V,\zeta)$ is a chart on $M$. Then $\zeta_*\phi$ is an $(r,s)$-form on the open subset $\zeta(V)$ of $\mathbb C^m$. Set $U=\zeta(V)$ and $\eta=\zeta_*(\phi)$. As is conventional, we denote the standard basis of $\mathbb C^{m\prime}$ by $\{dx_1,dy_1,\ldots,dx_m,dy_m\}$. For $1\leq j\leq m$ we set $dz_j=dx_j+i\,dy_j\in\mathbb C^{m*}$, $d\bar z_j=dx_j-i\,dy_j\in\overline{\mathbb C}^{m*}$. Then $\{dz_j,d\bar z_j:1\leq j\leq m\}$ is the self-conjugate basis of $\mathbb C^{m*}\oplus\overline{\mathbb C}^{m*}$ described in \hyperref[sec:5:4]{\S4}. Moreover, if we think of $dz_j$, $d\bar z_j$ as defining sections of $T\mathbb C^{m*}$, $\overline{T\mathbb C^m}^*$ respectively, $\{dz_j:1\leq j\leq m\}$ and $\{d\bar z_j:1\leq j\leq m\}$ give bases for $C^\infty(TU^*)$ and $C^\infty(\overline{TU}^*)$ over $C^\infty(U)$ respectively. Hence we may write $\eta\in C^{r,s}(U)$ uniquely in the form
+\[\eta=\sum_{I,J}\eta_{I\bar J}\,dz_I\,d\bar z_J,\]
+where $\eta_{I\bar J}\in C^\infty(U)$ and the summation over the $r$-tuples $I$ and $s$-tuples $J$ is as described in \hyperref[sec:5:4]{\S4}. Next we turn to the local form for complex $(r,s)$-vectors. Identifying (complex) vector fields with (complex) derivations, it is clear that if we set $\partial/\partial z_j=\tfrac12(\partial/\partial x_j-i\partial/\partial y_j)$ and $\partial/\partial\bar z_j=\tfrac12(\partial/\partial x_j+i\partial/\partial y_j)$ then $\{\partial/\partial z_j:1\leq j\leq m\}$ and $\{\partial/\partial\bar z_j:1\leq j\leq m\}$ form bases over $C^\infty(U)$ for $C^\infty(TU)$ and $C^\infty(\overline{TU})$ respectively. Hence we may write $X\in C_{r,s}(U)$ uniquely in the form
+\[X=\sum_{I,J}X^{I\bar J}\,\partial/\partial z_I\,\partial/\partial\bar z_J,\]
+where $X^{I\bar J}\in C^\infty(U)$ and we again follow the notational conventions of \hyperref[sec:5:4]{\S4}.
+\paragraph{Remark.} Much of what we have done in this section goes over to almost complex manifolds. Thus if $M$ is an almost complex manifold with almost complex structure $J$ we may define $TM=\operatorname{Kernel}(J-i)$ and $\overline{TM}=\operatorname{Kernel}(J+i)$. $TM$ and $\overline{TM}$ are complementary complex subbundles of ${}_c\mathcal TM$ though now, of course, we can no longer say that $TM$ is a holomorphic vector bundle as we are not assuming that $M$ has a complex structure. In the next section we shall discuss the important question of when an almost complex structure on $M$ is associated to a complex structure on $M$.
+% Source PDF page 41; printed page 32
+\section{Calculus on a complex manifold.}\label{sec:5:7}
+Suppose that $M$ is an almost complex manifold with complex structure $J$ on $M$. We start this section by investigating the relationships, if any, between $J$ and exterior differentiation and Lie brackets.
+\begin{originaltheorem}{Definition}{5.7.1}\FieldTarget{definition:5.7.1}{5.7.1}
+The \emph{torsion} of the almost complex structure\IndexMark{idx-610}{torsion of almost complex structure@Torsion of almost complex structure} $J$ on $M$ is the tensor field\IndexMark{idx-367}{lie algebra of vector fields on complex manifold@Lie algebra of vector fields on complex manifold} $N\in C^\infty(\Lambda^2\mathcal T'M\otimes\mathcal TM)$ characterised by
+\[\langle N,X\wedge Y\rangle=[JX,JY]-[X,Y]-J[X,JY]-J[JX,Y],\]
+where $X,Y\in C^\infty(\mathcal TM)$.
+\end{originaltheorem}
+\paragraph{Remarks.}
+\begin{enumerate}
+\item As usual the reader should verify, using exercise 6, \hyperref[sec:1:5]{\S5, Chapter 1}, that $N$ is a well-defined tensor field on $M$.
+\item In the literature $N$ is usually defined as a section of $\otimes^2\mathcal T'M\otimes\mathcal TM$ and differs from the torsion field as we have defined it by a factor of 4.
+\item In the sequel we usually abbreviate an expression like $\langle N,X\wedge Y\rangle$ to $N(X\wedge Y)$ or just $N(X,Y)$. Note that the pairing is that between exterior and not tensor powers.
+\end{enumerate}
+The significance of the torsion of an almost complex structure may be gauged from
+\begin{originaltheorem}{Proposition}{5.7.2}\FieldTarget{proposition:5.7.2}{5.7.2}
+The spaces $C^\infty(TM)$, $C^\infty(\overline{TM})$ are Lie subalgebras of $C^\infty({}_c\mathcal TM)$ if and only if the torsion tensor field $N$ vanishes.
+\end{originaltheorem}
+\begin{proof}
+Let $U,V\in C^\infty(TM)$. We may write $U,V$ uniquely in the form $U=X-iJX$, $V=Y-iJY$, $X,Y\in C^\infty(\mathcal TM)$. Computing we see that $[U,V]=A+iB$, where $A=[X,Y]-[JX,JY]$, $B=[JX,Y]+[X,JY]$. Now $A+iB\in C^\infty(TM)$ iff $JB=A$. That is, iff $J[JX,Y]+J[X,JY]=[X,Y]-[JX,JY]$. But this is precisely the condition that the torsion field $N$ vanishes. Conjugating we see that if one of $C^\infty(TM)$, $C^\infty(\overline{TM})$ is a Lie subalgebra of $C^\infty({}_c\mathcal TM)$ so is the other.
+\end{proof}
+% Source PDF page 42; printed page 33
+\begin{originaltheorem}{Proposition}{5.7.3}\FieldTarget{proposition:5.7.3}{5.7.3}
+The torsion of the almost complex structure associated to a complex manifold vanishes.
+\end{originaltheorem}
+\begin{proof}
+Choose local analytic coordinates and compute $N$ on the basis vector fields $\partial/\partial x_j$, $\partial/\partial y_k$, $1\leq j,k\leq m$. The Lie bracket of any pair of these constant fields vanishes and since $J(\partial/\partial x_j)=\partial/\partial y_j$, we see that $N$ must vanish identically.
+\end{proof}
+\paragraph{Remark.} It is true, by a fundamental theorem of Newlander and Nirenberg, that if the torsion of an almost complex structure on $M$ vanishes\IndexMark{idx-611}{torsion of almost complex structure@Torsion of almost complex structure!vanishes if and only if complex structure@vanishes if and only if complex structure} then the almost complex structure is associated to a complex structure on $M$. We say that the almost complex structure is \emph{integrable}. This result is not difficult to prove if $M$ is real analytic (a proof may be found in Kobayashi and Nomizu \cite[Appendix 8]{bib:II:kobayashi-s-and-nomizu-k:2}). For the general case we refer to H\"ormander \cite{bib:II:hormander-l:1}. Although we shall not make any systematic study of almost complex manifolds in these notes we should point out that there are topological obstructions on a differential manifold for it to admit an almost complex structure and on an almost complex manifold for it to admit an integrable complex structure. Specifically, a theorem of Hirzebruch and Hopf \cite{bib:II:hirzebruch-f-and-hopf-h:1} gives necessary and sufficient conditions on a compact, oriented 4-manifold for it to admit an almost complex structure. These conditions imply, for example, that $S^4$ does not admit an almost complex structure and so cannot be given the structure of a complex manifold. Borel and Serre \cite{bib:II:borel-a-and-serre-j-p:1} prove that $S^n$ can admit an almost complex structure only if $n=2,4,6$. Of course, if $n=2$ we obtain the Riemann sphere. This leaves the case $n=6$. It is well known that $S^6$ admits an almost complex structure (see Kobayashi and Nomizu \cite[page 139]{bib:II:kobayashi-s-and-nomizu-k:2}) which is, however, not integrable. As yet it is unknown whether $S^6$ admits an integrable almost complex structure. Results of Van der Ven \cite{bib:II:van-der-ven-a:1} show that there are topological obstructions to the existence of integrable almost complex structures on an almost complex manifold. For a useful survey of results on 4-manifolds see Pittie \cite{bib:II:pittie-h:1}.
+\begin{originaltheorem}{Theorem}{5.7.4}\FieldTarget{theorem:5.7.4}{5.7.4}
+Let $M$ be a complex manifold. Then for $r,s\geq0$ we have
+\[d(C^{r,s}(M))\subset C^{r+1,s}(M)+C^{r,s+1}(M).\]
+\end{originaltheorem}
+% Source PDF page 43; printed page 34
+\begin{proof}
+Let $\phi\in C^p(M)$ and $X_0,\ldots,X_p\in C^\infty({}_c\mathcal TM)$. Then, as in \hyperref[sec:5:2]{\S2}, we have
+\[
+\begin{split}
+\langle d\phi,X_0\wedge\cdots\wedge X_p\rangle
+&=\sum_{i=0}^p(-1)^iL_{X_i}\langle\phi,X_0\wedge\cdots\wedge\widehat X_i\wedge\cdots\wedge X_p\rangle\\
+&\quad+\sum_{0\leq i<j}(-1)^{i+j}\langle\phi,[X_i,X_j]\wedge X_0\wedge\cdots\wedge\widehat X_i\wedge\cdots\wedge\widehat X_j\wedge\cdots\wedge\widehat X_p\rangle.
+\end{split}
+\]
+Now suppose $p=r+s$, $\phi$ is an $(r,s)$-form and each $X_j$ lies in $C^\infty(TM)$ or $C^\infty(\overline{TM})$. By Proposition~\ref{proposition:5.7.2} we see that if more than $(r+1)$ of the $X_j$'s lie in $C^\infty(TM)$ or more than $(s+1)$ of the $X_j$'s lie in $C^\infty(\overline{TM})$ then the right hand side of the above expression vanishes (remember that the pairings between $TM$, $\overline{TM}^*$ and $TM$, $\overline{TM}^*$ are zero).
+\end{proof}
+\paragraph{Remark.} If $M$ is an almost complex manifold it is easily seen that $d(C^{r,s}(M))\subset C^{p+2,q-1}(M)+C^{p+1,q}(M)+C^{p,q+1}(M)+C^{p-1,q+2}(M)$. A straightforward calculation shows that the result of Theorem~\ref{theorem:5.7.4} holds if and only if the torsion of the almost complex structure vanishes. See Kobayashi and Nomizu \cite{bib:II:kobayashi-s-and-nomizu-k:2} for further details.
+
+It follows from\IndexMark{idx-215}{dbar operator@$\bar\partial$-operator} Theorem~\ref{theorem:5.7.4} that if $M$ is a complex manifold we can define for $r,s\geq0$ operators\IndexMark{idx-216}{dbar operator@$\bar\partial$-operator} $\partial:C^{r,s}(M)\to C^{r+1,s}(M)$ and $\bar\partial:C^{r,s}(M)\to C^{r,s+1}(M)$ characterised by the identity $d=\partial+\bar\partial$. We remark also that for $p\geq0$, $\partial$, $\bar\partial$ induce operators $\partial,\bar\partial:C^p(M)\to C^{p+1}(M)$ satisfying $d=\partial+\bar\partial$.
+\paragraph{Properties of the operators $\partial$, $\bar\partial$.}
+\begin{enumerate}
+\item $\partial^2=0$, $\bar\partial^2=0$, $\partial\bar\partial+\bar\partial\partial=0$.
+\item $\partial$, $\bar\partial$ are conjugate operators: $\bar\partial\phi=\overline{\partial\bar\phi}$, $\phi\in C^p(M)$.
+\item $\partial(\phi\wedge\zeta)=\partial\phi\wedge\zeta+(-1)^p\phi\wedge\partial\zeta$, $\phi\in C^p(M)$, $\zeta\in C^q(M)$. Similarly for $\bar\partial$.
+\item If $f:M\to N$ is holomorphic and $\phi\in C^p(N)$ then $f^*\partial\phi=\partial(f^*\phi)$. Similarly for $\bar\partial$.
+\item In local coordinates, suppose $\phi=\sum_{I,J}\phi_{I\bar J}dz_I\,d\bar z_J$. Then
+\[\partial\phi=\sum_{j=1}^m\sum_{I,J}\frac{\partial\phi_{I\bar J}}{\partial z_j}dz_j\,dz_I\,d\bar z_J\quad\text{and}\quad\bar\partial\phi=\sum_{j=1}^m\sum_{I,J}\frac{\partial\phi_{I\bar J}}{\partial\bar z_j}d\bar z_j\,dz_I\,d\bar z_J.\]
+% Source PDF page 44; printed page 35
+\item For $p\geq0$, we have $\Omega^p(M)=\operatorname{Kernel}\bar\partial:C^{p,0}(M)\to C^{p,1}(M)$. In particular, $A(M)=\operatorname{Kernel}\bar\partial:C^\infty(M)\to C^{0,1}(M)$.
+\end{enumerate}
+Properties 1--4 follow immediately from the corresponding properties of $d$ together with Theorem~\ref{theorem:5.7.4}. For property 5 we use the local identity $df=\partial f/\partial z_j\,dz_j+\partial f/\partial\bar z_j\,d\bar z_j$, $f$ a $C^\infty$ function. Property 6 is immediate from Property 5.
+
+We see from Properties 5 and 6 that the operator $\bar\partial$ is our required generalisation and globalization of the Cauchy--Riemann equations discussed in Chapter~\ref{ch:2}. We observe that for $p\geq0$ we have the sequences
+\[\Omega^p(M)\hookrightarrow C^{p,0}(M)\xrightarrow{\bar\partial}C^{p,1}(M)\xrightarrow{\bar\partial}\cdots\xrightarrow{\bar\partial}C^{p,m}(M)\to0.\]
+Since $\bar\partial^2=0$, we may for $p,q\geq0$ define the vector spaces
+\[H_{\bar\partial}^{p,q}(M)=(\operatorname{Kernel}\bar\partial:C^{p,q}(M)\to C^{p,q+1}(M))/\bar\partial C^{p,q-1}(M).\]
+These spaces measure the degree of unsolvability of our generalised Cauchy--Riemann equations. Like the de Rham groups they turn out to be important invariants though now they reflect analytic rather than topological properties of a complex manifold. We return to these matters in the next Chapter.
+\paragraph{Example 1.} Let $\alpha\in\Omega^p(M)$, $\beta\in\Omega^q(M)$. Then $\alpha\wedge\beta\in\Omega^{p+q}(M)$. Indeed by properties 3 and 6 we have $\bar\partial(\alpha\wedge\beta)=\bar\partial\alpha\wedge\beta+(-1)^p\alpha\wedge\bar\partial\beta=0$. Hence $\alpha\wedge\beta\in\Omega^{p+q}(M)$.
+
+We conclude this section by extending $\bar\partial$ to holomorphic vector bundle valued differential forms. Suppose that $E$ is a holomorphic vector bundle on $M$. For $r,s\geq0$, we let $\Lambda^{r,s}(M,E)'$ denote the complex vector bundle $\Lambda^{r,s}(M)'\otimes E$ and $C^{r,s}(M,E)$ denote the space of $C^\infty$ sections of $\Lambda^{r,s}(M)'\otimes E$. We claim that for $r,s\geq0$, $\bar\partial$ extends to a map
+\[\bar\partial_E:C^{r,s}(M,E)\to C^{r,s+1}(M,E).\]
+To construct $\bar\partial_E$ we work locally. Suppose that $\theta_U:E|U\to U\times\mathbb C^p$ is a trivialisation of $E$ over the open subset $U$ of $M$ and that we are given
+% Source PDF page 45; printed page 36
+ a complex analytic coordinate system on $U$. Given $s\in C^{r,s}(M,E)$, set $s_U=s|U$. We have
+\[s_U^a=\sum_{I,J}s_{U,I\bar J}^a\,dz_I\,d\bar z_J,\quad a=1,\ldots,p,\]
+where $s_U=(s_U^1,\ldots,s_U^p):U\to\Lambda^{r,s}(\mathbb C^m)'\otimes\mathbb C^p$. We define $\bar\partial_Es$ by
+\[(\bar\partial_Es)_U^a=\sum_{j=1}^m\sum_{I,J}\frac{\partial s_{U,I\bar J}^a}{\partial\bar z_j}d\bar z_j\,dz_I\,d\bar z_J,\quad a=1,\ldots,p.\]
+We must check that our definition of $\bar\partial_Es$ does not depend on our choices of trivialisation of $E$. Suppose that $\theta_V:E|V\to V\times\mathbb C^p$ is another trivialisation of $E$ and let $\theta_{UV}$ denote the transition function associated to the trivialisations $\theta_U$ and $\theta_V$. On $U\cap V$ we have
+\[s_U=\theta_{UV}s_V.\]
+Since $\theta_{UV}$ is analytic we see that $\partial\theta_{UV}/\partial\bar z_j=0$, $j=1,\ldots,m$, and so $(\bar\partial_Es)_U=\theta_{UV}(\bar\partial_Es)_V$. Hence $\bar\partial_Es$ is a well defined section of $\Lambda^{r,s+1}(M,E)'$.
+
+If $E$ is an anti-holomorphic vector bundle on $M$ we may similarly define an operator $\partial_E:C^{r,s}(M,E)\to C^{r+1,s}(M,E)$, $r,s\geq0$. Indeed, using conjugation we may define $\partial_E\phi=\overline{(\bar\partial_{\bar E}\bar\phi)}$, $\phi\in C^{r,s}(M,E)$, where conjugation is induced from the conjugation map $S:\Lambda^{r,s}(M,E)'\to\Lambda^{s,r}(M,\bar E)'$ (see Exercise 2, \hyperref[sec:5:4]{\S4}).
+
+In the sequel we usually drop the subscripts from $\partial_E$ and $\bar\partial_E$ and just write $\partial$ and $\bar\partial$.
+\paragraph{Properties of the operators $\partial$, $\bar\partial$ on bundle valued forms.}\IndexMark{idx-217}{dbar operator@$\bar\partial$-operator!for holomorphic vector bundle valued forms@for holomorphic vector bundle valued forms} We shall only state properties for $\bar\partial$; those for $\partial$ follow by conjugation. In what follows we assume that $E$ is a holomorphic vector bundle on $M$.
+\begin{enumerate}
+\item $\bar\partial^2=0$.
+\item $\operatorname{Kernel}\bar\partial:C^{p,0}(M,E)\to C^{p,1}(M,E)$ is the space $\Omega^p(M,E)$ of holomorphic sections of $\Lambda^pTM^*\otimes E$. In particular, $\operatorname{Kernel}\bar\partial:C^\infty(E)\to C^{0,1}(M,E)$ is the space $\Omega(M,E)$ of holomorphic sections of $E$.
+\item $\bar\partial$ commutes with contractions on finite tensor products of tensor, exterior and symmetric powers of $E$ and $E^*$. For example, if
+% Source PDF page 46; printed page 37
+$\phi\in C^{r,s}(M,\Lambda^pE\otimes\Lambda^qE^*)$ and $p>q$, $\mathsf C(\bar\partial\phi)=\bar\partial(\mathsf C\phi)\in C^{r,s}(M,\Lambda^{p-q}E)$. Here $\mathsf C$ is induced from the contraction $\mathsf C:\Lambda^pE\otimes\Lambda^qE^*\to\Lambda^{p-q}E$.
+\item $\bar\partial$ commutes with contractions between the bundles $\Lambda^{r,s}(M)'$ and exterior powers of the holomorphic tangent bundle of $M$. That is, if $\phi\in C^{r,s}(M,\Lambda^pTM)$ and $r\geq p$, we have $\bar\partial(\mathsf C\phi)=\mathsf C(\bar\partial\phi)\in C^{r-p,s}(M)$.
+\end{enumerate}
+These properties all follow immediately from our local description of $\bar\partial$.
+
+As a consequence of property 1 we have for $p\geq0$ the sequences
+\[\Omega^p(M,E)\hookrightarrow C^{p,0}(M,E)\xrightarrow{\bar\partial}C^{p,1}(M,E)\xrightarrow{\bar\partial}\cdots\xrightarrow{\bar\partial}C^{p,m}(M,E)\to0\]
+and the corresponding vector spaces
+\[H_{\bar\partial}^{p,q}(M,E)=(\operatorname{Kernel}\bar\partial:C^{p,q}(M,E)\to C^{p,q+1}(M,E))/\bar\partial C^{p,q-1}(M,E).\]
+\paragraph{Examples.}
+\begin{enumerate}[start=2]
+\item Let $E$ be a holomorphic vector bundle and $J\in C^\infty(L(E,E))$ denote the complex structure on $E$. Then $\bar\partial J=0$ and so $J$ is a holomorphic section of $L(E,E)$. That $\bar\partial J=0$ is a consequence of the fact that locally $J$ is a constant section. For the same reason $\bar\partial I=0$, where $I$ is the identity section.
+\item Let $X\in C^\infty(TM)$, $Y\in C^\infty(\overline{TM})$. Then $[X,Y]=\mathsf C_X\partial Y-\mathsf C_Y\bar\partial X$. We shall give an invariant proof of this identity using property 4 above. Let $f\in C^\infty(M)$, then
+\[
+\begin{split}
+L_{[X,Y]}f&=\langle d\langle df,Y\rangle,X\rangle-\langle d\langle df,X\rangle,Y\rangle\\
+&=\langle\partial\langle\bar\partial f,Y\rangle,X\rangle-\langle\bar\partial\langle\partial f,X\rangle,Y\rangle\\
+&=(\mathsf C_X\mathsf C_Y\partial\bar\partial f-\mathsf C_Y\mathsf C_X\bar\partial\partial f)+(\langle\bar\partial f,\mathsf C_X\partial Y\rangle-\langle\partial f,\mathsf C_Y\bar\partial X\rangle)\\
+&=\langle df,\mathsf C_X\partial Y-\mathsf C_Y\bar\partial X\rangle,\quad\text{proving our assertion.}
+\end{split}
+\]
+\end{enumerate}
+\paragraph{Exercises.}
+\begin{enumerate}
+\item Starting with the local description of $\bar\partial$ (property 5), prove directly that if $f$ is a holomorphic map then $\bar\partial(f^*\phi)=f^*(\bar\partial\phi)$ (property 4).
+% Source PDF page 47; printed page 38
+Deduce that $\bar\partial$ may be defined invariantly on complex differential forms on a complex manifold.
+\item Let $E$ be a holomorphic vector bundle on $M$. Suppose $s\in C^\infty(E)$, $f\in C^\infty(M)$. Prove $\bar\partial(fs)=\bar\partial f\otimes s+f\bar\partial s$. More generally, if $\phi\in C^{r,s}(M)$, prove that $\bar\partial(\phi\otimes s)=\bar\partial\phi\otimes s+(-1)^{r+s}\phi\wedge\bar\partial s$.
+\end{enumerate}
+\section{The Dolbeault--Grothendieck Lemma.}\IndexMark{idx-208}{dolbeault grothendieck lemma@Dolbeault--Grothendieck lemma}\label{sec:5:8}
+This section is devoted to the proof of an important result that plays the same r\^ole in the theory of complex manifolds as the Poincar\'e lemma does in the cohomology of differential manifolds.
+\begin{originaltheorem}{Theorem}{5.8.1}\FieldTarget{theorem:5.8.1}{5.8.1}
+(Dolbeault--Grothendieck lemma). Let $D$ be an open polydisc in $\mathbb C^n$ and suppose that $f\in C^{p,q+1}(D)$ satisfies $\bar\partial f=0$ ($p,q\geq0$). Then if $W$ is any relatively compact open subset of $D$ there exists $u\in C^{p,q}(W)$ such that $\bar\partial u=f$ on $W$.
+\end{originaltheorem}
+\begin{proof}
+The theorem is proved inductively. The $k$th. step of the induction is to prove the theorem true if $f$ is independent of $d\bar z_{k+1},\ldots,d\bar z_n$. The theorem is trivially true when $k=0$ and the theorem is obtained for $k=n$.
+
+Let us assume that the theorem has been proved for $k-1$ and that $f$ does not involve $d\bar z_{k+1},\ldots,d\bar z_n$. We may write $f$ uniquely in the form
+\[f=d\bar z_k\wedge g+h,\]
+where $g\in C^{p,q}(D)$, $h\in C^{p,q+1}(D)$ and $g$ and $h$ are independent of $d\bar z_k,\ldots,d\bar z_n$. Set $g=\sum_{I,J}g_{I\bar J}dz_I\,d\bar z_J$. Since $\bar\partial f=0$, we have
+\[\partial g_{I\bar J}/\partial\bar z_j=0,\quad j>k.\tag{A}\label{eq:5:a:1}\]
+We now find a solution $G_{I\bar J}$ of the equation
+\[\partial G_{I\bar J}/\partial\bar z_k=g_{I\bar J}.\]
+To do this suppose $D=\prod_{j=1}^nD_j$, $D_j\subset\mathbb C$, and choose $\phi\in C_c^\infty(D_k)$ such that $\phi(z_k)=1$ on a neighbourhood $W'$ of $\bar W$. Define
+% Source PDF page 48; printed page 39
+\[
+\begin{split}
+G_{I\bar J}(z)&=(2\pi i)^{-1}\int_{\mathbb C}(t-z_k)^{-1}\phi(t)g_{I\bar J}(z_1,\ldots,z_{k-1},t,z_{k+1},\ldots,z_n)\,dt\,d\bar t\\
+&=-(2\pi i)^{-1}\int_{\mathbb C}t^{-1}\phi(z_k-t)g_{I\bar J}(z_1,\ldots,z_{k-1},t,z_{k+1},\ldots,z_n)\,dt\,d\bar t.
+\end{split}
+\]
+The second expression for $G_{I\bar J}$ implies that $G_{I\bar J}\in C^\infty(D)$. Theorem~\ref{theorem:A1.6} implies that $\partial G_{I\bar J}/\partial\bar z_k=g_{I\bar J}$ on $W'$ and, by \eqref{eq:5:a:1}, that $\partial G_{I\bar J}/\partial\bar z_j=0$, $j>k$. Set $G=\sum_{I,J}G_{I\bar J}dz_I\,d\bar z_J$. Then on $W'$ we have $\bar\partial G=d\bar z_k\wedge g+h_1$, where $h_1$ is independent of $d\bar z_k,\ldots,d\bar z_n$. Hence, on $W'$, $h-h_1=f-\bar\partial G$ is independent of $d\bar z_k,\ldots,d\bar z_n$. Since $\bar\partial(h-h_1)=0$, we may apply the inductive hypothesis to find $v\in C^{p,q}(W)$ such that $\bar\partial v=f-\bar\partial G$ on $W$. Setting $u=v+g$, we have $\bar\partial u=f$ on $W$.
+\end{proof}
+\paragraph{Remark.} It is easy to see, using bump functions, that we may construct $u\in C^{p,q}(D)$ satisfying $\bar\partial u=f$ on $W$.
+
+Theorem~\ref{theorem:5.8.1} is sufficient for the development of cohomology theory in Chapter~\ref{ch:6}. However, we shall now prove a stronger version of the Dolbeault--Grothendieck Lemma and obtain a particular case of a result that holds on arbitrary Stein manifolds and to which we shall return in Chapter 11.
+\begin{originaltheorem}{Theorem}{5.8.2}\FieldTarget{theorem:5.8.2}{5.8.2}
+Let $D$ be an open, not necessarily relatively compact, polydisc in $\mathbb C^n$ and suppose $f\in C^{p,q+1}(D)$ satisfies $\bar\partial f=0$. Then there exists $u\in C^{p,q}(D)$ such that $\bar\partial u=f$. Here we assume $p,q\geq0$.
+\end{originaltheorem}
+\begin{proof}
+We divide the proof into two cases: $q=0$, $q\geq1$.
+\paragraph{Case 1.} $q=0$. Choose a sequence $D_j$, $j\geq1$, of relatively compact open polydiscs in $\mathbb C^n$ which have the same centres as $D$ and which satisfy:
+\[\text{A.}\quad\bar D_j\subset D_{j+1},\quad j\geq1\quad\text{and}\quad\text{B.}\quad\bigcup_{j\geq1}D_j=D.\]
+If $u=\sum u_Idz_I\in C^{p,0}(D)$ and $K\subset D$, we define $|u|_K=\max_I\|u_I\|_K$.
+
+We shall construct inductively a sequence $u_j\in C^{p,0}(D)$ satisfying
+\begin{enumerate}
+\item $\bar\partial u_j=f$ on some open neighbourhood of $\bar D_j$, $j\geq1$.
+\item $|u_{j+1}-u_j|_{D_j}<2^{-j}$, $j\geq1$.
+\end{enumerate}
+% Source PDF page 49; printed page 40
+The existence of $u_1$ follows from Theorem~\ref{theorem:5.8.1}. Assume that we have constructed $u_1,\ldots,u_k$ satisfying the conditions above. By Theorem~\ref{theorem:5.8.1}, there exists $u'_{k+1}\in C^{p,0}(D)$ such that $\bar\partial u'_{k+1}=f$ on an open neighbourhood of $\bar D_{k+1}$. The difference $u'_{k+1}-u_k$ is holomorphic on an open neighbourhood of $\bar D_k$ since $\bar\partial(u'_{k+1}-u_k)=f-f=0$ on an open neighbourhood of $\bar D_k$. Hence, if we take Taylor's expansion of the coefficients of $u'_{k+1}-u_k$ at the centre of $D$, we may find $P\in\Omega^p(D)$, with polynomial coefficients, such that
+\[|u'_{k+1}-u_k-P|_{\bar D_k}<2^{-k}.\]
+Now we define $u_{k+1}=u'_{k+1}-P$ and see that $u_{k+1}$ satisfies the required conditions and so the inductive step is completed.
+
+The sequence $(u_k)$ has coefficients which converge uniformly on each $\bar D_k$ and so $(u_k)$ converges to a continuous $(p,0)$-form, $u$. Now $u=u_1+\sum_{j=1}^\infty(u_{j+1}-u_j)$ and only finitely many of the differences $u_{j+1}-u_j$ are not holomorphic on any given $D_k$. Hence, by Corollary~\ref{corollary:2.1.8}, $u$ must be $C^\infty$ on each $D_k$ and so $u\in C^{p,0}(D)$. Finally, on each $D_k$, $u=u_k+a_k$, $a_k\in A(D_k)$, and so $\bar\partial u=\bar\partial u_k=f$ on each $D_k$. Hence $\bar\partial u=f$ on $D$.
+\paragraph{Case 2.} $q\geq1$. We choose a sequence $D_j$ of polydiscs in $\mathbb C^n$ satisfying the conditions of Case 1. We shall construct inductively a sequence $u_j\in C^{p,q}(D)$ such that
+\begin{enumerate}
+\item $f=\bar\partial u_j$ on some open neighbourhood of $\bar D_j$, $j\geq1$.
+\item $u_{j+1}|D_j=u_j$, $j\geq1$.
+\end{enumerate}
+The existence of $u_1$ follows from Theorem~\ref{theorem:5.8.1}. Suppose we have constructed $u_1,\ldots,u_k$ satisfying the conditions above. By Theorem~\ref{theorem:5.8.1}, there exists $u'_{k+1}\in C^{p,q}(D)$ such that $\bar\partial u'_{k+1}=f$ on some open neighbourhood of $\bar D_{k+1}$. Now $\bar\partial(u'_{k+1}-u_k)=0$ on some open neighbourhood of $\bar D_k$ and so, since $q\geq1$, another application of Theorem~\ref{theorem:5.8.1} implies that there exists $\phi\in C^{p,q-1}(D)$ such that $u'_{k+1}-u_k=\bar\partial\phi$ on some open neighbourhood $W$ of $D_k$. Define $u_{k+1}=u'_{k+1}-\bar\partial\phi$. Then, since $\bar\partial^2=0$, we see that $\bar\partial u_{k+1}=\bar\partial u'_{k+1}=f$ on an open neighbourhood of $\bar D_{k+1}$ and $u_{k+1}|\bar D_k=u'_{k+1}-\bar\partial\phi=u_k$. This completes the inductive step and we now define $u\in C^{p,q}(D)$ by $u|D_j=u_j$, $j\geq1$. Clearly $\bar\partial u=f$.
+\end{proof}
+% Source PDF page 50; printed page 41
+\paragraph{Remarks.} Both Theorems~\ref{theorem:5.8.1} and \ref{theorem:5.8.2} hold for $\mathbb C^m$-valued forms. The proofs are identical to those given above.
+\begin{originaltheorem}{Corollary}{5.8.3}\FieldTarget{corollary:5.8.3}{5.8.3}
+Every open polydisc in $\mathbb C^n$ is a Cousin I, II, A and B domain. In particular, $\mathbb C^n$ is a Cousin I, II, A and B domain.
+\end{originaltheorem}
+\begin{proof} Propositions~\ref{proposition:2.7.1} and \ref{proposition:2.7.3}. \end{proof}
+\begin{originaltheorem}{Corollary}{5.8.4}\FieldTarget{corollary:5.8.4}{5.8.4}
+Every holomorphic line bundle on an open polydisc in $\mathbb C^n$ is holomorphically trivial.
+\end{originaltheorem}
+\begin{proof}
+Let $\phi_{ij}:U_{ij}\to\mathbb C^\bullet$ be the transition functions for the holomorphic line bundle $L$ on the polydisc $D$. Then $\phi_{ij}\cdot\phi_{jk}=\phi_{ik}$ for all $i,j,k$ and so $\{\phi_{ij}\}$ is the data for a Cousin B problem\IndexMark{idx-153}{cousin problems@Cousin problems}\IndexMark{idx-157}{cousin problem on polydiscs@Cousin problem on polydiscs} on $D$. By Corollary~\ref{corollary:5.8.3}, there exists $a_i\in A^*(U_i)$ such that $\phi_{ij}=a_j/a_i$. But, by \hyperref[sec:1:5]{\S5 of Chapter 1}, this implies that $L$ is holomorphically trivial.
+\end{proof}
+\paragraph{Exercises.}
+\begin{enumerate}
+\item Suppose $p,q\geq0$ and $m>1$. Show that if $f\in C_c^{p,q+1}(\mathbb C^m)$ and $\bar\partial f=0$ then there exists $u\in C_c^{p,q}(\mathbb C^m)$ such that $\bar\partial u=f$.
+\item Show that the open Euclidean disc $E(z;r)$ in $\mathbb C^n$ is a Cousin I, II, A and B domain (Use Exercise 1, \hyperref[sec:2:1]{\S1, Chapter 2}).
+\end{enumerate}
+\section{Holomorphic vector bundles on compact complex manifolds.}\label{sec:5:9}
+In this section we present a number of important examples of holomorphic vector bundles on compact complex manifolds. We shall pay particular attention to the spaces of holomorphic sections of such bundles which, by the theory of \hyperref[sec:5:7]{\S7}, may be represented as the kernel of the $\bar\partial$-operator.
+
+We start by proving an elementary special case of a rather general finiteness theorem that we return to in Chapter~\ref{ch:7}.
+\begin{originaltheorem}{Theorem}{5.9.1}\FieldTarget{theorem:5.9.1}{5.9.1}
+Let $E$ be a holomorphic vector bundle\IndexMark{idx-540}{sections of holomorphic vector bundle finiteness theorem@Sections of holomorphic vector bundle, finiteness theorem} on the compact complex manifold $M$. Then $\dim_{\mathbb C}\Omega(E)<\infty$.
+\end{originaltheorem}
+\begin{proof}
+Suppose that we are given a finite open cover $\{U_i:i=1,\ldots,r\}$ of $M$ such that over each $U_i$, $E$ has a holomorphic trivialisation $\theta_i:E|U_i\to U_i\times\mathbb C^p$, $p=\dim(E)$. Suppose also that $\{V_i\}$
+% Source PDF page 51; printed page 42
+is an open refinement of the cover $\{U_i\}$ such that for all $i$, $V_i$ is a relatively compact subset of $U_i$. Given $s\in\Omega(E)$, we let $s_i:V_i\to\mathbb C^p$ denote the local representative of $s$ on $V_i$.
+
+If $\|\ \|$ denotes the standard Euclidean norm on $\mathbb C^p$, we may define a norm $|\ |$ on $\Omega(E)$ by
+\[|s|=\sum_{i=1}^r\|s_i\|_{V_i},\quad s\in\Omega(E).\]
+Observe that $\|s_i\|_{V_i}<\infty$ since $\bar V_i$ is compact. We shall prove that the closed unit ball $B$ in the normed vector space $(\Omega(E),|\ |)$ is compact. This implies that $(\Omega(E),|\ |)$ is locally compact and hence finite dimensional by F. Riesz' theorem (for an elementary proof of Riesz' theorem see Field \cite[page 54]{bib:II:field-m-j:1}). Suppose then that $(s^j)$ is a sequence in $B$. Given $i$, $1\leq i\leq r$, we have corresponding sequences $(s_i^j)\subset A(V_i,\mathbb C^p)$ of local representatives. By our definition of $|\ |$, it is clear that for all $i$ we have
+\[\|s_i^j(z)\|\leq1,\quad z\in V_i,\ j\geq1.\]
+In particular the sequence $(s_i^j)$ is bounded on $\bar V_i$ and so by Montel's theorem (Corollary~\ref{corollary:2.1.9}) we may find a subsequence $(t(1)^j)$ of $(s^j)$ which converges uniformly on $V_1$. Proceeding inductively, suppose that we have constructed a subsequence $(t(k)^j)$ of $(s^j)$ which converges uniformly on $V_1\cup\cdots\cup V_k$. Applying Montel's theorem we may find a subsequence $(t(k+1)^j)$ of $(t(k)^j)$ which converges uniformly on $V_{k+1}$ and hence uniformly on $V_1\cup\cdots\cup V_{k+1}$. Hence we may find a subsequence $(t^j)$ of $(s^j)$ which converges uniformly on $V_1\cup\cdots\cup V_r=M$. Hence $B$ is sequentially compact and therefore compact.
+\end{proof}
+\paragraph{Holomorphic vector bundles on projective space.}\IndexMark{idx-631}{universal bundle@Universal bundle!on projective space@on projective space}
+To each point $\ell\in P^n(\mathbb C)$ is naturally associated a complex line in $\mathbb C^{n+1}$. This suggests that we should be able to construct a complex line bundle over $P^n(\mathbb C)$ whose fibre at the point $\ell\in P^n(\mathbb C)$ is the line $\ell\subset\mathbb C^{n+1}$. We start this subsection by constructing this ``tautological\IndexMark{idx-302}{holomorphic vector bundles on p n c@Holomorphic vector bundles on $\mathbb{P}^n(\mathbb{C})$!universal bundle@universal bundle}'' line bundle (see also Exercise 2, \hyperref[sec:4:3]{\S3, Chapter 4}).
+% Source PDF page 52; printed page 43
+Let $L\subset P^n(\mathbb C)\times\mathbb C^{n+1}$ denote the set $\{(\ell,z):z\in\ell\}$. The projection on $P^n(\mathbb C)$ induces a projection $\pi:L\to P^n(\mathbb C)$. Recalling \hyperref[sec:4:7]{\S7 of Chapter 4}, we see that $L$ is $\mathbb C^{n+1}$ blown up at the origin and so, in particular, $L$ has the structure of a complex manifold of dimension $n+1$ and $\pi$ is holomorphic. We claim that $L$ has the natural structure of a holomorphic line bundle over $P^n(\mathbb C)$. For this we have only to observe that the maps $\theta_i:L|U_i\to U_i\times\mathbb C$ defined by
+\[\theta_i((z_0,\ldots,z_n),(a_0,\ldots,a_n))=((z_0,\ldots,z_n),a_i)\]
+define holomorphic trivialisations for $L$. The corresponding transition functions $\theta_{ij}:U_{ij}\to\operatorname{GL}(1,\mathbb C)=\mathbb C^\bullet$ are given by
+\[\theta_{ij}(z_0,\ldots,z_n)=z_i/z_j.\]
+We call the holomorphic line bundle $L$ the \emph{tautological} or \emph{universal} line bundle on $P^n(\mathbb C)$.
+
+We let $H$ denote the dual bundle $L^*$ of $L$. For reasons that will soon become clear we call $H$ the \emph{hyperplane section bundle}\IndexMark{idx-303}{holomorphic vector bundles on p n c@Holomorphic vector bundles on $\mathbb{P}^n(\mathbb{C})$!hyperplane section bundle@hyperplane section bundle}\IndexMark{idx-316}{hyperplane section bundle@Hyperplane section bundle!on projective space@on projective space}\IndexMark{idx-317}{hyperplane section bundle@Hyperplane section bundle!sections of@sections of} of $P^n(\mathbb C)$. For $p\in\mathbb Z$ we define
+\[H^p=\begin{cases}\otimes^pH,&p\geq0,\\\otimes^{-p}L,&p\leq0.\end{cases}\]
+Note that the transition functions $\theta_{ij}^p$ for $H^p$ are given by $\theta_{ij}^p=(z_j/z_i)^p$.
+
+The next proposition gives an indication of the important r\^ole that the hyperplane section bundle plays in projective algebraic geometry and also indicates an important bridge that exists between complex analysis and algebra.
+\begin{originaltheorem}{Proposition}{5.9.2}\FieldTarget{proposition:5.9.2}{5.9.2}
+For $p\geq0$, $\Omega(H^p)$ is canonically isomorphic to the space $P^{(p)}(\mathbb C^{n+1})$ of homogeneous polynomials of degree $p$ on $\mathbb C^{n+1}$. For $p<0$, $\Omega(H^p)$ consists of the zero section.
+\end{originaltheorem}
+\begin{proof}
+Suppose $p\geq0$. If $s\in\Omega(H^p)$, we let $s_i:U_i\to\mathbb C$ denote the local representatives of $s$ relative to the standard trivialisation of $H^p$. For $0\leq i,j\leq n$ we have $\theta_{ij}^ps_j=s_i$ and so
+\[s_j(z_0,\ldots,z_n)z_j^p=s_i(z_0,\ldots,z_n)z_i^p.\]
+% Source PDF page 53; printed page 44
+Hence we may define the holomorphic map $S:\mathbb C^{n+1}\setminus\{0\}\to\mathbb C$ by $S(z_0,\ldots,z_n)=s_i(z_0,\ldots,z_n)z_i^p$, $z_i\neq0$. Since the $s_i$ are homogeneous of degree zero, $S$ is homogeneous of degree $p$. By Hartog's theorem, $S$ extends to $\mathbb C^{n+1}$ as an analytic function which we continue to denote by $S$. Since $S$ is homogeneous of degree $p$, we see by taking Taylor's series at the origin of $\mathbb C^{n+1}$, that $S$ must be a homogeneous polynomial of degree $p$. Hence we have defined a map of $\Omega(H^p)$ into $P^{(p)}(\mathbb C^{n+1})$, $p\geq0$. If $S\in P^{(p)}(\mathbb C^{n+1})$, define $s_i=S/z_i^p$, $i=0,\ldots,n$. The $s_i$ are the local representatives of a holomorphic section of $H^p$. Since the maps between $\Omega(H^p)$ and $P^{(p)}(\mathbb C^{n+1})$ are clearly inverses of one another we have shown that $\Omega(H^p)$ is canonically isomorphic to $P^{(p)}(\mathbb C^{n+1})$.
+
+We leave the case $p<0$ as an exercise for the reader which makes use of the isomorphism $H^p\otimes H^{-p}\approx\underline{\mathbb C}$.
+\end{proof}
+As a special case of the proposition we see that if $p=1$, sections of $H$ correspond to linear functionals on $\mathbb C^{n+1}$. In particular the zero sets of such sections are hyperplanes in $P^n(\mathbb C)$.
+
+Next we show that there exist natural exact sequences\IndexMark{idx-234}{euler sequence@Euler sequence}\IndexMark{idx-304}{holomorphic vector bundles on p n c@Holomorphic vector bundles on $\mathbb{P}^n(\mathbb{C})$!euler sequence@Euler sequence}
+\[0\to\underline{\mathbb C}\to(n+1)H\to TP^n\to0\]
+\[0\to TP^{n*}\to(n+1)L\to\underline{\mathbb C}\to0.\]
+Here $(n+1)H$ denotes the $(n+1)$-fold direct sum of $H$; similarly for $(n+1)L$. Since the second sequence is the dual of the first it suffices to construct the first sequence. First, however, we need to prove some results about holomorphic vector fields on projective space.
+
+Let $q:\mathbb C^{n+1}\setminus\{0\}\to P^n(\mathbb C)$ denote the quotient map. Suppose $X$ is a vector field on $\mathbb C^{n+1}\setminus\{0\}$ which is homogeneous of degree 1: $X(\lambda v)=\lambda X(v)$, $\lambda\in\mathbb C^\bullet$, $v\in\mathbb C^{n+1}\setminus\{0\}$. Then $q_*X$ is well-defined as a vector field on $P^n(\mathbb C)$. Indeed, since $q=q\cdot\lambda$, $Dq_v=Dq_{\lambda v}\cdot\lambda$, $\lambda\in\mathbb C^\bullet$. Hence $(q_*X)(q(v))=Dq_v(X(v))=Dq_{\lambda v}X(\lambda v)$, $v\in\mathbb C^{n+1}\setminus\{0\}$, $\lambda\in\mathbb C^\bullet$, proving that $q_*X$ is well-defined on $P^n(\mathbb C)$. We define the \emph{Euler vector field}\IndexMark{idx-236}{euler vector field@Euler vector field} $E$ on $\mathbb C^{n+1}\setminus\{0\}$ by
+\[E(z_0,\ldots,z_n)=\sum_{i=0}^nz_i\,\partial/\partial z_i.\]
+% Source PDF page 54; printed page 45
+Certainly $E$ is homogeneous of degree 1 and so $q_*E$ is a well-defined holomorphic vector field on $P^n(\mathbb C)$. Since $E(z)\in T_zL_z$, where $L_z$ denotes the line through $z$ and 0, we see that $q_*E=0$. Let $\{s_0,\ldots,s_n\}$ be a basis of $\Omega(H)$. Since $\{s_0(z),\ldots,s_n(z)\}$ spans $H_z$ for all $z\in P^n(\mathbb C)$, to define a vector bundle morphism $(n+1)H\to TP^n$ it is enough to specify the map on holomorphic sections of $(n+1)H$. So suppose $(\phi_0,\ldots,\phi_n)\in\Omega((n+1)H)$. We define $\xi(\phi_0,\ldots,\phi_n)\in\Omega(TP^n)$ by
+\[\xi(\phi_0,\ldots,\phi_n)(z)=\sum_{i=0}^nq_*(\phi_i(z)\partial/\partial z_i),\]
+where we have used the identification between sections of $H$ and linear functionals on $\mathbb C^{n+1}$. Now the kernel of $\xi$ is the image of the map
+\[T:\underline{\mathbb C}\to(n+1)H\]
+defined on sections by $T(1)(z)=(z_0,\ldots,z_n)$, where $z_0,\ldots,z_n$ denote the coordinate functionals. In view of the fact that $T(1)=q_*E$, we see that the ``Euler sequence\IndexMark{idx-235}{euler sequence@Euler sequence}''
+\[0\to\underline{\mathbb C}\xrightarrow{T}(n+1)H\xrightarrow{\xi}TP^n\to0\]
+is exact.
+
+Taking the highest exterior power of the Euler sequence and using the result of Exercise 5, \hyperref[sec:5:1]{\S1}, we see that
+\[\Lambda^nTP^n\approx\Lambda^{n+1}((n+1)H)\approx H^{n+1}.\]
+Taking duals, we deduce that
+\[\Lambda^nTP^{n*}\approx H^{-n-1}.\]
+In the sequel we call the $n$th. exterior power of the cotangent bundle of an $n$-dimensional complex manifold $M$ the \emph{canonical bundle}\IndexMark{idx-057}{canonical bundle@Canonical bundle}\IndexMark{idx-058}{canonical bundle@Canonical bundle!of projective space@of projective space} of $M$ and denote it by $K(M)$. Thus we have shown that $K(P^n(\mathbb C))=H^{-n-1}$. As we shall see later the canonical bundle plays a central r\^ole in the theory of compact complex manifolds.
+% Source PDF page 55; printed page 46
+If $X$ is a closed complex submanifold of $P^n(\mathbb C)$, we may pull back (restrict) the hyperplane section bundle of\IndexMark{idx-320}{hyperplane section bundle of submanifold of projective space@Hyperplane section bundle of submanifold of projective space} $P^n(\mathbb C)$ to $X$. We denote the resulting bundle on $X$ by $H_X$. We remark that the zero sets of holomorphic sections of $H_X$ are intersections of $X$ with hyperplanes in $P^n(\mathbb C)$. We refer to $H_X$ as the \emph{hyperplane section bundle} of $X$.
+\paragraph{Divisors, holomorphic line bundles and linear systems.}
+Recall from \hyperref[sec:4:6]{\S6 of Chapter 4} that the group $\mathcal D(M)$ of divisors\IndexMark{idx-189}{divisor group@Divisor group} on a complex manifold $M$ is the set of (locally finite) formal sums $\sum_{\alpha\in\Lambda}n_\alpha V_\alpha$, where the $n_\alpha$ are integers and the $V_\alpha$ are irreducible analytic hypersurfaces of $M$. Here we suppose that $M$ is compact and so we may assume that $\Lambda$ is finite. By Theorem~\ref{theorem:4.6.11} every divisor on\IndexMark{idx-197}{divisors@Divisors!on compact complex manifolds@on compact complex manifolds} $M$ may be specified by a Cartier divisor $\{(U_i,d_i):i\in I\}=\{d_i\in\mathcal M^*(U_i):d_id_j^{-1}\in A^*(U_{ij})\}$ and two Cartier divisors $\{(U_i,d_i):i\in I\}$ and $\{(V_j,e_j):j\in J\}$ determine the same element of $\mathcal D(M)$ if and only if $d_ie_j^{-1}\in A^*(U_i\cap V_j)$ for all $i\in I$, $j\in J$.
+
+Before stating the next proposition we recall from Chapter~\ref{ch:1} that the set $\operatorname{HLB}(M)$ of isomorphism classes of holomorphic line bundles on a complex manifold $M$ has the natural structure of an Abelian group with composition defined by tensor product and inverse by dual. As in Chapter~\ref{ch:1}, we shall use the abbreviated notations $E.F$ and $E^{-1}$ for $E\otimes F$ and $E^*$ respectively. As usual $\underline{\mathbb C}$ will denote the trivial holomorphic line bundle.
+\begin{originaltheorem}{Proposition}{5.9.3}\FieldTarget{proposition:5.9.3}{5.9.3}
+There is a canonical group homomorphism
+\[[\ ]:\mathcal D(M)\to\operatorname{HLB}(M).\]
+\end{originaltheorem}
+\begin{proof}
+Let $d=\{(U_i,d_i):i\in I\}\in\mathcal D(M)$. We let $[d]$ denote the holomorphic line bundle on $M$ with transition functions $\theta_{ij}:U_{ij}\to\operatorname{GL}(1,\mathbb C)\approx\mathbb C^\bullet$ defined by $\theta_{ij}=d_i/d_j$. We must show that $[d]$ depends only on $d$ and not on our particular representation of $d$ as a Cartier divisor. Suppose then that $\{(U_i,d_i'):i\in I\}$ also defines the divisor $d$. The corresponding transition functions are given by $\theta_{ij}'=d_i'/d_j'$. But now $d_i/d_i'\in A^*(U_i)$ and so, setting $a_i=d_i/d_i'$, we have
+% Source PDF page 56; printed page 47
+\[a_i\theta_{ij}=\theta_{ij}'a_j,\quad i,j\in I.\]
+Hence $\theta_{ij}$, $\theta_{ij}'$ define isomorphic holomorphic line bundles (see \hyperref[sec:1:5]{Chapter 1, \S5}). The fact that $[\ ]$ is a group homomorphism is immediate from our definition of $[\ ]$ using Cartier divisors.
+\end{proof}
+\paragraph{Remark.} As a consequence of Proposition~\ref{proposition:5.9.3} we see that if $d,d'\in\mathcal D(M)$, then $[d+d']=[d][d']$ and $[d]^*=[-d]$.
+\begin{originaltheorem}{Proposition}{5.9.4}\FieldTarget{proposition:5.9.4}{5.9.4}\IndexMark{idx-187}{divisor class map@Divisor class map}
+The sequence
+\[\mathcal M^*(M)\xrightarrow{\operatorname{div}}\mathcal D(M)\xrightarrow{[\ ]}\operatorname{HLB}(M)\]
+is exact.
+\end{originaltheorem}
+\begin{proof}
+Let $d=\{(U_i,d_i):i\in I\}\in\mathcal D(M)$ and suppose that $[d]=\underline{\mathbb C}$. Then there exist $a_i\in A^*(U_i)$ such that $a_i\theta_{ij}=a_j$, where $\theta_{ij}=d_i/d_j$ are the transition functions for $[d]$. Hence $a_id_i/d_j=a_j$ and so $a_id_i=a_jd_j$ on $U_{ij}$. Therefore we may define $m\in\mathcal M^*(M)$ by $m|U_i=a_id_i$. Clearly $\operatorname{div}(m)=d$ since $\operatorname{div}(a_id_i)=\operatorname{div}(d_i)$, $i\in I$. Obviously $[\operatorname{div}(m)]=\underline{\mathbb C}$ for all $m\in\mathcal M^*(M)$ and so we have shown that $\operatorname{div}(\mathcal M^*(M))=\operatorname{Kernel}[\ ]$.
+\end{proof}
+\begin{originaltheorem}{Definition}{5.9.5}\FieldTarget{definition:5.9.5}{5.9.5}
+Let $d,d'\in\mathcal D(M)$. We say that $d$ and $d'$ are \emph{linearly equivalent} if $d-d'$ is the divisor of a meromorphic function\IndexMark{idx-193}{divisor of meromorphic function@Divisor of meromorphic function!on complex manifold@on complex manifold}. We denote the group of linear equivalence classes of divisors\IndexMark{idx-200}{divisors@Divisors!linear equivalence@linear equivalence}\IndexMark{idx-377}{linear equivalence of divisors@Linear equivalence of divisors} on $M$ by $L(M)$. Thus $L(M)=\mathcal D(M)/\operatorname{div}(\mathcal M^*(M))$. Given $d\in\mathcal D(D)$, we let $L(d)$ denote the set of all divisors on $M$ linearly equivalent to $d$.
+\end{originaltheorem}
+Next we wish to define \emph{meromorphic sections} of a holomorphic line bundle. Suppose that $E\in\operatorname{HLB}(M)$ has transition functions $\theta_{ij}:U_{ij}\to\mathbb C^\bullet$. We say that a family $m_i\in\mathcal M(U_i)$, $i\in I$, defines a meromorphic section\IndexMark{idx-394}{meromorphic section@Meromorphic section!of vector bundle@of vector bundle} of $E$ if $\theta_{ij}m_j=m_i\in\mathcal M(U_{ij})$, $i,j\in I$. We let $\mathcal M(E)$ denote the space of meromorphic sections of $E$ and $\mathcal M^*(E)$ denote the space of non-zero meromorphic sections of $E$.
+\paragraph{Remark.} The group law in $\operatorname{HLB}(M)$ induces corresponding maps on spaces of sections. For example, if $E\in\operatorname{HLB}(M)$ and $s\in\mathcal M^*(E)$ has local representatives $s_i\in\mathcal M^*(U_i)$, we may define $s^{-1}\in\mathcal M^*(E^{-1})$ to be the section with local representatives $(s^{-1})_i=s_i^{-1}$. This construction defines an inversion map $\mathcal M^*(E)\to\mathcal M^*(E^{-1})$. Similarly if $E,F\in\operatorname{HLB}(M)$ and
+% Source PDF page 57; printed page 48
+$E,F\in\operatorname{HLB}(M)$ and $(s,t)\in\mathcal M(E)\times\mathcal M(F)$ we may define the composition $s.t\in\mathcal M(E.F)$ by $s.t=s\otimes t$.
+\begin{originaltheorem}{Proposition}{5.9.6}\FieldTarget{proposition:5.9.6}{5.9.6}
+Let $E\in\operatorname{HLB}(M)$ and suppose that $\mathcal M^*(E)\neq\varnothing$. We have a natural group homomorphism $\operatorname{div}:\mathcal M^*(E)\to\mathcal D(M)$ satisfying
+\[[\operatorname{div}(s)]=E,\quad s\in\mathcal M^*(E).\]
+\end{originaltheorem}
+\begin{proof}
+Let $E$ have transition functions $\theta_{ij}:U_{ij}\to\mathbb C^\bullet$ and $s\in\mathcal M^*(E)$ have corresponding local representatives $s_i\in\mathcal M^*(U_i)$. Since $\theta_{ij}s_j=s_i$, we have $s_is_j^{-1}\in A^*(U_{ij})$ and so we may define $\operatorname{div}(s)$ to be the Cartier divisor $\{(U_i,s_i):i\in I\}$. Clearly $\operatorname{div}(s)$ depends only on $s$ and not on our particular choice of transition functions for $E$. It is immediate from our local description of $\operatorname{div}(s)$ that $[\operatorname{div}(s)]=E$. Finally, $\operatorname{div}:\mathcal M^*(E)\to\mathcal D(M)$ is obviously a group homomorphism.
+\end{proof}
+\paragraph{Remark.} We call $\operatorname{div}(s)$ the \emph{divisor} of the section $s$.
+\paragraph{Example 1.} Let $m\in\mathcal M^*(P^n(\mathbb C))$. Then $\deg(\operatorname{div}(m))=0$ (Example 3, \hyperref[sec:4:6]{\S6, Chapter 4}). Suppose that $E$ is a holomorphic line bundle on $P^n(\mathbb C)$ and $s,t\in\mathcal M^*(E)$. Since $st^{-1}\in\mathcal M^*(P^n(\mathbb C))$, we see at once that $\deg(\operatorname{div}(s))=\deg(\operatorname{div}(t))$. Hence we may define the degree of $E$, $\deg(E)$, to be the degree of any non-trivial meromorphic section of $E$. Clearly, $\deg:\operatorname{HLB}(P^n(\mathbb C))\to\mathbb Z$ is a homomorphism. See also Proposition~\ref{proposition:1.5.7}. We shall give another interpretation of the degree map in \hyperref[sec:6:3]{\S3, Chapter 6}.
+\begin{originaltheorem}{Proposition}{5.9.7}\FieldTarget{proposition:5.9.7}{5.9.7}
+Let $d\in\mathcal D(M)$. Then
+\begin{enumerate}
+\item There exists $s(d)\in\mathcal M^*([d])$ such that $\operatorname{div}(s(d))=d$. The section $s(d)$ is unique up to multiplication by elements of $\mathbb C^\bullet$.
+\item $\operatorname{div}(\mathcal M^*([d]))=L(d)$. Moreover the map $\operatorname{div}:\mathcal M^*([d])\to L(d)$ induces a bijection of $L(d)$ with $\mathcal M^*([d])/\mathbb C^\bullet$.
+\end{enumerate}
+\end{originaltheorem}
+\begin{proof}
+The proof of 1 is the same as the proof of Proposition~\ref{proposition:1.5.4}. Let us prove part 2. Suppose that $s\in\mathcal M^*([d])$. Then $[\operatorname{div}(s)]\cong[d]$ and so $s(d)^{-1}s\in\mathcal M^*(M)$. Therefore, $\operatorname{div}(s)\in L(d)$. Conversely, if $d'\in L(d)$, there exists $m\in\mathcal M^*(M)$ such that $d-d'=\operatorname{div}(m)$. Hence $[d]\cong[d']$ and $s(d')$ determines a section of $[d]$ with divisor $d'=d-\operatorname{div}(m)\in L(d)$. The remaining assertion of part 2 is immediate from part 1.
+\end{proof}
+% Source PDF page 58; printed page 49
+\begin{originaltheorem}{Proposition}{5.9.8}\FieldTarget{proposition:5.9.8}{5.9.8}
+A holomorphic line bundle $E$ lies in the image of $[\ ]:\mathcal D(M)\to\operatorname{HLB}(M)$ if and only if $E$ has a non-trivial meromorphic section.
+\end{originaltheorem}
+\begin{proof} Immediate from proposition 5.9.6 and 5.9.7. \end{proof}
+\paragraph{Remark.} Proposition~\ref{proposition:5.9.8} shows that the study of divisors on $M$ is closely related to the problem of finding which holomorphic line bundles on a complex manifold admit non-trivial meromorphic sections. Two fundamental results that we prove later show that if $M$ is projective or Stein then every holomorphic vector bundle on $M$ admits a non-trivial meromorphic section. It must be stressed that an arbitrary complex manifold of dimension greater than 1 need not have any holomorphic line bundles which admit meromorphic sections (equivalently, the manifold need not have any divisors).
+\begin{originaltheorem}{Definition}{5.9.9}\FieldTarget{definition:5.9.9}{5.9.9}
+We say that a divisor $d=\sum_{\alpha\in\Lambda}n_\alpha V_\alpha$ is \emph{effective}\IndexMark{idx-221}{effective divisor@Effective divisor} or \emph{positive}\IndexMark{idx-451}{positive divisor@Positive divisor} if $n_\alpha\geq0$, $\alpha\in\Lambda$. We write $d\geq0$.
+\end{originaltheorem}
+Suppose that $d\in\mathcal D(M)$. We let $\mathrm L(d)$ denote the vector subspace of $\mathcal M(M)$ defined by
+\[m\in\mathrm L(d)\quad\text{iff}\quad d+\operatorname{div}(m)\geq0\quad\text{or}\quad m=0.\]
+\begin{originaltheorem}{Proposition}{5.9.10}\FieldTarget{proposition:5.9.10}{5.9.10}
+The vector space $\mathrm L(d)$ is isomorphic to $\Omega([d])$. In particular $\dim_{\mathbb C}\mathrm L(d)<\infty$.
+\end{originaltheorem}
+\begin{proof}
+By Proposition~\ref{proposition:5.9.7}, there exists $s\in\mathcal M^*([d])$ such that $\operatorname{div}(s)=d$. Let $\gamma:\mathcal M(M)\to\mathcal M([d])$ denote the map defined by $\gamma(m)=s.m$, $m\in\mathcal M(M)$. Now $\operatorname{div}(\gamma(m))=\operatorname{div}(s)+\operatorname{div}(m)$ and so if $m\in\mathrm L(d)$ we see that $\operatorname{div}(\gamma(m))\geq0$. That is, $\gamma(m)\in\Omega([d])$. The map $\gamma$ clearly restricts to a linear isomorphism between $\mathrm L(d)$ and $\Omega([d])$ with inverse defined by $\gamma^{-1}(m)=s^{-1}.m$, $m\in\Omega([d])$.
+\end{proof}
+\paragraph{Remarks.}
+\begin{enumerate}
+\item It follows from Proposition~\ref{proposition:5.9.7}, part 1, that the isomorphism between $\mathrm L(d)$ and $\Omega([d])$ is uniquely determined by $d$ up to scalar multiplication by elements of $\mathbb C^\bullet$.
+% Source PDF page 59; printed page 50
+\item It follows from Proposition~\ref{proposition:5.9.10} that every non-zero meromorphic function on $M$ can be expressed as a quotient of holomorphic sections of some holomorphic line bundle on $M$. Indeed, if $m\in\mathcal M^*(M)$ let $P_m=\min(0,\operatorname{div}(m))$ denote the polar divisor of $m$ and choose $s\in\Omega([-P_m])$ such that $\operatorname{div}(s)=-P_m$. By Proposition~\ref{proposition:5.9.10} the map $\gamma^{-1}:\Omega([-P_m])\to\mathrm L(-P_m)$ defined by $\gamma^{-1}(t)=t/s$ is an isomorphism. But $m\in\mathrm L(-P_m)$ and so $m$ can be written as a quotient of holomorphic sections of the line bundle $[-P_m]$.
+\end{enumerate}
+\paragraph{Example 2.} Let $m\in\mathcal M^*(P^n(\mathbb C))$. Assuming Chow's theorem, we may write $m$ as a quotient $P/Q$, where $P$ and $Q$ are homogeneous polynomials of the same degree. If the common degree of $P$ and $Q$ is $d$, we see from Proposition~\ref{proposition:5.9.2}, that $m$ is the quotient of the holomorphic sections of $H^d$ determined by $P$ and $Q$.
+
+Given $d\in\mathcal D(M)$, we let $E(d)$ denote the set of all effective divisors linearly equivalent to $d$. The map $\operatorname{div}:\Omega([d])\to E(d)$ induces an isomorphism between $E(d)$ and $P(\Omega([d]))$. Hence for every divisor $d$ on $M$ we have natural isomorphisms
+\[E(d)\approx P(\mathrm L(d))\approx P(\Omega([d])).\]
+A family $\Sigma$ of effective divisors on $M$ is called a \emph{linear system of divisors}\IndexMark{idx-201}{divisors@Divisors!linear system of@linear system of}\IndexMark{idx-378}{linear system of divisors@Linear system of divisors} on $M$ if there exists a holomorphic line bundle $E$ on $M$ and a (projective) linear subspace $V$ of $P(\Omega(E))$ such that $\Sigma=\operatorname{div}(V)$. We say that $\Sigma$ is a \emph{complete linear system} if $\Sigma=\operatorname{div}(P(\Omega(E)))$ for some $E\in\operatorname{HLB}(M)$.
+
+If $\Sigma$ is the linear system of divisors on $M$ corresponding to the subspace $V$ of $P(\Omega(E))$, we define the dimension of $\Sigma$, $\dim(\Sigma)$, to be $\dim_{\mathbb C}(V)$. We see that if $\dim_{\mathbb C}(V)=n$, then $\Sigma$ is parametrized by $P^n(\mathbb C)$ and we may write $\Sigma=\{d_t:t\in P^n(\mathbb C)\}$.
+
+Let $d\in\mathcal D(M)$. If $V$ is a linear subspace of $P(\Omega([d]))$, then $\operatorname{div}(V)$ is a linear system on $M$. In case $V=P(\Omega([d]))$, we see that $\dim(\Sigma)=\dim_{\mathbb C}\Omega([d])-1=\dim_{\mathbb C}\mathrm L(d)-1$ and the linear system equals $E(d)$. By the remarks above it is clear that linear systems on $M$ always correspond to a subspace of $E(d)$ for some divisor $d$ on $M$ and that a linear system is complete if and only if it equals $E(d)$ for some divisor $d$ on $M$.
+% Source PDF page 60; printed page 51
+Suppose $\Sigma=\{d_t:t\in P^n(\mathbb C)\}$ is a linear system on $M$. We define the \emph{base locus}\IndexMark{idx-037}{base locus of linear system@Base locus (of linear system)} $B_\Sigma$ of $\Sigma$ to be the analytic set
+\[B_\Sigma=\bigcap_{t\in P^n(\mathbb C)}|d_t|.\]
+Let $t_0,\ldots,t_n$ be linearly independent in $P^n(\mathbb C)$. Then
+\[B_\Sigma=\bigcap_{j=0}^n|d_{t_j}|.\]
+Since $\Sigma$ is a linear system, there exists $L\in\operatorname{HLB}(M)$ and a linear subspace $V$ of $P(\Omega(L))$ such that $\Sigma=\operatorname{div}(V)$. Let $\{s^0,\ldots,s^n\}$ be a basis for $V$ then we clearly have
+\[B_\Sigma=\bigcap_{j=0}^n(s^j)^{-1}(0).\]
+Suppose $B_\Sigma=\varnothing$. Then for each $x\in M$, the $(n+1)$-tuple $(s^0(x),\ldots,s^n(x))$ defines a unique point in $P^n(\mathbb C)$. Indeed, if $s_i^0,\ldots,s_i^n$ and $s_j^0,\ldots,s_j^n$ are local representations of $s^0,\ldots,s^n$ with respect to trivialisations over $U_i$ and $U_j$ respectively, we see that $s_i^p(x)=\theta_{ij}(x)s_j^p(x)$, $0\leq p\leq n$, $x\in U_{ij}$, where $\theta_{ij}\in A^*(U_{ij})$. Since $\theta_{ij}(x)\neq0$, $(s_i^0(x),\ldots,s_i^n(x))=(s_j^0(x),\ldots,s_j^n(x))\in P^n(\mathbb C)$. Hence provided $B_\Sigma=\varnothing$, we have a holomorphic map $P:M\to P^n(\mathbb C)$ defined by $P(x)=(s^0(x),\ldots,s^n(x))$, $x\in M$.
+
+It is of great interest to know whether a given holomorphic line bundle $L$ on $M$ has ``enough'' holomorphic sections to determine an \emph{embedding} of $M$ in projective space. Notice that if $X$ is a complex submanifold of $P^n(\mathbb C)$, $H_X$ denotes the hyperplane section bundle of $P^n(\mathbb C)$ restricted to $X$ and $\Sigma$ denotes the complete linear system corresponding to $\Omega(H_X)$, then $B_\Sigma=\varnothing$ and the corresponding map $P:X\to P^n(\mathbb C)$ is an embedding onto the submanifold $X$.
+
+In conclusion, we see that the theory of divisors and meromorphic functions on a compact complex manifold is intimately related with the theory of holomorphic line bundles and their holomorphic and meromorphic sections. We mention the following basic problems:
+\begin{enumerate}
+\item The existence of non-trivial meromorphic sections of a given holomorphic line bundle.
+% Source PDF page 61; printed page 52
+\item Relations between the dimension of the space of holomorphic sections of a holomorphic line bundle $L$ on $M$ and other invariants of $L$ and $M$.
+\item Conditions for the existence of sufficiently many holomorphic sections of a holomorphic line bundle $L$ on $M$ for it to determine an embedding of $M$ in projective space.
+\end{enumerate}
+\paragraph{Geometric genus.}\IndexMark{idx-266}{geometric genus@Geometric genus}
+Let $M$ be a compact complex manifold of dimension $m$ and let $K(M)$ denote the canonical bundle $\Lambda^mTM^*$ of $M$. We define the \emph{geometric genus} $p_g(M)$ of $M$ to be $\dim_{\mathbb C}(\Omega(K(M)))$.
+
+The geometric genus is obviously a biholomorphic invariant.
+\begin{originaltheorem}{Proposition}{5.9.11}\FieldTarget{proposition:5.9.11}{5.9.11}
+The geometric genus is invariant under blowing ups with non-singular centres.
+\end{originaltheorem}
+\begin{proof}
+Let $\pi:\widetilde M\to M$ denote the blow-up of $M$ with centre $p$ and exceptional variety $E$. We have an induced map $\pi^*:\Omega(K(M))\to\Omega(K(\widetilde M))$. Since $\pi$ restricts to a biholomorphic map between $\widetilde M\setminus E$ and $M\setminus\{p\}$ we see by uniqueness of analytic continuation that $\pi^*$ is injective. On the other hand if $\phi\in\Omega(K(\widetilde M))$, we may define $\widetilde\phi=(\pi|\widetilde M\setminus E)_*\phi\in K(M\setminus\{p\})$. By Hartog's theorem, $\widetilde\phi$ extends to a holomorphic section of $K(M)$ which we denote by $\pi_*\phi$. Clearly $\pi^*\pi_*\phi=\phi$, $\phi\in K(\Omega(\widetilde M))$ and so $\pi^*$ is a linear isomorphism. Hence $p_g(M)=p_g(\widetilde M)$. The proof for general non-singular centres is similar, using the second Riemann removable singularities theorem (Exercise 5, \hyperref[sec:4:2]{\S2, Chapter 4}) and we leave details to the reader.
+\end{proof}
+\paragraph{Remark.} The proof given for proposition 5.9.11 also shows that the numbers
+\[
+\dim_{\mathbb C}\Omega(\Lambda^pTM^*),\quad p>0,
+\]
+are also invariant under blowings up with non-singular centres.
+
+The geometric genus is in fact a \emph{bimeromorphic} invariant\IndexMark{idx-048}{bimeromorphic invariant@Bimeromorphic invariant}. Whilst we shall not define bimeromorphic maps here (see Ueno \cite{bib:II:ueno-k:1} for details and references) we point out that bimeromorphic maps are the complex analytic analogue of the birational maps of algebraic geometry. Moreover, if two complex analytic \emph{surfaces} are bimeromorphic then one is obtained from the other by a finite sequence of blow ups and
+% Source PDF page 62; printed page 53
+blow downs (see Kodaira \cite{bib:II:kodaira-k:1}). This result is, however, false in higher dimensions. We refer to Hartshorne \cite[pages 412--414]{bib:II:hartshorne-r:1} for a discussion of the higher dimensional case and references. Other bimeromorphic invariants related to the geometric genus are the \emph{plurigenera}\IndexMark{idx-438}{plurigenera@Plurigenera} $p_r(M)$ defined by $p_r(M)=\dim_{\mathbb C}\Omega(\otimes^rK(M))$, $r>0$. The proof that the plurigenera are invariant under blowing ups is similar to that of Proposition~\ref{proposition:5.9.11}.
+\paragraph{Holomorphic line bundles on complex tori and theta functions.}\IndexMark{idx-605}{theta function@Theta function}
+We conclude this section by indicating the r\^ole of holomorphic line bundles and their sections in the study of meromorphic functions on complex tori. For further details, proofs and references the reader may consult Cornalba \cite{bib:II:cornalba-m:1}, Griffiths and Harris \cite{bib:II:griffiths-p-and-harris-j:1}, Swinnerton-Dyer \cite{bib:II:swinnerton-dyer-h-p-f:1} and Weil \cite{bib:II:weil-a:1}.
+
+Let $T=\mathbb C^n/\Lambda$ be an $n$-dimensional complex torus\IndexMark{idx-118}{complex torus@Complex torus} with period lattice $\Lambda$ and $\pi:\mathbb C^n\to T$ denote the quotient map. If $L$ is a holomorphic line bundle\IndexMark{idx-296}{holomorphic line bundle@Holomorphic line bundle!on complex torus@on complex torus} on $T$ then $\pi^*L$ is a holomorphic line bundle on $\mathbb C^n$ (As usual, $\pi^*L$ denotes the pull-back of the bundle $L$ by $\pi$---see the exercises at the end of \hyperref[sec:1:5]{\S5, Chapter 1}). By Corollary~\ref{corollary:5.8.4}, every holomorphic line bundle on $\mathbb C^n$ is holomorphically trivial and so $\pi^*L\cong\underline{\mathbb C}=\mathbb C^n\times\mathbb C$. Fixing an isomorphism of $\pi^*L$ with $\underline{\mathbb C}$, we may regard $L$ as the quotient of $\mathbb C^n\times\mathbb C$ under the identifications
+\[(z,v)\sim(z+\lambda,f_\lambda(z)v),\quad z\in\mathbb C^n,\ v\in\mathbb C,\ \lambda\in\Lambda,\]
+where the functions $f_\lambda\in A^*(\mathbb C^n)$ satisfy the relations
+\[f_\lambda(z+\mu)f_\mu(z)=f_{\lambda+\mu}(z),\quad z\in\mathbb C^n,\ \lambda,\mu\in\Lambda.\tag{A}\label{eq:5:a:2}\]
+A (holomorphic) section of $L$ corresponds to a $\mathbb C$-valued (holomorphic) function $\theta$ on $\mathbb C^n$ which satisfies the functional equation
+\[\theta(z+\lambda)=f_\lambda(z)\theta(z),\quad z\in\mathbb C^n,\ \lambda\in\Lambda.\]
+Such functions are called \emph{theta functions} (relative to the family $f_\lambda$). The quotient of any two non-zero theta functions defines a $\Lambda$-periodic meromorphic function on $\mathbb C^n$ and hence a meromorphic function on $T$.
+% Source PDF page 63; printed page 54
+Conversely, by Remark 2 following Proposition~\ref{proposition:5.9.10}, every meromorphic function on $T$ may be represented as the quotient of two theta functions (associated to the same family $f_\lambda$). The study of meromorphic functions on $T$ may therefore be reduced to the study of theta functions on $\mathbb C^n$. In fact for $n>1$, this approach to the theory of meromorphic functions on complex tori is much more effective than any direct attempt to construct meromorphic functions as we did in case $n=1$ with the Weierstrass $\wp$-function and its derivative.
+
+Suppose that $\alpha$, $\beta$ are isomorphism of $\pi^*L$ with $\underline{\mathbb C}$. Then there exists $\phi\in A^*(\mathbb C^n)$ such that $\beta=\phi\cdot\alpha$. If $\alpha$, $\beta$ correspond to the families $\{f_\lambda:\lambda\in\Lambda\}$, $\{g_\lambda:\lambda\in\Lambda\}$ respectively, then it is easily verified that $f_\lambda$ and $g_\lambda$ are related by
+\[g_\lambda(z)=\phi(z+\lambda)\phi(z)^{-1}f_\lambda(z),\quad z\in\mathbb C^n,\ \lambda\in\Lambda.\]
+By suitable choice of $\phi$ we might hope to put the functions $f_\lambda$ into a ``standard'' form. This amounts to obtaining a classification of $\operatorname{HLB}(T)$.
+\paragraph{Example 3.} The trivial line bundle on $T$ is defined by the family $f_\lambda\equiv1$, $\lambda\in\Lambda$. Given $\phi\in A^*(\mathbb C^n)$, we may write $\phi=\exp(f)$, for some $f\in A(\mathbb C^n)$. The family $g_\lambda(z)=\exp(f(z+\lambda)-f(z))$ also defines the trivial line bundle on $T$. Since $\phi(z+\lambda)=g_\lambda(z)\phi(z)$, we see that $\phi$ is a theta function for this family. Any theta function of this type is called a \emph{trivial theta function}\IndexMark{idx-620}{trivial theta function@Trivial theta function} by virtue of the fact that it corresponds to a constant (non-zero) section of the trivial holomorphic line bundle on $T$. Of special interest to us will be the case when $f(z)=az^2+bz+c$, $a,b,c\in\mathbb C$. We have $g_\lambda(z)=\exp(2az+z\lambda^2+b\lambda)$ and the corresponding trivial theta function is $\exp(az^2+bz+c)$.
+
+If $L$ is a holomorphic line bundle on $T$ it is natural to try to define $L$ by functions $f_\lambda$ where $f_\lambda(z)=\exp F(z,\lambda)$ and $F(z,\lambda)$ is affine linear in $z$. Suppose $L$ is defined by a family of functions of this type. The relations \eqref{eq:5:a:2} impose conditions on the $F(z,\lambda)$ and, multiplying by suitable non-zero analytic functions, it is not hard to show that the $f_\lambda$ can be put in the form
+\[f_\lambda(z)=m(\lambda)\exp(\pi H(z,\lambda)+\tfrac12\pi H(\lambda,\lambda)),\]
+% Source PDF page 64; printed page 55
+where $H$ is an Hermitian form whose imaginary part $E$ is integer valued on $\Lambda\times\Lambda$ and $m:\Lambda\to S^1\subset\mathbb C$ satisfies $m(\lambda)m(\mu)=m(\lambda+\mu)\exp(\pi iE(\lambda,\mu))$ for all $\lambda,\mu\in\Lambda$.
+
+We denote the line bundle on $T$ corresponding to $H$ and $m$ by $L(H,m)$. By a theorem of Apell and Humbert\IndexMark{idx-031}{appell and humbert theorem@Appell and Humbert theorem} every holomorphic line bundle on $T$ is isomorphic to a line bundle of the form $L(H,m)$. Moreover, $L(H_1,m_1)\cong L(H_2,m_2)$ iff $H_1=H_2$ and $m_1=m_2$. The proof of this result may be found in the references. Here we only remark that $L(H_1,m_1)$ and $L(H_2,m_2)$ are isomorphic as \emph{complex} line bundles iff $H_1=H_2$.
+
+A holomorphic section of $L(H,m)$ corresponds to a theta function $\theta$ which satisfies the functional equation
+\[\theta(z+\lambda)=m(\lambda)\exp(\pi H(z,\lambda)+\tfrac12\pi H(\lambda,\lambda))\theta(z).\]
+\paragraph{Example 4.} (The Weierstrass $\sigma$-function\IndexMark{idx-656}{weierstrass function@Weierstrass $\sigma$-function}). We follow the notation and assumptions of \hyperref[sec:4:4]{\S4 of Chapter 4}. Thus we assume $n=1$ and let $\wp(z)$ denote the Weierstrass elliptic function associated to the lattice $L$ generated by $\{\omega_1,\omega_2\}$. Integrating $\wp$ we obtain the Weierstrass zeta function\IndexMark{idx-655}{weierstrass zeta function@Weierstrass zeta function}
+\[\zeta(z)=z^{-1}-\sum{}'[(z+\omega)^{-1}-\omega^{-1}+2\omega^2]\]
+(the prime denotes that the sum is over non-zero elements of $L$). $\zeta(z+\omega)-\zeta(z)$ is constant, not necessarily zero, for all $\omega\in L$ and we define
+\[\eta_1=\zeta(z+\omega_1)-\zeta(z);\quad\eta_2=\zeta(z+\omega_2)-\zeta(z).\tag{B}\label{eq:5:b:1}\]
+As in the proof of part 3 of Theorem~\ref{theorem:4.4.2}, the integral of $\zeta$ round a period parallelogram for $L$ equals $2\pi i=\omega_1\eta_2-\omega_2\eta_1$ (Legendre's relation\IndexMark{idx-355}{legendre s relation@Legendre's relation}).
+
+Exponentiating the integral of $\zeta$ we obtain a (single valued) analytic function called the Weierstrass $\sigma$-function. We have
+\[\begin{split}
+\sigma(z)&=\exp\left(\log z+\int_0^z(\zeta(t)-t^{-1})\,dt\right)\\
+&=2\prod{}'\left(\frac{z+\omega}{\omega}\exp\left(-\frac z\omega+\frac{z^2}{2\omega^2}\right)\right)
+\end{split}\]
+% Source PDF page 65; printed page 56
+Exponentiating the integrals of the relations \eqref{eq:5:b:1} above, substituting $z=-\tfrac12\omega_1$, $-\tfrac12\omega_2$ and using the fact that $\sigma$ is an odd function which does not vanish at $\tfrac12\omega_1$, $\tfrac12\omega_2$, we find that
+\[\sigma(z+\omega)=(-1)^n\sigma(z)\exp(\eta(z+\tfrac12\omega)),\]
+where $\omega=n_1\omega_1+n_2\omega_2$, $\eta=n_1\eta_1+n_2\eta_2$, $n=n_1n_2+n_1+n_2$ and $n_1,n_2\in\mathbb Z$. Hence $\sigma$ is a theta function on $\mathbb C$ corresponding to the family $\{g_\omega\in A^*(\mathbb C):\omega\in L\}$ defined by
+\[g_\omega(z)=(-1)^n\exp(\eta(z+\tfrac12\omega)),\quad\omega\in L.\]
+However, the functions $g_\omega$ are not in the standard form that we gave above. Recall from \hyperref[sec:4:4]{\S4 of Chapter 4} that the lattice $L$ has Riemann form defined by $A(y,z)=S^{-1}\operatorname{Im}(y\bar z)$, where $S=\operatorname{Im}(\omega_1\bar\omega_2)$. Associated to $A$ we have the hermitian form $H$ defined by $H(y,z)=y\bar z/S$. The imaginary part of $H$ equals $A$ and is integer valued on $L\times L$. We now define
+\[f_\omega(z)=(-1)^n\exp(\pi H(z,\omega)+\tfrac12\pi H(\omega,\omega)),\quad\omega\in L.\]
+Set $a=(2\omega_1)^{-1}(S^{-1}\pi\bar\omega_1-\eta_1)$ and let $\theta_0(z)$ denote the trivial theta function $\exp(az^2)$. The reader may verify, using Legendre's relation, that if we define $\widetilde\sigma(z)=\theta_0(z)\sigma(z)$, then $\widetilde\sigma(z+\omega)=f_\omega(z)\widetilde\sigma(z)$. Hence we have put the Weierstrass $\sigma$-function in standard form. Set $T=\mathbb C/L$. Because the holomorphic line bundle on $T$ associated to the family $f_\omega$ actually generates $\operatorname{HLB}(T)$ we are able to give a particularly simple description of meromorphic functions on $T$. Thus if $d=\sum_{k=1}^nn_kz_k\in\mathcal D(T)$, $\deg(d)=0$ and $\sum_{k=1}^nn_kz_k=e$, we may define
+\[m_d=\prod_{k=1}^n\sigma(z-a_k)^{n_k},\quad\text{where }\pi(a_k)=z_k,\ k=1,\ldots,n,\ \text{and }\sum_{k=1}^nn_ka_k=0.\]
+It is easily verified that $m_d$ is $L$-elliptic and defines a meromorphic function\IndexMark{idx-223}{elliptic function@Elliptic function}\IndexMark{idx-390}{meromorphic function@Meromorphic function!on complex torus@on complex torus} on $T$ with divisor $d$.
+
+The theory of theta functions of more than 1 complex variable is highly developed and we conclude by mentioning just two important results:
+% Source PDF page 66; printed page 57
+\begin{enumerate}
+\item If there exists $L(H,m)\in\operatorname{HLB}(T)$ such that $H$ is positive definite (that is, $H$ is associated to a Riemann form), then the complete linear system defined by $L(3H,m)=L(H,m)^3$ gives a projective embedding of $T$.
+\item The dimension of $\Omega(L(H,m))$ can be computed and is equal to $\sqrt{\det E}$, where $E$ is the imaginary part of $H$ and the determinant is computed relative to any basis of the period lattice of $T$.
+\end{enumerate}
+\paragraph{Exercises.}
+\begin{enumerate}
+\item Let $s$ be a meromorphic section of the holomorphic line bundle $E$. Define the zero and pole sets $Z(s)$, $P(s)$ of $s$ and show that $s$ is holomorphic if and only if $P(x)=\varnothing$.
+\item Let $p\geq1$ and $\Sigma$ denote the complete linear system on $P^n(\mathbb C)$ corresponding to $\Omega(H^p)$. Show that
+\begin{enumerate}[label=\alph*)]
+\item $\dim(\Sigma)=\binom{n+p}{n}-1$.
+\item The base locus of $\Sigma$ is empty.
+\item $\Sigma$ determines an embedding of $P^n(\mathbb C)$ in $P^N(\mathbb C)$, $N=\dim(\Sigma)$ (The ``$p$-tuple embedding'').
+\end{enumerate}
+(In case $n=2$, $p=2$, we obtain an embedding of $P^2(\mathbb C)$ in $P^5(\mathbb C)$. The corresponding surface in $P^5(\mathbb C)$ is called the \emph{Veronese surface}\IndexMark{idx-645}{veronese surface@Veronese surface}).
+\item Let $E$ be a holomorphic line bundle on the complex manifold $M$. Show that, as vector spaces, $\mathcal M(E)\cong\mathcal M(M)$, provided that $E$ admits a non-trivial meromorphic section.
+\item Suppose $V$ is a smooth analytic hypersurface in the compact complex manifold $M$ (that is, $V$ is a closed submanifold of $M$ of codimension 1). Let $N_V=(TM|V)/TV$ denote the normal bundle of $V$. Show that
+\begin{enumerate}[label=\alph*)]
+\item $N_V^*\approx\{v\in TM^*|V:v\text{ is zero on }TV^*\}$.
+\item $N_V^*\cong[-V]|V$.
+\item $K(V)\cong(K(M)\otimes[V])|V$\IndexMark{idx-059}{canonical bundle@Canonical bundle!of hypersurface@of hypersurface}.
+\end{enumerate}
+(Hints: For b), show that the local defining equations for $V$ determine a non-zero holomorphic section of $N_V^*\otimes[V]|V$; for c), use the exact sequence $0\to N_V^*\to TM^*|V\to TV^*\to0$ and exercise 5, \hyperref[sec:5:1]{\S1}).
+% Source PDF page 67; printed page 58
+\item Suppose that $f_\lambda\in A^*(\mathbb C^n)$, $\lambda\in\Lambda$, define the holomorphic line bundle $L$ on $\mathbb C^n/\Lambda$. Show that $f_\lambda^{-1}$, $\bar f_\lambda$, $\bar f_\lambda^{-1}$ respectively define the complex line bundles $L^*$, $\bar L$, $\bar L^*$ on $\mathbb C^n/\Lambda$.
+\item Let $\Lambda$ be a lattice in $\mathbb C^n$ and $H$ be an hermitian form\IndexMark{idx-286}{hermitian form@Hermitian form} whose imaginary part is integer valued on $\Lambda\times\Lambda$. Show that $L(H,1)$ is a holomorphic line bundle on $\mathbb C^n/\Lambda$. Now set $L=L(H,1)$. Show that a function $\theta:\mathbb C^n\to\mathbb C$ determines a section of $L^*\otimes\bar L^*$ if and only if for all $z\in\mathbb C^n$ we have
+\[\theta(z+\lambda)=\exp(-\pi(2\operatorname{Re}(H(z,\lambda))+H(\lambda,\lambda)))\theta(z),\quad\lambda\in\Lambda.\]
+Deduce that $\phi(z)=\exp(-\pi H(z,z))$ determines a nowhere vanishing smooth section of $L^*\otimes\bar L^*$ (We may think of $\phi$ as determining a canonical hermitian form on $L=L(H,1)$).
+\end{enumerate}
+\section{Pseudoconvexivity and Stein manifolds.}\label{sec:5:10}
+In this section we shall show how some of the pseudoconvexivity definitions we discussed in Chapter~\ref{ch:2} may be generalised to arbitrary non-compact complex manifolds.
+
+We start with a few remarks about Hermitian forms on an $m$-dimensional complex vector space $E$. Recall that $H:E\times E\to\mathbb C$ is said to be an \emph{Hermitian form} if
+\begin{enumerate}
+\item $H(x,y)=\overline{H(y,x)}$, $x,y\in E$.
+\item $H(ax_1+bx_2,y)=aH(x_1,y)+bH(x_2,y)$, $a,b\in\mathbb C$, $x_1,x_2,y\in E$.
+\end{enumerate}
+We say that $H$ is \emph{positive definite} if, in addition,
+\begin{enumerate}[start=3]
+\item $H(x,x)>0$, $x\neq0$.
+\end{enumerate}
+Conditions 1 and 2 imply that $H$ is conjugate complex linear in the second variable. Consequently, an Hermitian form may be regarded as a complex bilinear map $H:E\times\bar E\to\mathbb C$ satisfying the conjugate symmetry condition 1. Since the space of complex bilinear maps of $E\times\bar E$ to $\mathbb C$ is naturally isomorphic to $E^*\otimes\bar E^*$, we may also regard $H$ as lying in $E^*\otimes\bar E^*$. Thus, relative to a basis of $E$, we may write $H$ in coordinates as
+% Source PDF page 68; printed page 59
+\[H=\sum_{i,j=1}^mh_{i\bar j}dz_i\otimes d\bar z_j.\]
+The conjugate symmetry condition amounts to requiring that the matrix $[h_{i\bar j}]$ be Hermitian. That is, $\overline{h_{i\bar j}}=h_{j\bar i}$, $1\leq i,j\leq m$.
+
+Next observe that $E^*\otimes\bar E^*\approx\Lambda^{1,1}(E')$. If we regard $H$ as lying in $\Lambda^{1,1}(E')$, the conjugate symmetry condition amounts to requiring that $\bar H=-H$ (conjugate the form $\sum h_{i\bar j}dz_i\wedge d\bar z_j$).
+
+Finally note that since $E^*\otimes\bar E^*\approx L(E,\bar E^*)$, we may regard $H$ as an element of $L(E,\bar E^*)$. In this case conjugate symmetry amounts to $H=\bar H^*$.
+
+Recall that if we choose a complex basis for $E$ and let $H$ have matrix $[h_{i\bar j}]$ relative to this basis, then the integers
+\[\begin{split}
+n(H)&=\text{number of negative eigenvalues of }[h_{i\bar j}],\\
+z(H)&=\text{number of zero eigenvalues of }[h_{i\bar j}],\\
+p(H)&=\text{number of positive eigenvalues of }[h_{i\bar j}],
+\end{split}\]
+are invariants of $H$ which do not depend on the choice of basis for $E$.
+\begin{originaltheorem}{Definition}{5.10.1}\FieldTarget{definition:5.10.1}{5.10.1}
+Let $M$ be a complex manifold. An Hermitian form\IndexMark{idx-287}{hermitian form@Hermitian form!on complex manifold@on complex manifold} on $M$ is a section $H$ of $TM^*\otimes\overline{TM}^*$ such that $H(x)$ is an Hermitian form on $T_xM$ for all $x\in M$.
+\end{originaltheorem}
+\paragraph{Remark.} We may equivalently define an Hermitian form on $M$ to be a $(1,1)$-form $H$ satisfying $\bar H=-H$.
+\begin{originaltheorem}{Definition}{5.10.2}\FieldTarget{definition:5.10.2}{5.10.2}
+Let $M$ be a complex manifold and $\phi\in C_{\mathbb R}^2(M)$. The \emph{Levi form}\IndexMark{idx-361}{levi form@Levi form!on complex manifold@on complex manifold} of $\phi$ is the $(1,1)$-form defined by
+\[L(\phi)=\partial\bar\partial\phi.\]
+\end{originaltheorem}
+Since $\overline{\partial\bar\partial\phi}=\bar\partial\partial\phi=-\partial\bar\partial\phi$, we see that $L(\phi)$ is an Hermitian form on $M$. In local coordinates,
+\[L(\phi)=\sum_{i,j=1}^m\frac{\partial^2\phi}{\partial z_i\partial\bar z_j}dz_i\otimes d\bar z_j,\]
+and so $L(\phi)$ is an invariant version of the Levi form we discussed in Chapter~\ref{ch:2}.
+% Source PDF page 69; printed page 60
+Suppose now that $M$ is a relatively compact domain in the $m$-dimensional complex manifold $\widetilde M$ and that $M$ has $C^2$ boundary $\partial M$. We say that $\phi\in C_{\mathbb R}^2(\widetilde M)$ is a \emph{defining function} for $M$ if
+\begin{enumerate}
+\item $M=\{x\in M:\phi(x)<0\}$.
+\item $\partial M=\phi^{-1}(0)$.
+\item $d\phi\neq0$ on $\partial M$.
+\end{enumerate}
+Given a defining function $\phi$ for $M$ we may define the \emph{holomorphic tangent space}\IndexMark{idx-298}{holomorphic tangent space to boundary of s l p domain@Holomorphic tangent space to boundary of s.L.p. domain} $T_x\partial M$ to $\partial M$ at $x$ by $T_x\partial M=\{v\in T_xM:d\phi(x)(v)=0\}$. Set
+\[T\partial M=\bigcup_{x\in\partial M}T_x\partial M.\]
+It is straightforward to verify that $T\partial M$ is an $(m-1)$-dimensional complex vector bundle which is defined independently of choices of defining function for $M$ (Use Lemmas~\ref{lemma:2.5.1}, \ref{lemma:2.5.7}).
+
+Given $x\in\partial M$, we set $L(\phi)(x)=L(\phi)|T_x\partial M$ and define
+\[n(x)=n(L(\phi)(x))\]
+\[z(x)=z(L(\phi)(x))\]
+\[p(x)=p(L(\phi)(x)).\]
+Clearly $n(x)+z(x)+p(x)=m-1$ and it is a straightforward exercise to verify that $n(x)$, $z(x)$ and $p(x)$ depend only on $x\in\partial M$ and not the choice of defining function $\phi$ (see \hyperref[sec:2:5]{\S5, Chapter 2}).
+\begin{originaltheorem}{Definition}{5.10.3}\FieldTarget{definition:5.10.3}{5.10.3}
+Let $M$ be a relatively compact domain of the complex manifold\IndexMark{idx-163}{defining function of domain in complex manifold@Defining function of domain in complex manifold} $\widetilde M$ and assume that $M$ has $C^2$ boundary. Suppose that $M$ has defining function $\phi$. Then we say that $M$ is \emph{$q$-pseudoconvex}\IndexMark{idx-482}{pseudoconvex@Pseudoconvex!q@$q$-}\IndexMark{idx-483}{pseudoconvex@Pseudoconvex!strictly q@strictly $q$-}\IndexMark{idx-494}{q pseudoconvex manifold@$q$-pseudoconvex manifold} (respectively, \emph{strictly} $q$-pseudoconvex) if for all $x\in\partial M$ we have
+\[n(x)\leq q\quad\text{(respectively, }n(x)+z(x)\leq q\text{)}.\]
+\end{originaltheorem}
+\paragraph{Remark.} As in Proposition~\ref{proposition:2.5.12}, we may show that $q$-pseudoconvexity is a local property of the boundary.
+% Source PDF page 70; printed page 61
+\paragraph{Example 1.} Let $\Omega$ be an L.p. (respectively, s.L.p.) domain\IndexMark{idx-351}{l p domain@L.p. domain}\IndexMark{idx-536}{s l p domain@s.L.p. domain} in $\mathbb C^n$. Then $\Omega$ is 0-pseudoconvex\IndexMark{idx-363}{levi pseudoconvex@Levi pseudoconvex} (respectively, strictly 0-pseudoconvex\IndexMark{idx-587}{strictly levi pseudoconvex@Strictly Levi pseudoconvex}).
+\paragraph{Remark.} In the sequel we shall always refer to 0-pseudoconvex (respectively, strictly 0-pseudoconvex) domains as L.p. (respectively, s.L.p.) domains.
+\begin{originaltheorem}{Proposition}{5.10.4}\FieldTarget{proposition:5.10.4}{5.10.4}
+Let $M$ be an s.L.p. domain in $\widetilde M$. Then there exists a $C^2$ defining function $\phi$ for $M$ such that $L(\phi)|\partial M$ is positive definite.
+\end{originaltheorem}
+\begin{proof} Same as the proofs of Propositions~\ref{proposition:2.5.5} and Lemma~\ref{lemma:2.5.11}. \end{proof}
+In Chapter~\ref{ch:7} we shall prove the basic result of Grauert to the effect that an s.L.p. domain is holomorphically convex. However, an s.L.p. domain need not be Stein.
+\paragraph{Examples.}
+\begin{enumerate}[start=2]
+\item The unit Euclidean disc $E(1)\subset\mathbb C^n$ is s.L.p. (take $\phi(z)=\sum|z_i|^2-1$). Suppose $n>1$ and let $M$, $\widetilde M$ denote the result of blowing up $E(1)$, $\mathbb C^n$ at zero. Then $M$ will be an s.L.p. domain in $\widetilde M$ as we may choose a defining function for $M$ which is equal to $\phi$ on a neighbourhood of $\partial M$ in $\widetilde M$ which does not contain the exceptional variety of the blowing up. However, $M$ cannot be Stein as the exceptional variety of the blowing up is a compact complex submanifold of $M$ biholomorphic to $P^{n-1}(\mathbb C)$. In particular, we cannot separate points on $P^{n-1}(\mathbb C)$ by holomorphic functions on $M$ (Proposition~\ref{proposition:4.2.4}).
+\item Let $L$ denote the universal line bundle on\IndexMark{idx-632}{universal bundle@Universal bundle!on projective space@on projective space} $P^n(\mathbb C)$. Then $L$ is biholomorphic to $\mathbb C^{n+1}$ blown up at zero. Hence, by example 2, there is an s.L.p. neighbourhood of the zero section of $L$. More generally, if $X$ is any compact complex submanifold of $P^n(\mathbb C)$ then $L_X=L|X$ has an s.L.p. neighbourhood of the zero section.
+\end{enumerate}
+Motivated by example 2, we now give an important definition due to Grauert \cite{bib:II:grauert-h:1}.
+\begin{originaltheorem}{Definition}{5.10.5}\FieldTarget{definition:5.10.5}{5.10.5}
+Let $E$ be a holomorphic vector bundle on the compact complex manifold $M$. We say that $E$ is \emph{weakly negative}\IndexMark{idx-648}{weakly negative positive vector bundle@Weakly negative (positive) vector bundle} if there
+% Source PDF page 71; printed page 62
+is an s.L.p. neighbourhood of the zero section of $E$. We say that $E$ is \emph{weakly positive} if $E^*$ is weakly negative.
+\end{originaltheorem}
+\paragraph{Remark.} One of the main theorems we prove in Chapter~\ref{ch:7} is that if a compact complex manifold $M$ admits a weakly positive vector bundle\IndexMark{idx-649}{weakly negative positive vector bundle@Weakly negative (positive) vector bundle} then $M$ is algebraic.
+
+Our definition of the $q$-pseudoconvexivity of a complex manifold $M$ depended on representing $M$ as a domain in some larger complex manifold. Our next aim is to present an intrinsic definition of pseudoconvexivity.
+\begin{originaltheorem}{Definition}{5.10.6}\FieldTarget{definition:5.10.6}{5.10.6}
+Suppose that $M$ is an $m$-dimensional complex manifold and let $\phi\in C_{\mathbb R}^\infty(M)$. We say that $\phi$ is \emph{strictly $q$-plurisubharmonic}\IndexMark{idx-440}{plurisubharmonic@Plurisubharmonic}\IndexMark{idx-442}{plurisubharmonic@Plurisubharmonic!exhaustion function@exhaustion function}\IndexMark{idx-444}{plurisubharmonic@Plurisubharmonic!strict@strict}\IndexMark{idx-493}{q plurisubharmonic function@$q$-plurisubharmonic function} (abbreviated, strictly $q$-psh) if $L(\phi)(x)$ has at least $m-q$ positive eigenvalues at every point $x$ of $M$.
+\end{originaltheorem}
+Recall from \hyperref[sec:2:5]{\S5, Chapter 2}, that $\phi\in C_{\mathbb R}^\infty(M)$ is said to be an \emph{exhaustion function}\IndexMark{idx-244}{exhaustion function@Exhaustion function} for $M$ if for all $c\in\mathbb R$,
+\[M_c=\{x\in M:\phi(x)<c\}\]
+is a relatively compact subset of $M$.
+\begin{originaltheorem}{Definition}{5.10.7}\FieldTarget{definition:5.10.7}{5.10.7}
+A complex manifold $M$ is said to be \emph{$q$-complete}\IndexMark{idx-661}{zero complete 0 complete@Zero-complete (0-complete)} if there exists a strictly $q$-psh exhaustion function $\phi$ on $M$.
+\end{originaltheorem}
+\paragraph{Remarks.}
+\begin{enumerate}
+\item Clearly $q$-complete implies $(q+1)$-complete.
+\item We often refer to 0-complete manifolds\IndexMark{idx-491}{q complete manifold@$q$-complete manifold} as being \emph{holomorphically complete}\IndexMark{idx-307}{holomorphically complete@Holomorphically complete}.
+\end{enumerate}
+\begin{originaltheorem}{Theorem}{5.10.8}\FieldTarget{theorem:5.10.8}{5.10.8}
+Every Stein manifold is 0-complete.
+\end{originaltheorem}
+\begin{proof} Exactly the same as the proof of Theorem~\ref{theorem:2.5.20}. \end{proof}
+\paragraph{Remark.} We shall prove in Chapter 11 that every 0-complete manifold is Stein.
+% Source PDF page 72; printed page 63
+Next we wish to say a few words about the relationship between $q$-pseudoconvexivity and $q$-completeness. Suppose that $M$ is a domain in $\widetilde M$ and that $M$ has $C^2$ boundary and $\widetilde M$ is Stein. Then it can be shown that if $M$ is $q$-pseudoconvex\IndexMark{idx-495}{q pseudoconvex manifold@$q$-pseudoconvex manifold} then $M$ is $q$-complete (see Eastwood and Vigna Suria \cite{bib:II:eastwood-m-g-and-vigna-suria-g:1}). We only remark here that if $q=0$ then the proof that $q$-pseudoconvexivity implies $q$-completeness is similar to the proof of Proposition~\ref{proposition:2.5.15} and makes use of the elementary fact that we can find a Stein neighbourhood of $\bar M$ in $\widetilde M$ which embeds in the unit Euclidean disc in some $\mathbb C^N$ (cf. Lemma~\ref{lemma:7.2.13}). Conversely, it can be shown that $q$-completeness implies $q$-pseudoconvexivity.
+
+In Chapter 11 we shall show that $q$-completeness implies existence theorems for the $\bar\partial$-operator. To be precise, we shall show that if $M$ is $q$-complete, $E$ is a holomorphic vector bundle on $E$ and $\phi\in C^{r,s}(M,E)$ is $\bar\partial$-closed then there exists $\psi\in C^{r,s-1}(M,E)$ such that $\bar\partial\psi=\phi$ provided that $s\geq q+1$, $r\geq0$. In particular, if $M$ is Stein we can always solve the generalised Cauchy--Riemann equations on $M$.
+
+Although it is not our intention to say very much here about $q$-pseudoconvexivity or $q$-completeness in case $q\neq0$, we remark that $q$-pseudoconvexivity may be regarded as a measure of how far away a domain is from being s.L.p. Moreover, the concept may be related to extension problems in complex analysis. See, for example, Eastwood and Vigna Suria \cite{bib:II:eastwood-m-g-and-vigna-suria-g:1} and Andreotti and Grauert \cite{bib:II:andreotti-a-and-grauert-h:1}. We give one example to show how we may construct $q$-complete spaces, $q\neq0$.
+\paragraph{Example 4.} (see also Griffiths \cite[Theorem H]{bib:II:griffiths-p:1}, Serre \cite{bib:II:serre-j-p:1}, Simha \cite{bib:II:simha-r-r:1}, Vesentini \cite{bib:II:vesentini-e:1}).
+
+Let $M$ be a $p$-complete manifold\IndexMark{idx-492}{q complete manifold@$q$-complete manifold} and $f_1,\ldots,f_{q+1}\in A(M)$. Set $Z=Z(f_1,\ldots,f_{q+1})$. Then we claim that $Y=M\setminus Z$ is $(p+q)$-complete. In particular if $M$ is Stein and $q=0$, $Y$ is 0-complete and therefore Stein by the result cited above. Of course, in this case it is easy to verify directly that $Y$ is holomorphically convex and therefore Stein as $f_1^{-1}\in A(Y)$.
+
+Suppose $\phi$ is a strictly $p$-psh exhaustion function on $M$. Choose a $C^\infty$ function $g:\mathbb R\to\mathbb R$ such that
+\begin{enumerate}
+\item $g(t)$, $g'(t)$, $g''(t)>0$, $t\in\mathbb R$.
+% Source PDF page 73; printed page 64
+\item $g(t)\to\infty$ as $t\to\infty$.
+\item $g\phi>\sum_{i=1}^{q+1}|f_i|^2$ on $Y$.
+\end{enumerate}
+Set $\theta=g\phi-\log\sum_{i=1}^{q+1}|f_i|^2$. Since $L(\log\sum_{i=1}^{q+1}|f_i|^2)$ is positive semi-definite with at most $q$ positive eigenvalues we see easily that $\theta$ is strictly $(p+q)$-psh on $Y$. It is sufficient to show that $\theta$ is an exhaustion function on $Y$. That is, $Y_c=\{x\in Y:\theta(x)<c\}$ is a relatively compact subset of $Y$ for all $c\in\mathbb R$. Suppose $\theta(x)<c$. Certainly,
+\[\sum_{i=1}^{q+1}|f_i|^2\geq e^{g(\phi)-c}>e^{-c}>0.\]
+Consequently, $Y_c\subset M\setminus U$, where $U$ is an open neighbourhood of $Z$. On the other hand
+\[e^{g(\phi)}/g(\phi)<e^c\]
+and so $g(\phi)<e^c$ on $Y_c$. Hence $Y_c\subset M_C$, $C=g^{-1}(e^c)$. It follows that $Y_c$ is a relatively compact subset of $Y$.
+
+Finally, we conclude this section with a few brief remarks about the Bergman kernel function\IndexMark{idx-042}{bergman kernel function@Bergman kernel function!of complex manifold@of complex manifold} of a complex manifold. Given an $m$-dimensional complex manifold $M$, let
+\[L^2(M)=\{f\in\Omega^m(M):\int_M f\wedge\bar f<\infty\}.\]
+Then $L^2(M)$ has the structure of a Hilbert space with inner product defined by $(f,g)=\int_M f\wedge\bar g$. As in \hyperref[sec:2:6]{\S6, Chapter 2} we can construct a Bergman kernel function $K(z,\bar\zeta)$ for $L^2(M)$ and then $K(z,\bar z)$ defines a smooth section of $C^{m,m}(M)$ (cf. Proposition~\ref{proposition:2.6.6}). If instead, we start with an Hermitian metric on $M$ and corresponding measure $d\lambda$ on $M$, we may define $L^2(M)=\{f\in A(M):\int|f|^2d\lambda<\infty\}$. In this case we may show that there exists a Bergman kernel function $K(z,\bar\zeta)$ for $L^2(M)$ and that for important examples $\operatorname{Log}K(z,\bar z)$ will be a strictly $q$-psh exhaustion function on $M$ (cf. Proposition~\ref{proposition:2.6.8}).

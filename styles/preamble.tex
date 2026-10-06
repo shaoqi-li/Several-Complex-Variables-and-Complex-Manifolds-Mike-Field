@@ -1,0 +1,103 @@
+% Navigation, diagrams and index for the combined transcription.
+% Book typography follows the originally uploaded Part II LaTeX project.
+\usepackage[T1]{fontenc}
+\usepackage{iftex}
+\ifPDFTeX\usepackage[utf8]{inputenc}\fi
+\usepackage{lmodern}
+\usepackage[a4paper,margin=26mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,mathrsfs,bm}
+\usepackage{enumitem,multicol,graphicx,textcomp}
+\usepackage{tikz,tikz-cd}
+\usetikzlibrary{arrows.meta,calc,patterns}
+\input{styles/tikz-style.tex}
+\tikzcdset{
+    arrow style=tikz,
+    field cd/.style={row sep=2.6em,column sep=3.5em},
+    every arrow/.append style={line width=0.5pt},
+    diagrams={>={Straight Barb[length=1.6mm,width=1.1mm]}}
+}
+\usepackage{needspace,etoolbox,makeidx}
+% Native index links require logical page anchors (page.1, page.2, ...).
+% Absolute page anchors would send every main-text index link into the front matter.
+\usepackage[unicode,hidelinks,hypertexnames=true,plainpages=false]{hyperref}
+\usepackage{bookmark}
+\makeindex
+\hypersetup{
+    pdftitle={Several Complex Variables and Complex Manifolds -- Parts I and II},
+    pdfauthor={Mike Field},
+    pdfsubject={Combined editable transcription with TikZ diagrams and a generated index},
+    bookmarksnumbered=true
+}
+% Page, numbering, paragraph and list settings from field-vol-ii/main.tex.
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{1}
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+% Use the 11pt book class defaults for paragraph indentation and paragraph glue.
+\setlength{\emergencystretch}{3em}
+\setlist[enumerate]{label=\arabic*.,leftmargin=2.2em}
+\setlist[itemize]{leftmargin=2.2em}
+% Keep the merged edition's protection against isolated lines/headings.
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\brokenpenalty=5000
+\allowdisplaybreaks[1]
+\raggedbottom
+\pagestyle{headings}
+\preto\section{\Needspace{8\baselineskip}}
+\preto\subsection{\Needspace{6\baselineskip}}
+\preto\paragraph{\Needspace{4\baselineskip}}
+\newcommand{\unclear}[1]{\textbf{[Transcription unclear: #1]}}
+
+% Original statement numbers are retained. Their targets are independent of
+% counters, so the original duplicated numbers cannot create duplicate links.
+\newcounter{fieldtarget}
+\makeatletter
+\newcommand{\FieldTarget}[2]{%
+    \refstepcounter{fieldtarget}%
+    \protected@edef\@currentlabel{#2}%
+    \label{#1}%
+}
+\newcommand{\FieldHeading}[3]{%
+    \par\addvspace{\medskipamount}\Needspace{4\baselineskip}%
+    \noindent\textbf{#1 #2.#3}\ \ignorespaces
+}
+\newenvironment{originaltheorem}[2]{%
+    \par\addvspace{\medskipamount}\Needspace{4\baselineskip}%
+    \noindent\textbf{#1 #2.}\ \ignorespaces
+}{\par\addvspace{\medskipamount}}
+\newcommand{\FieldCaption}[3]{%
+    \par\smallskip
+    \FieldTarget{fig:#1:#2}{#1.#2}%
+    {\small Figure #1.#2\ifstrempty{#3}{}{.\ #3}\par}%
+}
+% Page-location records are written at shipout, like ordinary index entries.
+\newcommand{\IndexMark}[2]{%
+    \index{#2}%
+    \protected@write\@auxout{}{\string\IndexLocation{#1}{\thepage}}%
+}
+\newcommand{\IndexLocation}[2]{}
+\newcommand{\SourcePageRecord}[3]{%
+    \protected@write\@auxout{}{\string\SourceLocation{#1}{#2}{\thepage}}%
+}
+\newcommand{\SourceLocation}[3]{}
+\makeatother
+\newcommand{\bibauthor}[1]{%
+    \par\addvspace{\medskipamount}\Needspace{4\baselineskip}%
+    \noindent\textbf{#1}\par\nobreak
+}
+\newenvironment{sourcebibliography}{%
+    \begin{list}{}{\setlength{\leftmargin}{2.5em}%
+        \setlength{\labelwidth}{2.1em}\setlength{\labelsep}{0.4em}%
+        \setlength{\itemsep}{2pt}\setlength{\topsep}{2pt}\setlength{\parsep}{0pt}}
+}{\end{list}}
+\pdfstringdefDisableCommands{%
+    \def\mathbb#1{#1}\def\mathcal#1{#1}\def\mathscr#1{#1}%
+    \def\bar#1{#1}\def\Omega{Omega}\def\partial{d}%
+    \def\FieldTarget#1#2{}\def\IndexMark#1#2{}%
+}
+
+% The original Part II index is small, ragged-right and in two columns.
+% Keep the merged edition's native makeindex entries and hyperlinks.
+\apptocmd{\theindex}{\small\raggedright\setlength{\parskip}{4pt}}{}{}

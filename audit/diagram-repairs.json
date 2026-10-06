@@ -1,0 +1,214 @@
+[
+  {
+    "file": "diagrams/I-tori.tex",
+    "source_location": "Part I, printed page 152.",
+    "format": "TikZ-CD",
+    "repair": "Correct the prior escaped pi labels to Greek pi and pi-prime; redraw with TikZ-CD."
+  },
+  {
+    "file": "diagrams/II-01.tex",
+    "source_location": "Part II, printed page 7; source PDF page 16.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-02.tex",
+    "source_location": "Part II, printed page 10; source PDF page 19.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-03.tex",
+    "source_location": "Part II, printed page 19; source PDF page 28.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-04.tex",
+    "source_location": "Part II, printed page 19; source PDF page 28.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-05.tex",
+    "source_location": "Part II, printed page 19; source PDF page 28.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-06.tex",
+    "source_location": "Part II, printed page 20; source PDF page 29.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-07.tex",
+    "source_location": "Part II, printed page 73; source PDF page 82.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-08.tex",
+    "source_location": "Part II, printed page 92; source PDF page 101.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-09.tex",
+    "source_location": "Part II, printed page 99; source PDF page 108.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-10.tex",
+    "source_location": "Part II, printed page 100; source PDF page 109.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-11.tex",
+    "source_location": "Part II, printed page 100; source PDF page 109.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-12.tex",
+    "source_location": "Part II, printed page 100; source PDF page 109.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-13.tex",
+    "source_location": "Part II, printed page 100; source PDF page 109.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-14.tex",
+    "source_location": "Part II, printed page 100; source PDF page 109.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-15.tex",
+    "source_location": "Part II, printed page 101; source PDF page 110.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-16.tex",
+    "source_location": "Part II, printed page 105; source PDF page 114.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-17.tex",
+    "source_location": "Part II, printed page 106; source PDF page 115.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels.",
+    "explicit_semantic_correction": "M(X) is aligned with H^0(X,M); the original diagram placed it one column to the right. Footnote in the combined text, p.182."
+  },
+  {
+    "file": "diagrams/II-18.tex",
+    "source_location": "Part II, printed page 107; source PDF page 116.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-19.tex",
+    "source_location": "Part II, printed page 109; source PDF page 118.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-20.tex",
+    "source_location": "Part II, printed page 110; source PDF page 119.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-21.tex",
+    "source_location": "Part II, printed page 112; source PDF page 121.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-22.tex",
+    "source_location": "Part II, printed page 114; source PDF page 123.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-23.tex",
+    "source_location": "Part II, printed page 117; source PDF page 126.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-24.tex",
+    "source_location": "Part II, printed page 118; source PDF page 127.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-25.tex",
+    "source_location": "Part II, printed page 122; source PDF page 131.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels.",
+    "explicit_semantic_correction": "The k arrow points from H^2(X,C) to H^2(X,O), in accordance with the inclusion in the surrounding text. Footnote in the combined text, p.192."
+  },
+  {
+    "file": "diagrams/II-26.tex",
+    "source_location": "Part II, printed page 122; source PDF page 131.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-27.tex",
+    "source_location": "Part II, printed page 122; source PDF page 131.",
+    "format": "TikZ-CD",
+    "repair": "Replace detached containment marks by downward inclusion arrows."
+  },
+  {
+    "file": "diagrams/II-28.tex",
+    "source_location": "Part II, printed page 123; source PDF page 132.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-29.tex",
+    "source_location": "Part II, printed page 162; source PDF page 171.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-30.tex",
+    "source_location": "Part II, printed page 163; source PDF page 172.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-31.tex",
+    "source_location": "Part II, printed page 164; source PDF page 173.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-33.tex",
+    "source_location": "Part II, printed page 185; source PDF page 194.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "diagrams/II-34.tex",
+    "source_location": "Part II, printed page 194; source PDF page 203.",
+    "format": "TikZ-CD",
+    "repair": "Editable nodes and arrows, normalised spacing and readable labels."
+  },
+  {
+    "file": "figures/II-figure01.tex",
+    "source_location": "Part II, printed page 170",
+    "format": "TikZ",
+    "repair": "Redraw the domain-bumping schematic with grey fills, a darker intersection, boundary arcs and separated labels."
+  }
+]

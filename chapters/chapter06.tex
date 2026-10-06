@@ -1,0 +1,1238 @@
+% Source PDF page 74; printed page 65
+\chapter{Sheaf Theory}\label{ch:6}
+\ChapterSixIntroduction
+
+\section{Sheaves and presheaves}\label{sec:6:1}
+Our aim in this section is to develop the theory of sheaves and show how it provides a unifying topological framework for the study of a diverse range of structures on topological spaces. Our presentation will be geared towards applications in complex analysis and the reader may consult Godement \cite{bib:II:godement-r:1} or Tennison \cite{bib:II:tennison-b-r:1} for more extensive and general expositions of the theory of sheaves.
+
+Let $X$ be a topological space with topology of open sets $\mathcal U$.
+
+\begin{originaltheorem}{Definition}{6.1.1}\FieldTarget{definition:6.1.1}{6.1.1}
+A \emph{presheaf of groups}\IndexMark{idx-455}{presheaf@Presheaf} on $X$ is a collection of groups $G(U)$, one for each $U\in\mathcal U$, together with group homomorphisms $r_{VU}:G(U)\to G(V)$, defined for $V,U\in\mathcal U$ and $V\subset U$, such that
+\begin{enumerate}
+\item If $U=\varnothing$, $G(U)$ is the zero group.
+\item For all $U\in\mathcal U$, $r_{UU}$ is the identity.
+\item For $U,V,W\in\mathcal U$ and $W\subset V\subset U$, we have $r_{WV}r_{VU}=r_{WU}$.
+\end{enumerate}
+We usually denote the presheaf by $\{G(U),r_{VU}\}$ or just $G$.
+\end{originaltheorem}
+
+\paragraph{Remarks.}
+\begin{enumerate}
+\item Replacing the word ``group'' everywhere by ``set'', ``ring'', ``field'', ``algebra'', etc. we may define presheaves of sets, rings, fields, algebras, etc. We shall assume these definitions in the sequel.
+% Source PDF page 75; printed page 66
+\item The homomorphisms $r_{VU}$ occuring in the definition are usually called \emph{restriction homomorphisms}. In all our examples they will be restriction maps and we therefore generally omit any explicit specification.
+\end{enumerate}
+As we shall soon see, many basic structures in analysis can be formulated in terms of presheaves.
+
+\paragraph{Examples.}
+\begin{enumerate}
+\item For each $U\in\mathcal U$, let $C(U)$ denote the ring of continuous\IndexMark{idx-458}{presheaf@Presheaf!of continuous c valued or locally constant valued functions@of continuous $\mathbb{C}$-valued or locally constant $\Gamma$-valued functions} $\mathbb C$-valued functions on $U$. Given $U,V\in\mathcal U$, with $V\subset U$, define $r_{VU}:C(U)\to C(V)$ to be restriction of continuous functions on $U$ to $V$. Then $C_X=\{C(U),r_{VU}\}$ is a presheaf of rings on $X$: The \emph{presheaf of continuous $\mathbb C$-valued functions} on $X$.
+\item Let $\Gamma$ be a ring with discrete topology. For each $U\in\mathcal U$, let $C(U,\Gamma)$ denote the ring of continuous $\Gamma$-valued functions on $U$. Defining $r_{VU}$ as restriction, $V\subset U$, the set $\Gamma_X=\{C(U,\Gamma),r_{VU}\}$ is a presheaf of rings on $X$: The \emph{presheaf of locally constant $\Gamma$-valued functions} on $X$.
+\item Suppose $X$ has the structure of a differential manifold\IndexMark{idx-459}{presheaf@Presheaf!c k c functions@$C^k(C^\infty)$ functions}. Let $C^k(U)$ denote the ring of $C^k$ $\mathbb C$-valued functions on $U$, $U\in\mathcal U$, $1\leq k<\infty$. Then $C_X^k=\{C^k(U),r_{VU}\}$ is a presheaf of rings on $X$: The \emph{presheaf of $C^k$ $\mathbb C$-valued functions} on $X$. We shall let $D_X=\{C^\infty(U),r_{VU}\}$ denote the \emph{presheaf of $C^\infty$ $\mathbb C$-valued functions} on $X$.
+\item Suppose $X$ has the structure of a complex manifold. We let $O_X=\{A(U),r_{VU}\}$ denote the presheaf of analytic $\mathbb C$-valued functions on $X$. In the sequel we usually refer to $O_X$ as the \emph{Oka presheaf of $X$}\IndexMark{idx-415}{oka@Oka!presheaf@presheaf}\IndexMark{idx-460}{presheaf@Presheaf!analytic functions@analytic functions}. For each $U$ let $S(U)$ denote the multiplicatively closed subset of $A(U)$ consisting of all analytic functions on $U$ which do not vanish identically on any component of $U$. Set $M(U)=A(U)_{S(U)}$. That is, $M(U)$ is the quotient ring of $A(U)$ with respect to the multiplicative system $S(U)$ (See Zariski and Samuel \cite[page 46]{bib:II:zariski-o-and-samuel-p:1} and observe that if $U$ is connected $M(U)$ is just the quotient field of $A(U)$). Then, defining $r_{VU}$ as restriction, $M_X=\{M(U),r_{VU}\}$ is a presheaf of rings on $X$: The \emph{presheaf of meromorphic functions}\IndexMark{idx-461}{presheaf@Presheaf!meromorphic functions@meromorphic functions} on $X$.
+\item Let $Z$ be an analytic subset of the complex manifold $X$. For each $U\in\mathcal U$, let $I_Z(U)=\{f\in A(U):f|Z\equiv0\}$. Then $I_Z=\{I_Z(U),r_{VU}\}$ is a
+% Source PDF page 76; printed page 67
+\emph{presheaf of ideals}\IndexMark{idx-462}{presheaf@Presheaf!ideals@ideals} of $O_X$. That is, for each $U\in\mathcal U$, $I_Z(U)$ is an ideal of $A(U)$. We call $I_Z$ the \emph{ideal presheaf}\IndexMark{idx-326}{ideal presheaf of analytic set@Ideal presheaf (of analytic set)} of $Z$.
+\item Let $E$ denote a holomorphic vector bundle\IndexMark{idx-464}{presheaf@Presheaf!holomorphic sections of holomorphic vector bundle@holomorphic sections of holomorphic vector bundle} over $X$. For each $U\in\mathcal U$, we let $\underline E(U)$ denote the space of holomorphic sections of $E$ over $U$. Each $\underline E(U)$ is an $A(U)$-module in the obvious way and the presheaf $\underline E=\{\underline E(U),r_{VU}\}$ is thus an example of a \emph{presheaf of $O_X$-modules}\IndexMark{idx-463}{presheaf@Presheaf!o x modules@$O_X$-modules}. We call $\underline E$ the \emph{presheaf of holomorphic sections} of $E$. In case $E$ is a smooth, not necessarily holomorphic, vector bundle over $X$, we let $\underline E_\infty=\{\underline E_\infty(U),r_{VU}\}$ denote the presheaf of $C^\infty$ sections of $E$. Thus, $\underline E_\infty$ is an example of a presheaf of $D_X$-modules and, of course, the construction works for any differential manifold $X$.
+\end{enumerate}
+Whilst a presheaf contains essentially all the information about a particular structure on a topological space, it is a large, seemingly cumbersome, object. We now describe the process of ``sheafification'' whereby out of every presheaf we can construct a topological space in such a way that, for all important examples, no information is lost.
+
+Let $R=\{R(U),r_{VU}\}$ be a presheaf of rings on the topological space $X$. Fix $x\in X$. We define an equivalence relation $\sim_x$ on the rings $R(U)$ for which $x\in U$. Suppose that $U,V\in\mathcal U_x$ and $f\in R(U)$, $g\in R(V)$. We say $f$ is equivalent to $g$ at $x$, $f\sim_x g$, if and only if there exists $W\in\mathcal U_x$, $W\subset U\cap V$, such that
+\[
+r_{WU}(f)=r_{WV}(g).
+\]
+Using conditions 2 and 3 of Definition~\ref{definition:6.1.1}, the reader may easily verify that $\sim_x$ is an equivalence relation. We denote the set of $\sim_x$ equivalence classes by $R_x$. The set $R_x$ inherits the structure of a ring from the rings $R(U)$ and we let $r_{U,x}:R(U)\to R_x$ denote the corresponding ``equivalence class'' ring homomorphisms, defined for $U\in\mathcal U_x$. In the sequel we often write $f_x$ for $r_{U,x}(f)$, $f\in R(U)$, and call $f_x$ the \emph{germ} of $f$ at $x$.
+
+\paragraph{Examples.}
+\begin{enumerate}[start=7]
+\item If we let $O$ denote the Oka presheaf of the complex manifold $X$, then $O_x$ is just the ring of germs of analytic functions\IndexMark{idx-269}{germ@Germ!section of sheaf@section (of sheaf)} at $x$ (see also \hyperref[sec:3:1]{Chapter 3, \S1}; \hyperref[sec:4:1]{Chapter 4, \S1}).
+% Source PDF page 77; printed page 68
+\item If we let $M$ denote the presheaf of meromorphic functions on the complex manifold $X$, then $\mathcal M_x$ is the field of germs of meromorphic functions at $x$ (see \hyperref[sec:3:4]{Chapter 3, \S4}; \hyperref[sec:4:1]{Chapter 4, \S1}).
+\end{enumerate}
+Set
+\[
+\mathcal R=\bigcup_{x\in X}\mathcal R_x
+\]
+and let $\pi:\mathcal R\to X$ denote the projection defined by mapping points in $\mathcal R_x$ to $x$. We now topologise $\mathcal R$. Given $f\in R(U)$, we have a section $\widetilde f$ (relative to $\pi$) of $\mathcal R$ over $U$ defined by $\widetilde f(x)=f_x$, $x\in U$. For a base of open sets for the topology\IndexMark{idx-606}{topology@Topology!on a sheaf@on a sheaf} of $\mathcal R$, we take the collection of sets $\widetilde f(U)\subset\mathcal R$, over all $U\in\mathcal U$ and $f\in R(U)$. The reader may easily verify that this defines the base for a topology on $\mathcal R$. Clearly the local sections $\widetilde f:U\to\mathcal R$, $f\in R(U)$, are continuous in this topology.
+
+\begin{originaltheorem}{Lemma}{6.1.2}\FieldTarget{lemma:6.1.2}{6.1.2}
+With the above notation we have
+\begin{enumerate}
+\item $\pi:\mathcal R\to X$ is a local homeomorphism.
+\item The induced topology on $\mathcal R_x\subset\mathcal R$ is discrete for all $x\in X$.
+\end{enumerate}
+\end{originaltheorem}
+\begin{proof}
+Property 2 is immediate from 1. For 1 we note that $\pi\widetilde f$ is the identity map on $U$ for all $f\in R(U)$ and so $\widetilde f$ maps $U$ homeomorphically onto $\widetilde f(U)$ with inverse $\pi|\widetilde f(U)$.
+\end{proof}
+We call the topological space $\mathcal R$, together with the projection map $\pi:\mathcal R\to X$, the \emph{sheafification}\IndexMark{idx-571}{sheafification@Sheafification} of the presheaf $R$ or the sheaf associated to the presheaf $R$. We denote the sheaf by the triple $(\mathcal R,\pi,X)$ or, more usually, by the symbol $\mathcal R$. The ring $\mathcal R_x=\pi^{-1}(x)$ is called the \emph{stalk}\IndexMark{idx-580}{stalk of sheaf@Stalk (of sheaf)} of the sheaf at $x$.
+
+Let us summarise our construction. Given a presheaf $R=\{R(U),r_{VU}\}$ of rings on $X$ we have a ring $\mathcal R_x$ naturally defined at each point $x\in X$. The disjoint union $\mathcal R$ of the rings $\mathcal R_x$ has the natural structure of a topological space in such a way that the local sections $\widetilde f$ associated to $f\in R(U)$ are continuous and the projection $\pi:\mathcal R\to X$ is a local homeomorphism. Each stalk $\mathcal R_x$ has the structure of a ring with discrete topology. The triple $(\mathcal R,\pi,X)$ is called a \emph{sheaf of rings} on $X$. Clearly our construction works equally well for presheaves of sets,
+% Source PDF page 78; printed page 69
+ groups, algebras, etc. to yield sheaves of sets, groups, algebras, etc. Shortly we shall give a general definition of a sheaf which does not depend, a priori, on the existence of a presheaf.
+
+\paragraph{Examples.}
+\begin{enumerate}[start=9]
+\item Let $\mathcal C_X$ denote the sheaf of rings associated to the presheaf $C_X$ of continuous $\mathbb C$-valued functions on $X$. We call $\mathcal C_X$ the \emph{sheaf of germs of continuous $\mathbb C$-valued functions}\IndexMark{idx-560}{sheaf of germs@Sheaf of germs!of continuous c valued functions@of continuous $\mathbb{C}$-valued functions}\IndexMark{idx-561}{sheaf of germs@Sheaf of germs!c c valued functions@$C^\infty$ $\mathbb{C}$-valued functions}\IndexMark{idx-562}{sheaf of germs@Sheaf of germs!analytic functions@analytic functions} on $X$. Often we drop the subscript $X$ and just write $\mathcal C$ (this remark applies also to subsequent examples). The stalk $\mathcal C_x$ is the ring of germs of continuous $\mathbb C$-valued functions at $x$, $x\in X$. Suppose that $A:U\to\mathcal C$ is a continuous section of $\mathcal C$ over the open subset $U$ of $X$. We claim that there exists a unique $a\in C(U)$ such that $\widetilde a=A$. In other words, continuous sections of the sheaf correspond to continuous $\mathbb C$-valued functions. First notice that $A$ determines a function $a:U\to\mathbb C$ defined by $a(x)=A(x)(x)$ (evaluation of the germ $A(x)$ at $x$). We must prove that $a$ is continuous. Let $x\in U$ and observe that by definition of the topology on $\mathcal C$ we may find an open neighbourhood $V$ of $x$, $V\subset U$, and $s\in C(V)$ such that $\widetilde s=A|V$. But now $s=a|V$ and so $a$ is continuous at $x$. Since $x$ was an arbitrary point in $U$ it follows that $a$ is continuous on $U$. Finally $a$ is the unique $\mathbb C$-valued function on $U$ satisfying $\widetilde a=A$ since the germ of $a$ at $x$ determines the value of $a$ at $x$, $x\in U$. Clearly what we have said above for the presheaf $C_X$ and corresponding sheaf $\mathcal C_X$ works equally well for the presheaves $C_X^k$, $D_X$ and $O_X$ and so we obtain the sheaves of rings
+\begin{description}
+\item[$\mathcal C_X^k$:] Sheaf of germs of $C^k$ $\mathbb C$-valued functions on the differential manifold $X$.
+\item[$\mathcal D_X$:] Sheaf of germs of $C^\infty$ $\mathbb C$-valued functions on the differential manifold $X$.
+\item[$\mathcal O_X$:] Sheaf of germs of analytic functions on the complex manifold $X$.
+\end{description}
+The sheaf $\mathcal O_X$ is often referred to as the \emph{Oka sheaf}\IndexMark{idx-416}{oka@Oka!sheaf@sheaf} of $X$.
+
+We remark the important fact that a continuous local section of $\mathcal C_X^k$ (resp. $\mathcal D_X$, $\mathcal O_X$) over an open subset $U$ corresponds to a unique $C^k$ (resp. $C^\infty$, analytic) function on $U$. The proof is the same as for $\mathcal C_X$.
+% Source PDF page 79; printed page 70
+Finally, we observe that $\mathcal O_X$ is an open subset of $\mathcal D_X$ and that each stalk $\mathcal O_x$ is a subring of $\mathcal D_x$. We say that $\mathcal O_X$ is a \emph{subsheaf}\IndexMark{idx-591}{subsheaf@Subsheaf} (of rings) of $\mathcal D_X$. Generally, if $(\mathcal R,\pi,X)$ and $(\mathcal S,\eta,X)$ are sheaves of rings on $X$, we say that $\mathcal R$ is a \emph{subsheaf} (of rings) of $\mathcal S$ if $\mathcal R$ is an open subset of $\mathcal S$, $\eta|\mathcal R=\pi$ and for all $x\in X$, $\mathcal R_x$ is a subring of $\mathcal S_x$. Thus all the sheaves constructed above are subsheaves of $\mathcal C_X$. The reader may care to formulate the analogous concept of \emph{subpresheaf}\IndexMark{idx-590}{subpresheaf@Subpresheaf}.
+\item Let $\Gamma$ denote a ring with discrete topology and $\Gamma_X$ be the presheaf of locally constant $\Gamma$-valued function on $X$. Then the corresponding sheaf, which we shall also denote by $\Gamma_X$, is homeomorphic to $X\times\Gamma$. We say that $\Gamma_X$ is a \emph{constant sheaf}\IndexMark{idx-132}{constant sheaf@Constant sheaf} (that is, topologically a product). Sections of $\Gamma_X$ are $\Gamma$-valued functions on $X$ which are constant on connected components of $X$.
+\item Let $Z$ be an analytic subset of the complex manifold $X$. We let $\mathcal I_Z$ denote the sheaf associated to the ideal presheaf $I_Z$ of $Z$. Dropping the subscript $Z$, we see that for each $x\in X$, $\mathcal I_x$ is an ideal in $\mathcal O_x$. For this reason we refer to $\mathcal I$ as a \emph{sheaf of ideals} (of $\mathcal O$). Observe that for $x\notin Z$, $\mathcal I_x=\mathcal O_x$ whilst if $x\in Z$, $\mathcal I_x\subsetneq\mathcal O_x$.
+\item If $E$ is a holomorphic vector bundle over the complex manifold $X$, we let $\underline{\mathcal E}$ denote the sheaf of germs\IndexMark{idx-563}{sheaf of germs@Sheaf of germs!locally constant functions@locally constant functions}\IndexMark{idx-566}{sheaf of germs@Sheaf of germs!meromorphic functions@meromorphic functions}\IndexMark{idx-568}{sheaf of germs@Sheaf of germs!sections of holomorphic vector bundle@sections of holomorphic vector bundle} of holomorphic sections of $E$ associated to the presheaf of holomorphic sections of $E$. We see here that for each $x\in X$, $\underline{\mathcal E}_x$ is an $\mathcal O_x$-module and we refer to $\underline{\mathcal E}$ as a \emph{sheaf of $\mathcal O$-modules}\IndexMark{idx-569}{sheaf of o modules@Sheaf of $O$-modules}. For our particular example, we see that $\underline{\mathcal E}_x$ is a free $\mathcal O_x$-module of rank equal to the fibre dimension of $E$.
+\item Let $\mathcal M$ denote the \emph{sheaf of germs of meromorphic functions} on $X$ associated to the presheaf $M=\{M(U),r_{VU}\}$ of meromorphic functions on $X$. Since $\mathcal M_x$ is a field for all $x\in X$, $\mathcal M$ is an example of a sheaf of fields. A continuous section of $\mathcal M$ over $X$ is called a meromorphic function on $X$ -- see Definition~\ref{definition:4.1.4}. However, a continuous section of $\mathcal M$ over an open subset $U$ of $X$ need not correspond to an element of $M(U)$. This is a reflection of the fact that elements of $M(U)$ are all quotients of analytic functions defined on $U$ whilst meromorphic functions on $U$ need not be representable globally as a quotient of analytic functions. The simplest example is found by taking $X=U=P^1(\mathbb C)$ and $m$ any non-constant meromorphic function on $P^1(\mathbb C)$.
+% Source PDF page 80; printed page 71
+\item Our final example concerns the topology of the sheaves $\mathcal D_X$ and $\mathcal O_X$. We shall prove that the topology on $\mathcal O_X$\IndexMark{idx-609}{topology on o x@Topology on $\mathcal{O}_X$} is Hausdorff whilst that on $\mathcal D_X$ is not. First we prove that $\mathcal O_X$ is Hausdorff. Let $A,B\in\mathcal O_X$, $A\ne B$. Set $x=\pi(A)$, $y=\pi(B)$. If $x\ne y$, choose disjoint open neighbourhoods $U$, $V$ of $x$, $y$ and $a\in A(U)$, $b\in A(V)$ such that $\widetilde a(x)=A$, $\widetilde b(y)=B$. Clearly $\widetilde a(U)$, $\widetilde b(V)$ are disjoint open neighbourhoods of $A$, $B$. If $x=y$, choose a connected open neighbourhood $U$ of $x$ and $a,b\in A(U)$ such that $\widetilde a(x)=A$, $\widetilde b(x)=B$. If $\widetilde a(U)\cap\widetilde b(U)\ne\varnothing$, uniqueness of analytic continuation implies that $a=b$ on $U$ contradicting our assumption that $A\ne B$. Hence $\mathcal O_X$ is Hausdorff. To show that $\mathcal D_X$ is not Hausdorff it is enough to observe that for $n\geq1$, we cannot separate the zero germ from the germ at zero, in $\mathbb R^n$, of the function $\gamma$ defined by
+\[
+\gamma(x_1,\ldots,x_n)=\begin{cases}0,&x_n\leq0,\\ \exp(-1/x_n^2),&x_n>0.\end{cases}
+\]
+Since $\mathcal O_X$ is Hausdorff it follows that $\mathcal O_X$ has the structure of a complex manifold spread over $X$ (the complex structure on $\mathcal O_X$ is induced from that on $X$ via the local homeomorphism $\pi$). We shall exploit this fact in our construction of the envelope of holomorphy in \hyperref[sec:6:2]{\S2}.
+\end{enumerate}
+Next we shall give the general definition of a sheaf and show how a presheaf is naturally associated to every sheaf.
+
+Suppose that we are given a topological space $\mathcal F$ and local homeomorphism $\pi:\mathcal F\to X$. We shall say that $(\mathcal F,\pi,X)$ is a \emph{sheaf of rings} on $X$ if
+\begin{enumerate}
+\item The stalks $\mathcal F_x$ $(=\pi^{-1}(x))$ have the structure of a ring for each $x\in X$.
+\item The ring operations are continuous in the topology on $\mathcal F$.
+\end{enumerate}
+Condition 2 needs further elaboration: Suppose that $U$ is any open subset of $X$ and $s$, $t$ are continuous sections of $\mathcal F$ over $U$. Then we require that $s\pm t$, $st$ are continuous sections of $\mathcal F$ over $U$, where we define addition, subtraction and multiplication of sections using the ring structure in the stalks. Equivalently, we may take the product $\mathcal F\times\mathcal F$ over $X\times X$ and restrict to the diagonal $\Delta\subset X\times X$. Addition, subtraction and multiplication then define maps of $\mathcal F\times\mathcal F|\Delta$ to $\mathcal F$ which should be continuous.
+% Source PDF page 81; printed page 72
+Again it is straightforward to define sheaves of sets, groups, algebras, etc. and we omit formal definitions. In case $\mathcal R$ is a sheaf of rings over $X$, we say that a sheaf $\mathcal S$ on $X$ is a \emph{sheaf of $\mathcal R$-modules} if each stalk $\mathcal S_x$ has the structure of an $\mathcal R_x$-module and the module operations are continuous in the sense described above.
+
+Suppose that $(\mathcal F,\pi,X)$ is a sheaf of rings. For each $U\in\mathcal U$, we let $\mathcal F(U)$ denote the space of continuous sections of $\mathcal F$ over $U$. Then $\mathcal F(U)$ is a ring and, defining restriction homomorphisms in the obvious way, we see that $\mathcal F'=\{\mathcal F(U),r_{VU}\}$ is a presheaf\IndexMark{idx-456}{presheaf@Presheaf} of rings on $X$.
+
+\begin{originaltheorem}{Proposition}{6.1.3}\FieldTarget{proposition:6.1.3}{6.1.3}
+Let $(\mathcal F,\pi,X)$ denote a sheaf of rings on $X$. Then the sheafification of the presheaf $\mathcal F'=\{\mathcal F(U),r_{VU}\}$ is equal to $\mathcal F$.
+\end{originaltheorem}
+\begin{proof}
+We leave this as an elementary exercise for the reader.
+\end{proof}
+\paragraph{Example 15.}
+The presheaf $\mathcal M'$ associated to the sheaf $\mathcal M$ of germs of meromorphic functions on $X$ is not generally equal to the presheaf $M$ of meromorphic functions on $X$. However, it is clear that $M$ and $\mathcal M'$ have the common sheafification $\mathcal M$.
+
+Suppose that $R$ is a presheaf of rings on $X$ with associated sheaf $\mathcal R$. We have already seen that for all our examples, except that of meromorphic functions, $\mathcal R'=R$. Necessary and sufficient conditions for $\mathcal R'$ to equal $R$ are given by the following elementary lemma the proof of which we omit.
+
+\begin{originaltheorem}{Proposition}{6.1.4}\FieldTarget{proposition:6.1.4}{6.1.4}
+Let $R$ be a presheaf of rings on $X$ with associated sheaf $\mathcal R$. Then $\mathcal R'=R$ if and only if given any family $\{U_i:i\in I\}\subset\mathcal U$ and corresponding $s_i\in R(U_i)$ such that $s_i=s_j$ on $U_{ij}$ for all $i,j\in I$, there exists a unique $s\in R(\bigcup U_i)$ such that $s|U_i=s_i$, $i\in I$.
+\end{originaltheorem}
+\paragraph{Remarks on terminology and notation.}
+In the literature a sheaf is often defined to be a presheaf which is equal to the presheafification of its associated sheaf. What we have called a sheaf is then referred to as the \emph{espace \'etal\'e}\IndexMark{idx-231}{espace etale@Espace \'etal\'e} of the sheaf (or presheaf). In the sequel we usually use the same notation for the sheaf and its associated presheaf. By virtue of Propositions~\ref{proposition:6.1.3}, \ref{proposition:6.1.4} this will not lead to confusion as, with the exception of the sheaf of germs of meromorphic functions, all
+% Source PDF page 82; printed page 73
+our basic examples satisfy the conditions of Proposition~\ref{proposition:6.1.4}. Aside from sheaves of sections of vector bundles and constant sheaves, we generally use script letters to denote sheaves and follow the notation developed earlier for our examples on sheaves.
+
+For the remainder of this section we shall be considering morphisms of sheaves and various constructions involving sheaves. For the sake of brevity we restrict attention to sheaves of rings and modules noting that all our definitions generalise straightforwardly to sheaves of groups, fields, algebras, etc.
+
+\paragraph{Morphisms of sheaves.}
+Let $(\mathcal F,\pi,X)$ and $(\mathcal F',\pi',X)$ be sheaves of rings on $X$. A \emph{sheaf morphism}\IndexMark{idx-556}{sheaf morphism@Sheaf morphism}\IndexMark{idx-557}{sheaf morphism@Sheaf morphism!isomorphism@isomorphism}\IndexMark{idx-558}{sheaf morphism@Sheaf morphism} from $\mathcal F$ to $\mathcal F'$ is a continuous map $A:\mathcal F\to\mathcal F'$ covering the identity on $X$ such that if $A_x:\mathcal F_x\to\mathcal F'_x$ denotes the map induced by $A$ on the stalks at $x$ then $A_x$ is a ring homomorphism for all $x\in X$. We say that $A$ is a \emph{sheaf isomorphism} if $A$ is a homeomorphism and $A$ and $A^{-1}$ are sheaf morphisms.
+
+\paragraph{Remarks.}
+\begin{enumerate}
+\item We shall often refer to a sheaf morphism between sheaves of rings (or groups, algebras, etc.) as a \emph{sheaf homomorphism} or just \emph{homomorphism}. In case $\mathcal F$, $\mathcal F'$ are $\mathcal S$-modules, where $\mathcal S$ is a sheaf of rings on $X$, we refer to a sheaf morphism between $\mathcal F$ and $\mathcal F'$ as an \emph{$\mathcal S$-module homomorphism}.
+\item Notice that a sheaf morphism is a local homeomorphism and therefore an open mapping.
+\end{enumerate}
+We may similarly define morphisms between presheaves\IndexMark{idx-466}{presheaf morphism@Presheaf morphism}. Indeed, suppose $R=\{R(U),r_{VU}\}$ and $S=\{S(U),s_{VU}\}$ are presheaves of rings on $X$. Then a morphism $a:R\to S$ consists of a family $\{a_U:R(U)\to S(U):U\in\mathcal U\}$ of ring homomorphisms which are compatible with the restriction homomorphisms. That is, for $U,V\in\mathcal U$, $U\supset V$, we have the commutative diagram
+\[
+\input{diagrams/II-07.tex}
+\]
+% Source PDF page 83; printed page 74
+The reader may easily verify that a morphism $a:R\to S$ of presheaves induces a unique sheaf morphism $A:\mathcal R\to\mathcal S$ between the sheaves associated to $R$ and $S$. Conversely, any sheaf morphism $A:\mathcal R\to\mathcal S$ is associated to a unique presheaf morphism $a:\mathcal R'\to\mathcal S'$ between the presheaves associated to $\mathcal R$ and $\mathcal S$. We frequently use these observations in our construction of sheaf morphisms and indeed in the following examples all the sheaf morphisms are constructed first at the presheaf level.
+
+\paragraph{Examples.}
+\begin{enumerate}[start=16]
+\item Let $E$ and $F$ be holomorphic vector bundles over the complex manifold $X$ and $A:E\to F$ be a holomorphic vector bundle map. Then $\underline E$ and $\underline F$ are $\mathcal O_X$-modules and $A$ induces in the obvious way an $\mathcal O_X$-module homomorphism $\underline A:\underline E\to\underline F$.
+\item Let $X$ be a differential manifold and for $p\geq0$ let $\underline C^p$ denote the sheaf of germs of $C^\infty$ sections of the bundle $\bigwedge^p\mathbb C T'X$ of complex $p$-forms. Note that $\underline C^0=\mathcal D_X$ and each $\underline C^p$ has the structure of a $\mathcal D_X$-module. The constant sheaf $\mathbb C$ is a subsheaf of $\mathcal D_X$ and so the sheaves $\underline C^p$ have the structure of $\mathbb C$-modules. For $p\geq0$, exterior differentiation\IndexMark{idx-161}{d exterior differentiation@$d$ (exterior differentiation)!as morphism of sheaves@as morphism of sheaves} induces a morphism $d:\underline C^p\to\underline C^{p+1}$ of $\mathbb C$-modules. Observe that $d$ is certainly not a morphism of $\mathcal D_X$-modules.
+\item Let $X$ be a complex manifold and for $p,q\geq0$ let $\underline C^{p,q}$ denote the sheaf of germs of $C^\infty$ sections of the bundle $\bigwedge^{p,q}(X)'$ of complex $(p,q)$-forms. As in example 17, the operators\IndexMark{idx-218}{dbar operator@$\bar\partial$-operator!as morphism of sheaves@as morphism of sheaves} $\partial$ and $\bar\partial$ induce $\mathbb C$-module homomorphisms
+\[
+\begin{aligned}
+\partial &: \underline C^{p,q}\longrightarrow\underline C^{p+1,q}\\
+\bar\partial &: \underline C^{p,q}\longrightarrow\underline C^{p,q+1}.
+\end{aligned}
+\]
+Since $\bar\partial\mathcal O_X=0$, we see that $\bar\partial:\underline C^{p,q}\to\underline C^{p,q+1}$ is actually an $\mathcal O_X$-module homomorphism. Similarly $\partial$ is an $\overline{\mathcal O}_X$-module homomorphism where $\overline{\mathcal O}_X$ denotes the sheaf of germs of anti-holomorphic functions on $X$.
+\item Let $X$ be a complex manifold and for $p\geq0$ let $\Omega^p$ denote the sheaf of germs of holomorphic sections of $\bigwedge^{p,0}(M)'$. Since $\bar\partial(\Omega^p)=0$,
+% Source PDF page 84; printed page 75
+we see that the operator $\partial$ induces a $\mathbb C$-module homomorphism
+\[
+\partial:\Omega^p\longrightarrow\Omega^{p+1},\quad p\geq0.
+\]
+\end{enumerate}
+\begin{originaltheorem}{Definition}{6.1.5}\FieldTarget{definition:6.1.5}{6.1.5}
+A sequence $\mathcal F\xrightarrow{A}\mathcal G\xrightarrow{B}\mathcal H$ of sheaves is said to be \emph{exact} at $\mathcal G$ if the sequence $\mathcal F_x\xrightarrow{A_x}\mathcal G_x\xrightarrow{B_x}\mathcal H_x$ of rings is exact for all $x\in X$.
+\end{originaltheorem}
+\paragraph{Remark.}
+We may define a sequence $R\xrightarrow{a}S\xrightarrow{b}T$ of presheaves to be exact at $S$ if the sequence $R(U)\xrightarrow{a_U}S(U)\xrightarrow{b_U}T(U)$ of rings is exact for all $U\in\mathcal U$. It is most important to note that presheaf exactness\IndexMark{idx-465}{presheaf exactness@Presheaf exactness} is not equivalent to sheaf exactness and a sheaf exact sequence\IndexMark{idx-552}{sheaf exact sequence@Sheaf exact sequence} will \emph{not} generally give rise to a presheaf exact sequence (the converse is always true). In fact sheaf exactness is very much a local matter whilst presheaf exactness is essentially global. In \hyperref[sec:6:3]{\S3} we show how sheaf cohomology enables us to measure the deviation from presheaf exactness of a given sheaf exact sequence\IndexMark{idx-240}{exactness@Exactness!of sheaf sequence@of sheaf sequence}. We should also mention the important class of coherent $\mathcal O_X$-modules that we introduce in Chapter~\ref{ch:7} for which it is true that sheaf exactness implies ``local'' presheaf exactness.
+
+A sequence $0\to\mathcal F\xrightarrow{A}\mathcal G\xrightarrow{B}\mathcal H\to0$ of sheaves is said to be \emph{short exact} if each of the sequences $0\to\mathcal F_x\xrightarrow{A_x}\mathcal G_x\xrightarrow{B_x}\mathcal H_x\to0$ is a short exact sequence, $x\in X$. We may similarly define exactness for general sequences and we follow the usual notational conventions.
+
+\paragraph{Examples.}
+\begin{enumerate}[start=20]
+\item Let $0\to E\xrightarrow{A}F\xrightarrow{B}G\to0$ be a short exact sequence of holomorphic vector bundles over the complex manifold $X$. Then the corresponding sequence $0\to\underline E\xrightarrow{\underline A}\underline F\xrightarrow{\underline B}\underline G\to0$ of sheaves is a short exact sequence of\IndexMark{idx-572}{short exact sequence of sheaves@Short exact sequence of sheaves} $\mathcal O_X$-modules.
+\item Let $X$ be an $n$-dimensional differential manifold. The \emph{de Rham complex}\IndexMark{idx-239}{exactness@Exactness!of de rham complex@of de Rham complex}\IndexMark{idx-518}{de rham complex@de Rham complex} is the sequence of $\mathbb C$-modules given by exterior differentiation\IndexMark{idx-162}{d exterior differentiation@$d$ (exterior differentiation)!as morphism of sheaves@as morphism of sheaves}:
+\[
+0\to\mathbb C\xrightarrow{i}\mathcal D_X\xrightarrow{d}\underline C^1\xrightarrow{d}\cdots\xrightarrow{d}\underline C^{n-1}\xrightarrow{d}\underline C^n\to0.
+\]
+% Source PDF page 85; printed page 76
+($i$ denotes inclusion).
+The Poincar\'e lemma implies that the de Rham complex is sheaf exact. However, the de Rham complex is generally not presheaf exact as we shall now show. Suppose that $X$ is compact, oriented and without boundary. We prove that the de Rham complex is not presheaf exact at $\underline C^n$. For this it is enough to find an $n$-form on $X$ (that is, continuous section of $\underline C^n$ over $X$) which is not the exterior derivative of an $(n-1)$-form on $X$. Choose any $n$-form $\phi$ on $X$ such that $\int_X\phi\ne0$ (Such forms always exist with support in a coordinate chart). Now $d\phi=0$ and so if the de Rham complex is presheaf exact at $\underline C^n$ there exists an $(n-1)$-form $\psi$ on $X$ such that $d\psi=\phi$. But this cannot be since by Stokes' theorem $\int_X\phi=\int_X d\psi=\int_{\partial X}\psi=0$. We shall see in \hyperref[sec:6:3]{\S3} that the obstruction to $\phi$ being the boundary of an $(n-1)$-form is topological and lies in $H^n(X,\mathbb C)$ -- the $n$th. cohomology group of $X$. More precisely, $\phi$ determines an element $[\phi]\in H^n(X,\mathbb C)$ and $\phi$ is a boundary if and only if $[\phi]=0$.
+\item Let $X$ be an $n$-dimensional complex manifold. For $p,q\geq0$ we have the \emph{Dolbeault complexes}\IndexMark{idx-202}{dolbeault complex@Dolbeault complex}\IndexMark{idx-219}{dbar operator@$\bar\partial$-operator!as morphism of sheaves@as morphism of sheaves}
+\[
+\begin{gathered}
+0\to\Omega^p\xrightarrow{i}\underline C^{p,0}\xrightarrow{\bar\partial}\underline C^{p,1}\xrightarrow{\bar\partial}\cdots\xrightarrow{\bar\partial}\underline C^{p,n-1}\xrightarrow{\bar\partial}\underline C^{p,n}\to0,\\
+0\to\overline\Omega^q\xrightarrow{i}\underline C^{0,q}\xrightarrow{\partial}\underline C^{1,q}\xrightarrow{\partial}\cdots\xrightarrow{\partial}\underline C^{n-1,q}\xrightarrow{\partial}\underline C^{n,q}\to0.
+\end{gathered}
+\]
+Here $i$ denotes inclusion and $\overline\Omega^q$ denotes the sheaf of germs of anti-holomorphic sections of the anti-holomorphic bundle $\bigwedge^{0,q}(X)'$. In case $p=0$, we obtain the important complex
+\[
+0\to\mathcal O_X\to\mathcal D_X\xrightarrow{\bar\partial}\underline C^{0,1}\xrightarrow{\bar\partial}\cdots\xrightarrow{\bar\partial}\underline C^{0,n-1}\xrightarrow{\bar\partial}\underline C^{0,n}\to0
+\]
+which relates the Oka sheaf to the sheaves $\underline C^{0,q}$.
+It is an immediate consequence of the Dolbeault--Grothendieck lemma (Theorem~\ref{theorem:5.8.1}) that the Dolbeault complexes are all exact\IndexMark{idx-238}{exactness@Exactness!of dolbeault complex@of Dolbeault complex}.
+\item It follows from example 19 that if $X$ is an $n$-dimensional complex manifold we have a complex
+\[
+0\to\mathbb C\to\mathcal O_X\xrightarrow{\partial}\Omega^1\xrightarrow{\partial}\cdots\xrightarrow{\partial}\Omega^{n-1}\xrightarrow{\partial}\Omega^n\to0
+\]
+of $\mathbb C$-modules. We shall now prove that this sequence is exact.
+% Source PDF page 86; printed page 77
+Exactness at $\mathcal O_X$ is clear since $d|\mathcal O_X=\partial$. Now suppose $p>0$ and let $\phi\in\Omega^p$ be $\partial$-closed. Since $\bar\partial\phi=0$ and $d=\partial+\bar\partial$, $d\phi=0$ and we see by the Poincar\'e lemma that there exists $\psi\in\underline C^p$ such that $d\psi=\phi$. Since $d\psi=\partial\psi+\bar\partial\psi\in\underline C^{p,0}$ we see that $\psi\in\underline C^{p-1,0}$ and $\bar\partial\psi=0$. That is $\psi\in\Omega^{p-1}$ and $\phi=\partial\psi$. Hence the sequence is exact.
+\end{enumerate}
+For the next few paragraphs we consider some general constructions involving sheaves, presheaves and morphisms.
+
+\begin{originaltheorem}{Definition}{6.1.6}\FieldTarget{definition:6.1.6}{6.1.6}
+Let $A:\mathcal F\to\mathcal G$ be a sheaf homomorphism and $\{a_U\}=\{a_U:\mathcal F(U)\to\mathcal G(U)\}$ denote the corresponding morphism of presheaves. We define the \emph{presheaf kernel} of $A$, \emph{presheaf cokernel} of $A$ and \emph{presheaf image}\IndexMark{idx-457}{presheaf cokernel image kernel@Presheaf cokernel, image, kernel} of $A$ to be the presheaves given by $U\mapsto\operatorname{Ker}(a_U)$, $U\mapsto\operatorname{Coker}(a_U)$ and $U\mapsto\operatorname{Im}(a_U)$ respectively. We denote the associated sheaves by $\operatorname{Ker}(A)$, $\operatorname{Coker}(A)$ and $\operatorname{Im}(A)$ respectively and refer to them as the (sheaf) \emph{kernel}, \emph{cokernel} and \emph{image}\IndexMark{idx-550}{sheaf@Sheaf!cokernel image kernel@cokernel, image, kernel} of $A$ respectively.
+\end{originaltheorem}
+\paragraph{Remarks.}
+\begin{enumerate}
+\item It is easy to see that $\operatorname{Ker}(A)$ is always equal to the presheaf kernel of $A$ but that, in general, $\operatorname{Im}(A)$ and $\operatorname{Coker}(A)$ are not equal to the image and cokernel presheaves of $A$.
+\item For all $x\in X$, we have $\operatorname{Ker}(A)_x\approx\operatorname{Ker}(A_x)$, $\operatorname{Coker}(A)_x\approx\operatorname{Coker}(A_x)$ and $\operatorname{Im}(A)_x\approx\operatorname{Im}(A_x)$.
+\item We say that $A$ is \emph{injective} if $\operatorname{Ker}(A)=0$; \emph{surjective} if $\operatorname{Coker}(A)=0$. By remark 2 this is equivalent to injectivity or surjectivity at the stalk level.
+\item A sheaf sequence $\mathcal F\xrightarrow{A}\mathcal G\xrightarrow{B}\mathcal H$ is exact at $\mathcal G$ if and only if $\operatorname{Im}(A)=\operatorname{Ker}(B)$ (Here we are regarding $\operatorname{Im}(A)$, $\operatorname{Ker}(B)$ as subsheaves of $\mathcal G$).
+\item Associated to a sheaf homomorphism $A:\mathcal F\to\mathcal G$ we have the exact sheaf sequence\IndexMark{idx-553}{sheaf exact sequence@Sheaf exact sequence}
+\[
+0\to\operatorname{Ker}(A)\xrightarrow{i}\mathcal F\xrightarrow{A}\mathcal G\xrightarrow{q}\operatorname{Coker}(A)\to0.
+\]
+(Here $i$ and $q$ are induced from the inclusion and quotient maps respectively).
+\end{enumerate}
+% Source PDF page 87; printed page 78
+Suppose $i:\mathcal F\to\mathcal G$ is the inclusion map of $\mathcal F$ as a subsheaf of $\mathcal G$. We define the \emph{quotient sheaf}\IndexMark{idx-497}{quotient of sheaves@Quotient of sheaves}\IndexMark{idx-551}{sheaf@Sheaf!quotient@quotient} $\mathcal G/\mathcal F$ to be the sheaf associated to the presheaf $U\mapsto\mathcal G(U)/\mathcal F(U)$. We have the corresponding short exact sequence
+\[
+0\to\mathcal F\xrightarrow{i}\mathcal G\xrightarrow{q}\mathcal G/\mathcal F\to0.
+\]
+We remark that $\mathcal G/\mathcal F$ is isomorphic to $\operatorname{Coker}(i)$ and that for all $x\in X$, $(\mathcal G/\mathcal F)_x\approx\mathcal G_x/\mathcal F_x$.
+
+\paragraph{Examples.}
+\begin{enumerate}[start=24]
+\item Let $\mathcal O$, $\mathcal M$ respectively denote the Oka-sheaf and sheaf of germs\IndexMark{idx-567}{sheaf of germs@Sheaf of germs!divisors@divisors} of meromorphic functions on the complex manifold $X$. We have the short exact sequence of sheaves of Abelian groups
+\[
+0\to\mathcal O\to\mathcal M\xrightarrow{q}\mathcal M/\mathcal O\to0.
+\]
+We see that local sections of $\mathcal M/\mathcal O$ are just the principal parts of meromorphic functions. That is, if $m,m'\in\mathcal M(U)$ then $m,m'$ determine the same section of $\mathcal M/\mathcal O$ if and only if $m-m'\in\mathcal O(U)$ $(=A(U))$. We can now give a sheaf theoretic formulation of the Cousin I problem\IndexMark{idx-154}{cousin problems@Cousin problems} (see Definition~\ref{definition:3.4.9}): The \emph{data} for the Cousin I problem on $X$ is a continuous section $P$ of $\mathcal M/\mathcal O$ over $X$. The \emph{Cousin I problem} (for $P$) is then to find a continuous section $m$ of $\mathcal M$ over $X$ such that $q(m)=P$.
+\item Let $\mathcal O^*$, $\mathcal M^*$ denote the multiplicative sheaves of groups of units of $\mathcal O$, $\mathcal M$ on the complex manifold $X$. Thus, $\mathcal O_x^*$, $\mathcal M_x^*$ will be the groups of invertible germs in $\mathcal O_x$, $\mathcal M_x$ respectively (see \hyperref[sec:3:4]{\S4, Chapter 3}). We let $\mathcal D$ denote the quotient sheaf $\mathcal M^*/\mathcal O^*$. Then $\mathcal D$ is a sheaf of Abelian groups called the \emph{sheaf of germs of divisors}\IndexMark{idx-194}{divisor sheaf@Divisor sheaf} on $X$. We have the short exact sequence
+\[
+0\to\mathcal O^*\to\mathcal M^*\to\mathcal D\to0.
+\]
+Observe that a continuous section of $\mathcal D$ over $X$ is a \emph{Cartier divisor} (Definition~\ref{definition:4.6.9}). We may now give a sheaf theoretic formulation of the Cousin II problem (Definition~\ref{definition:3.4.10}): The \emph{data} for the Cousin II problem is a continuous section $d$ of $\mathcal D$ over $X$. The \emph{Cousin II problem} (for $d$) is to find a continuous section $m$ of $\mathcal M^*$ such that $q(m)=d$.
+% Source PDF page 88; printed page 79
+If we take $X$ to be a Riemann surface we see that $\mathcal D_x\cong\mathbb Z$ for all $x\in X$. However, $\mathcal D$ is far from being the constant sheaf $\mathbb Z$ as continuous sections of $\mathcal D$ are always non-zero on a \emph{discrete} subset of $X$. In fact the ``zero set'' of a continuous section of $\mathcal D$ is always an \emph{open} subset of $X$!
+\item Let $Z$ be an analytic subset of the complex manifold $X$. We start by defining the Oka or structure sheaf of $Z$. Let $U$ be an open subset of $X$ and $f,g\in\mathcal O_X(U)$. We say $f$ and $g$ are $Z$-equivalent if $f=g$ on $Z\cap U$. That is, if $f-g\in\mathcal I_Z(U)$ (see Example 5). The set of $Z$-equivalence classes associated to $U$ is isomorphic to $\mathcal O_X(U)/\mathcal I_Z(U)$ and $U\mapsto\mathcal O_X(U)/\mathcal I_Z(U)$ defines a presheaf of rings on $X$. We denote the associated sheaf by $\mathcal O_Z$ and observe that $\mathcal O_{Z,x}=0$, $x\notin Z$. We call $\mathcal O_Z$ the \emph{Oka} or \emph{structure sheaf} of\IndexMark{idx-417}{oka@Oka!sheaf of analytic set@sheaf of analytic set} $Z$. Now $\mathcal O_Z$ is just the quotient sheaf $\mathcal O_X/\mathcal I_Z$ and we have the short exact sequence
+\[
+0\to\mathcal I_Z\to\mathcal O_X\to\mathcal O_Z\to0.
+\]
+Any element of $\mathcal O_X(U)/\mathcal I_Z(U)$ determines a well defined continuous function on $Z\cap U$. Consequently, a continuous section of $\mathcal O_Z$ over an open set $U$ of $X$ determines a well-defined continuous function on $Z\cap U$. We call such functions \emph{analytic functions} on\IndexMark{idx-017}{analytic function on analytic set@Analytic function on analytic set} $Z\cap U$. It is easy to see that a function $f:Z\cap U\to\mathbb C$ will be analytic if and only if for every $x\in Z\cap U$ there exists an open neighbourhood $V$ of $x$ in $X$ and $g\in A(V)$ such that $g|Z\cap U\cap V=f|Z\cap V$.
+\end{enumerate}
+\begin{originaltheorem}{Definition}{6.1.7}\FieldTarget{definition:6.1.7}{6.1.7}
+Let $\mathcal R$ be a sheaf of rings on $X$ and $\mathcal F$, $\mathcal G$ be sheaves of $\mathcal R$-modules.
+\begin{enumerate}
+\item The \emph{direct sum}\IndexMark{idx-180}{direct sum of sheaves@Direct sum of sheaves}\IndexMark{idx-554}{sheaf@Sheaf!direct sum@direct sum} $\mathcal F\oplus\mathcal G$ of $\mathcal F$ and $\mathcal G$ is the sheaf of $\mathcal R$-modules associated to the presheaf $U\mapsto\mathcal F(U)\oplus\mathcal G(U)$.
+\item The \emph{tensor product}\IndexMark{idx-555}{sheaf@Sheaf!tensor product@tensor product}\IndexMark{idx-604}{tensor product of sheaves@Tensor product of sheaves} $\mathcal F\otimes_{\mathcal R}\mathcal G$ of $\mathcal F$ and $\mathcal G$ over $\mathcal R$ is the sheaf of $\mathcal R$-modules associated to the presheaf $U\mapsto\mathcal F(U)\otimes_{\mathcal R(U)}\mathcal G(U)$.
+\end{enumerate}
+\end{originaltheorem}
+\paragraph{Remarks.}
+\begin{enumerate}
+\item It is easily seen that $(\mathcal F\oplus\mathcal G)_x\approx\mathcal F_x\oplus\mathcal G_x$ and $(\mathcal F\otimes_{\mathcal R}\mathcal G)_x\approx\mathcal F_x\otimes_{\mathcal R_x}\mathcal G_x$, $x\in X$ and we assume these properties in the sequel.
+\item We denote the $p$-fold direct sum of the sheaf of $\mathcal R$-modules $\mathcal F$ by $\mathcal F^p$.
+\end{enumerate}
+% Source PDF page 89; printed page 80
+\paragraph{Examples.}
+\begin{enumerate}[start=27]
+\item Let $E$, $F$ be holomorphic vector bundles over the complex manifold $X$. Then $\underline{E\oplus F}=\underline E\oplus\underline F$ and $\underline{E\otimes F}=\underline E\otimes_{\mathcal O}\underline F$ (equality here means, of course, up to natural isomorphism). Similar relations hold for smooth or continuous vector bundles.
+\item The sheaf of germs of $\mathbb C^p$-valued holomorphic functions on a complex manifold is isomorphic to $\mathcal O^p$ (we say the sheaf is free of rank $p$ -- see Definition~\ref{definition:6.1.8} below)
+\item Let $E$ be a holomorphic vector bundle\IndexMark{idx-300}{holomorphic vector bundle@Holomorphic vector bundle} of dimension $p$ over the complex manifold $X$. Then $\underline E$ is \emph{locally isomorphic}\IndexMark{idx-559}{sheaf morphism@Sheaf morphism!local isomorphism@local isomorphism} to $\mathcal O^p$. That is, we may find an open neighbourhood $U$ of each $x\in X$ such that $\underline E|U\cong\mathcal O_U^p$. Here the restriction of sheaves to an open set has the obvious interpretation. In particular, $\mathcal O_X|U=\mathcal O_U$.
+\end{enumerate}
+\begin{originaltheorem}{Definition}{6.1.8}\FieldTarget{definition:6.1.8}{6.1.8}
+Suppose $\mathcal F$ is a sheaf of $\mathcal R$-modules on $X$. We say that $\mathcal F$ is a \emph{locally free} sheaf\IndexMark{idx-262}{free sheaf of modules@Free sheaf of modules}\IndexMark{idx-383}{locally free sheaf@Locally free sheaf} of $\mathcal R$-modules of rank $p$ if $\mathcal F$ is locally isomorphic to $\mathcal R^p$. We say that $\mathcal F$ is \emph{free} of rank $p$ if $\mathcal F\cong\mathcal R^p$.
+\end{originaltheorem}
+The next proposition is valid, with the same proof, for smooth or continuous vector bundles.
+
+\begin{originaltheorem}{Proposition}{6.1.9}\FieldTarget{proposition:6.1.9}{6.1.9}
+Let $X$ be a complex manifold. There is a bijective correspondence between isomorphism classes of locally free sheaves of\IndexMark{idx-379}{local isomorphism of sheaves@Local isomorphism of sheaves} $\mathcal O$-modules of finite rank over $X$ and holomorphic vector bundles over $X$.
+\end{originaltheorem}
+\begin{proof}
+We have already indicated in Example 29 that the sheaf of holomorphic sections of a holomorphic vector bundle is a locally free sheaf of $\mathcal O$-modules of finite rank. Suppose now that $\mathcal F$ is a locally free sheaf of $\mathcal O$-modules on $X$ of rank $p$. Thus we have an open cover $\{U_i\}$ of $X$ and corresponding $\mathcal O_{U_i}$-isomorphisms $\phi_i:\mathcal F|U_i\to\mathcal O_{U_i}^p$.
+
+Define $\phi_{ij}:\mathcal O_{U_{ij}}^p\to\mathcal O_{U_{ij}}^p$ by $\phi_{ij}=\phi_i\phi_j^{-1}$. Now $\phi_{ij}$ is an isomorphism of the $\mathcal O_{U_{ij}}$-module $\mathcal O_{U_{ij}}^p$ and so is given by a $p\times p$-matrix with holomorphic entries defined on $U_{ij}$. That is, $\phi_{ij}$ determines a holomorphic map $\phi_{ij}:U_{ij}\to GL(p,\mathbb C)$. Clearly the $\{\phi_{ij}\}$ are the transition functions for a holomorphic vector bundle $E$ on $X$. We leave it to the reader to check that $\underline E=\mathcal F$.
+\end{proof}
+% Source PDF page 90; printed page 81
+\paragraph{Example 30.}
+In this example we follow the notation and assumptions of Examples 18 and 22. Thus for $p,q\geq0$ we have an $\mathcal O$-homomorphism $\bar\partial:\underline C^{p,q}\to\underline C^{p,q+1}$ of sheaves over the complex manifold $X$. If $E$ is a holomorphic vector bundle over $X$, $\underline E$ is a sheaf of $\mathcal O$-modules and so, since $\bar\partial$ is an $\mathcal O$-homomorphism, we may form
+\[
+\bar\partial\ (=\bar\partial\otimes I):\underline C^{p,q}\otimes_{\mathcal O}\underline E\to\underline C^{p,q+1}\otimes_{\mathcal O}\underline E.
+\]
+But $\underline C^{p,q}\otimes_{\mathcal O}\underline E=\underline C^{p,q}\otimes_{\mathscr D}\underline E_\infty=\underline{\bigwedge^{p,q}(M,E)'}_\infty$. Hence, as in \hyperref[sec:5:7]{\S7 of Chapter 5}, we have extended the $\bar\partial$-operator\IndexMark{idx-220}{dbar operator@$\bar\partial$-operator!as morphism of sheaves@as morphism of sheaves} to $E$-valued forms. In the sequel we set $\underline{\bigwedge^{p,q}(M,E)'}_\infty=\underline C^{p,q}(E)$ and $\underline{\bigwedge^{p,0}(M,E)'}=\Omega^p(\underline E)$. Using the Dolbeault\IndexMark{idx-203}{dolbeault complex@Dolbeault complex}--Grothendieck lemma as in Example 22, we find that the Dolbeault complexes
+\[
+0\to\Omega^p(\underline E)\xrightarrow{i}\underline C^{p,0}(E)\xrightarrow{\bar\partial}\cdots\xrightarrow{\bar\partial}\underline C^{p,n-1}(E)\xrightarrow{\bar\partial}\underline C^{p,n}(E)\to0
+\]
+are exact for $p\geq0$.
+
+Next we see how sheaves transform under maps of the underlying topological spaces.
+
+Suppose $f:X\to Y$ is a continuous map of topological spaces and $(\mathcal F,\pi,Y)$ is a sheaf of rings on $Y$. We shall define a sheaf $f^{-1}\mathcal F$ of rings on $X$ called the \emph{inverse image sheaf}\IndexMark{idx-331}{inverse image sheaf@Inverse image sheaf}\IndexMark{idx-487}{pull back@Pull-back!of sheaf@of sheaf} of $\mathcal F$. To this end, the stalk of $f^{-1}\mathcal F$ at $x\in X$ will be equal, as a ring, to $\mathcal F_{f(x)}$. We let $f^{-1}\mathcal F$ be the disjoint union of the rings $\mathcal F_{f(x)}$ over $x\in X$. It remains to topologise $f^{-1}\mathcal F$. For a basis of open sets for the topology on $f^{-1}\mathcal F$ we take the set of all images $s(U)$, where $U$ is an open subset of $X$ and $s$ is a section of $f^{-1}\mathcal F$ over $U$ such that $\pi s:U\to Y$ is continuous.
+
+\paragraph{Examples.}
+\begin{enumerate}[start=31]
+\item Let $Z$ be a subset of $X$ with induced topology and $i:Z\to X$ denote the inclusion map. If $\mathcal F$ is a sheaf on $X$ we call $i^{-1}\mathcal F$ the \emph{restriction} of\IndexMark{idx-515}{restriction of sheaf@Restriction of sheaf} $\mathcal F$ to $Z$ and denote it by $\mathcal F|Z$ or $\mathcal F_Z$.
+\item Let $\mathcal F$ be a sheaf of $\mathcal R$-modules on $Y$ and $f:X\to Y$ be continuous. Then $f^{-1}\mathcal F$ is a sheaf of $f^{-1}\mathcal R$-modules on $X$. Suppose that $X$, $Y$ are complex manifolds, $f$ is holomorphic and $E$ is a holomorphic vector bundle over $Y$.
+% Source PDF page 91; printed page 82
+It is natural to ask for the relation between $f^{-1}\underline E$ and the sheaf of holomorphic sections of the pull-back\IndexMark{idx-488}{pull back@Pull-back!of sheaf@of sheaf} bundle $f^*E$. Now $f^{-1}\underline E$ is an $f^{-1}\mathcal O_Y$-module rather than an $\mathcal O_X$-module. However, $\mathcal O_X$ is naturally an $f^{-1}\mathcal O_Y$-module -- indeed we have a sheaf homomorphism of $f^{-1}\mathcal O_Y$ into $\mathcal O_X$ defined in the obvious way by composition of elements of $f^{-1}\mathcal O_Y$ with $f$. Hence we may form the sheaf
+\[
+f^*\underline E=f^{-1}\underline E\otimes_{f^{-1}(\mathcal O_Y)}\mathcal O_X.
+\]
+Now $f^*\underline E$ is a sheaf of $\mathcal O_X$-modules and the reader may verify that $f^*\underline E=\underline{f^*E}$. Generally, for any sheaf $\mathcal F$ of $\mathcal O_Y$-modules, we define $f^*\mathcal F=f^{-1}\mathcal F\otimes_{f^{-1}(\mathcal O_Y)}\mathcal O_X$ and $f^*\mathcal F$ will then be a sheaf of $\mathcal O_X$-modules on $X$.
+\end{enumerate}
+Next we turn to the push-forward of sheaves. Suppose $f:X\to Y$ is a continuous map and $(\mathcal F,\pi,X)$ is a sheaf of rings on $X$. We define the \emph{direct image sheaf}\IndexMark{idx-177}{direct image sheaf@Direct image sheaf} $f_*\mathcal F$ to be the sheaf of rings on $Y$ associated to the presheaf $U\mapsto\mathcal F(f^{-1}(U))$.
+
+\paragraph{Example 33.}
+If $f:X\to Y$ is a holomorphic map of complex manifolds and $\mathcal F$ is a sheaf of $\mathcal O_X$-modules on $X$ then $f_*\mathcal F$ is a sheaf of $f_*\mathcal O_X$-modules on $Y$. The reader may verify that we have a canonical sheaf morphism of $\mathcal O_Y$ into $f_*\mathcal O_X$ and so $f_*\mathcal F$ has the natural structure of an $\mathcal O_Y$-module. If $E$ is a holomorphic vector bundle over $X$, $f_*\underline E$ will not generally be the sheaf of sections of a holomorphic vector bundle over $Y$. A simple example is found by taking the sheaf of sections $\underline{\mathbb C}$ $(=\mathcal O)$ of the trivial bundle $\underline{\mathbb C}$ over $\mathbb C$ and the map $f:\mathbb C\to\mathbb C$ defined by $f(z)=z^2$. It is easily verified that $f_*\underline{\mathbb C}$ is not locally free (see also the discussion below and Chapter~\ref{ch:7}).
+
+Direct image sheaves play a most important role in complex analysis but are considerably more difficult to describe and analyse than inverse image\IndexMark{idx-332}{inverse image sheaf@Inverse image sheaf} sheaves. The full analysis of direct image sheaves requires the machinery of spectral sequences (see Godement \cite{bib:II:godement-r:1} and also Griffiths and Harris \cite[Chapter 3]{bib:II:griffiths-p-and-harris-j:1}). Here we shall only describe the stalks of direct image sheaves and then only in the case when the underlying spaces and map satisfy additional conditions.
+% Source PDF page 92; printed page 83
+\begin{originaltheorem}{Proposition}{6.1.10}\FieldTarget{proposition:6.1.10}{6.1.10}
+Let $(\mathcal F,\pi,X)$ be a sheaf of rings on $X$ and $f:X\to Y$ be continuous. Suppose that $X$, $Y$ are locally compact and that $f$ is proper (that is, inverse images of compact sets are compact). Then $f_*\mathcal F_y$ is naturally isomorphic to $\mathcal F(f^{-1}(y))$, all $y\in Y$. ($\mathcal F(f^{-1}(y))$ denotes the spaces of continuous sections of the sheaf $\mathcal F$, restricted to $f^{-1}(y)$, over $f^{-1}(y)$).
+\end{originaltheorem}
+Our proof follows that given in Godement \cite{bib:II:godement-r:1}. First we need some preliminary lemmas which are of interest in their own right.
+
+\begin{originaltheorem}{Lemma}{6.1.11}\FieldTarget{lemma:6.1.11}{6.1.11}
+Let $\{M_i:i\in I\}$ be a locally finite cover by closed sets of the topological space $X$. Suppose that $(\mathcal F,\pi,X)$ is a sheaf of rings on $X$ and that for each $i\in I$ we are given a continuous section $s_i$ of $\mathcal F_{M_i}$. Then, if the $\{s_i\}$ satisfy the compatibility condition $s_i=s_j$ on $M_i\cap M_j$, there exists $s\in\mathcal F(X)$ such that $s|M_i=s_i$.
+\end{originaltheorem}
+\begin{proof}
+First we remark that the lemma is trivial if the $\{M_i\}$ form an \emph{open} cover of $X$. Clearly our conditions on the $\{s_i\}$ imply that there exists a unique section $s$ of $\mathcal F$ over $X$ which restricts to $s_i$ on $M_i$. We must show that $s$ is continuous. Now, given $x\in X$, we may find an open neighbourhood $U$ of $x$ which meets only finitely many $M_i$, say $M_1,\ldots,M_p$. As the $M_i$ are closed, we may assume that $U$ is chosen so that $x\in M_1\cap\cdots\cap M_p$. Shrinking $U$ further if necessary we may also suppose that there exists $t\in\mathcal F(U)$ such that $t(x)=s(x)=s_1(x)=\cdots=s_p(x)$. By definition of the sheaf topology on $\mathcal F$, there exist open neighbourhoods $U_j$ of $x$ such that $t=s_j$ on $U_j$, $1\leq j\leq p$. We may suppose $U=U_j$, $1\leq j\leq p$. Hence $s$ and $t$ are equal in $U\cap(M_1\cup\cdots\cup M_p)=U$ and so $s$ is continuous at $x$.
+\end{proof}
+\begin{originaltheorem}{Lemma}{6.1.12}\FieldTarget{lemma:6.1.12}{6.1.12}\IndexMark{idx-542}{section of sheaf defined over closed set@Section of sheaf defined over closed set}
+Let $S$ be a closed subset of the paracompact space $X$ and suppose that $\mathcal F$ is a sheaf on $X$ and $s\in\mathcal F(S)$ $(=\mathcal F_S(S))$. Then there exists an open neighbourhood $V$ of $S$ in $X$ and $\widetilde s\in\mathcal F(V)$ such that $\widetilde s|S=s$.
+\end{originaltheorem}
+\begin{proof}
+By definition of the topology on $\mathcal F$, we may find an open neighbourhood $U$ in $X$ of every point $x\in S$ and $t\in\mathcal F(U)$ such that $t|U\cap S=s$. Hence, by the paracompactness of $X$, we may find a locally finite open cover $\{U_i:i\in I\}$ of $S$ and sections $s_i\in\mathcal F(U_i)$ such that $s_i|U_i\cap S=s$ for all $i\in I$. Take a refinement $\{V_i\}$ of $U_i$ such that $\overline V_i\subset U_i$ for all $i$ and let $W$ be the subset of $X$ consisting of all points $x$ in $\bigcup_i\overline V_i$ such that if $x\in\overline V_i\cap\overline V_j$ then $s_i(x)=s_j(x)$. By Lemma~\ref{lemma:6.1.11},
+% Source PDF page 93; printed page 84
+applied to $\mathcal F|W$, the $\{s_i\}$ define a continuous section $\widetilde s$ of $\mathcal F$ over $W$. We claim that $W$ contains an open neighbourhood of $S$. Let $x\in S$. There exists an open neighbourhood $V$ of $x$ which meets only finitely many of the $\overline V_i$'s, say $\overline V_1,\ldots,\overline V_p$. Shrinking $V$ we may suppose that $x\in\overline V_1,\ldots,\overline V_p$. Now $s_1(x)=\cdots=s_p(x)$ and so, shrinking $V$ further if necessary, we may suppose that $s_1,\ldots,s_p$ are equal on $V$. Now observe that $V\subset W$.
+\end{proof}
+\begin{originaltheorem}{Lemma}{6.1.13}\FieldTarget{lemma:6.1.13}{6.1.13}
+Let $f:X\to Y$ be a proper continuous map between locally compact spaces. Fix $y\in Y$ and let $V$ be any open neighbourhood of $f^{-1}(y)$ in $X$. Then there exists an open neighbourhood $U$ of $y$ in $Y$ such that $f^{-1}(U)\subset V$. In other words, a fundamental system of open neighbourhoods for $f^{-1}(y)$ is given by $\{f^{-1}(U):U\text{ an open neighbourhood of }y\}$.
+\end{originaltheorem}
+\begin{proof}
+The intersection $\bigcap f^{-1}(\overline U)$ over all relatively compact neighbourhoods $U$ of $y$ in $Y$ is clearly equal to $f^{-1}(y)$. Since each $f^{-1}(\overline U)$ is compact, it follows that for some relatively compact neighbourhood $U$ of $y$ we must have $f^{-1}(\overline U)\cap(X\setminus V)=\varnothing$. (For an alternative proof of this lemma, see the exercises at the end of the section).
+\end{proof}
+\begin{proof}[Proof of Proposition~\ref{proposition:6.1.10}]
+We first remark that we have a natural homomorphism $\theta:f_*\mathcal F_y\to\mathcal F(f^{-1}(y))$ defined in the obvious way. We must show that $\mathcal F$ is bijective. Let $\gamma\in\mathcal F(f^{-1}(y))$. By Lemma~\ref{lemma:6.1.12}, there exists an open neighbourhood $V$ of $f^{-1}(y)$ and $\widetilde\gamma\in\mathcal F(V)$ such that $\widetilde\gamma|f^{-1}(y)=\gamma$. By Lemma~\ref{lemma:6.1.13}, we may assume that $V=f^{-1}(U)$, for some open neighbourhood $U$ of $y$. But now $\widetilde\gamma$ lies in the presheaf generating $f_*\mathcal F$ and so determines an element of $f_*\mathcal F_y$. Clearly this construction gives the required inverse to $\theta$.
+\end{proof}
+We now briefly look at the use of sheaf formalism in defining structures on topological spaces. Suppose $X$ is a topological space and $\mathcal F$ is a subsheaf of $\mathbb C$-algebras of $\mathcal C_X$ (regarded as a sheaf of $\mathbb C$-algebras). We may think of $\mathcal F$ as defining a structure on $X$: Structure of all functions of type $\mathcal F$ (that is, functions of type $\mathcal F$ would be given by continuous sections of $\mathcal F$). All the structures so far considered -- analytic, smooth, etc. -- are locally defined and we shall now exploit this fact to give sheaf theoretic definitions of various structures on topological spaces.
+% Source PDF page 94; printed page 85
+\paragraph{Example 34.}
+Let $X$ be a topological space and $\mathcal F$ be a subsheaf of $\mathbb C$-algebras of $\mathcal C_X$. Suppose that $\mathcal F$ is \emph{locally isomorphic} to the sheaf of germs of $C^\infty$ functions on $\mathbb R^n$. Then $X$ may be given the unique structure of a differential manifold with $\mathscr D_X=\mathcal F$. Before proving our assertion we need to explain what is meant by (local) isomorphism of sheaves\IndexMark{idx-380}{local isomorphism of sheaves@Local isomorphism of sheaves} defined over different topological spaces. For our example, we require that we can find an open neighbourhood $U$ of each point $x\in X$ and a homeomorphism $\phi:U\to\phi(U)\subset\mathbb R^n$ such that the induced map $\phi^*:\mathcal C_{\phi(U)}\to\mathcal C_U$ restricts to an isomorphism of $\mathscr D_{\phi(U)}$ with $\mathcal F_U$. We see that if $\mathcal F$ is locally isomorphic to $\mathscr D$, we may find an open cover $\{U_i\}$ of $X$ and corresponding homeomorphism $\phi_i:U_i\to\phi(U_i)\subset\mathbb R^n$ such that $\phi_i$ induces an isomorphism of $\mathscr D_{\phi(U_i)}$ with $\mathcal F_{U_i}$ for all $i$. It is now a straightforward matter to verify that $\{(U_i,\phi_i)\}$ defines a differential atlas on $X$ and that the associated structure sheaf $\mathscr D_X=\mathcal F$. The same argument works if $\mathcal F$ is locally isomorphic to the Oka-sheaf of $\mathbb C^n$ and in this case we find that $X$ has the structure of an $n$-dimensional complex manifold with Oka sheaf equal to $\mathcal F$.
+
+Motivated by the example above we may now give an intrinsic definition of a (reduced) analytic space\IndexMark{idx-025}{analytic space@Analytic space!reduced@reduced} which generalises our earlier definition of analytic set. First we define the \emph{local models}\IndexMark{idx-381}{local models@Local models} for analytic spaces: The local models for analytic spaces will be the set of all pairs $(Z,\mathcal O_Z)$, where $Z$ is an analytic subset of an open subset of some $\mathbb C^n$ and $\mathcal O_Z$ is the structure sheaf of $Z$ (restricted to $Z$). A \emph{(reduced) analytic space} will then be a pair $(X,\mathcal O_X)$, where $X$ is a topological space and $\mathcal O_X$ is a subsheaf of $\mathbb C$-algebras of $\mathcal O_X$ which is locally isomorphic to a local model. That is, we may find an open neighbourhood $V$ of any point $x\in X$, a local model $(Z,\mathcal O_Z)$ and a homeomorphism of $V$ onto $Z$ such that $\phi$ induces an isomorphism of $\mathcal O_V$ with $\mathcal O_Z$ (``isomorphism'' in the sense described in Example 34).
+
+\paragraph{Remark.}
+Unfortunately fibre products of (reduced) analytic spaces cannot generally be constructed within the category of (reduced) analytic spaces. The problem lies with the fact that the structure sheaves we obtain when attempting these constructions may have nilpotents. Thus, the category of analytic spaces has to be enlarged so that it is closed under fibre products. For this, instead of considering subsheaves of $\mathcal C_X$, we consider sheaves of local $\mathbb C$-algebras on $X$:
+% Source PDF page 95; printed page 86
+A sheaf $\mathcal F$ on $X$ is said to be a sheaf of local $\mathbb C$-algebras on $X$ if $\mathcal F$ is a sheaf of $\mathbb C$-algebras and each $\mathcal F_x$ has a unique maximal ideal $m_x$ with $\mathcal F_x/m_x\cong\mathbb C$ for all $x\in X$. A simple example of a sheaf of local $\mathbb C$-algebras which is not a subsheaf of $\mathcal C_X$ is given by taking $X$ to be the origin of $\mathbb C$ and $\mathcal F=\mathcal O_0/(z^2)$ ($\mathcal O_0$ denotes the Oka sheaf of $\mathbb C$ restricted to $0$). Let us now describe the local models for (unreduced\IndexMark{idx-026}{analytic space@Analytic space!unreduced@unreduced}) analytic spaces. A local model will be a pair $(X,\mathcal O_X)$, where $X$ is an analytic subset of an open subset $U$ of $\mathbb C^n$ and $\mathcal O_X=\mathcal O_U/(f_1,\ldots,f_k)|X$, where $f_1,\ldots,f_k\in\mathcal I_X(U)$ and $X=Z(f_1,\ldots,f_k)$. An \emph{analytic space} is then defined to be a pair $(X,\mathcal O_X)$, where $\mathcal O_X$ is a sheaf of local $\mathbb C$-algebras on $X$ which is locally isomorphic to a local model. For further details and examples the reader may refer to the introductory article by Malgrange \cite{bib:II:malgrange-b:1}.
+
+\paragraph{Exercises.}
+\begin{enumerate}
+\item For each open subset $U$ of the topological space $X$ let $B(U)$ denote the ring of continuous bounded $\mathbb C$-valued functions on $U$. Show that $B_X=\{B(U),r_{VU}\}$ is a presheaf of rings on $X$ with sheafification $\mathcal C_X$. Hence deduce that the presheaf associated to the sheafification of $B_X$ is not in general equal to $B_X$.
+\item Let $\mathcal F$, $\mathcal G$ be sheaves of rings on $X$ and $\mathit{Hom}(\mathcal F,\mathcal G)$ be the sheaf associated to the presheaf $U\mapsto\operatorname{Hom}(\mathcal F_U,\mathcal G_U)$, where $\operatorname{Hom}(\mathcal F_U,\mathcal G_U)$ is the ring of sheaf homomorphisms from $\mathcal F_U$ to $\mathcal G_U$. Show that for all $x\in X$, we have a natural map $\mathit{Hom}(\mathcal F,\mathcal G)_x\to\operatorname{Hom}(\mathcal F_x,\mathcal G_x)$ which is, in general, neither injective nor surjective.
+\item Let $X$ be a complex manifold with Oka sheaf $\mathcal O$ and $\mathcal F$ be a locally free sheaf of $\mathcal O$-modules of finite rank on $X$. Define the \emph{dual} $\mathcal F^*$ of $\mathcal F$ to be the sheaf $\mathit{Hom}_{\mathcal O}(\mathcal F,\mathcal O)$. Prove that
+\begin{enumerate}[label=\Alph*)]
+\item $\mathcal F^*$ is the sheaf of germs of sections of the dual of the holomorphic bundle associated to $\mathcal F$ (up to isomorphism).
+\item $\mathcal F^{**}\approx\mathcal F$.
+\item $\mathit{Hom}_{\mathcal O}(\mathcal F,\mathcal G)\approx\mathcal F^*\otimes\mathcal G$, for any sheaf of $\mathcal O$-modules $\mathcal G$.
+\item $\mathit{Hom}_{\mathcal O}(\mathcal F,\mathcal G)_x\approx\operatorname{Hom}(\mathcal F_x,\mathcal G_x)$, $x\in X$.
+\end{enumerate}
+Show that similar results hold for locally free sheaves of $\mathcal C_X$- or $\mathscr D_X$-modules.
+% Source PDF page 96; printed page 87
+\item Let $Z$ be a closed subset of the topological space $X$ and $i:Z\to X$ denote the inclusion map. If $\mathcal F$ is a sheaf on $Z$, set $\widetilde{\mathcal F}=i_*\mathcal F$. We call $\widetilde{\mathcal F}$ the \emph{trivial extension} of $\mathcal F$ to $X$ or the sheaf\IndexMark{idx-618}{trivial extension of sheaf@Trivial extension of sheaf} on $X$ obtained by extending $\mathcal F$ by zero outside $Z$. Show that
+\begin{enumerate}[label=\Alph*)]
+\item $\widetilde{\mathcal F}_x=0$, $x\notin Z$, $=\mathcal F_x$, $x\in Z$.
+\item $i^{-1}\widetilde{\mathcal F}\approx\mathcal F$.
+\end{enumerate}
+\item Let $(\mathcal F,\pi,X)$ be a sheaf of rings and $s\in\mathcal F(X)$. Define the \emph{support of $s$}\IndexMark{idx-593}{support@Support!of sheaf@of sheaf}, $\operatorname{supp}(s)$, to be $\{x\in X:s(x)\neq0\}$. Show that $\operatorname{supp}(s)$ is a closed subset of $X$.
+\item Let $(\mathcal F,\pi,X)$ be a sheaf of rings. Define the \emph{support of $\mathcal F$}\IndexMark{idx-592}{support of section of sheaf@Support of section of sheaf}, $\operatorname{supp}(\mathcal F)$, to be $\{x\in X,\mathcal F_x\neq0\}$. Show that $\operatorname{supp}(\mathcal F)$ need be neither open nor closed.
+\item Let $\mathcal F$ be a locally free sheaf of $\mathcal O_Y$-modules on the complex manifold $Y$ and suppose that $f:X\to Y$ is a holomorphic map of complex manifolds. Prove that
+\[
+f_*(\mathcal G\otimes_{\mathcal O}f^*\mathcal F)\sim f_*\mathcal G\otimes_{\mathcal O}\mathcal F,\quad\text{for any sheaf $\mathcal G$ of $\mathcal O_X$-modules on $X$.}
+\]
+\item Let $X,Y$ be complex manifolds and $\mathcal F$, $\mathcal G$ be sheaves of $\mathcal O_X$-, $\mathcal O_Y$-modules, respectively. Show that for any holomorphic map $f:X\to Y$, $\operatorname{Hom}(f^*\mathcal G,\mathcal F)\approx\operatorname{Hom}(\mathcal G,f_*\mathcal F)$ (We say that $f^*$ and $f_*$ are \emph{adjoint functors} between the categories of $\mathcal O_X$- and $\mathcal O_Y$-modules). Deduce that we have canonical homomorphisms $\mathcal G\to f_*f^*\mathcal G$ and $f^*f_*\mathcal F\to\mathcal F$.
+\item Let $X$ be a complex manifold and set $K=\operatorname{Kernel}\partial\bar\partial:\underline C^{0,0}\to\underline C^{1,1}$. Show that the complex
+\[
+0\to K\to\underline C^{0,0}\xrightarrow{\partial\bar\partial}\underline C^{1,1}\xrightarrow d\underline C^{1,2}\oplus\underline C^{2,1}\xrightarrow d\cdots
+\]
+is sheaf exact (Hint: For exactness at $\underline C^{1,1}$ the argument used in Example 23 may be helpful).
+\item Let $f:X\to Y$ be a continuous map of topological spaces. Prove
+\begin{enumerate}[label=\alph*)]
+\item If $a:\mathcal F\to\mathcal G$ is a morphism of sheaves over $Y$ then we have a canonical sheaf map\IndexMark{idx-333}{inverse image sheaf@Inverse image sheaf}\IndexMark{idx-489}{pull back@Pull-back!of sheaf@of sheaf} $f^{-1}(a):f^{-1}\mathcal F\to f^{-1}\mathcal G$ of sheaves over $X$.
+% Source PDF page 97; printed page 88
+\item $f^{-1}$ is \emph{exact}\IndexMark{idx-334}{inverse image sheaf@Inverse image sheaf}. That is, given a short exact sequence $0\to\mathcal F\xrightarrow a\mathcal G\xrightarrow b\mathcal H\to0$ of sheaves over $Y$, the sequence
+\[
+0\to f^{-1}\mathcal F\xrightarrow{f^{-1}(a)}f^{-1}\mathcal G\xrightarrow{f^{-1}(b)}f^{-1}\mathcal H\to0\text{ is exact.}
+\]
+\end{enumerate}
+\item Same assumptions as Q10. Show that if $a:\mathcal F\to\mathcal G$ is a morphism of sheaves over $X$ then we
+\begin{enumerate}[label=\alph*)]
+\item have a canonical sheaf map $f_*(a):f_*\mathcal F\to f_*\mathcal G$ of sheaves over $Y$.
+\item $f_*$ is \emph{left exact}\IndexMark{idx-178}{direct image sheaf@Direct image sheaf}. That is, given an exact sequence $0\to\mathcal F\xrightarrow a\mathcal G\xrightarrow b\mathcal H$ of sheaves over $X$, the sequence
+\[
+0\to f_*\mathcal F\xrightarrow{f_*(a)}f_*\mathcal G\xrightarrow{f_*(b)}f_*\mathcal H\text{ is exact.}
+\]
+\item In general $f_*$ is not exact.
+\end{enumerate}
+(Hint for c): Take $X=\mathbb C^2\setminus\{0\}$, $Y=\mathbb C$ and define $f(x,y)=x$. Let $\mathcal I$ denote the ideal sheaf of $f^{-1}(0)$. Show that the $f_*$ image of the sequence $\mathcal O_X\to\mathcal O_X/\mathcal I\to0$ is not exact).
+\item Suppose that $f:X\to Y$ is a holomorphic map of complex manifolds. Prove that
+\begin{enumerate}[label=\alph*)]
+\item If $a:\mathcal F\to\mathcal G$ is a morphism of sheaves of $\mathcal O_Y$-modules over $Y$ then we have a canonical sheaf morphism $f^*a:f^*\mathcal F\to f^*\mathcal G$ of sheaves of $\mathcal O_X$-modules.
+\item $f^*$ is right exact\IndexMark{idx-490}{pull back@Pull-back!of sheaf@of sheaf}.
+\item $f^*$ is generally not left exact.
+\end{enumerate}
+\item Let $X$, $Y$ be metrizable topological spaces and $f:X\to Y$ be a proper continuous map. Show that $f$ is closed (that is, $f$-images of closed sets are closed). Deduce Lemma~\ref{lemma:6.1.13} in case $X$, $Y$ are metrizable (as will always be the case if $X$, $Y$ are manifolds).
+\item (Koszul complex\IndexMark{idx-346}{koszul complex@Koszul complex}). Let $E$ be a holomorphic vector bundle of rank $q$ on the complex manifold $M$ and suppose $s\in\Omega(E)$. Show that we have complexes of $\mathcal O$-modules
+\[
+0\to\mathcal O\xrightarrow{\beta_0}\bigwedge^1\underline E\xrightarrow{\beta_1}\cdots\xrightarrow{\beta_{q-1}}\bigwedge^q\underline E\to0
+\]
+\[
+0\leftarrow\mathcal O\xleftarrow{\alpha_0}\bigwedge^1\underline E^*\xleftarrow{\alpha_1}\cdots\xleftarrow{\alpha_{q-1}}\bigwedge^q\underline E^*\leftarrow0
+\]
+% Source PDF page 98; printed page 89
+where $\beta_j(t)=s\wedge t$; $\alpha_j(t)=\iota_s t$, $0\leq j\leq q-1$, and that these complexes are exact if (and only if) $s$ is nowhere zero (see exercise 6, \hyperref[sec:5:1]{\S1, Chapter 5}).
+\end{enumerate}
+
+\section{Envelope of holomorphy}\label{sec:6:2}
+In this section we wish to consider the following problem: Given a domain $\Omega$ in $\mathbb C^n$ can we find a ``maximal'' $n$-dimensional complex manifold $\widehat\Omega$ containing $\Omega$ such that every analytic function on $\Omega$ has a unique extension to $\widehat\Omega$? Example 6 of \hyperref[sec:2:4]{\S4, Chapter 2} shows that we cannot require $\widehat\Omega$ to be a domain in $\mathbb C^n$. It turns out that to solve our problem it is best to work within the category of domains spread over $\mathbb C^n$. It then becomes possible to give a particularly elegant solution using the formalism of sheaf theory. First we recall some definitions.
+\begin{originaltheorem}{Definition}{6.2.1}\FieldTarget{definition:6.2.1}{6.2.1}
+A manifold \emph{spread over $\mathbb C^n$} is a pair $(\Omega,\pi)$, where $\Omega$ is a connected, separable, Hausdorff space and $\pi:\Omega\to\mathbb C^n$ is a local homeomorphism (not necessarily surjective). We call $\pi$ the \emph{spreading}\IndexMark{idx-578}{spreading@Spreading!of domain in c n@of domain in $\mathbb{C}^n$} of $\Omega$ in $\mathbb C^n$.
+\end{originaltheorem}
+Given a spread manifold $(\Omega,\pi)$, the map $\pi$ induces a complex structure on $\Omega$. In the sequel we always assume that $\Omega$ comes with this complex structure. We also often refer to $(\Omega,\pi)$ as ``the manifold spread over $\mathbb C^n$'', omitting reference to $\pi$. We remark that given a complex manifold $\Omega$ there may exist many different spreadings of $\Omega$ in $\mathbb C^n$ all of which induce the given complex structure on $\Omega$.
+
+Suppose $(\Omega,\pi)$, $(\Omega',\pi')$ are manifolds spread over $\mathbb C^n$ and $\theta:\Omega\to\Omega'$ is continuous. We say that $\theta$ is a \emph{morphism} of spread manifolds\IndexMark{idx-404}{morphism of spread manifolds@Morphism of spread manifolds} if $\pi'\theta=\pi$. That is, if $\theta(\Omega_x)=\Omega'_x$ for all $x\in\pi(\Omega)$. Here we have set $\Omega_x=\pi^{-1}(x)$, $\Omega'_x=\pi'^{-1}(x)$. The reader may easily verify that a morphism of spread manifolds is \emph{analytic} with respect to the induced complex structures and is also an \emph{open mapping}.
+\begin{originaltheorem}{Definition}{6.2.2}\FieldTarget{definition:6.2.2}{6.2.2}
+Let $\Omega$, $\Omega'$ be manifolds spread over $\mathbb C^n$ and $\theta:\Omega\to\Omega'$ be a morphism. We say that the pair $(\Omega',\theta)$ is an \emph{analytic extension}\IndexMark{idx-012}{analytic continuation@Analytic continuation} of\IndexMark{idx-014}{analytic extension of spread manifold@Analytic extension of spread manifold} $\Omega$ if every $f\in A(\Omega)$ extends uniquely across $\theta$ to an element $\widetilde f\in A(\Omega')$. That is, there exists $\widetilde f\in A(\Omega')$ such that $f=\widetilde f\theta$.
+\end{originaltheorem}
+% Source PDF page 99; printed page 90
+\paragraph{Remark.} We sometimes say that $\Omega'$ is an analytic extension of $\Omega$ if there exists a morphism $\theta$ such that $(\Omega',\theta)$ is an analytic extension of $\Omega$ in the sense of Definition~\ref{definition:6.2.2}.
+\begin{originaltheorem}{Definition}{6.2.3}\FieldTarget{definition:6.2.3}{6.2.3}
+A manifold $\Omega$ spread over $\mathbb C^n$ is called a \emph{domain of holomorphy}\IndexMark{idx-211}{domain of holomorphy@Domain of holomorphy} if for every analytic extension $(\Omega',\theta)$ of $\Omega$, $\theta$ is an isomorphism.
+\end{originaltheorem}
+\paragraph{Remark.} The reader may easily verify that a domain $\Omega$ in $\mathbb C^n$ is a domain of holomorphy according to Definition~\ref{definition:6.2.3} if and only if it is according to Definition~\ref{definition:2.4.1}.
+
+We may now state the main result of this section.
+\begin{originaltheorem}{Theorem}{6.2.4}\FieldTarget{theorem:6.2.4}{6.2.4}
+Let $(\Omega,\pi)$ be a manifold spread over $\mathbb C^n$. Then there exists an analytic extension $(\widehat\Omega,\theta)$ of $\Omega$ such that
+\begin{enumerate}
+\item $\widehat\Omega$ is a maximal analytic extension of $\Omega$ in the sense that if $(\widetilde\Omega,\gamma)$ is any other analytic extension of $\Omega$, there exists a morphism $\eta:\widetilde\Omega\to\widehat\Omega$ making $(\widehat\Omega,\eta)$ an analytic extension of $\Omega$.
+\item $\widehat\Omega$ is independent of the spreading $\pi$ of $\Omega$ in $\mathbb C^n$. That is, if $\pi_1$, $\pi_2:\Omega\to\mathbb C^n$ are two spreadings of $\Omega$ in $\mathbb C^n$, compatible with the given complex structure on $\Omega$, then the corresponding maximal analytic extensions $\widehat\Omega_1$, $\widehat\Omega_2$ given by 1 are isomorphic.
+\end{enumerate}
+\end{originaltheorem}
+\begin{originaltheorem}{Definition}{6.2.5}\FieldTarget{definition:6.2.5}{6.2.5}
+We call for any analytic extension $(\widehat\Omega,\theta)$ of $\Omega$ satisfying the conditions of Theorem~\ref{theorem:6.2.4} the \emph{envelope of holomorphy of $\Omega$}\IndexMark{idx-230}{envelope of holomorphy@Envelope of holomorphy}.
+\end{originaltheorem}
+\begin{proof}[Proof of Theorem~\ref{theorem:6.2.4}]
+Our proof follows that in Malgrange \cite{bib:II:malgrange-b:2}.
+\paragraph{Step 1.} Existence of $\widehat\Omega$.
+
+Let $\{f_i\}$ denote the set of elements in $A(\Omega)$ indexed by the set $I$. We let $\mathbb C^I$ denote the vector space of all functions from $I$ to $\mathbb C$; addition and scalar multiplication defined coordinatewise. Let $U$ be an open subset of $\mathbb C^n$. We say that a map $h=(h_i):U\to\mathbb C^I$ is analytic if each component function $h_i:U\to\mathbb C$ is analytic. As in \hyperref[sec:6:1]{\S1} we may construct the sheaf $(\mathcal O^I,p,\mathbb C^n)$ of germs of analytic functions from $\mathbb C^n$ to $\mathbb C^I$. Exactly as in Example 14 of \hyperref[sec:6:1]{\S1}, $(\mathcal O^I,p)$ is a spread manifold over $\mathbb C^n$ (of course,
+% Source PDF page 100; printed page 91
+$\mathcal O^I$ will not be connected). We shall show that the envelope of holomorphy of $\Omega$ may be represented as a connected component of $\mathcal O^I$. First we define a morphism $\theta:\Omega\to\mathbb C^I$. Given $x\in\Omega$, choose an open neighbourhood $U$ of $x$ in $\Omega$ such that $\pi$ restricts to a homeomorphism of $U$ on $\pi(U)\subset\mathbb C^n$. Set $\phi=(\pi|U)^{-1}:\pi(U)\to\Omega$. For $i\in I$, set $\widetilde f_i=f_i\phi\in A(\pi(U))$. Define $\theta(x)=(\widetilde f_{i,x})\in\mathcal O^I$, where $\widetilde f_{i,x}$ denotes the germ of $\widetilde f_i$ at $x$. It is clear from the definition of the topology on $\mathcal O^I$ that $\theta$ is continuous and so defines a morphism of spread manifolds. We let $\widehat\Omega$ denote the connected component of $\mathcal O^I$ containing $\theta(\Omega)$ and set $\widehat p=p|\widehat\Omega$. Thus $(\widehat\Omega,\widehat p)$ is a manifold spread over $\mathbb C^n$.
+
+\paragraph{Step 2.} $(\widehat\Omega,\theta)$ is an analytic extension of $\Omega$. We show that each $f_i\in A(\Omega)$ extends uniquely to an element $\widehat f_i\in A(\widehat\Omega)$. First observe that for each $i\in I$ we have a projection map $\pi_i:\mathbb C^I\to\mathbb C$ which induces a morphism $\eta_i:\mathcal O^I\to\mathcal O$ of spread manifolds. Thus $\eta_i$ maps the germ of a map of $\mathbb C^n$ into $\mathbb C^I$ to its $i$th. component. Let $z\in\widehat\Omega$ and choose an open neighbourhood $U$ of $z$ in $\widehat\Omega$ such that $\widehat p|U$ is a homeomorphism. Set $\gamma=(\widehat p|U)^{-1}$. Certainly $\pi_i\gamma$ is a section of $\mathcal O$ over $\widehat p(U)$ and we let $\gamma_i$ denote the corresponding analytic function on $\widehat p(U)$. We define $\widehat f_i|U=\gamma_i\widehat p$. This construction clearly defines an element $\widehat f_i\in A(\widehat\Omega)$ for each $i\in I$. Next we must prove that $\widehat f_i\theta=f_i$ and that $\widehat f_i$ is the unique element of $A(\widehat\Omega)$ satisfying this relation. Uniqueness is obvious by uniqueness of analytic continuation and the openness of $\theta(\Omega)$ in $\widehat\Omega$. For the extension property suppose $x\in\Omega$ and choose an open neighbourhood $U$ of $x$ such that $\pi|U$ is a homeomorphism. Now $\theta(x)=(\widetilde f_{i,x})$ and $\pi_i((\widetilde f_{i,x}))=\widetilde f_{i,x}$. Hence
+\[
+\widehat f_i(\theta(x))=((f_i\pi^{-1})|\pi(U))\widehat p\theta(x)=(f_i\pi^{-1}|\pi(U))\pi(x)=f_i(x).
+\]
+\paragraph{Step 3.} $\widehat\Omega$ is a maximal analytic extension of $\Omega$. Suppose that $(\widetilde\Omega,\eta)$ is any analytic extension of $\Omega$. We may repeat the construction of Step 1 to obtain an analytic extension $\widehat{\widetilde\Omega}$ of $\widetilde\Omega$, with $\widehat{\widetilde\Omega}$ a connected component of $\mathcal O^I$. Observe that the construction used implies that $\widehat{\widetilde\Omega}$ necessarily contains the image of $\Omega$ by $\theta$ in $\mathcal O^I$. Since $\widehat\Omega$ is defined as the connected component $\theta(\Omega)$ in $\mathcal O^I$ it follows immediately that $\widehat\Omega=\widehat{\widetilde\Omega}$. Hence $\widehat\Omega$ is a maximal analytic extension of $\Omega$.
+
+\paragraph{Step 4.} $\widehat\Omega$ is independent, up to isomorphism, of $\pi$. We first note that if $\widetilde\Omega$ is an analytic extension of $\Omega$ then every analytic map $F:\Omega\to\mathbb C^m$, $m\geq1$, extends uniquely to $\widetilde\Omega$. This follows by applying the definition componentwise to $F$.
+% Source PDF page 101; printed page 92
+Let us suppose that we are given two spreadings $\pi_1$, $\pi_2$ of $\Omega$ with corresponding maximal analytic extensions $(\widehat\Omega_1,\theta_1)$, $(\widehat\Omega_2,\theta_2)$. By Step 3 and the above remark, $\pi_2$ extends to $\pi'_2:\widehat\Omega_1\to\mathbb C^n$. We claim that $\pi'_2$ spreads $\widehat\Omega_1$ in $\mathbb C^n$. For this we first note that the tangent bundle $T\widehat\Omega_1$ is analytically trivial since $\widehat\Omega_1$ is spread in $\mathbb C^n$ by $\pi_1$. But if $T\widehat\Omega_1\cong\widehat\Omega_1\times\mathbb C^n$, it follows that we can take the derivative of $\pi'_2$ to obtain a map $D\pi'_2:\widehat\Omega_1\to L(\mathbb C^n,\mathbb C^n)$. Since $\pi_2$ is a spreading it follows that $q(x)=D\pi_2(\theta_1(x))$ is an isomorphism for all $x\in\Omega$. Hence we may define an analytic map $p:\Omega\to L(\mathbb C^n,\mathbb C^n)$ by $p(x)=q(x)^{-1}$, $x\in\Omega$. Applying our remark again we see that $p$ extends to $\widehat p:\widehat\Omega_1\to L(\mathbb C^n,\mathbb C^n)$. Form the composite maps $p.D\pi'_2$, $D\pi'_2.p$ (composition in $L(\mathbb C^n,\mathbb C^n)$). We see that both compositions are analytic and equal to the identity on $\theta_1(\Omega)$. Hence, by uniqueness of analytic continuation, they are equal to the identity on the whole of $\widehat\Omega_1$. It follows that $D\pi'_2$ is invertible on $\widehat\Omega_1$ and so, by the inverse function theorem, $\pi'_2$ defines a spreading of $\widehat\Omega_1$ in $\mathbb C^n$, compatible with the given complex structure on $\widehat\Omega_1$.
+\[
+\input{diagrams/II-08.tex}
+\]
+Now $(\widehat\Omega_1,\theta_1)$ is an analytic extension of $(\Omega,\pi_2)$, where we choose the spreading of $\widehat\Omega_1$ given by $\pi'_2$. By the maximality property of $(\widehat\Omega_2,\theta_2)$ it follows that there exists a morphism $\alpha:\widehat\Omega_1\to\widehat\Omega_2$ satisfying $\alpha\theta_1=\theta_2$. The map $\alpha$ is unique by uniqueness of analytic continuation. We may now repeat the above constructions to obtain a morphism $\beta:(\widehat\Omega_2,\pi'_1)\to(\widehat\Omega_1,\widehat\pi_1)$. It remains to prove that $\alpha$ and $\beta$ are inverses of one another. This follows, again by uniqueness of analytic continuation, once we have noticed that
+\[
+\beta\alpha(\theta_1(x))=\theta_1(x);\quad\alpha\beta(\theta_2(x))=\theta_2(x),\quad x\in\Omega.
+\]
+\end{proof}
+% Source PDF page 102; printed page 93
+\begin{originaltheorem}{Corollary}{6.2.5}\FieldTarget{corollary:6.2.5}{6.2.5}
+Let $\widetilde\Omega$ be an analytic extension of $\Omega$. If $\widetilde\Omega$ is a domain of holomorphy, $\widetilde\Omega$ is the envelope of holomorphy of $\Omega$.
+\end{originaltheorem}
+\begin{proof}
+Let $\widehat{\widetilde\Omega}$ denote the envelope of holomorphy of $\widetilde\Omega$ given by Theorem~\ref{theorem:6.2.4}. If $\widetilde\Omega$ is a domain of holomorphy then $\widehat{\widetilde\Omega}$ is isomorphic to $\widetilde\Omega$. But $\widehat{\widetilde\Omega}$ is a maximal analytic extension of $\widetilde\Omega$ and hence of $\Omega$. It follows that $\widetilde\Omega$ is the envelope of holomorphy of $\Omega$.
+\end{proof}
+\paragraph{Remarks.}
+\begin{enumerate}
+\item The map $\theta:\Omega\to\widehat\Omega$ constructed in Step 1 of the proof of Theorem~\ref{theorem:6.2.4} will not be injective unless $A(\Omega)$ separates points in $\Omega$. This requirement is fulfilled of course if $\Omega$ is a domain in $\mathbb C^n$.
+\item It should be noticed that the proof of Theorem~\ref{theorem:6.2.4} works for any subset of $A(\Omega)$. In particular, it gives us the maximum domain of continuation of any analytic function defined on $\Omega$, representing it as a manifold spread over $\mathbb C^n$.
+\item It should be appreciated that Theorem~\ref{theorem:6.2.4} is very much an existence and uniqueness theorem that gives no information about how to construct and represent envelopes of holomorphy in practice. Of course, our existence proof is very formal and elementary and not too much should be expected. In this regard it should be compared with the classical continuation proof such as is given in H\"ormander \cite[Theorem 5.4.5]{bib:II:hormander-l:1}.
+\item The envelope of holomorphy of a manifold spread over $\mathbb C^n$ may also be represented as the spectrum of the algebra $A(\Omega)$. That is, the envelope of holomorphy is isomorphic to the space of non-zero continuous homomorphisms of $A(\Omega)$ into $\mathbb C$. For this approach to the construction of the envelope of holomorphy we refer to Gunning and Rossi \cite{bib:II:gunning-r-c-and-rossi-h:1}.
+\item Finally we remark the fundamental result that a manifold spread over $\mathbb C^n$ is a domain of holomorphy if and only if it is holomorphically convex and if and only if it is isomorphic to its envelope of holomorphy. In particular, every domain of holomorphy is a Stein manifold. Proofs of these results, which use pseudo-convexity methods, may be found in Gunning and Rossi \cite{bib:II:gunning-r-c-and-rossi-h:1} and H\"ormander \cite{bib:II:hormander-l:1}.
+\end{enumerate}
+% Source PDF page 103; printed page 94
+\paragraph{Exercises.}
+\begin{enumerate}
+\item Let $(\Omega,\pi)$ be a manifold spread over $\mathbb C^n$. Show that if we let $\widetilde\Omega$ denote the quotient space of $\Omega$ defined by the relation ``$x$ equivalent to $y$ iff $x$ and $y$ cannot be separated by elements of $A(\Omega)$'', then
+\begin{enumerate}[label=\Alph*)]
+\item $\widetilde\Omega$ is naturally a manifold spread over $\mathbb C^n$.
+\item $A(\widetilde\Omega)$ separates points in $\widetilde\Omega$.
+\item The envelopes of holomorphy of $\Omega$ and $\widetilde\Omega$ are isomorphic.
+\end{enumerate}
+\item Prove that a holomorphically convex manifold spread over $\mathbb C^n$ is a domain of holomorphy (Hint: Follow the proof given in Chapter~\ref{ch:2}).
+\item Let $(\Omega,\pi)$ be a manifold spread over $\mathbb C^n$ and suppose $\Omega\neq\mathbb C^n$. Given a compact subset $K$ of $\Omega$, define $d(K)=\inf\{|z-\pi(\zeta)|:z\in\partial(\pi\Omega),\zeta\in K\}$ (see also \hyperref[sec:2:4]{\S4, Chapter 2}). Prove that if $(\Omega,\pi)$ is a domain of holomorphy then $d(K)=d(\widehat K)$ for all compact subsets of $\Omega$. Show also that if $(\Omega,\pi)$ is finitely sheeted and $d(K)=d(\widehat K)$ for all compact subsets $K$ of $\Omega$, then $(\Omega,\pi)$ is holomorphically convex and so a domain of holomorphy (the non-finitely sheeted case is more difficult and is treated in Gunning and Rossi \cite{bib:II:gunning-r-c-and-rossi-h:1}).
+\end{enumerate}
+\section{Sheaf cohomology}\label{sec:6:3}
+In \hyperref[sec:6:1]{\S1} we showed how sheaf formalism provided a unifying topological framework for the description of a wide range of structures on topological spaces. In this section we introduce a powerful computational machine for the analysis of sheaves: \emph{Sheaf Cohomology}. In essence our methods allow us to apply the highly systematised and powerful methods of homological algebra to problems in global complex analysis and algebraic geometry. The ideas we describe were introduced into complex analysis by H. Cartan (see H. Cartan \cite{bib:II:cartan-h:1,bib:II:cartan-h:2}) and into algebraic geometry by J.P. Serre (see J.P. Serre \cite{bib:II:serre-j-p:2}). This use of sheaves and sheaf cohomology has undoubtedly revolutionised and clarified both fields.
+
+Our approach to sheaf cohomology will be to first develop a rather abstract, non-computable, theory which is valid for sheaves defined over paracompact spaces. We then relate this theory to the computable \v{C}ech theory by means of Leray's theorem.
+% Source PDF page 104; printed page 95
+Throughout this section we shall assume that all topological spaces are paracompact and, as always, Hausdorff. ``Sheaf'' will always refer to a sheaf of abelian groups unless the contrary is indicated.
+
+Suppose that $0\to\mathcal F\xrightarrow a\mathcal G\xrightarrow b\mathcal H\to0$ is a short exact sequence of sheaves over $X$. Given an open set $U\subset X$, it is easily seen that the sequence
+\[
+0\to\mathcal F(U)\xrightarrow{a_U}\mathcal G(U)\xrightarrow{b_U}\mathcal H(U)
+\]
+is exact but that, in general, $b_U:\mathcal G(U)\to\mathcal H(U)$ will not be surjective (The section functor is left- but not right-exact). Just by reference to the Cousin I and II problems (Examples 24, 25, \hyperref[sec:6:1]{\S1}) we see the importance of finding a measure of how far the map $b_U:\mathcal G(U)\to\mathcal H(U)$ fails to be surjective. A satisfactory solution to this problem is the primary aim of sheaf cohomology theory. Our first task will be to describe a class of sheaves for which it is true that short exact sequences of sheaves transform into short exact sequences of groups under the section functor. That is, we shall be describing a class of sheaves for which sheaf and presheaf exactness are equivalent.
+\begin{originaltheorem}{Definition}{6.3.1}\FieldTarget{definition:6.3.1}{6.3.1}
+A sheaf $(\mathcal F,\pi,X)$ is said to be \emph{soft}\IndexMark{idx-577}{soft sheaf@Soft sheaf} if for all closed subsets $K$ of $X$ and sections $s\in\mathcal F(K)$, $s$ extends to a continuous section of $\mathcal F$ over $X$. That is, the natural map $\mathcal F(X)\to\mathcal F(K)$ is surjective for all closed subsets $K$ of $X$.
+\end{originaltheorem}
+\begin{originaltheorem}{Proposition}{6.3.2}\FieldTarget{proposition:6.3.2}{6.3.2}
+Let $0\to\mathcal F\xrightarrow a\mathcal G\xrightarrow b\mathcal H\to0$ be a short exact sequence of sheaves over $X$. Provided $\mathcal F$ is soft, the corresponding sequence of sections
+\[
+0\to\mathcal F(X)\xrightarrow a\mathcal G(X)\xrightarrow b\mathcal H(X)\to0
+\]
+is exact.
+\end{originaltheorem}
+\begin{proof}
+First we remark that we shall now generally use the same notation for the map induced on sections and the corresponding sheaf morphism. If it is necessary to distinguish them, we use a ``star'' superscript for the map induced on sections.
+% Source PDF page 105; printed page 96
+We must show that for every $s\in\mathcal H(X)$, there exists $t\in\mathcal G(X)$ such that $b(t)=s$. Since $b:\mathcal G\to\mathcal H$ is surjective, we may find an open neighbourhood $U_x$ of every $x\in X$ and $t_x\in\mathcal G(U_x)$ such that $b(t_x)=s|U_x$. Hence, by the paracompactness of $X$, we may find a locally finite open cover $\{U_i:i\in I\}$ of $X$ and family $\{t_i\in\mathcal G(U_i)\}$ such that $b(t_i)=s|U_i$, $i\in I$. Choose an open refinement $\{V_i\}$ of $\{U_i\}$ such that $\overline V_i\subset U_i$, $i\in I$. Consider the set $\Lambda$ of pairs $(g,J)$ where $J\subset I$ and, setting $V_J=\bigcup_{j\in J}\overline V_j$, we have $g\in\mathcal G(V_J)$ and $b(g)=s|V_J$. Now $\Lambda\neq\varnothing$ and is partially ordered by inclusion. The requirement's of Zorn's lemma are clearly satisfied and so $\Lambda$ contains a maximal element, say $(t,K)$. It is sufficient to show $K=I$. Suppose $i\in I\setminus K$. Then $b(t-t_i)=0$ on $V(K)\cap\overline V_i$ and so there exists $r_i\in\mathcal F(V(K)\cap\overline V_i)$ such that $t-t_i=a(r_i)$. Since $\mathcal F$ is soft, $r_i$ extends to $U_i$. But now $(t,K)\cup(a(r_i)+t_i,i)$ extends $(t,K)$ contradicting the maximality of $(t,K)$. Therefore $K=I$.
+\end{proof}
+\begin{originaltheorem}{Corollary}{6.3.3}\FieldTarget{corollary:6.3.3}{6.3.3}
+Let $0\to\mathcal F\xrightarrow a\mathcal G\xrightarrow b\mathcal H\to0$ be a short exact sequence of sheaves over $X$. If $\mathcal F$ and $\mathcal G$ are soft so is $\mathcal H$.
+\end{originaltheorem}
+\begin{proof}
+Let $K\subset X$ be closed. We must show that every $s\in\mathcal H(K)$ extends to a section of $\mathcal H$ over $X$. First observe that $\mathcal F_K$ is soft. Hence $0\to\mathcal F_K\xrightarrow a\mathcal G_K\xrightarrow b\mathcal H_K\to0$ is a short exact sequence of sheaves for which $\mathcal F_K$ is soft and, applying Proposition~\ref{proposition:6.3.2}, there exists a section $t$ of $\mathcal G$ over $K$ such that $b(t)=s$. Since $\mathcal G$ is soft, $t$ extends to a section of $\mathcal G$ over $X$.
+\end{proof}
+\begin{originaltheorem}{Corollary}{6.3.4}\FieldTarget{corollary:6.3.4}{6.3.4}
+Let $0\to\mathcal F_0\xrightarrow{a_0}\mathcal F_1\xrightarrow{a_1}\mathcal F_2\to\cdots$ be a long exact sequence of soft sheaves over $X$. Then the corresponding complex
+\[
+0\to\mathcal F_0(X)\xrightarrow{a_0}\mathcal F_1(X)\xrightarrow{a_1}\mathcal F_2(X)\xrightarrow{a_2}\cdots
+\]
+is exact.
+\end{originaltheorem}
+\begin{proof}
+For $i\geq0$, let $\mathcal K_i$ denote the sheaf $\operatorname{Ker}(a_i)$. The exactness of the given long exact sequence is then equivalent to the exactness of the short exact sequences
+\[
+0\to\mathcal K_i\to\mathcal F_i\xrightarrow{a_{i+1}}\mathcal K_{i+1}\to0,\quad i\geq0.
+\]
+% Source PDF page 106; printed page 97
+For $i=0$, $\mathcal K_0=\mathcal F_0$ and so is soft. Hence, by Corollary~\ref{corollary:6.3.3}, $\mathcal K_1$ is soft. By induction, every $\mathcal K_i$ is soft. Hence by Proposition~\ref{proposition:6.3.2}, the sequences
+\[
+0\to\mathcal K_i(X)\to\mathcal F_i(X)\xrightarrow{a_{i+1}}\mathcal K_{i+1}(X)\to0
+\]
+are all exact. But this is equivalent to the required result.
+\end{proof}
+\begin{originaltheorem}{Definition}{6.3.5}\FieldTarget{definition:6.3.5}{6.3.5}
+A sheaf $(\mathcal F,\pi,X)$ is \emph{fine} if it admits a partition of unity\IndexMark{idx-434}{partition of unity@Partition of unity!of sheaf@of sheaf} of the identity morphism of $\mathcal F$ subordinate to any locally finite open cover of $X$. That is, given a locally finite open cover $\{U_i\}$ of $X$, there exist sheaf morphisms $\eta_i:\mathcal F\to\mathcal F$ satisfying
+\begin{enumerate}
+\item $\eta_i=0$ outside of some closed subset of $X$ contained in $U_i$.
+\item $\sum_{i\in I}\eta_i=I$, the identity morphism of $\mathcal F$.
+\end{enumerate}
+\end{originaltheorem}
+\begin{originaltheorem}{Proposition}{6.3.6}\FieldTarget{proposition:6.3.6}{6.3.6}
+Every fine sheaf\IndexMark{idx-253}{fine sheaf@Fine sheaf} is soft.
+\end{originaltheorem}
+\begin{proof}
+Let $\mathcal F$ be a fine sheaf over $X$, $K\subset X$ be closed and $\widetilde s\in\mathcal F(K)$. By Lemma~\ref{lemma:6.1.12}, we may find an open neighbourhood $U$ of $K$ in $X$ and $\widetilde s\in\mathcal F(U)$ extending $s$. Take the open cover $\{U,X\setminus K\}$ of $X$ and a partition of unity $\{\theta,\eta\}$ of the identity morphism of $\mathcal F$ subordinate to this cover. Observe that $\theta|K=I$. Setting $\widetilde s=0$ outside $U$, we see that $\theta\widetilde s$ is the required section of $\mathcal F$.
+\end{proof}
+\paragraph{Examples.}
+\begin{enumerate}
+\item Let $E$ be a smooth vector bundle over the differential manifold $X$. Then $\underline E_\infty$ is fine. Indeed, suppose that $\{U_i\}$ is any locally finite open cover of $X$ and let $\{\eta_i\}$ be a $C^\infty$ partition of unity subordinate to $\{U_i\}$. The $\eta_i$ induce sheaf morphisms $\eta_i:\underline E_\infty\to\underline E_\infty$ and clearly $\{\eta_i\}$ is a partition of unity of the identity morphism of $\underline E_\infty$ which is subordinate to $\{U_i\}$. Hence $\underline E_\infty$ is fine. Consequently all the sheaves $\underline C^p$, $\underline C^{p,q}$ that we have defined on differential and complex manifolds are fine and, therefore, soft. On the other hand, if $\underline E$ is the sheaf of holomorphic sections of a holomorphic vector bundle $E$ then $\underline E$ is never soft.
+\item Let $\mathcal F$ be a sheaf on $X$. Let $\mathcal F^*$ denote the sheaf of germs of not necessarily continuous sections of $\mathcal F$. Thus, $\mathcal F^*(U)$ will be the set of \emph{all} sections of $\mathcal F$ over $U$. The sheaf $\mathcal F^*$ is obviously fine. In fact it is also \emph{flabby}\IndexMark{idx-255}{flabby sheaf@Flabby sheaf}: Every section of $\mathcal F^*$ over an open subset of $X$ extends
+% Source PDF page 107; printed page 98
+to $X$. Flabby sheaves are used in the development of sheaf cohomology in algebraic geometry where the spaces are not even Hausdorff, let alone paracompact (see also the exercises at the end of this section).
+\end{enumerate}
+We need one more definition before we can define the sheaf cohomology groups of a sheaf on $X$.
+\begin{originaltheorem}{Definition}{6.3.7}\FieldTarget{definition:6.3.7}{6.3.7}
+Let $\mathcal F$ be a sheaf on $X$. A \emph{resolution} of\IndexMark{idx-513}{resolution of sheaf@Resolution of sheaf} $\mathcal F$ is a long exact sequence
+\[
+0\to\mathcal F\to\mathcal F_0\xrightarrow{d_0}\mathcal F_1\xrightarrow{d_1}\mathcal F_2\xrightarrow{d_2}\cdots.
+\]
+A resolution of $\mathcal F$ will be called soft (resp. fine) if each of the sheaves $\mathcal F_i$ is soft (resp. fine).
+\end{originaltheorem}
+\begin{originaltheorem}{Proposition}{6.3.8}\FieldTarget{proposition:6.3.8}{6.3.8}
+Every sheaf $\mathcal F$ on $X$ has a fine resolution\IndexMark{idx-252}{fine resolution@Fine resolution}.
+\end{originaltheorem}
+\begin{proof}
+Let $\mathcal F^*$ denote the sheaf of germs of not necessarily continuous sections of $\mathcal F$ (example 2 above) and let $\epsilon:\mathcal F\to\mathcal F^*$ denote the corresponding inclusion map. Set $\mathcal F_0=\mathcal F^*$ and let $\overline{\mathcal F}_0=\mathcal F^*/\mathcal F$. We have the short exact sequence $0\to\mathcal F\to\mathcal F_0\xrightarrow{q_0}\overline{\mathcal F}_0\to0$. Proceeding inductively, let $\mathcal F_{j+1}=(\overline{\mathcal F}_j)^*$ and $\overline{\mathcal F}_{j+1}=\mathcal F_{j+1}/\mathcal F^*_{j+1}$. For $j\geq0$ we have the short exact sequences
+\[
+0\to\overline{\mathcal F}_j\xrightarrow{\epsilon_{j+1}}\mathcal F_{j+1}\xrightarrow{q_{j+1}}\overline{\mathcal F}_{j+1}\to0.
+\]
+Here, of course, $\overline{\mathcal F}_0=\mathcal F$. Hence we have the corresponding long exact sequence
+\[
+0\to\mathcal F\xrightarrow\epsilon\mathcal F_0\xrightarrow{d_0}\mathcal F_1\xrightarrow{d_1}\cdots
+\]
+where $d_j=\epsilon_{j+1}q_j$ and $\epsilon=\epsilon_0$. Since the sheaves $\mathcal F_j$ are all fine, we have constructed a fine resolution of $\mathcal F$.
+\end{proof}
+\paragraph{Remark.} We call the resolution of $\mathcal F$ constructed in the proof of Proposition~\ref{proposition:6.3.8} the \emph{canonical resolution}\IndexMark{idx-060}{canonical resolution of sheaf@Canonical resolution of sheaf} of $\mathcal F$.
+
+Let $\mathcal F$ be a sheaf on $X$ and $0\to\mathcal F\xrightarrow\epsilon\mathcal F_0\xrightarrow{d_0}\mathcal F_1\xrightarrow{d_1}\cdots$ be the canonical resolution of $\mathcal F$. Associated to the canonical resolution of $\mathcal F$ we have the complex
+% Source PDF page 108; printed page 99
+\[
+0\to\mathcal F(X)\xrightarrow{\epsilon^*}\mathcal F_0\xrightarrow{d_0^*}\mathcal F_1\xrightarrow{d_1^*}\cdots.
+\]
+We set
+\[
+H^0(X,\mathcal F)=\operatorname{Ker}(d_0^*);\quad H^p(X,\mathcal F)=\operatorname{Ker}(d_p^*)/\operatorname{Im}(d_{p-1}^*),\quad p>0.
+\]
+Each $H^p(X,\mathcal F)$ is an abelian group.
+\begin{originaltheorem}{Definition}{6.3.9}\FieldTarget{definition:6.3.9}{6.3.9}
+The group $H^p(X,\mathcal F)$ constructed above is called the \emph{$p$th. sheaf cohomology group of $X$ with coefficients in the sheaf $\mathcal F$}\IndexMark{idx-096}{cohomology@Cohomology!sheaf@sheaf}\IndexMark{idx-432}{p th sheaf cohomology group@$p$th. sheaf cohomology group}\IndexMark{idx-548}{sheaf cohomology group@Sheaf cohomology group}.
+\end{originaltheorem}
+\begin{originaltheorem}{Theorem}{6.3.10}\FieldTarget{theorem:6.3.10}{6.3.10}
+The sheaf cohomology groups of $X$ satisfy the following basic properties:
+\begin{enumerate}
+\item Given a sheaf $\mathcal F$ on $X$ then
+\begin{enumerate}[label=\Alph*)]
+\item $H^0(X,\mathcal F)\approx\mathcal F(X)$.
+\item $H^p(X,\mathcal F)=0$ for $p>0$ if $\mathcal F$ is fine.
+\end{enumerate}
+\item If $a:\mathcal F\to\mathcal G$ is a morphism of sheaves over $X$ then for $p\geq0$ there are induced homomorphisms $a^p:H^p(X,\mathcal F)\to H^p(X,\mathcal G)$ satisfying
+\begin{enumerate}[label=\Alph*)]
+\item $a^0:H^0(X,\mathcal F)\to H^0(X,\mathcal G)$ is precisely the map on sections induced by $a$.
+\item If $a:\mathcal F\to\mathcal F$ is the identity, then $a^p$ is the identity, $p\geq0$.
+\item If $a:\mathcal F\to\mathcal G$, $b:\mathcal G\to\mathcal H$ are morphisms of sheaves over $X$ then for $p\geq0$ we have $(ba)^p=b^pa^p:H^p(X,\mathcal F)\to H^p(X,\mathcal H)$.
+\end{enumerate}
+\item If $0\to\mathcal F\xrightarrow a\mathcal G\xrightarrow b\mathcal H\to0$ is a short exact sequence of sheaves on $X$ then for $p\geq0$ there is a connecting homomorphism $\delta:H^p(X,\mathcal H)\to H^{p+1}(X,\mathcal F)$ satisfying
+\begin{enumerate}[label=\Alph*)]
+\item The cohomology sequence
+\[
+0\to H^0(X,\mathcal F)\xrightarrow{a^0}H^0(X,\mathcal G)\xrightarrow{b^0}H^0(X,\mathcal H)\xrightarrow\delta H^1(X,\mathcal F)\xrightarrow{a^1}\cdots
+\]
+is exact.
+\item Given a commutative diagram of short exact sequences on $X$
+\[
+\input{diagrams/II-09.tex}
+\]
+% Source PDF page 109; printed page 100
+the corresponding cohomology diagram
+\begingroup\small
+\[
+\input{diagrams/II-10.tex}
+\]
+commutes.
+\endgroup
+\end{enumerate}
+\end{enumerate}
+\end{originaltheorem}
+\begin{proof}
+1A is obvious and 1B follows from Corollary~\ref{corollary:6.3.4}. In our proof of 2 we follow the notational conventions of the proof of Proposition~\ref{proposition:6.3.8}. Observe that a morphism $a:\mathcal F\to\mathcal G$ induces a morphism $a^0:\mathcal F_0\to\mathcal G_0$ and so a morphism $\overline a^0:\overline{\mathcal F}_0\to\overline{\mathcal G}_0$. Clearly the diagram
+\[
+\input{diagrams/II-11.tex}
+\]
+commutes. Proceeding inductively, we see that for $j\geq0$ we have morphisms $a^j:\mathcal F_j\to\mathcal G_j$, $\overline a_j:\overline{\mathcal F}_j\to\overline{\mathcal G}_j$ such that the diagrams
+\[
+\input{diagrams/II-12.tex}
+\]
+commute. Hence we have the commutative ladder of long exact sequences:
+\[
+\input{diagrams/II-13.tex}
+\]
+and hence the corresponding commutative diagram of sections:
+\[
+\input{diagrams/II-14.tex}
+\]
+% Source PDF page 110; printed page 101
+Suppose $s\in\operatorname{Ker}(d_j^*)$. The commutativity of the diagram implies that $d_j^*(a^js)=a^jd_j^*s=0$. Hence $a^j(\operatorname{Ker}(d_j^*))\subset\operatorname{Ker}(d_j^*)$. Similarly, $a^j(\operatorname{Im}(d_{j-1}^*))\subset\operatorname{Im}(d_{j-1}^*)$. Therefore, $a^j$ induces a homomorphism $a^j:H^j(X,\mathcal F)\to H^j(X,\mathcal G)$. Properties 2A, B, C all follow straightforwardly from the definition of the induced maps on cohomology and the naturality of our constructions and we leave their verification to the reader.
+
+It remains to prove 3. Take canonical resolutions of the sheaves $\mathcal F$, $\mathcal G$, $\mathcal H$. As in the proof of 2 we have an induced sequence between these resolutions and a corresponding commutative diagram of sections, a typical portion of which is displayed below.
+\[
+\input{diagrams/II-15.tex}
+\]
+Observe that the rows in the diagram are all exact since the sheaves $\mathcal F_j$, $\mathcal G_j$ and $\mathcal H_j$ are all soft. We now show how to define the connecting homomorphism $\delta:H^j(X,\mathcal H)\to H^{j+1}(X,\mathcal F)$. Let $\alpha\in H^j(X,\mathcal H)$ and $H\in\operatorname{Ker}(d_j)\subset\mathcal H_j(X)$ be a representative for $\alpha$. Now $H=b^j(G)$ for some $G\in\mathcal G_j(X)$. Since $d_jb^j=b^{j+1}d_j$, we see that $b^{j+1}d_j(G)=0$ and so there exists $F\in\mathcal F_{j+1}(X)$ such that $a^{j+1}(F)=d_j(G)$. But $a^{j+2}d_{j+1}(F)=d_{j+1}a^{j+1}(F)=d_{j+1}d_j(G)=0$. Since $a^{j+2}$ is injective it follows that $d_{j+1}(F)=0$ and so $F$ defines an element of $H^{j+1}(X,\mathcal F)$. We claim that the class of $F$ in $H^{j+1}(X,\mathcal F)$ depends only on $\alpha$ and not on our choices of $H$, $G$ and $F$. Granted this, our construction defines the connecting homomorphism $\delta:H^j(X,\mathcal H)\to H^{j+1}(X,\mathcal F)$. Suppose that $H'$, $G'$ and $F'$ are the result of another sequence of choices. Since $H-H'$ defines the zero element of $H^j(X,\mathcal H)$, there exists $\widetilde H\in\mathcal H_{j-1}(X)$ such that $H-H'=d_{j-1}(\widetilde H)$. Certainly $\widetilde H=b^{j-1}(G)$ for some $\widetilde G\in\mathcal G_{j-1}(X)$ and so $b^j(G-G'-d_{j-1}(\widetilde G))=0$. Hence $G-G'-d_{j-1}\widetilde G=a^j\widetilde F$, for some $\widetilde F\in\mathcal F_j(X)$.
+% Source PDF page 111; printed page 102
+Now $a^{j+1}d_j(F)=d_ja^j(F)=d_j(G)-d_j(G')=a^{j+1}(F)-a^{j+1}(F')=a^{j+1}(F-F')$ and so, since $a^{j+1}$ is injective, we have $F-F'=d_j(F)$. Therefore, $F$ and $F'$ define the same class in $H^{j+1}(X,\mathcal F)$.
+
+The proof of 3A involves a straightforward diagram chase and we leave details to the reader. To prove 3B we take canonical resolutions of the sequences and form the corresponding 3-dimensional commutative diagram of sequences of sections. Given $\alpha\in H^j(X,\mathcal H)$, we construct, as above, elements $H$, $G$, $F$ such that the cohomology classes of $H$ and $F$ define $\alpha$ and $\delta\alpha$ respectively. It now suffices to observe that the class of $\omega^jH$ is $\eta^j\alpha$ and that $\omega^jH$, $\phi^jG$, $\eta^{j+1}F$ is a sequence defining $\delta(\omega^j\alpha)$. Hence $\delta\omega^j=\omega^{j+1}\delta$. The commutativity of the squares not involving $\delta$ is, of course, immediate from 2C.
+\end{proof}
+\begin{originaltheorem}{Theorem}{6.3.11}\FieldTarget{theorem:6.3.11}{6.3.11}
+Let $0\to\mathcal F\xrightarrow\epsilon\mathcal F_0\xrightarrow{d_0}\mathcal F_1\xrightarrow{d_1}\mathcal F_2\xrightarrow{d_2}\cdots$ be a resolution of the sheaf $\mathcal F$. Suppose that $H^j(X,\mathcal F_k)=0$, $j>0$, $k>0$. Then
+\[
+H^0(X,\mathcal F)\cong\operatorname{Ker}(d_0^*);\quad H^p(X,\mathcal F)\cong\operatorname{Ker}(d_p^*)/\operatorname{Im}(d_{p-1}^*),\quad p>0.
+\]
+\end{originaltheorem}
+\begin{proof}
+Let $\mathcal K_j=\operatorname{Ker}(d_j)$, $j\geq0$. The exactness of the resolution of $\mathcal F$ is equivalent to the exactness of the sequences
+\[
+0\to\mathcal K_j\to\mathcal F_j\xrightarrow{d_j}\mathcal K_{j+1}\to0,\quad j\geq0.
+\]
+Take the long exact cohomology sequences of these short exact sequences:
+\[
+\to H^p(X,\mathcal F_j)\to H^p(X,\mathcal K_{j+1})\xrightarrow\delta H^{p+1}(X,\mathcal K_j)\to H^{p+1}(X,\mathcal F_j)\to.
+\]
+Since $H^p(X,\mathcal F_j)=0$, $p>0$, we see that
+\begin{equation}\tag{A}\label{eq:6:a:1}
+H^p(X,\mathcal K_{j+1})\cong H^{p+1}(X,\mathcal K_j),\quad p>0,\quad j\geq0.
+\end{equation}
+We also have the initial portion of the long exact cohomology sequences:
+\[
+\to H^0(X,\mathcal F_j)\xrightarrow{d_j^*}H^0(X,\mathcal K_{j+1})\xrightarrow\delta H^1(X,\mathcal K_j)\to0
+\]
+and so $H^1(X,\mathcal K_j)\cong H^0(X,\mathcal K_{j+1})/d_j^*H^0(X,\mathcal F_j)$. Now $H^0(X,\mathcal K_{j+1})=\operatorname{Ker}(d_{j+1}^*)$ and so
+% Source PDF page 112; printed page 103
+\begin{equation}\tag{B}\label{eq:6:b:1}
+H^1(X,\mathcal K_j)\cong\operatorname{Ker}(d_{j+1}^*)/\operatorname{Im}(d_j^*),\quad j\geq0.
+\end{equation}
+By repeated application of A and one application of B we see that for $p>0$
+\[
+H^p(X,\mathcal F)=H^p(X,\mathcal K_0)\cong H^{p-1}(X,\mathcal K_1)\cong\cdots\cong H^1(X,\mathcal K_{p-1})\cong\operatorname{Ker}(d_p^*)/\operatorname{Im}(d_{p-1}^*).
+\]
+Finally the result for $p=0$ follows from the exactness of the sequence
+\[
+0\to H^0(X,\mathcal F)\xrightarrow{\epsilon^*}H^0(X,\mathcal F_0)\to H^0(X,\mathcal K_1).
+\]
+\end{proof}
+As an immediate consequence of Theorem~\ref{theorem:6.3.11} together with 1B of Theorem~\ref{theorem:6.3.10} we have
+\begin{originaltheorem}{Corollary}{6.3.12}\FieldTarget{corollary:6.3.12}{6.3.12}
+We can compute the cohomology\IndexMark{idx-097}{cohomology@Cohomology!singular@singular} of $X$ with coefficients in $\mathcal F$ using any fine (or soft) resolution of $\mathcal F$. In particular, Properties 1--3 of Theorem~\ref{theorem:6.3.10} determine the cohomology groups $H^j(X,\mathcal F)$ up to isomorphism.
+\end{originaltheorem}
+\paragraph{Remark.} Suppose that $\widetilde H^j(X,\mathcal F)$, $j\geq0$, are the groups of another sheaf cohomology theory for $X$. That is, we suppose that the groups $\widetilde H^j(X,\mathcal F)$ satisfy all the properties listed in Theorem~\ref{theorem:6.3.10}. By Corollary~\ref{corollary:6.3.12}, we have $\widetilde H^j(X,\mathcal F)\cong H^j(X,\mathcal F)$ for all sheaves $\mathcal F$ on $X$. It can be shown that this isomorphism is natural -- in particular, commutes with connecting homomorphisms. For the general proof the reader may consult Godement \cite{bib:II:godement-r:1}. We shall prove the existence of this natural isomorphism for the case of \v{C}ech cohomology later in the section.
+\paragraph{Examples.}
+\begin{enumerate}[start=3]
+\item Let $X$ be a topological manifold. Taking the canonical resolution of the constant sheaf $\mathbb Z$ we may define the cohomology groups $H^p(X,\mathbb Z)$, $p\geq0$. We may also define the singular cohomology\IndexMark{idx-574}{singular cohomology@Singular cohomology} groups $H^p_{\mathrm{sing}}(X,\mathbb Z)$ of $X$ (see Spanier \cite{bib:II:spanier-e:1}, Greenberg \cite{bib:II:greenberg-m-j:1}). We claim that $H^p(X,\mathbb Z)\cong H^p_{\mathrm{sing}}(X,\mathbb Z)$, $p\geq0$. First, let $S_p(U,\mathbb Z)$ denote the abelian groups of integral singular $p$-chains on the open subset $U$ of $X$. Then $S^p(U,\mathbb Z)=\operatorname{Hom}_{\mathbb Z}(S_p(U,\mathbb Z),\mathbb Z)$ is the group of singular integral $p$-cochains on $U$. We let $D=D_p:S^p(U,\mathbb Z)\to S^{p+1}(U,\mathbb Z)$ denote the coboundary
+% Source PDF page 113; printed page 104
+homomorphism. The assignment $U\mapsto S^p(U,\mathbb Z)$ defines a presheaf $S^p(\mathbb Z)$ on $X$ and we let $\underline S^p(\mathbb Z)$ denote the corresponding sheaf, $p\geq0$. Since $D$ commutes with restrictions, we arrive at the sheaf complex
+\begin{equation}\tag{A}\label{eq:6:a:2}
+0\to\mathbb Z\to\underline S^0(\mathbb Z)\xrightarrow{D_0}\underline S^1(\mathbb Z)\xrightarrow{D_1}\cdots.
+\end{equation}
+By definition,
+\[
+H^0_{\mathrm{sing}}(X,\mathbb Z)=\operatorname{Ker}(D_0^*)
+\]
+\[
+H^0_{\mathrm{sing}}(X,\mathbb Z)=\operatorname{Ker}(D_p^*)/\operatorname{Im}(D_{p-1}^*),\quad p\geq1.
+\]
+We claim that \eqref{eq:6:a:2} is a fine resolution of $\mathbb Z$. Exactness follows since every point of $X$ has a neighbourhood base of contractable open neighbourhoods which have vanishing singular cohomology by standard theory. To prove fineness of the sheaves $\underline S^j(\mathbb Z)$ first observe that $\underline S^0(\mathbb Z)=\mathbb Z^*$ -- sheaf of germs of discontinuous sections of $\mathbb Z$. Hence $\underline S^0(\mathbb Z)$ is fine. Suppose that $p>0$ and $s\in\underline S^p(\mathbb Z)(K)$, $K\subset X$ closed. By Lemma~\ref{lemma:6.1.12}, $s$ is the restriction of a continuous section $\widetilde s$ of $\underline S^p(\mathbb Z)$ over some open neighbourhood $U$ of $K$. Let $1_K$ be the (continuous!) section of $\underline S^0(\mathbb Z)$ over $X$ defined by $1_K|K\equiv1$, $1_K|X\setminus K\equiv0$. Since $\underline S^p(\mathbb Z)$ is a sheaf of $\underline S^0(\mathbb Z)$-modules, $1_K\widetilde s$ is a continuous section of $\underline S^p(\mathbb Z)$ over $X$ extending $s$. We may now apply Corollary~\ref{corollary:6.3.12} to obtain the required isomorphisms between $H^p(X,\mathbb Z)$ and $H^p_{\mathrm{sing}}(X,\mathbb Z)$. We conclude this example by making two additional remarks. First, replacing $\mathbb Z$ by any abelian group $G$ (or commutative ring with 1), we can repeat the proof to obtain isomorphisms between $H^p(X,G)$ and $H^p_{\mathrm{sing}}(X,G)$. Secondly, if $X$ is a differential manifold we may define the sheaves $\underline S^p_\infty(\mathbb Z)$ of smooth (that is $C^\infty$) $p$-cochains on $X$. It is a basic and well known fact in differential topology that the complex $0\to\mathbb Z\to\underline S^0_\infty(\mathbb Z)\xrightarrow{D_0}\underline S^1_\infty(\mathbb Z)\to\cdots$ continues to define the singular cohomology groups of $X$. In particular, the complex is a fine resolution of $\mathbb Z$.
+\item Let $X$ be an $n$-dimensional differential manifold and $0\to\mathbb C\to\underline C^0\xrightarrow d\cdots\xrightarrow d\underline C^n\to0$ be the de Rham complex\IndexMark{idx-519}{de rham complex@de Rham complex} of $X$. Since the sheaves $\underline C^p$ are all fine, the de Rham complex is a fine resolution of the constant sheaf $\mathbb C$. Let
+% Source PDF page 114; printed page 105
+\[
+H^0_{\mathrm{DR}}(X,\mathbb C)=\operatorname{Ker}d:C^0(X)\to C^1(X)
+\]
+\[
+H^p_{\mathrm{DR}}(X,\mathbb C)=\frac{\operatorname{Ker}d:C^p(X)\to C^{p+1}(X)}{\operatorname{Im}d:C^{p-1}\to C^p(X)},\quad p\geq1.
+\]
+denote the \emph{de Rham cohomology} groups\IndexMark{idx-517}{de rham cohomology group@de Rham cohomology group} of $X$. Corollary~\ref{corollary:6.3.12} implies that
+\[
+H^p_{\mathrm{DR}}(X,\mathbb C)\cong H^p(X,\mathbb C),\quad p\geq0.
+\]
+In particular, $H^p(X,\mathbb C)=0$, $p>n$.
+
+We showed in Example 3 that $H^p(X,\mathbb C)\cong H^p_{\mathrm{sing}}(X,\mathbb C)$ and we shall now describe an explicit isomorphism between $H^p_{\mathrm{DR}}(X,\mathbb C)$ and $H^p_{\mathrm{sing}}(X,\mathbb C)$. For $p\geq0$ we define a sheaf morphism $I^p:\underline C^p\to\underline S^p(\mathbb C)$ by integration of chains:
+\[
+I^p(f)(c)=\int_c f,\quad f\in C^p(U),\quad c\in S_p(U,\mathbb C).
+\]
+By Stokes' theorem, we see that $I^p$ commutes with the differentials $d$, $D$ and so we obtain a commutative ladder of exact sequences:
+\[
+\input{diagrams/II-16.tex}
+\]
+The morphisms $I^p$ induce the de Rham isomorphisms between $H^p_{\mathrm{DR}}(X,\mathbb C)$ and $H^p_{\mathrm{sing}}(X,\mathbb C)$.
+
+Finally we should point out that the de Rham isomorphisms actually give an \emph{algebra} isomorphism between the de Rham and singular cohomology groups (the algebra structure on the de Rham and singular cohomology groups is given by wedge and cup product respectively). The reader may find a proof of this stronger statement in Warner \cite{bib:II:warner-f-w:1}.
+\item Let $X$ be an $n$-dimensional complex manifold. For $p\geq0$, we have the Dolbeault complex\IndexMark{idx-204}{dolbeault complex@Dolbeault complex}
+\[
+0\to\Omega^p\to\underline C^{p,0}\xrightarrow{\bar\partial}\underline C^{p,1}\xrightarrow{\bar\partial}\cdots\to\underline C^{p,n}\to0.
+\]
+Since the sheaves $\underline C^{p,q}$ are fine, $p,q\geq0$, we therefore obtain the \emph{Dolbeault isomorphisms}\IndexMark{idx-206}{dolbeault isomorphism@Dolbeault isomorphism}
+% Source PDF page 115; printed page 106
+\[
+H^q(X,\Omega^p)\cong\frac{\operatorname{Ker}\bar\partial:C^{p,q}(X)\to C^{p,q+1}(X)}{\operatorname{Im}\bar\partial:C^{p,q-1}(X)\to C^{p,q}(X)},\quad q\geq0.
+\]
+In particular,
+\[
+H^q(X,\mathcal O)=\frac{\operatorname{Ker}\bar\partial:C^{0,q}(X)\to C^{0,q+1}(X)}{\operatorname{Im}\bar\partial:C^{0,q-1}(X)\to C^{0,q}(X)},\quad q\geq0.
+\]
+If $E$ is a holomorphic vector bundle on $X$, we have the Dolbeault complex
+\[
+0\to\Omega^p(\underline E)\to\underline C^{p,0}(E)\xrightarrow{\bar\partial}\underline C^{p,1}(E)\xrightarrow{\bar\partial}\cdots\xrightarrow{\bar\partial}\underline C^{p,n}(E)\to0
+\]
+and corresponding Dolbeault isomorphisms\IndexMark{idx-207}{dolbeault isomorphism@Dolbeault isomorphism}
+\[
+H^q(X,\Omega^p(\underline E))\cong\frac{\operatorname{Ker}\bar\partial:C^{p,q}(M,E)\to C^{p,q+1}(M,E)}{\operatorname{Im}\bar\partial:C^{p,q-1}(M,E)\to C^{p,q}(M,E)},\quad p,q\geq0.
+\]
+\item We have the short exact sequence $0\to\mathcal O\to\mathcal M\to\mathcal M/\mathcal O\to0$ of sheaves over any complex manifold $X$. Take the initial portion of the long exact cohomology sequence\footnote{Diagram correction: $M(X)$ is aligned with $H^0(X,\mathcal M)$. The original diagram on Part II, p.~106 places it one column too far to the right.}:
+\[
+\input{diagrams/II-17.tex}
+\]
+Given the data $\alpha\in H^0(X,\mathcal M/\mathcal O)$ for the Cousin I problem on $X$, we see that we can solve the Cousin I problem for $\alpha$ if and only if $\delta\alpha=0$ in $H^1(X,\mathcal O)$. In particular, $X$ will be a Cousin I domain if and only if $\operatorname{Im}\delta=0$ in $H^1(X,\mathcal O)$. Later we shall see that $H^1(X,\mathcal O)=0$ whenever $X$ is a Stein manifold and so Stein manifolds are Cousin I domains.
+\item Let $Z$ be an analytic subset of the complex manifold $X$. We have the short exact sequence
+\[
+0\to\mathcal I_Z\to\mathcal O_X\to\mathcal O_Z\to0
+\]
+of sheaves over $X$ and corresponding initial portion of the long exact cohomology sequence:
+% Source PDF page 116; printed page 107
+\[
+\input{diagrams/II-18.tex}
+\]
+Suppose $f\in A(Z)$. Then $f$ is the restriction of an analytic function on $X$ if and only if $\delta f=0$. In particular, if $H^1(X,\mathcal I_Z)=0$ every analytic function on $Z$ extends to an analytic function on $X$. We shall see later that this cohomology group vanishes whenever $X$ is Stein.
+\end{enumerate}
+Examples 6 and 7 above should convince the reader of the importance of computing sheaf cohomology groups in complex analysis.
+
+For the remainder of this section we develop \v{C}ech cohomology theory for sheaves over a paracompact space. As we shall see \v{C}ech theory is computable -- at least for all the examples that interest us -- and is also isomorphic to the sheaf cohomology theory we have already constructed.
+
+Let $\mathcal U=\{U_i:i\in I\}$ be an open cover of $X$ and $p$ be a non-negative integer. Given $s=(s_0,\ldots,s_p)\in I^{p+1}$, set $U_s=U_{s_0}\cap\cdots\cap U_{s_p}$. A \emph{$p$-cochain}\IndexMark{idx-428}{p cochain@$p$-cochain} of $\mathcal U$ with values in $\mathcal F$ is a map $c$ which assigns to each $s\in I^{p+1}$ a section $c_s\in\mathcal F(U_s)$ and for which $c_s$ is an alternating function of $s$. That is, $c_{s_0\cdots s_i\cdots s_j\cdots s_p}=-c_{s_0\cdots s_j\cdots s_i\cdots s_p}$, $0\leq i<j\leq p$. We let $C^p(\mathcal U,\mathcal F)$ denote the abelian group of all $p$-cochains of $\mathcal U$ with values in $\mathcal F$.
+
+For $p\geq0$, we define a coboundary operator\IndexMark{idx-089}{coboundary operator in cech theory@Coboundary operator (in \v{C}ech theory)} $D:C^p(\mathcal U,\mathcal F)\to C^{p+1}(\mathcal U,\mathcal F)$ by
+\[
+(Dc)_s=\sum_{j=0}^{p+1}(-1)^j c_{s_0\cdots\widehat s_j\cdots s_{p+1}},\quad s\in I^{p+2}.
+\]
+A simple computation shows that $D^2=0$. We let
+\[
+Z^p(\mathcal U,\mathcal F)=\{c\in C^p(\mathcal U,\mathcal F):Dc=0\};\quad B^p(\mathcal U,\mathcal F)=\{Dc:c\in C^{p-1}(\mathcal U,\mathcal F)\}
+\]
+denote the groups of \emph{$p$-cocycles} and \emph{$p$-coboundaries}\IndexMark{idx-429}{p cocycle coboundary@$p$-cocycle, coboundary} respectively. Here we take $C^{-1}(\mathcal U,\mathcal F)=0$ and $B^0(\mathcal U,\mathcal F)=0$. Since $D^2=0$, $B^p(\mathcal U,\mathcal F)$ is a subgroup of $Z^p(\mathcal U,\mathcal F)$ and we let $H^p(\mathcal U,\mathcal F)$ denote the quotient group $Z^p(\mathcal U,\mathcal F)/B^p(\mathcal U,\mathcal F)$. We call $H^p(\mathcal U,\mathcal F)$ the \emph{$p$th. cohomology group of $\mathcal U$ with values in $\mathcal F$}\IndexMark{idx-431}{p th cohomology group of u with values in f@$p$th. cohomology group of $\mathcal{U}$ with values in $F$}\IndexMark{idx-549}{sheaf cohomology group@Sheaf cohomology group!relative to open cover@relative to open cover}.
+% Source PDF page 117; printed page 108
+\paragraph{Example 8.} The data for the Cousin A (resp. Cousin B) problem\IndexMark{idx-155}{cousin problems@Cousin problems} on a complex manifold defines a class in $H^1(\mathcal U,\mathcal O)$ (resp. $H^1(\mathcal U,\mathcal O^*)$).
+\begin{originaltheorem}{Lemma}{6.3.13}\FieldTarget{lemma:6.3.13}{6.3.13}
+For any sheaf $\mathcal F$ on $X$ we have
+\[
+H^0(\mathcal U,\mathcal F)\approx\mathcal F(X).
+\]
+\end{originaltheorem}
+\begin{proof}
+Certainly $Z^0(\mathcal U,\mathcal F)=H^0(\mathcal U,\mathcal F)$. But if $c\in Z^0(\mathcal U,\mathcal F)$, $c_i-c_j=0$ on $U_{ij}$ for all $i,j\in I$. Hence we may define $f\in\mathcal F(X)$ by $f|U_i=c_i$.
+\end{proof}
+\begin{originaltheorem}{Lemma}{6.3.14}\FieldTarget{lemma:6.3.14}{6.3.14}
+Let $a:\mathcal F\to\mathcal G$ be a morphism of sheaves over $X$. For $p\geq0$ we have induced maps $a_{\mathcal U}^p:H^p(\mathcal U,\mathcal F)\to H^p(\mathcal U,\mathcal G)$ satisfying
+\begin{enumerate}[label=\Alph*.]
+\item $a_{\mathcal U}^0:H^0(\mathcal U,\mathcal F)\to H^0(\mathcal U,\mathcal G)$ is precisely the map on sections induced by $a$.
+\item If $a$ is the identity map of $\mathcal F$, then $a_{\mathcal U}^p$ is the identity, $p\geq0$.
+\item If $a:\mathcal F\to\mathcal G$, $b:\mathcal G\to\mathcal H$ are morphisms of sheaves over $X$ then $(ba)_{\mathcal U}^0=b_{\mathcal U}^pa_{\mathcal U}^p$, $p\geq0$.
+\end{enumerate}
+\end{originaltheorem}
+\begin{proof}
+Elementary and left to the reader.
+\end{proof}
+\begin{originaltheorem}{Lemma}{6.3.15}\FieldTarget{lemma:6.3.15}{6.3.15}
+Suppose that $\mathcal F$ is fine. Then $H^p(\mathcal U;\mathcal F)=0$, $p>0$.
+\end{originaltheorem}
+\begin{proof}
+Let $\mathcal V=\{V_j,j\in J\}$ be a locally finite open refinement of $\mathcal U$ chosen such that there is a map $\phi:J\to I$ with $\overline V_j\subset U_{\phi(j)}$, $j\in J$. Choose a partition of unity $\{\eta_j\}$ for the sheaf $\mathcal F$ which is subordinate to $\mathcal V$. Let $c\in Z^p(\mathcal U,\mathcal F)$. For $j\in J$, define $b^j\in C^{p-1}(\mathcal U,\mathcal F)$ by
+\[
+b_s^j=\begin{cases}0&\text{if }U_s\cap V_j=\varnothing,\\(-1)^p\eta_jc_{s_0\cdots s_{p-1}\phi(j)}&\text{if }U_s\cap V_j\neq\varnothing.\end{cases}
+\]
+(Here $\eta_jc_{s_0\cdots\phi(j)}$ is defined to be zero outside $V_j$). A simple computation shows that for all $s\in I^{p+1}$ we have
+\[
+(Db^j)_s=\eta_jc_s.
+\]
+% Source PDF page 118; printed page 109
+Set $b=\sum_{j\in J}b^j$. Since $\{\eta_j\}$ is a partition of unity, we see that $DB=c$. Hence $H^p(\mathcal U,\mathcal F)=0$.
+\end{proof}
+\paragraph{Remark.} To prove this result we needed to know that $\mathcal F$ was fine and not just soft. It is for this reason that we put ``fine'' rather than ``soft'' in 1B of Theorem~\ref{theorem:6.3.10}. See also Godement \cite[Theorem 5.2.3, Chapter 2]{bib:II:godement-r:1}.
+\begin{originaltheorem}{Theorem}{6.3.16}\FieldTarget{theorem:6.3.16}{6.3.16}
+Let $\mathcal F$ be a sheaf on $X$ and $\mathcal U$ be an open cover of $X$. For $p\geq0$ we have a canonical homomorphism $\rho(\mathcal U):H^p(\mathcal U,\mathcal F)\to H^p(X,\mathcal F)$ satisfying
+\begin{enumerate}[label=\Alph*.]
+\item If $a:\mathcal F\to\mathcal G$ is a homomorphism then
+\[
+\input{diagrams/II-19.tex}
+\]
+commutes.
+\item If $H^p(U_s,\mathcal F)=0$ for all $s\in I^{p+1}$ and $p>0$, then $\rho(\mathcal U)$ is an isomorphism (\emph{Leray's Theorem}\IndexMark{idx-359}{leray s theorem@Leray's theorem}).
+\end{enumerate}
+\end{originaltheorem}
+\begin{proof}
+Undoubtedly the most elegant proof of this result uses spectral sequences -- see, for example, Godement \cite{bib:II:godement-r:1}. Our proof is an elementary diagram chase:
+
+Set $\mathcal F_{-1}=\mathcal F$ and let $0\to\mathcal F_{-1}\xrightarrow{d_{-1}}\mathcal F_0\xrightarrow{d_0}\mathcal F_1\xrightarrow{d_1}\cdots$ denote the canonical resolution of $\mathcal F$. For $s\in I^{p+1}$ we have the sequence of sections
+\[
+0\to\mathcal F_{-1}(U_s)\xrightarrow{d_{-1}}\mathcal F_0(U_s)\xrightarrow{d_0}\cdots
+\]
+and so, taking the direct sum over $I^{p+1}$, we have for $p\geq0$ sequences
+\begin{equation}\tag{A}\label{eq:6:a:3}
+0\to C^p(\mathcal U,\mathcal F_{-1})\xrightarrow{d_{-1}}C^p(\mathcal U,\mathcal F_0)\xrightarrow{d_0}\cdots
+\end{equation}
+% Source PDF page 119; printed page 110
+Associated to each of the sheaves $\mathcal F_j$, $j\geq-1$, we have sequences
+\begin{equation}\tag{B}\label{eq:6:b:2}
+0\to\mathcal F_j(X)\xrightarrow{D_{-1}}C^0(\mathcal U,\mathcal F_j)\xrightarrow{D_0}C^1(\mathcal U,\mathcal F_j)\to\cdots.
+\end{equation}
+Here $D_{-1}$ denotes the inclusion map and $D_j$ is the appropriate coboundary operator for $j\geq0$. Since $\mathcal F_j$ is fine, $j\geq0$, the sequences B are exact for $j\geq0$. Combining the sequences A and B we arrive at a commutative diagram of sequences the initial portion of which is displayed below.
+\[
+\input{diagrams/II-20.tex}
+\]
+The columns of this diagram are all exact, save the first. We now show how to construct the required homomorphism $\rho(\mathcal U):H^p(\mathcal U,\mathcal F)\to H^p(X,\mathcal F)$. Let $c_0\in Z^p(\mathcal U,\mathcal F)$ represent the class $\alpha\in H^p(\mathcal U,\mathcal F)$. We construct inductively a sequence $c_j\in C^{p-j}(\mathcal U,\mathcal F_{j-1})$ which satisfies
+\[
+d_{p-j}c_j=D_{p-j+1}c_{j+1},\quad0\leq j\leq p.
+\]
+Suppose that we have constructed $c_j$, $j\leq r<p+1$. Then $D_{p-r}d_{r-1}c_r=d_{r-1}D_{p-r}c_r=d_{r-1}d_{r-2}c_{r-1}=0$. Hence by exactness of the $(r+1)$th. column, there exists $c_{r+1}\in C^{p-r-1}(\mathcal U,\mathcal F_r)$ such that $D_{p-r-1}c_{r+1}=d_{r-1}c_r$. This completes the inductive step. Now $c_{p+1}\in\mathcal F_p(X)$. Observe that $D_{-1}d_pc_{p+1}=d_pD_{-1}c_{p+1}=d_pd_{p-1}c_p=0$ and so, since $D_{-1}$ is injective, $d_pc_{p+1}=0$. Therefore $c_{p+1}\in\operatorname{Ker}(d_p)$ defines a class in $H^p(X,\mathcal F)$. It is straightforward to verify that this class depends only on $\alpha$ and not on our choices of $c_0,\ldots,c_p,c_{p+1}$. Our construction therefore defines the required homomorphism $\rho(\mathcal U)$.
+% Source PDF page 120; printed page 111
+Property A of the Proposition follows immediately since the sequence $c_0,\ldots,c_{p+1}$ is mapped by $a$ into a sequence $c_0,\ldots,c_{p+1}$ defining $\rho(\mathcal U)(a(\alpha))$.
+
+If the conditions of B hold then rows, as well as columns, of our diagram are exact (excluding initial row and column) and so, by symmetry, we may construct an inverse for $\rho(\mathcal U)$.
+\end{proof}
+\paragraph{Remarks.}
+\begin{enumerate}
+\item We call a cover satisfying the conditions of 1B a \emph{Leray cover}\IndexMark{idx-357}{leray cover@Leray cover} (for $\mathcal F$). Notice that the existence of a Leray cover for $\mathcal F$ may imply that higher dimensional sheaf cohomology groups vanish. Thus, if $U_s=\varnothing$, $s\in I^{p+1}$, $p\geq p_0$, we see that $H^p(X,\mathcal F)=0$, $p\geq p_0$.
+\item It is clearly important to find Leray covers for a given sheaf $\mathcal F$. For example one can show, using a Riemannian metric, that every differential manifold has a cover by convex open sets (Helgason \cite[page 54]{bib:II:helgason-s:1}). Since intersections of convex sets are convex and convex sets are contractible, it follows that differential manifolds admit Leray covers for the constant sheaves $\mathbb Z$, $\mathbb R$, $\mathbb C$, etc. At a much deeper level, we shall show later that Stein open covers of a complex manifold are Leray covers for an important class of $\mathcal O$-modules.
+\item The proof of Theorem~\ref{theorem:6.3.16} clearly works for any fine resolution of $\mathcal F$ -- not just the canonical resolution. We frequently use this observation in the sequel.
+\end{enumerate}
+\paragraph{Example 9.} Let $\mathcal U=\{U_i\}$ be an open cover of the differential manifold $X$. We give an explicit computation for the map $\rho(\mathcal U):H^p(\mathcal U,\mathbb C)\to H^p_{\mathrm{DR}}(X,\mathbb C)$ in case $p=2$. First choose a $C^\infty$ partition of unity $\{\theta_i\}$ of $X$ subordinate to the cover $\mathcal U$. Let $\{c_{ijk}\}\in Z^2(\mathcal U,\mathbb C)$ represent the class $\alpha\in H^2(\mathcal U,\mathbb C)$. Define $\{\phi_{jk}\}\in C^1(\mathcal U,\underline C^0)$ by
+\[
+\phi_{jk}=\sum_i\theta_i c_{ijk}.
+\]
+Certainly we have $D_0(\{\phi_{jk}\})=d_{-1}\{c_{ijk}\}$ $(=\{c_{ijk}\})$. Again define $\{\phi_k\}\in C^0(\mathcal U,\underline C^1)$ by
+\[
+\phi_k=\sum_j\theta_jd\phi_{jk}.
+\]
+% Source PDF page 121; printed page 112
+We have $D_1(\{\phi_j\})=d\{\phi_{jk}\}$. Finally observe that $d\phi_k=d\phi_l$ on $U_{kl}$ and so $\gamma=\{d\phi_k\}$ is a well defined closed 2-form on $X$ which represents the class $\rho(\mathcal U)(\alpha)$ in $H^2_{\mathrm{DR}}(X,\mathbb C)$. The construction for $p\neq2$ is similar.
+\begin{originaltheorem}{Proposition}{6.3.17}\FieldTarget{proposition:6.3.17}{6.3.17}
+Let $\mathcal U$, $\mathcal V$ be open covers of $X$ and $\mathcal V$ be a refinement\IndexMark{idx-503}{refinement map@Refinement map} of $\mathcal U$. Given a sheaf $\mathcal F$ on $X$ there exists a canonical homomorphism
+\[
+\rho(\mathcal U,\mathcal V):H^p(\mathcal U,\mathcal F)\to H^p(\mathcal V,\mathcal F)
+\]
+satisfying
+\begin{enumerate}
+\item The diagram
+\[
+\input{diagrams/II-21.tex}
+\]
+commutes, $p\geq0$.
+\item If $a:\mathcal F\to\mathcal G$ is a morphism, we have
+\[
+\rho(\mathcal U,\mathcal V)a_{\mathcal U}^p=a_{\mathcal V}^p\rho(\mathcal U,\mathcal V),\quad p\geq0.
+\]
+\item If $\mathcal W$ is a refinement of $\mathcal V$, we have $\rho(\mathcal U,\mathcal W)=\rho(\mathcal V,\mathcal W)\rho(\mathcal U,\mathcal V)$.
+\end{enumerate}
+\end{originaltheorem}
+\begin{proof}
+Let $\mathcal V=\{V_j:j\in J\}$, $\mathcal U=\{U_i:i\in I\}$ and fix a \emph{refinement mapping} $\phi:J\to I$ satisfying $V_j\subset U_{\phi(j)}$, $j\in J$. Given $c\in C^p(\mathcal U,\mathcal F)$, define $\widetilde\phi c\in C^p(\mathcal V,\mathcal F)$ by
+\[
+(\phi c)_s=c_{\phi(s_0)\cdots\phi(s_p)}|V_s,\quad s=(s_0,\ldots,s_p)\in I^{p+1}.
+\]
+Since $\widetilde\phi$ obviously commutes with the coboundary operators $D$, $\widetilde\phi$ induces a map $\phi_*:H^p(\mathcal U,\mathcal F)\to H^p(\mathcal V,\mathcal F)$. We claim that $\phi_*$ is independent of the choice of $\phi$. Suppose that $\phi'$ is another refinement mapping. We construct a ``homotopy'' operator $H:C^{p+1}(\mathcal U,\mathcal F)\to C^p(\mathcal V,\mathcal F)$ between $\widetilde\phi$ and $\widetilde\phi$. To do this we first give $J$ a total ordering. Then if $s_0<\cdots<s_p$ and $c\in C^{p+1}(\mathcal U,\mathcal F)$ we define
+% Source PDF page 122; printed page 113
+\[
+(Hc)_s=\sum_{j=0}^p(-1)^j c_{\phi(s_0)\cdots\phi(s_j)\phi'(s_j)\cdots\phi'(s_p)}.
+\]
+Extend $H$ to all cochains by requiring that $H$ is alternating in $s$. Computing we find that
+\[
+HD+DH=\widetilde\phi'-\widetilde\phi.
+\]
+Hence, if $c\in Z^p(\mathcal U,\mathcal F)$, we have $(\widetilde\phi'-\widetilde\phi)(c)\in B^p(\mathcal V,\mathcal F)$. Therefore $\phi_*=\phi'_*$ and we may set $\rho(\mathcal U,\mathcal V)=\phi_*$ for any choice of refinement mapping $\phi$. The proofs of the remaining statements of the proposition are elementary and we leave details to the reader.
+\end{proof}
+An immediate corollary of Proposition~\ref{proposition:6.3.17} is that $\{H^p(\mathcal U,\mathcal F),\rho(\mathcal U,\mathcal V)\}$ constitutes a direct system. Hence we may define
+\[
+\check H^p(X,\mathcal F)=\operatorname{dirlim}_{\mathcal U}H^p(\mathcal U,\mathcal F).
+\]
+We call $\check H^p(X,\mathcal F)$ the \emph{$p$th. \v{C}ech cohomology group of $X$ with coefficients in $\mathcal F$}\IndexMark{idx-074}{cech cohomology group@\v{C}ech cohomology group}\IndexMark{idx-430}{p th cech cohomology group@$p$th. \v{C}ech cohomology group}.
+
+By part 1 of Proposition~\ref{proposition:6.3.17}, we see that for $p\geq0$ we have canonical homomorphisms
+\[
+\chi(\mathcal U):H^p(\mathcal U,\mathcal F)\to\check H^p(X,\mathcal F)
+\]
+\[
+\chi:\check H^p(X,\mathcal F)\to H^p(X,\mathcal F).
+\]
+These homomorphisms satisfy the usual naturality properties. For example, if $a:\mathcal F\to\mathcal G$ is a morphism of sheaves we have induced homomorphisms $\check a^p:\check H^p(X,\mathcal F)\to\check H^p(X,\mathcal G)$ satisfying the conditions of part 2 of Theorem~\ref{theorem:6.3.10} and
+\[
+\chi\check a^p=\chi a^p,\quad p\geq0.
+\]
+\begin{originaltheorem}{Theorem}{6.3.18}\FieldTarget{theorem:6.3.18}{6.3.18}
+For paracompact spaces, \v{C}ech and sheaf cohomology groups are isomorphic.
+\end{originaltheorem}
+To prove this result, it is sufficient to show that the \v{C}ech groups satisfy all the properties of Theorem~\ref{theorem:6.3.10}. In view of what we have proved already, it remains to construct a long exact cohomology
+% Source PDF page 123; printed page 114
+sequence for $\check H$. Actually, we shall prove a little more. We shall show that \v{C}ech and sheaf cohomology theory are canonically isomorphic with canonical isomorphisms being given by the maps $\chi$. In particular, we shall show that the maps $\chi$ commute with connecting homomorphisms.
+\begin{originaltheorem}{Theorem}{6.3.19}\FieldTarget{theorem:6.3.19}{6.3.19}
+Let $0\to\mathcal F\xrightarrow a\mathcal G\xrightarrow b\mathcal H\to0$ be a short exact sequence of sheaves on $X$. For $p\geq0$ we have a connecting homomorphism $\delta:\check H^p(X,\mathcal H)\to\check H^{p+1}(X,\mathcal F)$ satisfying
+\begin{enumerate}[label=\Alph*.]
+\item The \v{C}ech cohomology sequence
+\[
+0\to\check H^0(X,\mathcal F)\xrightarrow{\check a^0}\check H^0(X,\mathcal G)\xrightarrow{\check b^0}\check H^0(X,\mathcal H)\xrightarrow\delta\check H^1(X,\mathcal F)\xrightarrow{\check a^1}\cdots
+\]
+is exact.
+\item The diagram
+\[
+\input{diagrams/II-22.tex}
+\]
+commutes.
+\end{enumerate}
+\end{originaltheorem}
+\begin{proof}
+Let $\mathcal U$ be an open cover of $X$ and $p\geq0$. Set $\widetilde C^p(\mathcal U,\mathcal H)=bC^p(\mathcal U,\mathcal G)$. Then the sequence
+\[
+0\to C^p(\mathcal U,\mathcal F)\to C^p(\mathcal U,\mathcal G)\to\widetilde C^p(\mathcal U,\mathcal H)\to0
+\]
+is exact. Since $D\widetilde C^{p-1}(\mathcal U,\mathcal H)\subset\widetilde C^p(\mathcal U,\mathcal H)$ we may define the ``cohomology'' group $\widetilde H^p(\mathcal U,\mathcal H)$ to be $\widetilde Z^p(\mathcal U,\mathcal H)/\widetilde B^p(\mathcal U,\mathcal H)$. Exactly as in the proof of 3 in Theorem~\ref{theorem:6.3.10} we may define a connecting homomorphism $\widetilde\delta:\widetilde H^p(\mathcal U,\mathcal H)\to H^{p+1}(\mathcal U,\mathcal F)$ and obtain a long exact sequence for the cohomology groups $H^*(\mathcal U,\mathcal F)$, $H^*(\mathcal U,\mathcal G)$, $\widetilde H^*(\mathcal U,\mathcal H)$. Everything commutes with direct limits and so we arrive at the long exact cohomology sequence
+\[
+\cdots\to\widetilde H^p(X,\mathcal H)\to\check H^{p+1}(X,\mathcal F)\xrightarrow{\check a^{p+1}}\check H^{p+1}(X,\mathcal G)\xrightarrow{\check b^{p+1}}\widetilde H^{p+1}(X,\mathcal H)\to\cdots
+\]
+% Source PDF page 124; printed page 115
+We claim that $\widetilde H^p(X,\mathcal H)\approx\check H^p(X,\mathcal H)$. For this it suffices to show that if $h\in C^p(\mathcal U,\mathcal H)$, we can find a refinement $\mathcal V=\{V_j:j\in J\}$ of $\mathcal U=\{U_i:i\in I\}$ and refinement map $\phi:J\to I$ such that $\widetilde\phi h\in\widetilde C^p(\mathcal V,\mathcal H)$. Since $X$ is paracompact, we may assume that $\mathcal U$ is a locally finite cover of $X$. Let $\mathcal W=\{W_i\}$ be a refinement of $\mathcal U$ such that $\overline W_i\subset U_i$, $i\in I$. Choose an open neighbourhood $V_x$ of each point $x\in X$ such that
+\begin{enumerate}[label=\alph*)]
+\item If $x\in W_i$, $V_x\subset W_i$ and if $V_x\cap W_j\neq\varnothing$, then $V_x\subset U_j$.
+\item If $x\in U_s$, $s\in I^{p+1}$, then $V_x\subset U_s$.
+\end{enumerate}
+Observe that a) and b) continue to hold for open neighbourhoods of $x$ contained in $V_x$. Since $b:\mathcal G\to\mathcal H$ is surjective we may, shrinking $V_x$ if necessary, find $g_s^x\in\mathcal G(V_x)$ such that $bg_s^x=h_s|V_x$. Choose a refining map $\phi:X\to I$ for the covers $\mathcal V=\{V_x:x\in X\}$ and $\mathcal U$ satisfying $x\in W_{\phi(x)}$ for all $x\in X$. Let $t=(t_0,\ldots,t_p)\in X^{p+1}$ and suppose $V_t\neq\varnothing$. By choice of $\phi$, $V_{t_0}\cap W_{\phi(t_j)}\neq\varnothing$, $0\leq j\leq p$, and so by a) $V_{t_0}\subset U_{\phi(t_j)}$, $0\leq j\leq p$. Hence $V_{t_0}\subset U_{\phi(t)}$, where we have used the abbreviated notation $\phi(t)$ for $\phi(t_0)\cdots\phi(t_p)$. For $t\in X^{p+1}$, we define $g_t\in\mathcal G(V_t)$ by
+\[
+g_t=g_t^{t_0}.
+\]
+Clearly $bg_t=h_{\phi(t)}|V_t$. Hence $\widetilde\phi h\in\widetilde C^p(\mathcal V,\mathcal H)$.
+
+All that remains to be proved is statement B of the theorem. For this we take canonical resolutions of $\mathcal F$, $\mathcal G$ and $\mathcal H$, fix an open cover $\mathcal U$ of $X$ and take appropriate complexes of cochains over each term in the canonical resolutions as in the proof of Theorem 6.3.13. We obtain a 3-dimensional commutative diagram of sequences. It is then a straightforward diagram chase to verify that the definition of $\widetilde\delta:\widetilde H^p(\mathcal U,\mathcal H)\to H^{p+1}(\mathcal U,\mathcal F)$ is compatible with that of $\delta:H^p(X,\mathcal H)\to H^{p+1}(X,\mathcal F)$. Essentially we have to check that the maps $\rho(\mathcal U)$ map the defining sequences for $\widetilde\delta$ down to defining sequences for $\delta$. We omit the lengthy details. Finally take direct limits.
+\end{proof}
+% Source PDF page 125; printed page 116
+\paragraph{Remarks.}
+\begin{enumerate}
+\item An alternative construction of the long exact sequence of \v{C}ech cohomology, based on sheaves of cochains (cf. Example 3) may be found in Godement \cite{bib:II:godement-r:1}.
+\item The paracompactness assumption implicit in Theorem~\ref{theorem:6.3.19} is essential: \v{C}ech cohomology need not be exact for non-paracompact spaces. However, Leray's theorem continues to hold and this fact was exploited by Serre in his foundational paper on coherent sheaves in algebraic geometry (Serre \cite{bib:II:serre-j-p:2}).
+\end{enumerate}
+We end this chapter with some important examples and computations.
+\paragraph{Examples.}
+\begin{enumerate}[start=10]
+\item Let $X$ be a differential manifold with structure sheaf $\mathscr D$ and let $\mathscr D^*$ denote the (multiplicative) sheaf of groups of units of $\mathscr D$. We claim that the group $\operatorname{CLB}(X)$ of isomorphism classes of complex line bundles on $X$ is canonically isomorphic to $H^1(X,\mathscr D^*)$. Let $\xi\in H^1(X,\mathscr D^*)$. Now $H^1(X,\mathscr D^*)\approx\check H^1(X,\mathscr D^*)$ and so we may find an open cover $\mathcal U=\{U_i\}$ of $X$ and $\{\phi_{ij}\}\in Z^2(\mathcal U,\mathscr D^*)$ such that $\chi(\mathcal U)$ maps the cohomology class of $\{\phi_{ij}\}$ to $\xi$. The cocycle conditions on $\{\phi_{ij}\}$ imply that $\phi_{ij}\phi_{jk}=\phi_{ik}$, $i,j,k\in I$. Since $\phi_{ij}:U_{ij}\to\mathbb C^*\approx\operatorname{GL}(1,\mathbb C)$, we see that the $\phi_{ij}$ are the transition functions for a complex line bundle\IndexMark{idx-105}{complex line bundle@Complex line bundle!on differential manifold@on differential manifold} $L(\xi)$ on $X$. We leave it to the reader to check that $L(\xi)$ depends only on $\xi$ and not on our particular choice of cover or cocycle and that the map $\xi\mapsto L(\xi)$ is an isomorphism of $H^1(X,\mathscr D^*)$ with $\operatorname{CLB}(X)$.
+
+We may use this isomorphism between $\operatorname{CLB}(X)$ and $H^1(X,\mathscr D^*)$ to define an important topological invariant of complex line bundles. First observe that we have an exact sheaf sequence\IndexMark{idx-246}{exponential sequence@Exponential sequence}
+\[
+0\to\mathbb Z\xrightarrow i\mathscr D\xrightarrow{\exp}\mathscr D^*\to0.
+\]
+Here $i:\mathbb Z\to\mathscr D$ denotes the inclusion and $\exp:\mathscr D\to\mathscr D^*$ is defined by $\exp_U(f)(x)=\exp(2\pi if(x))$, $x\in U$, $f\in\mathscr D(U)$. The surjectivity of $\exp$ follows by noting that $\exp_U$ has inverse $(2\pi i)^{-1}\log$ on simply connected open subsets $U$.
+% Source PDF page 126; printed page 117
+Consider the following portion of the long exact cohomology sequence
+\[
+\cdots\to H^1(X,\mathscr D)\to H^1(X,\mathscr D^*)\xrightarrow\delta H^2(X,\mathbb Z)\to H^2(X,\mathscr D)\to\cdots.
+\]
+Since $\mathscr D$ is a fine sheaf, $H^1(X,\mathscr D)=H^2(X,\mathscr D)=0$ and so $\delta:H^1(X,\mathscr D^*)\approx H^2(X,\mathbb Z)$. Suppose $L\in H^1(X,\mathscr D^*)$ is a complex line bundle. Define $c_1(L)=-\delta(L)\in H^2(X,\mathbb Z)$. We call $c_1(L)$ the \emph{first Chern class}\IndexMark{idx-077}{chern class first@Chern class (first)}\IndexMark{idx-254}{first chern class@First Chern class} of $L$. We see that $L=\underline{\mathbb C}$ -- the trivial line bundle -- if and only if $c_1(L)=0$. Fix an open cover $\mathcal U=\{U_i:i\in I\}$ of $X$ such that all intersections $U_s$, $s\in I^{p+1}$, $p\geq0$, are contractible. For example, we can choose a cover of $X$ by contractible open sets (see Remark 2 following Theorem~\ref{theorem:6.3.16}). Applying Leray's theorem, we can see that $H^2(X,\mathbb Z)\approx H^2(\mathcal U,\mathbb Z)$ and $H^1(X,\mathscr D^*)\approx H^1(\mathcal U,\mathscr D^*)$. Given $L\in\operatorname{CLB}(X)$ we may therefore find transition functions $\{\phi_{ij}\}$ for $L$ defined relative to the cover $\mathcal U$. Every intersection $U_{ij}$ is simply connected and so we may choose a branch of $\log\phi_{ij}$ on each $U_{ij}$. The cocycle conditions on $\{\phi_{ij}\}$ imply that for all $i,j,k\in I$,
+\[
+c_{ijk}=(2\pi i)^{-1}(\log\phi_{ij}+\log\phi_{jk}+\log\phi_{ki})\in\mathbb Z,
+\]
+and so $\{c_{ijk}\}\in Z^2(\mathcal U,\mathbb Z)$. By the construction of the connecting homomorphism, it follows that $\{c_{ijk}\}$ is a representative for $c_1(L)\in H^2(X,\mathbb Z)$.
+\item Let $X$ be a complex manifold. As in Example 10 we have a short exact sequence\IndexMark{idx-247}{exponential sequence@Exponential sequence}
+\[
+0\to\mathbb Z\xrightarrow i\mathcal O\xrightarrow{\exp}\mathcal O^*\to0
+\]
+of sheaves on $X$ and we see that $H^1(X,\mathcal O^*)$ is isomorphic to the group $\operatorname{HLB}(X)$ of holomorphic line bundles on $X$. We have the commutative diagram
+\[
+\input{diagrams/II-23.tex}
+\]
+% Source PDF page 127; printed page 118
+Here the vertical maps are induced by the natural inclusions of $\mathcal O$ in $\mathscr D$, $\mathcal O^*$ in $\mathscr D^*$ and the identity map of $\mathbb Z$. Hence, as in Example 10, the map $\delta:H^1(X,\mathcal O^*)\to H^2(X,\mathbb Z)$ is minus the first Chern class map. However, the map will generally not be an isomorphism as neither of $H^1(X,\mathcal O)$ and $H^2(X,\mathcal O)$ need vanish. This is just a reflection of the fact that a holomorphic line bundle may be trivial in $\operatorname{CLB}(X)$ but not trivial in $\operatorname{HLB}(X)$. The existence of a Leray cover for $\mathcal O^*$ is now a non-trivial matter as it depends on being able to find covers which are Leray for $\mathcal O$ as well as $\mathbb Z$.
+\item We continue with the notation and assumptions of Example 11. Let $j:\mathbb Z\to\mathbb C$ denote the inclusion map of constant sheaves. We have the commutative diagram
+\[
+\input{diagrams/II-24.tex}
+\]
+Here $\theta:H^1(X,\mathcal O^*)\to H^2_{\mathrm{DR}}(X,\mathbb C)$ is defined to be the composition of $\delta$ with $j$ and the canonical isomorphism between $H^2(X,\mathbb C)$ and $H^2_{\mathrm{DR}}(X,\mathbb C)$. We let $c_1(L)_{\mathbb C}=-\theta(L)\in H^2_{\mathrm{DR}}(X,\mathbb C)$, $L\in\operatorname{HLB}(X)$. We are going to give an explicit representation of $c_1(L)_{\mathbb C}$ as a closed 2-form on $X$. Suppose that $\{\phi_{ij}\}$ are the transition functions of $L\in\operatorname{HLB}(X)$ relative to some open cover $\mathcal U=\{U_i\}$ of $X$. As in Example 10 we may and shall assume that all intersections $U_s$ are contractible. As we showed in Example 10, $c_1(L)\in H^2(X,\mathbb Z)$ is represented by the cocycle
+\[
+\{c_{ijk}\}=\{(2\pi i)^{-1}(\log\phi_{ij}+\log\phi_{jk}+\log\phi_{ki})\}\in Z^2(\mathcal U,\mathbb Z).
+\]
+Let us assume for the moment that there exist $\{a_i\}\in C^0(\mathcal U,\mathscr D^*)$ such that
+\[
+|\phi_{ij}|^2=a_j/a_i.
+\]
+(This amounts to claiming that $L^*\otimes\overline L^*=\underline{\mathbb C}$ in $\operatorname{CLB}(X)$). As in the proof of Theorem~\ref{theorem:6.3.16} (see also Example 9), we first construct $\{f_i\}\in C^0(\mathcal U,\underline C^1)$ such that
+% Source PDF page 128; printed page 119
+\[
+\frac1{2\pi i}d\log\phi_{ij}=f_j-f_i.
+\]
+For this we may take $f_i=\frac1{2\pi i}\partial\log a_i$, since
+\[
+\log\phi_{ij}+\overline{\log\phi_{ij}}=\log a_j-\log a_i
+\]
+and so
+\[
+d\log\phi_{ij}=\partial\log\phi_{ij}=\partial\log a_j-\partial\log a_i.
+\]
+Our required 2-form representing $c_1(L)_{\mathbb C}$ is then given by
+\[
+\begin{aligned}
+\psi&=-\{df_i\}\\
+&=-\left\{\frac1{2\pi i}\bar\partial\partial\log a_i\right\}\\
+&=\left\{-\frac i{2\pi}\partial\bar\partial\log a_i\right\}.
+\end{aligned}
+\]
+Notice that $c_1(L)_{\mathbb C}$ is represented by a $(1,1)$-form. In Example 15 we shall show that every ``integral'' $(1,1)$-form is the Chern class\IndexMark{idx-081}{chern class first@Chern class (first)!of hyperplane section bundle@of hyperplane section bundle} of some holomorphic line bundle. The reader should also observe that we do not really need to assume that the domains $U_{ij}$ are simply connected as the indeterminancy in $\log\phi_{ij}$ drops out when we take exterior derivations.
+
+Finally, let us justify our assumption that $L^*\otimes\overline L^*$ is isomorphic to the trivial line bundle. First observe that $L_z^*\otimes\overline L_z^*$ is the space of Hermitian forms on $L_z$, $z\in X$. Now any convex combination of positive definite Hermitian quadratic forms is positive definite. Therefore, taking trivialisations of $L$ over $\mathcal U$, we may choose a smooth section of $L^*\otimes\overline L^*$ over each $U_i$ which defines a positive definite Hermitian form\IndexMark{idx-288}{hermitian form@Hermitian form!on complex manifold@on complex manifold} on the fibres. Glueing together using a smooth partition of unity we obtain a global section of $L^*\otimes\overline L^*$ which restricts to a positive definite Hermitian form on the fibres. Hence we have obtained a non-vanishing smooth section of $L^*\otimes\overline L^*$.
+\item We compute the 1st. Chern class of the hyperplane section bundle\IndexMark{idx-318}{hyperplane section bundle@Hyperplane section bundle!chern class@Chern class} $H$ of $P^1(\mathbb C)$. Let $\mathcal U=\{U_0,U_1\}$ be the open cover of $P^1(\mathbb C)$ corresponding to the canonical atlas. The transition functions for
+% Source PDF page 129; printed page 120
+the hyperplane section bundle are given by
+\[
+\phi_{01}(z_0,z_1)=z_1/z_0
+\]
+and setting
+\[
+a_0(z_0,z_1)=|z_0|^2/(|z_0|^2+|z_1|^2)
+\]
+\[
+a_1(z_0,z_1)=|z_1|^2/(|z_0|^2+|z_1|^2)
+\]
+we see that $|\phi_{01}|^2=a_1/a_0$. Hence our representative $\mu$ for $c_1(H)_{\mathbb C}$ is given by $\mu=\{\mu_i\}=\{-\frac i{2\pi}\partial\bar\partial\log a_i\}$. Setting $z_0/z_1=t$, we see that
+\[
+\begin{aligned}
+\mu_1(t)&=-\frac i{2\pi}\partial\bar\partial\log(1/(1+|t|^2))\\
+&=\frac i{2\pi}(1+|t|^2)^{-2}dt\,d\bar t.
+\end{aligned}
+\]
+Now for compact Riemann surfaces, integration defines a canonical isomorphism $H^2(X,\mathbb C)\approx\mathbb C$ and so we may regard $c_1(H)_{\mathbb C}$ as lying in $\mathbb C$. Thus
+\[
+\begin{aligned}
+c_1(H)_{\mathbb C}&=\int_{P^1(\mathbb C)}\mu=\int_{\mathbb C}\mu_1\\
+&=\frac i{2\pi}\int_{\mathbb C}(1+|t|^2)^{-2}dt\,d\bar t\\
+&=\frac1\pi\int_0^\infty\int_0^{2\pi}(1+r^2)^{-2}r\,dr\,d\theta\\
+&=+1.
+\end{aligned}
+\]
+Since $H^2(X,\mathbb Z)\approx\mathbb Z$ for compact Riemann surfaces, we have proved $c_1(H)=+1$. Our choice of sign for $c_1$ was made precisely so that the hyperplane section bundle of $P^1(\mathbb C)$ had positive Chern class\ldots
+\item Let $L$ be a holomorphic line bundle on the compact Riemann surface $L$ and suppose that $M^*(L)\neq\varnothing$. Recall (proposition 1.5.7) that if $s\in M^*(L)$ then $\deg(\operatorname{div}(s))$ is independent of $s$ and that the degree of $L$, $\deg(L)$, is defined to be $\deg(\operatorname{div}(s))$. Using the canonical isomorphism of $H^2(M,\mathbb Z)$ with $\mathbb Z$ we may regard $c_1(L)$ as lying in $\mathbb Z$. We claim that $c_1(L)=\deg(L)$. Fix $s\in M^*(L)$ and let
+% Source PDF page 130; printed page 121
+$\operatorname{div}(s)=\sum_{i=1}^n n_i.z_i$. Choose a finite cover $\{U_i:i=1,\ldots,m\}$ of $M$ satisfying
+\begin{enumerate}[label=\alph*)]
+\item $L|U_i$ is holomorphically trivial.
+\item $z_i\in U_i$, $1\leq i\leq n$.
+\item There exists an open neighbourhood $V_i$ of each $z_i$ such that $V_i$ is biholomorphic to the unit disc in $\mathbb C$ and $V_i\cap\bigcup_{j\neq i}U_j=\varnothing$.
+\end{enumerate}
+Denote the corresponding set of transition functions for $L$ by $\{\phi_{jk}:U_{jk}\to\mathbb C^*\}$. Let $s_j$ denote the local representative of $s$ on $U_j$. Then $s_j$, $s_k$ will be holomorphic on $U_{jk}$, $j\neq k$, and
+\[
+|\phi_{jk}|^2|s_k|^2=|s_j|^2\text{ on }U_{jk}.
+\]
+For $i>n$, set $g_i=|s_i|^2$. For $i\leq n$, we may, using bump functions, modify $|s_i|^2$ to obtain a $C^\infty$ positive function $g_i$ on $U_i$ satisfying
+\[
+g_i|U_i\setminus V_i=|s_i|^2.
+\]
+In particular, $g_i|\partial V_i=|s_i|^2$ and, by condition c) above, we will have
+\[
+|\phi_{jk}|^2g_k=g_j\text{ on }U_{jk}\text{ for all }j,k.
+\]
+Hence, by Example 12, we have
+\[
+\begin{aligned}
+c_1(L)_{\mathbb C}=c_1(L)&=-\frac i{2\pi}\int_M\partial\bar\partial\log g_j^{-1}\\
+&=\frac1{2\pi i}\int_M\bar\partial\partial\log g_j,
+\end{aligned}
+\]\IndexMark{idx-166}{degree of holomorphic line bundle@Degree of holomorphic line bundle}
+\[
+c_1(L)=\frac1{2\pi i}\sum_{i=1}^n\int_{V_i}\bar\partial\partial\log g_i.
+\]
+Now $d\partial\log g_i=\bar\partial\partial\log g_i$ and so, by Stokes' theorem,
+\[
+\begin{aligned}
+c_1(L)&=\frac1{2\pi i}\sum_{i=1}^n\int_{\partial V_i}\partial\log g_i\\
+&=\frac1{2\pi i}\sum_{i=1}^n\int_{\partial V_i}d\log s_i
+% Source PDF page 131; printed page 122
+\\&=\sum_{i=1}^n n_i,\quad\text{by the residue theorem.}\\
+&=\deg(L).
+\end{aligned}
+\]\IndexMark{idx-167}{degree of holomorphic line bundle@Degree of holomorphic line bundle}
+\item We showed in Example 12 that the Chern class\IndexMark{idx-078}{chern class first@Chern class (first)} of a holomorphic line bundle on $X$ could be represented, via the de Rham isomorphism, by a closed $(1,1)$-form on $X$. We shall now show that every integral closed $(1,1)$-form is the Chern class of some holomorphic line bundle on $X$ (modulo torsion). Let $j:\mathbb Z\to\mathbb C$ denote the inclusion map of constant sheaves and $H^{1,1}_{\mathrm{DR}}(X,\mathbb C)$ denote the subgroup of $H^2_{\mathrm{DR}}(X,\mathbb C)$ admitting representatives by closed $(1,1)$-forms. Set $H^{1,1}(X,\mathbb Z)=H^{1,1}_{\mathrm{DR}}(X,\mathbb C)\cap H^2(X,\mathbb Z)$. We claim that $c_1(H^1(X,\mathcal O^*))_{\mathbb C}=H^{1,1}(X,\mathbb Z)$. Let $i:\mathbb Z\to\mathcal O$, $k:\mathbb C\to\mathcal O$ denote the inclusion maps of the constant sheaves $\mathbb Z$, $\mathbb C$ in $\mathcal O$. We have the commutative diagram\footnote{Diagram correction: the arrow labelled $k$ points from $H^2(X,\mathbb C)$ to $H^2(X,\mathcal O)$, in accordance with the inclusion $k:\mathbb C\to\mathcal O$ just defined. Its direction is reversed in the original diagram on Part II, p.~122.}
+\[
+\input{diagrams/II-25.tex}
+\]
+Since we already know that $c_1(H^1(X,\mathcal O^*))_{\mathbb C}\subset H^{1,1}(X,\mathbb Z)$, it is enough to prove that $kH^{1,1}_{\mathrm{DR}}(X,\mathbb C)=0$. Taking the de Rham and Dolbeault resolutions of $\mathbb C$ and $\mathcal O$ we have the commutative diagram
+\[
+\input{diagrams/II-26.tex}
+\]
+where the morphism $Q_p:\underline C^p\to\underline C^{0,p}$ is just projection of $p$-forms onto the $(0,p)$-component. The map $k^p:H^p(X,\mathbb C)\to H^p(X,\mathcal O)$ is therefore represented by
+\[
+\input{diagrams/II-27.tex}
+\]
+% Source PDF page 132; printed page 123
+Since $Q_2$ maps $(1,1)$-forms to zero it follows that the image of $H^{1,1}_{\mathrm{DR}}(X,\mathbb C)$ in $H^2(X,\mathcal O)$ is zero.
+\item Associated to the divisor sequence $0\to\mathcal O^*\to\mathcal M^*\to\mathcal D\to0$ on a complex manifold $X$ we have the long exact sequence
+\[
+\input{diagrams/II-28.tex}
+\]
+Recall from \hyperref[sec:5:9]{\S9, Chapter 5}, that we have a homomorphism
+\[
+[\ ]:\mathcal D(X)\to\operatorname{HLB}(X).
+\]
+By the definition of $\delta$ in \v{C}ech theory it is clear that
+\[
+\delta(d)=-[d],\quad d\in\mathcal D(X).
+\]
+So we see again that a divisor $d$ is the divisor of a meromorphic function if and only if $[d]$ is a holomorphically trivial line bundle. Recalling from Example 12 that the Chern class\IndexMark{idx-079}{chern class first@Chern class (first)} map $c_1:\operatorname{HLB}(X)\to H^2(X,\mathbb Z)$ is defined to be \emph{minus} the connecting homomorphism $\delta:\operatorname{HLB}(X)\to H^2(X,\mathbb Z)$, we see that $c_1([d])=\delta\delta(d)$. In summary, we see that for a divisor $d$ to be the divisor of a meromorphic function there are precisely two obstructions. Firstly a topological obstruction: $c_1([d])$ must be zero; secondly an analytic obstruction: $[d]$ must be holomorphically trivial.
+
+For the remainder of this example, we shall assume that $X$ is projective algebraic. We shall show later that every holomorphic line bundle on $X$ admits a non-trivial meromorphic section. This clearly implies that the image of $H^1(X,\mathcal O^*)$ in $H^1(X,\mathcal M^*)$ is zero and so we obtain the exact sequence
+\[
+0\to A^*(X)\to M^*(X)\to\mathcal D(X)\xrightarrow\delta\operatorname{HLB}(X)\to0.
+\]
+Hence, $\operatorname{HLB}(X)\cong\mathcal D(X)/L(X)$, where $L(X)$ is the group of linear equivalence classes of divisors on $X$.
+% Source PDF page 133; printed page 124
+From Example 14, we see that given $\eta\in H^{1,1}(X,\mathbb Z)$, there exists $d\in\mathcal D(X)$ such that $c_1([d])_{\mathbb C}=\eta$. It may be shown (see Griffiths and Harris \cite{bib:II:griffiths-p-and-harris-j:1}) that $d$ defines a class in $H_{2n-2}(X,\mathbb Z)$ which is the Poincar\'e dual of $\eta$ with respect to the pairing $H_{2n-2}(X,\mathbb Z)\times H^2(X,\mathbb Z)\to H^{2n}(X,\mathbb Z)\approx\mathbb Z$. So we have a special case of the \emph{Hodge conjecture}\IndexMark{idx-291}{hodge conjecture@Hodge conjecture} due to Lefschetz: Every class in $H^{1,1}(X,\mathbb Z)$ has a Poincar\'e dual represented by an integral combination of analytic hypersurfaces in $X$ (modulo torsion).
+
+Finally let $\operatorname{Pic}(X)$ denote the subgroup of $\operatorname{HLB}(X)$ consisting of holomorphic line bundles which are trivial as complex line bundles. Thus $\operatorname{Pic}(X)=\operatorname{Ker}(c_1)$. Since $X$ is compact it is easily seen from the cohomology sequence of $0\to\mathbb Z\to\mathcal O\xrightarrow{\exp}\mathcal O^*\to0$ that $\operatorname{Pic}(X)\cong H^1(X,\mathcal O)/H^1(X,\mathbb Z)$. Furthermore it can be shown that $\operatorname{Pic}(X)$ has the natural structure of a compact connected complex Lie group. That is, a complex torus. $\operatorname{Pic}(X)$ is called the \emph{Picard variety}\IndexMark{idx-437}{picard variety@Picard variety} of $X$. The Picard variety is an important birational invariant of $X$. It is an Abelian variety (for this it is sufficient that $X$ be Moishezon). Proofs of these statements, together with further references, may be found in Ueno \cite{bib:II:ueno-k:1} and Griffiths and Harris \cite{bib:II:griffiths-p-and-harris-j:1}.
+\end{enumerate}
+\paragraph{Exercises.}
+\begin{enumerate}
+\item Verify that
+\begin{enumerate}[label=\alph*)]
+\item $H^p(D,\mathcal O)=0$, $p\geq1$, for every domain $D$ in $\mathbb C$.
+\item $H^p(D,\Omega^q)=0$, $p\geq1$, $q\geq0$, for every open polydisc $D$ in $\mathbb C^n$.
+\end{enumerate}
+\item Let $G$ be a group, not necessarily abelian. Show how to define $\check H^1(X,G)$ and prove that $\check H^1(X,\operatorname{GL}(n,\mathbb C))$ is isomorphic to the set of isomorphism classes of $n$-dimensional complex vector bundles on $X$.
+\item Prove that the map $\rho(\mathcal U):H^1(\mathcal U,\mathcal F)\to H^1(X,\mathcal F)$ is injective for all open covers $\mathcal U$ of $X$.
+\item Verify that the de Rham cohomology groups of a differential manifold are topological invariants (as opposed to differential topological invariants) without using the isomorphism between singular and de Rham groups.
+% Source PDF page 134; printed page 125
+\item Let $X$ be a Riemann surface. Verify that the sheaves $\mathcal D$ and $\mathcal M/\mathcal D$ are soft. Is this result true for general complex manifolds?
+\item Show that $\operatorname{Pic}(X)=\{\mathbb C\}$ in case $X$ is any domain in $\mathbb C$ or an open polydisc in $\mathbb C^n$.
+\item Prove that $c_1(TP^1(\mathbb C))=+2$.
+\item $H^2(P^n(\mathbb C),\mathbb Z)\cong\mathbb Z$. Let $H$ denote the hyperplane section bundle of $P^n(\mathbb C)$. Prove that $c_1(H)$ generates $H^2(P^n(\mathbb C),\mathbb Z)$.
+\item Let $f:X\to Y$ be holomorphic and $L\in\operatorname{HLB}(Y)$. Prove that $f^*(c_1(L)_{\mathbb C})=c_1(f^*L)_{\mathbb C}$.
+\item Let $T=\mathbb C^n/\Lambda$ be an $n$-dimensional complex torus with period lattice $\Lambda$ and suppose that $L(H,m)$ is a holomorphic line bundle on $T$ (for notation, see \hyperref[sec:5:9]{\S9, Chapter 5} and recall that $H$ is an Hermitian form on $\mathbb C^n$ whose imaginary part is integral on $\Lambda\times\Lambda$). Prove
+\begin{enumerate}[label=\alph*)]
+\item The function $a(z,t)=\exp(-\pi H(z,z))|t|^2$ on $\mathbb C^n\times\mathbb C$ is invariant under the action
+\[
+(z,t)\to(z+\lambda,\exp(-\pi(2\operatorname{Re}(H(z,\lambda)+H(\lambda,\lambda)))|t|^2),\quad\lambda\in\Lambda.
+\]
+Deduce that $a$ induces a smooth map $\widetilde a:L(H,m)\to\mathbb R$ which is quadratic on fibres (see also Exercise 6, \hyperref[sec:5:9]{\S9, Chapter 5}).
+\item The first Chern class\IndexMark{idx-080}{chern class first@Chern class (first)} of $L(H,m)$ is represented by the form
+\[
+-\frac i{2\pi}\partial\bar\partial\log\exp(-\pi H(z,z))=\frac i2 H.
+\]
+\item Every 1-dimensional complex torus admits a holomorphic line bundle of Chern class $+1$ (Integrate $\frac i2H$ over a period parallelogram).
+\end{enumerate}
+\item Recall that a sheaf $\mathcal F$ of groups over a topological space $X$ (not necessarily paracompact) is \emph{flabby}\IndexMark{idx-256}{flabby sheaf@Flabby sheaf} if for all open subsets $U$ of $X$ the sequence $\mathcal F(X)\to\mathcal F(U)\to0$ is exact. Prove
+\begin{enumerate}[label=\alph*)]
+\item If $0\to\mathcal F\to\mathcal G\to\mathcal H\to0$ is an exact sequence of sheaves over $X$ and $\mathcal F$ is flabby then the sequence is presheaf exact. If, in addition $\mathcal G$ is flabby, deduce that $\mathcal H$ is flabby.
+\item If $X$ is paracompact, then $\mathcal F$ flabby implies $\mathcal F$ soft.
+\end{enumerate}
+% Source PDF page 135; printed page 126
+\item Let $X$ be a closed subset of the topological space $Z$ and $\mathcal F$ be a sheaf of groups on $X$. As in exercise 4, \hyperref[sec:6:1]{\S1}, let $\widetilde{\mathcal F}$ denote the trivial extension of\IndexMark{idx-619}{trivial extension of sheaf@Trivial extension of sheaf} $\mathcal F$ to $Z$. Prove that for $p\geq0$, $H^p(Z,\widetilde{\mathcal F})\approx H^p(X,\mathcal F)$. (Look at the trivial extension of the canonical resolution of $\mathcal F$).
+\item[13*.]\IndexMark{idx-179}{direct image sheaf@Direct image sheaf} Let $f:X\to Y$ be a holomorphic map between complex manifolds and $\mathcal F$ be a sheaf of $\mathcal O_X$-modules on $X$. For $p\geq0$, let $R^pf_*\mathcal F$ be the sheaf of $\mathcal O_Y$-modules on $Y$ associated to the presheaf $U\mapsto H^p(f^{-1}(U),\mathcal F)$. Show that for any exact sequence $0\to\mathcal F\to\mathcal G\to\mathcal H\to0$ of $\mathcal O_X$-modules on $X$, the induced sequence
+\[
+0\to f_*\mathcal F\to f_*\mathcal G\to f_*\mathcal H\to R^1f_*\mathcal F\to R^1f_*\mathcal G\to\cdots
+\]
+is exact.
+\setcounter{enumi}{13}
+\item Let $f:X\to Y$ be a homeomorphism between topological spaces $X$ and $Y$, $\mathcal F$ and $\mathcal G$ be sheaves on $X$ and $Y$ respectively and $a:\mathcal G\to\mathcal F$ be a morphism of sheaves covering $f^{-1}$. Show that for $p\geq0$, we have naturally induced homomorphisms
+\[
+f(a)^*:H^p(Y,\mathcal G)\to H^p(X,\mathcal F)
+\]
+(Use \v{C}ech theory).
+\item Let $f:X\to Y$ be a continuous map between topological spaces $X$, $Y$ and $\mathcal F$ be a sheaf on $Y$. Show that there exist homomorphisms $f^*:H^p(Y,\mathcal F)\to H^p(X,f^{-1}\mathcal F)$ satisfying
+\begin{enumerate}[label=\alph*)]
+\item If $f=\operatorname{Id}$, then $f^*=\operatorname{Id}$.
+\item If $g:Z\to X$ is continuous then $(fg)^*=g^*f^*$.
+\item The construction of $f^*$ is compatible with the construction of Q14, in case $f$ is a homeomorphism and $a$ is the inverse of the natural map $\widetilde f:f^{-1}\mathcal F\to\mathcal F$.
+\end{enumerate}
+\end{enumerate}

@@ -1,0 +1,275 @@
+% Source PDF page 208; printed page 199.
+\chapter*{Bibliography}
+\addcontentsline{toc}{chapter}{Bibliography}
+\begingroup
+\setlist[enumerate]{leftmargin=2.5em,itemsep=2pt,topsep=2pt,parsep=0pt}
+\newcommand{\bibauthor}[1]{\par\addvspace{\medskipamount}\noindent\textbf{#1}\par\nobreak}
+\bibauthor{Abraham, R. and Marsden, J.E.}
+\begin{enumerate}
+\item Foundations of Mechanics, 2nd. Edition, Benjamin/Cummings, Reading (1978).
+\end{enumerate}
+\bibauthor{Adams, J.F. and Griffiths, P.}
+\begin{enumerate}
+\item Topics in Algebraic and Analytic Geometry, Mathematical Notes, Princeton University Press, Princeton (1974).
+\end{enumerate}
+\bibauthor{Andreotti, A. and Grauert, H.}
+\begin{enumerate}
+\item Th\'eor\`emes de finitude pour la cohomologie des espaces complexes, Bull. Soc. Math. France, 90 (1962), 193--259.
+\end{enumerate}
+\bibauthor{Andreotti, A. and Vesentini, E.}
+\begin{enumerate}
+\item Carleman estimates for the Laplace Beltrami equation on complex manifolds, Inst. Hautes Etudes Sci., Publ. Math., 25 (1965), 91--130.
+\end{enumerate}
+\bibauthor{Behnke, H. and Stein, K.}
+\begin{enumerate}
+\item Konvergente Folgen nichtschlichler Regularit\"atsbereiche, Ann. Math. pura appl., 28 (1949), 317--326.
+\end{enumerate}
+\bibauthor{Borel, A. and Serre, J.P.}
+\begin{enumerate}
+\item Groupes de Lie et puissances r\'eduites de Steenrod, Amer. J. Math., 75 (1953), 409--448.
+\end{enumerate}
+\bibauthor{Bremermann, H.J.}
+\begin{enumerate}
+\item \"Uber die \"Aquivalenz der pseudoconvexen Gebiete und der Holomorphie-gebiete in Raume von $n$ komplexen Veranderlichen, Math. Ann., 128 (1954), 63--91.
+\end{enumerate}
+\bibauthor{Cartan, H.}
+\begin{enumerate}
+\item Seminaire Henri Cartan, 1951/52, W.A. Benjamin Inc., New York, (1967).
+\item Seminaire Henri Cartan, 1953/54, W.A. Benjamin Inc., New York, (1967).
+\item Quotients of complex analytic spaces, Contributions to Function Theory, Tata Inst. of Fund. Reseach, Bombay (1960).
+\end{enumerate}
+\bibauthor{Cornalba, M.}
+\begin{enumerate}
+\item Complex Tori and Jacobians, Complex Analysis and its Applications, 1, IAEA, Vienna (1976), 39--100.
+\end{enumerate}
+\bibauthor{Dieudonn\'e, J.}
+\begin{enumerate}
+\item Foundations of Modern Analysis, Academic Press, New York (1960).
+\end{enumerate}
+\bibauthor{Docquier, F. and Grauert, H.}
+\begin{enumerate}
+\item Levisches Problem und Rungescher Satz f\"ur Teilgebiete Steinscher Mannigfaltigkeiten, Math. Ann., 140 (1960), 94--123.
+\end{enumerate}
+\bibauthor{Eastwood, M.G. and Vigna Suria, G.}
+\begin{enumerate}
+\item Cohomologically complete and pseudoconvex domains, Comment. Math. Helv., 55 (1980), 413--426.
+\end{enumerate}
+\bibauthor{Field, M.J.}
+\begin{enumerate}
+\item Differential Calculus and its Applications, Van Nostrand, London (1976).
+\end{enumerate}
+% Source PDF page 209; printed page 200.
+\bibauthor{Forster, O. and Knorr, K.}
+\begin{enumerate}
+\item Ein Beweis dis Grauertschen Bild garbensatzes nach Ideen von B. Malgrange, Manu. Math., 5 (1971), 19--44.
+\end{enumerate}
+\bibauthor{Forster, O. and Ramspott, K.J.}
+\begin{enumerate}
+\item \"Uber die Darstellung analytischer Mengen, Bayer Akad. Wiss., Math. Naut (1963), 89--99.
+\end{enumerate}
+\bibauthor{Godement, R.}
+\begin{enumerate}
+\item Topologie Alg\'ebrique et Th\'eorie des faiseaux, Hermann, Paris (1964).
+\end{enumerate}
+\bibauthor{Grauert, H.}
+\begin{enumerate}
+\item \"Uber Modifikation und exzeptionelle analytische Mengen, Math. Ann., 146 (1962), 331--368.
+\item Holomorphiegebiete durch die K\"ahlersche Metrik, Math. Ann., 131 (1956), 38--75.
+\item On Levi's problem and the embedding of real analytic manifolds, Ann. Math., 68 (1958), 460--472.
+\item Bemerkenswerte pseudokonvexe Mannigfaligkeiten, Math. Z, 81 (1963), 377--391.
+\end{enumerate}
+\bibauthor{Grauert, H. and Remmert, R.}
+\begin{enumerate}
+\item Theory of Stein spaces, Springer-Verlag, New York (1979).
+\end{enumerate}
+\bibauthor{Greenberg, M.J.}
+\begin{enumerate}
+\item Lectures on Algebraic Topology, W.A. Benjamin Inc., New York (1967).
+\end{enumerate}
+\bibauthor{Griffiths, P.}
+\begin{enumerate}
+\item Hermitian differential geometry, Chern classes and positive vector bundles, Global Analysis, Princeton University Press, Princeton (1969), 185--251.
+\end{enumerate}
+\bibauthor{Griffiths, P. and Harris, J.}
+\begin{enumerate}
+\item Principles of Algebraic Geometry, Wiley-Interscience, J. Wiley and Sons, New York (1978).
+\end{enumerate}
+\bibauthor{Gunning, R.C.}
+\begin{enumerate}
+\item Lectures on complex analytic varieties: The Local parametrization Theorem, Princeton Math. notes, 10, Princeton University Press, Princeton (1970).
+\item Lectures on Riemann Surfaces, Princeton Math. notes 12, Princeton University Press (1966).
+\item Lectures on Vector Bundles Over Riemann Surfaces, Princeton Math. notes, 6, Princeton University Press, Princeton (1967).
+\end{enumerate}
+\bibauthor{Gunning, R.C. and Rossi, H.}
+\begin{enumerate}
+\item Analytic Functions of Several Complex Variables, Princeton-Hall, Englewood-Cliffs, New Jersey (1965).
+\end{enumerate}
+\bibauthor{Hartshorne, R.}
+\begin{enumerate}
+\item Algebraic Geometry, Springer-Verlag, New York (1977).
+\item Residues and Duality, Lectures notes in Mathematics 20, Springer-Verlag (1966).
+\end{enumerate}
+\bibauthor{Helgason, S.}
+\begin{enumerate}
+\item Differential Geometry, Lie Groups and Symmetric Spaces, Academic Press, New York (1962).
+\end{enumerate}
+% Source PDF page 210; printed page 201.
+\bibauthor{Hirzebruch, F. and Hopf, H.}
+\begin{enumerate}
+\item Felder von Flachen elementen in 4-dimensionalen Mannigfaltigkeiten, Math. Ann., 136 (1958), 156--172.
+\end{enumerate}
+\bibauthor{H\"ormander, L.}
+\begin{enumerate}
+\item An Introduction to Complex Analysis in Several Variables, D. Van Nostrand, Princeton (1967).
+\end{enumerate}
+\bibauthor{Husmoller, D.}
+\begin{enumerate}
+\item Fibre Bundles, McGraw-Hill, New York (1966).
+\end{enumerate}
+\bibauthor{Kiehl, R. and Verdier, J.L.}
+\begin{enumerate}
+\item ein einfacher Beweis des Koharenz satzes von Grauert, Math. Ann., 195 (1971/72), 24--50.
+\end{enumerate}
+\bibauthor{Kobayashi, S. and Nomizu, K.}
+\begin{enumerate}
+\item Foundations of Differential Geometry, Vol. 1, Wiley, Interscience, New York (1962).
+\item Foundations of Differential Geometry, Vol. 2, Wiley, Interscience, New York (1969).
+\end{enumerate}
+\bibauthor{Kodaira, K.}
+\begin{enumerate}
+\item On the structure of compact complex analytic surfaces, I,II,III,IV, Amer. J. Math., 86 (1964), 751--798; 88 (1966), 682--721; 90 (1968), 55--83, 1048--1066.
+\end{enumerate}
+\bibauthor{Kodaira, K. and Morrow, J.}
+\begin{enumerate}
+\item Complex Manifolds, Holt, Rinehart and Winston, New York (1971).
+\end{enumerate}
+\bibauthor{Kohn, J.J.}
+\begin{enumerate}
+\item Harmonic integrals on strongly pseudoconvex manifolds, I,II, Ann. Math., 78 (1963), 112--148; 79 (1964), 450--472.
+\end{enumerate}
+\bibauthor{Lang, S.}
+\begin{enumerate}
+\item Differential Manifolds, Addison-Wesley (1972).
+\end{enumerate}
+\bibauthor{Malgrange, B.}
+\begin{enumerate}
+\item Analytic spaces, L'Enseignment Matm., 15, 1 (1968), 1--28.
+\item Lectures on the Theory of Functions of Several Complex Variables, Tata Inst., Bombay (1965).
+\end{enumerate}
+\bibauthor{Markoe, A.}
+\begin{enumerate}
+\item Runge families and Inductive limits of Stein spaces, Ann. Inst. Fourier, 27(3) (1977).
+\end{enumerate}
+\bibauthor{Narasimhan, M.}
+\begin{enumerate}
+\item Vector bundles on compact Riemann surfaces, Complex Analysis and its Applications, 2, IAEA, Vienna (1976), 63--88.
+\end{enumerate}
+\bibauthor{Narasimhan, R.}
+\begin{enumerate}
+\item Introduction to the Theory of Analytic Spaces, Lecture Notes in Mathematics, 25, Springer-Verlag (1966).
+\item Grauert's theorem on Direct Images of Coherent Sheaves, Sem. de Math. Sup., 40, Univ. Montr\'eal (1971).
+\item The Levi problem for complex spaces, Math. Ann., 142 (1961), 355--365.
+\item The Levi problem for complex spaces II, Math. Ann., 146 (1962), 195--216.
+\end{enumerate}
+% Source PDF page 211; printed page 202.
+\bibauthor{Norguet, F.}
+\begin{enumerate}
+\item Sur les domaines d'holomorphie des fonctions uniformes de plusieurs variables complex (passage du local au global), Bull. soc. Math. France, 82 (1954), 139--159.
+\end{enumerate}
+\bibauthor{Oka, K.}
+\begin{enumerate}
+\item Domaines finis sans point critique int\'erior, Jap. J. Math., 23 (1953), 97--155.
+\end{enumerate}
+\bibauthor{Okonek, C., Schneider, M. and Spindler, H.}
+\begin{enumerate}
+\item Vector Bundles on Complex Projective Space, Progress in Mathematics, 3, Birkhauser, Berlin (1980).
+\end{enumerate}
+\bibauthor{Pittie, H.}
+\begin{enumerate}
+\item Complex and almost complex four-manifolds, Complex Analysis and its Applications, Vol. 2, IAEA, Vienna (1976), 121--131.
+\end{enumerate}
+\bibauthor{Ramis, J.P. and Ruget, G.}
+\begin{enumerate}
+\item Complexe dualisant et th\'eor\`emes de dualit\'e en g\'eom\'etrie analytique complexe, Publ. Math., Inst. Hautes Etudes Sci., 38 (1970), 77--91.
+\end{enumerate}
+\bibauthor{Ramis, J.P., Ruget, G. and Verdier, J.L.}
+\begin{enumerate}
+\item Dualit\'e relative en g\'eom\'etrie analytique complexe, Invent. Math., 13 (1971), 261--382.
+\end{enumerate}
+\bibauthor{Remmert, R.}
+\begin{enumerate}
+\item Reduction of complex spaces, Seminar on analytic functions, Vol. 1, Princeton (1957), 190--203.
+\end{enumerate}
+\bibauthor{Rossi, H.}
+\begin{enumerate}
+\item Topics in Complex Manifolds, Sem. Math. Sup., Univ. Montr\'eal, 30 (1968).
+\item Strongly pseudoconvex manifolds, Lecture notes in Mathematics, 140, Springer-Verlag (1970), 10--29.
+\end{enumerate}
+\bibauthor{Rudin, W.}
+\begin{enumerate}
+\item Functional Analysis, McGraw-Hill, New York (1973).
+\end{enumerate}
+\bibauthor{Serre, J.P.}
+\begin{enumerate}
+\item Quelques probl\`emes globaux relatifs aux vari\'et\'es de Stein, Colloque sur les Fonctions de Plusieurs Variables, Bruxelles (1953), 57--68.
+\item Faisceaux alg\'ebriques coh\`erents, Ann. Math., 61(2), (1955), 197--278.
+\item G\'eom\'etrie alg\'ebrique et g\'eom\'etrie analytique, Ann. Inst. Fourier, 6 (1956), 1--42.
+\end{enumerate}
+\bibauthor{Simha, R.R.}
+\begin{enumerate}
+\item On the complement of a curve on a Stein space of dimension two, Math. Z., 82 (1963), 63--66.
+\end{enumerate}
+\bibauthor{Siu, Y-T.}
+\begin{enumerate}
+\item Pseudoconvexivity and the problem of Levi, Bull. Amer. Math. Soc., 84(4) (1978), 481--512.
+\end{enumerate}
+\bibauthor{Spanier, E.}
+\begin{enumerate}
+\item Algebraic Topology, McGraw-Hill (1966).
+\end{enumerate}
+\bibauthor{Swinnerton-Dyer, H.P.F.}
+\begin{enumerate}
+\item Analytic Theory of Abelian Varieties, London Math. Soc. Lecture Notes, 14, Cambridge Univ. Press (1974).
+\end{enumerate}
+% Source PDF page 212; printed page 203.
+\bibauthor{Tennison, B.R.}
+\begin{enumerate}
+\item Sheaf Theory, London Math. Soc. Lecture Notes, 20, Cambridge Univ. Press (1976).
+\end{enumerate}
+\bibauthor{Tyurin, A.N.}
+\begin{enumerate}
+\item The geometry of moduli of vector bundles, Russ. Math. Surveys, 29(6) (1974), 57--88.
+\end{enumerate}
+\bibauthor{Ueno, K.}
+\begin{enumerate}
+\item Classification theory of Algebraic Varieties and Compact Complex Spaces, Lecture notes in Math., 439, Springer-Verlag (1975).
+\end{enumerate}
+\bibauthor{Van der Ven, A.}
+\begin{enumerate}
+\item On the Chern numbers of certain complex and almost complex manifolds, Proc. Nat. Acad. Sci. USA, 55 (1966), 1624--1627.
+\end{enumerate}
+\bibauthor{Vesentini, E.}
+\begin{enumerate}
+\item On Levi Convexivity and Cohomology Vanishing Theorems, Tata Inst., Bombay (1967).
+\end{enumerate}
+\bibauthor{Warner, F.W.}
+\begin{enumerate}
+\item Foundations of Differentiable Manifolds and Lie Groups, Scott, Foreman, Glenview, Ill. (1971).
+\end{enumerate}
+\bibauthor{Weil, A.}
+\begin{enumerate}
+\item Vari\'et\'es K\"ahl\'eriennes, Hermann, Paris (1971).
+\end{enumerate}
+\bibauthor{Wells, R.O.}
+\begin{enumerate}
+\item Differential Analysis on Complex Manifolds, Graduate Texts in Mathematics, Springer-Verlag, New York (1980).
+\end{enumerate}
+\bibauthor{Whitney, H.}
+\begin{enumerate}
+\item Complex Analytic Varieties, Addison-Wesley, Reading, Mass. (1972).
+\end{enumerate}
+\bibauthor{Zariski, O. and Samuel, P.}
+\begin{enumerate}
+\item Commutative Algebra, Graduate Texts in Math., Springer-Verlag, New York (1975).
+\end{enumerate}
+\endgroup

@@ -1,0 +1,980 @@
+[
+  {
+    "volume": "I",
+    "author": "Abraham, R. and Marsden, J.E.",
+    "slug": "abraham-r-and-marsden-j-e",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Ahlfors, L.V.",
+    "slug": "ahlfors-l-v",
+    "count": 2
+  },
+  {
+    "volume": "I",
+    "author": "Ahlfors, L.V. and Sario, L.",
+    "slug": "ahlfors-l-v-and-sario-l",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Aizenberg, L.A.",
+    "slug": "aizenberg-l-a",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Alexander, H.",
+    "slug": "alexander-h",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Andreotti, A. and Frankel, T.",
+    "slug": "andreotti-a-and-frankel-t",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Andreotti, A. and Grauert, H.",
+    "slug": "andreotti-a-and-grauert-h",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Atiyah, M.",
+    "slug": "atiyah-m",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Behnke, H. and Stein, K.",
+    "slug": "behnke-h-and-stein-k",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Bergman, S.",
+    "slug": "bergman-s",
+    "count": 2
+  },
+  {
+    "volume": "I",
+    "author": "Bers, L.",
+    "slug": "bers-l",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Bierstone, E. and Schwartz, G.W.",
+    "slug": "bierstone-e-and-schwartz-g-w",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Bishop, E.",
+    "slug": "bishop-e",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Bochner, S.",
+    "slug": "bochner-s",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Bonnesen, T. and Fenchel, W.",
+    "slug": "bonnesen-t-and-fenchel-w",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Bremermann, H.J.",
+    "slug": "bremermann-h-j",
+    "count": 3
+  },
+  {
+    "volume": "I",
+    "author": "Brieskorn, E.",
+    "slug": "brieskorn-e",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Brieskorn, E. and Van der Ven, A.",
+    "slug": "brieskorn-e-and-van-der-ven-a",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Calabi, E. and Eckmann, B.",
+    "slug": "calabi-e-and-eckmann-b",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Cartan, E.",
+    "slug": "cartan-e",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Cartan, H.",
+    "slug": "cartan-h",
+    "count": 4
+  },
+  {
+    "volume": "I",
+    "author": "Chern, S.S.",
+    "slug": "chern-s-s",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Chern, S.S. and Moser, J.",
+    "slug": "chern-s-s-and-moser-j",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Chillingworth, D.R.J.",
+    "slug": "chillingworth-d-r-j",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Cornalba, M.",
+    "slug": "cornalba-m",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "De La Harpe, P.",
+    "slug": "de-la-harpe-p",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Diederich, K.",
+    "slug": "diederich-k",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Dieudonn\\'e, J.",
+    "slug": "dieudonne-j",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Douady, A.",
+    "slug": "douady-a",
+    "count": 2
+  },
+  {
+    "volume": "I",
+    "author": "Ehrenpreis, L.",
+    "slug": "ehrenpreis-l",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Field, M.J.",
+    "slug": "field-m-j",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Frankel, T.",
+    "slug": "frankel-t",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Fuks, B.A.",
+    "slug": "fuks-b-a",
+    "count": 2
+  },
+  {
+    "volume": "I",
+    "author": "Gamelin, T.W.",
+    "slug": "gamelin-t-w",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Grauert, H.",
+    "slug": "grauert-h",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Grauert, H. and Fritzche, K.",
+    "slug": "grauert-h-and-fritzche-k",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Grauert, H. and Remmert, R.",
+    "slug": "grauert-h-and-remmert-r",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Griffiths, P.",
+    "slug": "griffiths-p",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Griffiths, P. and Harris, J.",
+    "slug": "griffiths-p-and-harris-j",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Gunning, R.C.",
+    "slug": "gunning-r-c",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Gunning, R.C. and Rossi, H.",
+    "slug": "gunning-r-c-and-rossi-h",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Hartshorne, R.",
+    "slug": "hartshorne-r",
+    "count": 2
+  },
+  {
+    "volume": "I",
+    "author": "Harvey, F.R.",
+    "slug": "harvey-f-r",
+    "count": 2
+  },
+  {
+    "volume": "I",
+    "author": "Heins, M.",
+    "slug": "heins-m",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Herv\\'e, M.",
+    "slug": "herve-m",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Hille, E.",
+    "slug": "hille-e",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Hironaka, H.",
+    "slug": "hironaka-h",
+    "count": 2
+  },
+  {
+    "volume": "I",
+    "author": "Hirsch, M.W.",
+    "slug": "hirsch-m-w",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Hirzebruch, F. and Kodaira, K.",
+    "slug": "hirzebruch-f-and-kodaira-k",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "H\\\"ormander, L.",
+    "slug": "hormander-l",
+    "count": 3
+  },
+  {
+    "volume": "I",
+    "author": "Hua, L-K.",
+    "slug": "hua-l-k",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Husmoller, D.",
+    "slug": "husmoller-d",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Jackson, D.",
+    "slug": "jackson-d",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Kobayashi, S. and Nomizu, K.",
+    "slug": "kobayashi-s-and-nomizu-k",
+    "count": 2
+  },
+  {
+    "volume": "I",
+    "author": "Kodaira, K.",
+    "slug": "kodaira-k",
+    "count": 2
+  },
+  {
+    "volume": "I",
+    "author": "Kodaira, K. and Morrow, J.",
+    "slug": "kodaira-k-and-morrow-j",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Kodaira, K. and Spencer, D.C.",
+    "slug": "kodaira-k-and-spencer-d-c",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Kohn, J.J. and Nirenberg, L.",
+    "slug": "kohn-j-j-and-nirenberg-l",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Lang, S.",
+    "slug": "lang-s",
+    "count": 2
+  },
+  {
+    "volume": "I",
+    "author": "Leray, J.",
+    "slug": "leray-j",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Levi, E.E.",
+    "slug": "levi-e-e",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Levinson, N.",
+    "slug": "levinson-n",
+    "count": 2
+  },
+  {
+    "volume": "I",
+    "author": "Malgrange, B.",
+    "slug": "malgrange-b",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Mather, J.N.",
+    "slug": "mather-j-n",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Matsushima, Y.",
+    "slug": "matsushima-y",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Milnor, J.W.",
+    "slug": "milnor-j-w",
+    "count": 3
+  },
+  {
+    "volume": "I",
+    "author": "Milnor, J.W. and Stasheff, J.D.",
+    "slug": "milnor-j-w-and-stasheff-j-d",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Moishezon, B.G.",
+    "slug": "moishezon-b-g",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Mori, S.",
+    "slug": "mori-s",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Mumford, D.",
+    "slug": "mumford-d",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Nagata, M.",
+    "slug": "nagata-m",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Narasimhan, R.",
+    "slug": "narasimhan-r",
+    "count": 6
+  },
+  {
+    "volume": "I",
+    "author": "Norgeut, F.",
+    "slug": "norgeut-f",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Oka, K.",
+    "slug": "oka-k",
+    "count": 3
+  },
+  {
+    "volume": "I",
+    "author": "Pyatetskii-Shapiro, I.I.",
+    "slug": "pyatetskii-shapiro-i-i",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Rauch, H.E.",
+    "slug": "rauch-h-e",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Remmert, R.",
+    "slug": "remmert-r",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "de Rham, G.",
+    "slug": "de-rham-g",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Robert, A.",
+    "slug": "robert-a",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Serre, J.P.",
+    "slug": "serre-j-p",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Siegel, C.L.",
+    "slug": "siegel-c-l",
+    "count": 2
+  },
+  {
+    "volume": "I",
+    "author": "Simha, R.R.",
+    "slug": "simha-r-r",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Siu, Y-T.",
+    "slug": "siu-y-t",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Siu, Y-T. and Yau, S.T.",
+    "slug": "siu-y-t-and-yau-s-t",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Spivak, M.",
+    "slug": "spivak-m",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Springer, G.",
+    "slug": "springer-g",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Sundararaman, D.",
+    "slug": "sundararaman-d",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Swinnerton-Dyer, H.P.F.",
+    "slug": "swinnerton-dyer-h-p-f",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Teichm\\\"uller, O.",
+    "slug": "teichmuller-o",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Thimm, W.",
+    "slug": "thimm-w",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Tougeron, J.C.P.",
+    "slug": "tougeron-j-c-p",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Ueno, K.",
+    "slug": "ueno-k",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Valentine, F.A.",
+    "slug": "valentine-f-a",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Vladimirov, V.S.",
+    "slug": "vladimirov-v-s",
+    "count": 2
+  },
+  {
+    "volume": "I",
+    "author": "Waerden, B.L. van der",
+    "slug": "waerden-b-l-van-der",
+    "count": 2
+  },
+  {
+    "volume": "I",
+    "author": "Walker, R.",
+    "slug": "walker-r",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Weil, A.",
+    "slug": "weil-a",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Wells, R.O. and Wolf, J.A.",
+    "slug": "wells-r-o-and-wolf-j-a",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Whitney, H.",
+    "slug": "whitney-h",
+    "count": 2
+  },
+  {
+    "volume": "I",
+    "author": "Whittaker, E.T. and Watson, G.N.",
+    "slug": "whittaker-e-t-and-watson-g-n",
+    "count": 1
+  },
+  {
+    "volume": "I",
+    "author": "Zariski, O. and Samuel, P.",
+    "slug": "zariski-o-and-samuel-p",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Abraham, R. and Marsden, J.E.",
+    "slug": "abraham-r-and-marsden-j-e",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Adams, J.F. and Griffiths, P.",
+    "slug": "adams-j-f-and-griffiths-p",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Andreotti, A. and Grauert, H.",
+    "slug": "andreotti-a-and-grauert-h",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Andreotti, A. and Vesentini, E.",
+    "slug": "andreotti-a-and-vesentini-e",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Behnke, H. and Stein, K.",
+    "slug": "behnke-h-and-stein-k",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Borel, A. and Serre, J.P.",
+    "slug": "borel-a-and-serre-j-p",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Bremermann, H.J.",
+    "slug": "bremermann-h-j",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Cartan, H.",
+    "slug": "cartan-h",
+    "count": 3
+  },
+  {
+    "volume": "II",
+    "author": "Cornalba, M.",
+    "slug": "cornalba-m",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Dieudonn\\'e, J.",
+    "slug": "dieudonne-j",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Docquier, F. and Grauert, H.",
+    "slug": "docquier-f-and-grauert-h",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Eastwood, M.G. and Vigna Suria, G.",
+    "slug": "eastwood-m-g-and-vigna-suria-g",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Field, M.J.",
+    "slug": "field-m-j",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Forster, O. and Knorr, K.",
+    "slug": "forster-o-and-knorr-k",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Forster, O. and Ramspott, K.J.",
+    "slug": "forster-o-and-ramspott-k-j",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Godement, R.",
+    "slug": "godement-r",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Grauert, H.",
+    "slug": "grauert-h",
+    "count": 4
+  },
+  {
+    "volume": "II",
+    "author": "Grauert, H. and Remmert, R.",
+    "slug": "grauert-h-and-remmert-r",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Greenberg, M.J.",
+    "slug": "greenberg-m-j",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Griffiths, P.",
+    "slug": "griffiths-p",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Griffiths, P. and Harris, J.",
+    "slug": "griffiths-p-and-harris-j",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Gunning, R.C.",
+    "slug": "gunning-r-c",
+    "count": 3
+  },
+  {
+    "volume": "II",
+    "author": "Gunning, R.C. and Rossi, H.",
+    "slug": "gunning-r-c-and-rossi-h",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Hartshorne, R.",
+    "slug": "hartshorne-r",
+    "count": 2
+  },
+  {
+    "volume": "II",
+    "author": "Helgason, S.",
+    "slug": "helgason-s",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Hirzebruch, F. and Hopf, H.",
+    "slug": "hirzebruch-f-and-hopf-h",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "H\\\"ormander, L.",
+    "slug": "hormander-l",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Husmoller, D.",
+    "slug": "husmoller-d",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Kiehl, R. and Verdier, J.L.",
+    "slug": "kiehl-r-and-verdier-j-l",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Kobayashi, S. and Nomizu, K.",
+    "slug": "kobayashi-s-and-nomizu-k",
+    "count": 2
+  },
+  {
+    "volume": "II",
+    "author": "Kodaira, K.",
+    "slug": "kodaira-k",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Kodaira, K. and Morrow, J.",
+    "slug": "kodaira-k-and-morrow-j",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Kohn, J.J.",
+    "slug": "kohn-j-j",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Lang, S.",
+    "slug": "lang-s",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Malgrange, B.",
+    "slug": "malgrange-b",
+    "count": 2
+  },
+  {
+    "volume": "II",
+    "author": "Markoe, A.",
+    "slug": "markoe-a",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Narasimhan, M.",
+    "slug": "narasimhan-m",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Narasimhan, R.",
+    "slug": "narasimhan-r",
+    "count": 4
+  },
+  {
+    "volume": "II",
+    "author": "Norguet, F.",
+    "slug": "norguet-f",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Oka, K.",
+    "slug": "oka-k",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Okonek, C., Schneider, M. and Spindler, H.",
+    "slug": "okonek-c-schneider-m-and-spindler-h",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Pittie, H.",
+    "slug": "pittie-h",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Ramis, J.P. and Ruget, G.",
+    "slug": "ramis-j-p-and-ruget-g",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Ramis, J.P., Ruget, G. and Verdier, J.L.",
+    "slug": "ramis-j-p-ruget-g-and-verdier-j-l",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Remmert, R.",
+    "slug": "remmert-r",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Rossi, H.",
+    "slug": "rossi-h",
+    "count": 2
+  },
+  {
+    "volume": "II",
+    "author": "Rudin, W.",
+    "slug": "rudin-w",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Serre, J.P.",
+    "slug": "serre-j-p",
+    "count": 3
+  },
+  {
+    "volume": "II",
+    "author": "Simha, R.R.",
+    "slug": "simha-r-r",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Siu, Y-T.",
+    "slug": "siu-y-t",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Spanier, E.",
+    "slug": "spanier-e",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Swinnerton-Dyer, H.P.F.",
+    "slug": "swinnerton-dyer-h-p-f",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Tennison, B.R.",
+    "slug": "tennison-b-r",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Tyurin, A.N.",
+    "slug": "tyurin-a-n",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Ueno, K.",
+    "slug": "ueno-k",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Van der Ven, A.",
+    "slug": "van-der-ven-a",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Vesentini, E.",
+    "slug": "vesentini-e",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Warner, F.W.",
+    "slug": "warner-f-w",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Weil, A.",
+    "slug": "weil-a",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Wells, R.O.",
+    "slug": "wells-r-o",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Whitney, H.",
+    "slug": "whitney-h",
+    "count": 1
+  },
+  {
+    "volume": "II",
+    "author": "Zariski, O. and Samuel, P.",
+    "slug": "zariski-o-and-samuel-p",
+    "count": 1
+  }
+]

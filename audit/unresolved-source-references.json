@@ -1,0 +1,11 @@
+[
+  {
+    "file": "chapter06.tex",
+    "original": "Theorem 6.3.13",
+    "number": "6.3.13",
+    "existing_targets": [
+      "lemma:6.3.13"
+    ],
+    "context": "hcal G$ and $\\mathcal H$, fix an open cover $\\mathcal U$ of $X$ and take appropriate complexes of cochains over each term in the canonical resolutions as in the proof of Theorem 6.3.13. We obtain a 3-dimensional commutative diagram of sequences. It is then a straightforward diagram chase to verify that the definition of $\\widetilde\\delta:\\widetilde H^p"
+  }
+]

@@ -1,0 +1,24 @@
+% Figure 3. Keep the original domain path and the separate U and V.
+\begin{tikzpicture}[field/diagram, scale=1.14]
+    \def\OmegaBoundary{
+        (1.55,1.15)
+        .. controls (1.15,2.35) and (-0.1,2.2) .. (-0.8,2.15)
+        .. controls (-2.15,2.1) and (-2.65,0.55) .. (-2.45,-0.35)
+        .. controls (-2.3,-1.45) and (-1.2,-1.35) .. (-0.3,-1.5)
+        .. controls (1.2,-1.65) and (2.25,-1.6) .. (2.05,-0.2)
+        .. controls (1.95,0.75) and (0.95,1.15) .. (0.65,0.98)
+        .. controls (0.62,0.02) and (-0.75,-0.22) .. (-1.03,0.6)
+        .. controls (-1.3,1.25) and (-0.32,1.9) .. (0.35,1.43)
+        .. controls (0.9,1.02) and (1.15,0.99) .. (1.55,1.15)
+        -- cycle
+    }
+    \fill[FieldRegion, even odd rule] \OmegaBoundary;
+    \draw[field/boundary] \OmegaBoundary;
+    \draw[field/secondary] (1.06,1.22) ellipse (0.48 and 0.62);
+    \filldraw[fill=FieldEmphasis, field/boundary]
+        (1.08,1.4) circle (0.20);
+    \node[inner sep=0.5pt] at (1.08,1.4) {$U$};
+    \node (V) at (2.25,1.38) {$V$};
+    \draw[field/leader] (V.west) -- (1.53,1.32);
+    \node at (-1.4,-0.65) {$\Omega$};
+\end{tikzpicture}

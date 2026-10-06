@@ -1,0 +1,45 @@
+% Original book pages ix--x
+\begingroup
+% Local page-fit adjustment: retain all wording, mathematics, fonts and margins.
+% Only the unnumbered heading's top and bottom whitespace is reduced.
+\makeatletter
+\patchcmd{\@makeschapterhead}{\vspace*{50\p@}}{\vspace*{20\p@}}{}{
+    \PackageError{field-notations}{Cannot adjust heading top spacing}{Check the book class heading definition.}}
+\patchcmd{\@makeschapterhead}{\vskip 40\p@}{\vskip 16\p@}{}{
+    \PackageError{field-notations}{Cannot adjust heading bottom spacing}{Check the book class heading definition.}}
+\makeatother
+\setlength{\parskip}{0pt}
+\setlength{\abovedisplayskip}{6pt}
+\setlength{\belowdisplayskip}{6pt}
+\chapter*{Notations and Conventions}
+\markboth{\MakeUppercase{Notations and Conventions}}{\MakeUppercase{Notations and Conventions}}
+\addcontentsline{toc}{chapter}{Notations and Conventions}
+Throughout these notes $\mathbb R^n$ will always denote real $n$-space and $\mathbb C^n$ complex $n$-space. We shall often identify $\mathbb C^n$ and $\mathbb R^{2n}$ by letting $(z_1,\ldots,z_n)\in\mathbb C^n$ correspond to $(x_1,y_1,\ldots,x_n,y_n)\in\mathbb R^{2n}$, where $z_j=x_j+iy_j$, $1\leq j\leq n$. We let $\mathbb C^\bullet$ denote the multiplicative group of non-zero complex numbers. We let $\mathbb Z$, $\mathbb N$ denote the integers and positive integers respectively.
+
+If $E,F$ are finite dimensional vector spaces over the field $\mathbb K$, we let $L_{\mathbb K}(E,F)$ denote the $\mathbb K$-vector space of $\mathbb K$-linear maps from $E$ to $F$. We often drop the subscript $\mathbb K$ when it is implicit from the context. If $\mathbb K=\mathbb R$, we set $E'=L_{\mathbb R}(E,\mathbb R)$ and if $\mathbb K=\mathbb C$, we set $E^*=L_{\mathbb C}(E,\mathbb C)$. If $A\in L_{\mathbb R}(E,F)$, we let $A'\in L_{\mathbb R}(F',E')$ denote the transpose of $A$. We let $A^*$ denote the transpose of $A$ in case $A$ is $\mathbb C$-linear. We let $\operatorname{GL}(E)$ denote the group of linear isomorphisms of $E$. In case $E=\mathbb R^n$, we often use the notation $\operatorname{GL}(n,\mathbb R)$ for $\operatorname{GL}(\mathbb R^n)$. Similarly, we often write $\operatorname{GL}(n,\mathbb C)$ instead of $\operatorname{GL}(\mathbb C^n)$.
+
+A \emph{domain} will always refer to a connected open subset.
+
+If $\Omega$ is a domain in $\mathbb C^n$, $E$ is a finite dimensional vector space (over $\mathbb R$ or $\mathbb C$) and $f:\Omega\to E$ we say that $f$ is $C^r$ if it is $r$-times continuously differentiable. That is, we identify $\mathbb C^n$ with $\mathbb R^{2n}$ and require that all partial derivatives of $f$ of order less than or equal to $r$ exist and are continuous on $\Omega$. If $f$ is $C^r$ for all positive integers $r$, we say that $f$ is $C^\infty$ (or smooth). We let $C^r(\Omega,E)$ denote the space of all $E$-valued $C^r$ maps on $\Omega$. In case $E=\mathbb C$ we abbreviate to $C^r(\Omega)$ and if $E=\mathbb R$, we abbreviate to $C^r_{\mathbb R}(\Omega)$.
+
+If $f$ is a vector valued map we define the (closed) support of $f$, $\operatorname{supp}(f)$, to be the closure of the set of points where $f$ is non-zero. If $\operatorname{supp}(f)$ is compact we shall say that $f$ has compact support. We denote the set of $C^r$ $E$-valued maps on a domain $\Omega$ which have compact support by $C_c^r(\Omega,E)$.
+
+Suppose that $\Omega$ is a domain in $\mathbb C^n$ or $\mathbb R^n$ and $f\in C^r(\Omega,E)$, $r>0$. We use either of the notations $D^s f_x$, $D^s f(x)$ to denote the $s$th. derivative of $f$ at $x$. Thus, $D^s f_x$ will be an $s$-linear $E$-valued map (see also Dieudonn\'e \cite{bib:I:dieudonne-j:1} and Field \cite{bib:I:field-m-j:1}).
+
+Given $r>0$, $z\in\mathbb C$, we let $D_r(z)$, $\overline D_r(z)$ denote the open and closed discs, centre $z$, radius $r$ in $\mathbb C$ respectively. We let $D_r(z)^*$ denote the punctured disc $D_r(z)\setminus\{z\}$.
+
+For $z=(z_1,\ldots,z_n)\in\mathbb C^n$ we define
+\begin{align*}
+|z|&=\max_i|z_i|,\\
+\|z\|&=\left\{\sum_{i=1}^n|z_i|^2\right\}^{1/2},\quad\text{``Euclidean norm''}.
+\end{align*}
+For $r>0$, we let $D(z;r)$, $E(z;r)$ respectively denote the open discs, centre $z$, radius $r$ in $\mathbb C^n$ relative to norms $|\ |$, $\|\ \|$. Given $r_1,\ldots,r_n>0$, we let $D(z;r_1,\ldots,r_n)$ denote the open polydisc $\prod_{j=1}^nD_{r_j}(z_j)\subset\mathbb C^n$.
+
+If $f$ is a continuous $\mathbb C$- or $\mathbb R$-valued function defined on a neighbourhood of a compact set $K$, we define
+\[ \|f\|_K=\sup_{x\in K}|f(x)|. \]
+Other notations will be defined in the text. We remark here only that from Chapter 5, $C^p(M)$ will refer to the space of smooth differential $p$-forms on the differential manifold $M$ and that from Chapter 6, $\mathbb C$ may also refer to the constant sheaf of complex numbers.
+
+Finally, we remark that Hermitian forms are always complex linear in the \emph{first} variable.
+\clearpage
+\endgroup
+

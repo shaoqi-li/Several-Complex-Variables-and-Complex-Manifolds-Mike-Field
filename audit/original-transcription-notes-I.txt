@@ -1,0 +1,141 @@
+
+
+转写与校对说明
+
+正文保留英文原文。本文件列出已识别并保留的原书疑似误植，不代表完整数学勘误表。
+原书页码以正文所印页码为准。图形为可编辑示意重绘。
+实际 PDF 已通过独立 Tectonic 编译器编译，共 123 页；内置编译器仍有运行环境初始化问题。
+已修复超出版心及重复链接目标，原书文字、公式和编号内容保持不变。
+
+
+Chapter 1 — transcription notes (original printed pages 1–42)
+
+All five sections, the introduction, exercises, and the appendix were transcribed. Figure 1 is an editable schematic redrawing. Original page boundaries are recorded as LaTeX comments. No unreadable passages remain marked.
+
+Suspected original misprints/wording retained in the transcription, rather than silently amended:
+- p.4, Exercise 4 says “not identically zero”, rather than “non-constant”.
+- p.5, Schwarz' lemma prints |f(z)| <= z, without modulus around z.
+- p.14, Remark 1 prints log h_ij = b_j/b_i, with a quotient.
+- p.14–15, the stated comparison H^2(Omega,Z) with H_2(Omega,Z) is reproduced.
+- p.20, the displayed definition of psi uses phi on the right-hand side. The notation X* = X minus {0,infinity} is also retained.
+- p.21, p is described as projection on the second factor and as supplying roots in y; the associated orders are reproduced as printed.
+- p.22, the residue calculation omits a factor 2 pi i in its last equality.
+- p.23, Exercise 4(c) has no explicit exclusion of a constant map.
+- p.25 refers to Definition 1.4.4.
+- p.26–27 switches between n and m in the codomain dimension of bundle maps.
+- p.28 uses r in two symmetric-power fibre models, s elsewhere, and “pth.” for an exterior power.
+- p.29 calls the ordinary complex dual a “conjugate dual space”.
+- p.31 numbers the holomorphic tangent-bundle example “2.” between examples 7 and 9.
+- p.32 gives C-infinity(TM), rather than C-infinity(TM*), as the target of partial.
+- p.34, Proposition 1.5.5 prints theta_ij s_i = s_j; Lemma 1.5.6 prints s_ij in the first relation.
+- p.39, the signs in Theorem A1.6 and its differentiation calculation are inconsistent and are retained.
+- p.41, Runge's proof says “intersects Omega minus K”; Theorem A1.8 refers to A1.5, prints theta_n = 0, and begins a tail sum at N. These are retained.
+
+Ordinary OCR substitutions, broken words across line endings, and obvious typographical spelling noise were normalized. This is a transcription, not a revised mathematical edition.
+
+
+CHAPTER 2 TRANSCRIPTION NOTES
+
+Coverage: original printed pages 43–97 inclusive, corresponding to PDF pages 54–108. All 55 original page markers are present once, in ascending order. The full introduction, seven sections, 64 numbered statements, unnumbered concluding theorem/corollary, proofs, remarks, examples and exercises have been transcribed. The chapter ends with the exercise on the Euclidean disc E(r), as on printed page 97.
+
+Figures: Figures 2, 3, 4 and 5 and the unnumbered implication diagram on p.88 have been redrawn in editable TikZ. They are schematic reproductions, not identical facsimiles. Required packages: amsmath, amssymb, amsthm, tikz; TikZ libraries patterns and arrows.meta. No external figure files are needed.
+
+Validation: all begin/end environments nest correctly; grouping braces balance; inline dollar delimiters balance; all numbered statement sequences are complete (2.1.1–13, 2.2.1–6, 2.3.1–3, 2.4.1–10, 2.5.1–21, 2.6.1–8, 2.7.1–3). No genuinely unreadable text remains, so there are no \unclear markers. Chapter 2 was not compiled separately; root handles the combined document and reported an environment-level native compiler error before TeX parsing.
+
+Notation: mathematical glyphs recovered from scans are represented by standard LaTeX. In particular, conjugation in the derivative fractions on pp.44, 77 and 83 was checked against enlarged PDF crops and typeset as conjugation of the whole derivative. Paragraph line breaks and hyphenation caused by the original page layout have been normalised. Ordinary obvious spelling/OCR defects have been normalised where unambiguous. Bibliographical references remain the book's literal author/[number] references; no bibliography has been invented.
+
+VISIBLE SOURCE SLIPS RETAINED FOR FIDELITY
+This is a transcription, not a mathematically corrected edition. The following are noteworthy visible source inconsistencies or likely misprints, retained in the chapter. This is not a complete mathematical errata list.
+
+- p.44, Proposition 2.1.1: the z/w differentiation variables in the displayed chain rule do not match the subsequent sentence assigning coordinates to the source and target. Conjugation itself has been recovered correctly from the scan.
+- p.45: the distinguished-boundary product has lower index i but summand partial D_j; the Euclidean disc is denoted E(z;r) while its specified centre is a.
+- p.48: the termwise integral in the proof of Theorem 2.1.5 is printed over partial_0 D rather than partial_0 D'.
+- p.49: the Laurent-series summation is printed with |m| running from minus infinity to plus infinity.
+- p.50: the proof of Theorem 2.1.13 cites Theorem 2.1.1, apparently meaning the immediately preceding maximum-principle argument. The scan omits a symbol after 'through'; zeta was supplied from the immediately preceding statement to make the sentence intelligible.
+- p.53, Exercise 1: A cap U is printed although the preceding neighbourhood is denoted D(z;r).
+- p.55, Example 4: the sentence first uses gf, then fg, for the same composite.
+- p.58, Corollary 2.3.3: no nonempty-zero-set hypothesis is printed.
+- p.59, Example 5: the displayed boundary-of-product formula omits closures on the other factors.
+- p.61: example numbers restart at 7 although the preceding page already contained Example 7.
+- p.68: Proposition 2.4.9's proof cites Corollary 2.1.8 for the Cauchy inequalities (numbered 2.1.7 earlier).
+- p.73: the formula following (*) retains the printed x_1^2/2 factor in the expression for x_1 times tilde-phi_11; it does not agree algebraically with the preceding quotient.
+- p.76: L^u cap graph(psi^u) is printed as nonempty. The proof of Proposition 2.5.5 uses (x,u) and then v in the definition of K and takes M as the supremum of H(theta), with the sign/absolute-value conventions as printed.
+- p.79, Lemma 2.5.11: 'a defining function phi for such that' omits Omega after 'for'.
+- p.80, Proposition 2.5.12: U_j are said to be subsets of R^n although the setting is C^n; tilde-phi is called C_c^infinity despite the phi_j only being C^2.
+- p.81: the coefficients in the Taylor expansion and the embedding phi_t are preserved as printed (without introducing missing half factors).
+- pp.84–85: signs in the displayed Levi-form inequalities, L(d) versus L(-d), the capital O remainder, and the missing absolute-value bars in the first triangle-inequality exponential are preserved as printed.
+- p.85, Definition 2.5.16: the last symbol is visibly a partial-derivative glyph ('positive definite on partial'), rather than Omega. This was confirmed with an enlarged PDF crop and retained. The following remark says 'then h is psh' rather than 'then phi h is psh'. The distributional condition does not print a nonnegativity condition on its test function u.
+- p.86: Theorem 2.5.20's proof prints '1 = 1,...,k(n)' and the lower summation index n=1 in estimate A; both were confirmed in enlarged scan and retained.
+- p.87: the displayed vanishing derivative sum is over i,k as printed.
+- p.88, Exercise 1: the cited lemma number and 'not differentiable at any point of C^n' are retained literally.
+- p.89, Proposition 2.6.1: convergence on compact subsets of partial Omega is printed, rather than Omega.
+- p.90: constants C_0, C_1 and the extra powers in the displayed Cauchy–Schwarz estimate are retained as printed.
+- p.91: the polydisc Bergman-kernel denominator is printed r_j - z_j bar-zeta_j, rather than r_j^2 - z_j bar-zeta_j; enlarged scan confirms this.
+- p.92: the two remarks are numbered 1 and 3 in the source.
+- p.94: Cousin's problem B asks for f_i in A(U_i), without an asterisk; retained.
+- p.95, Definition 2.7.2: the initial functions f_i are printed as belonging to A^*(U_i); retained.
+- p.96: the second formulas defining f_1 and f_2 have no preceding minus signs; enlarged scan confirms this. The subsequent assertion G(0,z_2)=1/z_2 is printed with a positive sign although G was defined with a subtraction. All are preserved.
+
+Scope note: statements deferring proofs to Chapters 5–12 and references to those chapters are part of the source and have been retained; material from those later chapters has not been added.
+
+
+Transcription notes for Chapter 3
+- Page 99: source reads "set of equivalence classes of O_a" (circular wording); retained.
+- Page 103: source's final inequality has division by (p+1), although multiplication is mathematically expected; retained as printed.
+- Page 106, Definition 3.3.1(1): source says "one or other of f and g" (rather than g and h); retained.
+- Page 107 product has index i but factor P_j, retained.
+- Page 108, Lemma 3.3.5 proof mixes m, p, k in its indices; retained as printed.
+- Page 110, proof uses O'_0 at a general zeta; retained source notation.
+- Page 112–113, Lemma 3.4.6 proof constructs u with f'=uf although statement A has f=uf'; retained.
+- Page 114 refers to Lemma 3.4.2 (apparently 3.4.3 intended); retained.
+- Page 116 p(z,z_n) appears without prime on first z in printed display; retained.
+- Page 117 uses j <= n in the roots discussion although p is expected; retained.
+- Pages 117–118 Example 2 states u^(2p)-vw and map (ts,t^p,s^p) as printed; source mathematically inconsistent, retained. Source discriminant-locus and punctured-neighbourhood assertions also retained.
+- Page 120 Proposition 3.5.7 proof says f in Z(a_1,...,a_p); retained printed typo.
+- Page 121 Proof of 4 writes Z_a in first containment, not X_a; retained.
+- Figure 6 recreated as editable standard LaTeX picture drawing, preserving labels and schematic geometry.
+- Page 123 Corollary 3.5.14 references Theorem 3.15.3; source retained. Corollary 3.5.15 first factor printed p_s^(r_1), retained.
+- Page 124 proof calls discriminant locus subset of D rather than D'; retained.
+- Page 125 Exercise 2(ii) prints a <= j and omits the subject before "lifts"; retained.
+- Page 127 single lowercase u in Ker(u) retained.
+- Page 128 final display uses sum over i but factor a_ij U_j, and generator symbol U reused; retained as printed.
+- Page 129 source switches notation A^B to A_B and uses A^B once mid-paragraph; retained.
+- Pages 130–132 source's splitting proof contains dimensional/index inconsistencies, including z_n^i in xi_j, sum index i with U_j, exponents p-1 instead of q, and m-pi(m); faithfully retained rather than silently rewriting proof.
+- Page 132 Theorem 3.6.3 proof display sums h_ij f_i over j; retained.
+- Page 133 Exercise 2 references Theorem 3.5.2 (rather than 3.6.2); retained.
+No unreadable passages remain in this chapter. Apparent original typographical errors listed above are not OCR uncertainties.
+
+
+Chapter 4 transcription notes
+
+Coverage: all original printed pages 134–186 inclusive (53 pages). Introduction, all seven sections, all 39 labelled definitions/theorems/propositions/corollaries/lemmas, all proofs/remarks/examples, and all six exercise groups are transcribed. Every original page has a provenance comment. Figures 7–13 have been redrawn with editable LaTeX picture/qbezier commands. Their schematic geometry and labels are retained; these are not facsimile reproductions of the hand-drawn originals.
+
+Verification: every page scan was visually consulted. Source-page coverage, balanced braces, balanced mathematical dollar delimiters, and properly nested LaTeX environments passed an automated structural check. The chapter body uses book/amsmath/amssymb/amsthm commands and no external graphic files. No compiler was run by this agent; the parent handles compilation. There are no unresolved unreadable passages and no \unclear markers.
+
+Editorial treatment: obvious OCR artifacts, spelling slips, word spacing, and line-end hyphenation were normalized. Mathematical notation has been transcribed as printed, including apparent source mistakes; this is a transcription rather than a mathematically corrected edition. Some notable original issues, retained for source fidelity, follow. This list is not a claim to be a complete mathematical errata list.
+
+138: In the Poincare inequivalence proof, the source uses u as the variable of the one-variable Schwarz-lemma functions; part 2 uses f_j and Df although the paragraph starts with g. These inconsistencies are retained.
+140: The type-IV domain is printed as |sum z_i^2| > sqrt(2 sum |z_i|^2 - 1), without the other restriction normally needed for the bounded component. Retained.
+141: The map from the Siegel half-space to the ball has z_j sqrt(2)/(t+i) in the original. Retained.
+143–144: The construction of the proper embedding includes the printed factor ((n-1)/n)b_n z and sum beginning j=1 although the preceding induction begins at n>1. The displayed estimates are printed with sup norms, not pointwise lower bounds. Retained.
+147: The polynomial criterion for a smooth projective hypersurface is written “if (and only if)” without a reduced-polynomial hypothesis. Retained.
+149: The upper-right block B is called a k by n matrix although its position requires k by (n-k). Retained.
+150: The flag-manifold dimension sum ends at k-1 in the original. Retained.
+152: The affine formula is printed F(z)=Ax+b. Retained.
+155: The lifted function is inconsistently denoted by m or tilde m, and the proof prints tilde m=pi m although earlier the composition is m pi. Retained.
+157: The original defines G_j=sum' omega^(-2j), then uses G_(2j+2) and later g_2=60G_4, g_3=140G_6; these conventions are inconsistent. The displayed Laurent expansion of wp also visibly lacks the plus sign between z^(-2) and the sum. Both are transcribed as visible in the scan.
+158: The proof prints wp(omega_1+omega_2/2), without parentheses around omega_1+omega_2. Retained.
+162: The source calls the endomorphisms “continuous homomorphisms” in the complex-multiplication exercise. The wp symbols in the addition formula are poorly reproduced in the scan but have been restored from the formula's immediately preceding context.
+163: The chart in the quotient-manifold proof is printed with phi^(-1)(pi|U)^(-1), rather than phi(pi|U)^(-1). Retained.
+164: The first printed definition of g_t has (az_0+z,az_1); a few lines later the family is written (az_0+tz_1,az_1). The total space is printed (C^2 times {0}) times D/Gamma rather than a punctured product. Both first expressions are retained as printed.
+166: The quotient in the exotic-structure example is printed with a backslash before Gamma. Retained.
+167: The Iwasawa exercise states a linear matrix group acts freely on C^3, without specifying the usual affine/group action. Retained.
+168: The proof of Theorem 4.6.4 prints I_y(V)=(g_y); the surrounding argument concerns I_y(X). Retained.
+169: The pulled-back hypersurfaces phi^(-1)(Z_j) are said to be “in D”; the target should naturally be U. Retained.
+171–172: Theorem 4.6.8 and Definition 4.6.8 share the same number in the source. Both labels are retained.
+179: The last clause of Lemma 4.7.1 states the extension map in the direction U to Sigma although the ensuing construction uses the reverse direction. Retained.
+182: In the displayed zero locus defining tilde Z_2, the source prints two minus signs; the following equation uses the mathematically expected difference on its right-hand side. Retained.
+183: The normal-crossing discussion prints I_x(Y)=(p_1,...,p_k), i.e. an ideal generated by the local component equations, instead of their product. Retained.
+184: The embedded-resolution paragraph writes tilde X=pi^(-1)(X), whereas the intended smooth object is the strict transform. Retained.
+
+The source includes historical assertions and terminology. They have not been updated to modern results.

@@ -1,0 +1,19 @@
+{
+  "changed_existing_files": [
+    "backmatter/series-catalogue.tex",
+    "frontmatter/title.tex",
+    "main.tex"
+  ],
+  "removed_files": [
+    "frontmatter/editorial-note.tex"
+  ],
+  "new_files": [
+    "frontmatter/title-I.tex",
+    "frontmatter/title-II.tex"
+  ],
+  "all_chapter_sources_identical": true,
+  "all_figure_and_diagram_sources_identical": true,
+  "all_styles_identical": true,
+  "all_bibliography_sources_identical": true,
+  "unchanged_file_count": 94
+}

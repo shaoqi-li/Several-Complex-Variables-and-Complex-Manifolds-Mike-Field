@@ -1,0 +1,61 @@
+% Common grayscale style for the editable diagrams.
+% Change only these color definitions to adjust all region fills.
+\definecolor{FieldPaper}{gray}{0.96}
+\definecolor{FieldRegion}{gray}{0.87}
+\definecolor{FieldEmphasis}{gray}{0.76}
+\definecolor{FieldInk}{gray}{0.12}
+\definecolor{FieldSecondary}{gray}{0.42}
+\definecolor{FieldGuide}{gray}{0.62}
+
+\tikzset{
+    field/diagram/.style={
+        font=\small,
+        draw=FieldInk,
+        text=FieldInk,
+        line width=0.65pt,
+        line cap=round,
+        line join=round,
+        >=Stealth,
+        every node/.style={inner sep=2.2pt, outer sep=1pt}
+    },
+    field/boundary/.style={draw=FieldInk, line width=0.7pt},
+    field/curve/.style={draw=FieldInk, line width=0.95pt},
+    field/secondary/.style={draw=FieldSecondary, line width=0.65pt},
+    field/axis/.style={
+        draw=FieldSecondary, line width=0.5pt,
+        -{Stealth[length=1.8mm, width=1.25mm]}
+    },
+    field/guide/.style={draw=FieldGuide, line width=0.4pt},
+    field/hidden/.style={
+        draw=FieldSecondary, line width=0.5pt,
+        dash pattern=on 2.4pt off 2pt
+    },
+    field/map/.style={
+        draw=FieldInk, line width=0.7pt,
+        -{Stealth[length=2.1mm, width=1.5mm]}
+    },
+    field/leader/.style={
+        draw=FieldSecondary, line width=0.45pt,
+        -{Stealth[length=1.45mm, width=1.0mm]}
+    },
+    field/dimension/.style={
+        draw=FieldSecondary, line width=0.45pt,
+        {Stealth[length=1.4mm, width=1mm]}-{Stealth[length=1.4mm, width=1mm]}
+    },
+    field/label/.style={fill=white, inner sep=2pt, outer sep=1pt},
+    field/point/.style={circle, fill=FieldInk, draw=none, inner sep=1.35pt},
+    field/concept/.style={
+        align=center, text width=2.85cm, minimum height=1.12cm,
+        fill=FieldPaper, draw=FieldGuide, line width=0.5pt,
+        rounded corners=2pt, inner sep=5pt
+    },
+    field/implies/.style={
+        draw=FieldSecondary, line width=0.4pt, double=white,
+        double distance=1.4pt, -{Implies[length=2.2mm, width=2.7mm]}
+    },
+    field/equivalent/.style={
+        draw=FieldSecondary, line width=0.4pt, double=white,
+        double distance=1.4pt,
+        {Implies[length=2.2mm, width=2.7mm]}-{Implies[length=2.2mm, width=2.7mm]}
+    }
+}

@@ -1,0 +1,39 @@
+% Figure 6. All branches and the three marked discriminant points are retained.
+\begin{tikzpicture}[field/diagram, x=0.025cm, y=0.020cm]
+    \fill[FieldPaper] (10,120) rectangle (235,300);
+    \draw[field/secondary] (10,120) rectangle (235,300);
+    \node[right] at (243,285) {$D$};
+    \draw[field/secondary]
+        (10,257) .. controls (45.33,238.33) and (82.67,222.67) .. (122,210)
+        .. controls (154,182) and (191.67,152) .. (235,120);
+    \draw[field/curve]
+        (10,160) .. controls (55.33,165.33) and (92.67,182) .. (122,210)
+        .. controls (136,236) and (151.33,237.67) .. (168,215)
+        .. controls (186,193.67) and (208.33,171.33) .. (235,148);
+    \draw[field/secondary]
+        (10,167) .. controls (34.67,174.33) and (55.67,185.33) .. (73,200)
+        .. controls (84.33,217.33) and (100.67,220.67) .. (122,210)
+        .. controls (158.67,187.33) and (196.33,161.67) .. (235,133);
+    \draw[field/curve]
+        (10,188) .. controls (44,198.67) and (81.33,206) .. (122,210)
+        .. controls (156.67,217.33) and (194.33,217) .. (235,209);
+    \foreach \x/\y in {73/200,122/210,168/215} {
+        \node[field/point] at (\x,\y) {};
+    }
+    \node[above, inner sep=4pt] at (122,211) {$0$};
+    \node (Z) at (67,144) {$Z(p)$};
+    \draw[field/leader] (Z.north west) -- (55,177);
+    \draw[field/leader] (Z.north east) -- (161,177);
+    \draw[field/map] (122,105) -- (122,72)
+        node[midway, right, inner sep=5pt] {$\pi$};
+    \draw[field/secondary] (10,55) -- (235,55)
+        node[right, xshift=4pt] {$D'$};
+    \foreach \x in {73,122,168} {
+        \node[field/point] at (\x,55) {};
+    }
+    \node[above right, inner sep=3pt] at (122,55) {$0$};
+    \node (Sigma) at (122,-4) {$\Sigma$};
+    \draw[field/leader] (Sigma.north west) -- (75,50);
+    \draw[field/leader] (Sigma.north) -- (122,50);
+    \draw[field/leader] (Sigma.north east) -- (166,50);
+\end{tikzpicture}

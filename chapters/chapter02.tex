@@ -1,0 +1,954 @@
+% !TeX root = ../main.tex
+% Original book page 43
+\chapter{Functions of Several Complex Variables}\label{ch:2}
+\ChapterTwoIntroduction
+
+\section{Elementary theory of analytic functions of several complex variables}\label{sec:2:1}
+In this section we shall make a preliminary study of analytic functions of more than one complex variable. Our development will follow that of \hyperref[sec:1:1]{\S1 of Chapter 1} rather closely.
+
+For $j=1,\ldots,n$, we define the differential operators
+\[
+\partial/\partial z_j=\tfrac12(\partial/\partial x_j-i\partial/\partial y_j),\qquad
+\partial/\partial\bar z_j=\tfrac12(\partial/\partial x_j+i\partial/\partial y_j).
+\]
+Just as in \hyperref[sec:1:4]{\S4 of Chapter 1} we have a composite mapping formula\IndexMark{idx-124}{composite mapping formula@Composite mapping formula} for these operators.
+
+\FieldHeading{Proposition}{2.1.1}{ (Composite mapping formula)}\FieldTarget{proposition:2.1.1}{2.1.1} Let $U\subset\mathbb C^m$, $V\subset\mathbb C^n$ be open and $g\in C^1(U,\mathbb C^n)$, $f\in C^1(V)$. Suppose $g(U)\subset V$. Then
+% Original book page 44
+\begin{align*}
+\partial(fg)/\partial z_j&=\sum_{i=1}^n\left(\frac{\partial f}{\partial z_i}\frac{\partial g_i}{\partial w_j}+\frac{\partial f}{\partial\bar z_i}\overline{\frac{\partial g_i}{\partial\bar w_j}}\right),\\
+\partial(fg)/\partial\bar z_j&=\sum_{i=1}^n\left(\frac{\partial f}{\partial z_i}\frac{\partial g_i}{\partial\bar w_j}+\frac{\partial f}{\partial\bar z_i}\overline{\frac{\partial g_i}{\partial w_j}}\right),
+\end{align*}
+where we denote coordinates on $\mathbb C^m$, $\mathbb C^n$ by $(z_1,\ldots,z_m)$, $(w_1,\ldots,w_n)$ respectively.
+\begin{proof}
+As in \hyperref[sec:1:5]{\S5 of Chapter 1}, we take real and imaginary parts and apply the usual composite mapping formula. We omit the tedious but elementary computations.
+\end{proof}
+
+For the remainder of this section $\Omega$ will always denote a domain in $\mathbb C^n$.
+
+\FieldHeading{Definition}{2.1.2}{}\FieldTarget{definition:2.1.2}{2.1.2}\IndexMark{idx-016}{analytic function@Analytic function!of several variables@of several variables} Let $f\in C^1(\Omega)$. We say that $f$ is \emph{analytic} or \emph{holomorphic} on $\Omega$ if $f$ is analytic in each variable separately. That is, if $f$ satisfies the following system of first order partial differential equations:
+\[\partial f/\partial\bar z_j=0,\quad 1\leq j\leq n.\]
+\paragraph*{Remarks.}
+\begin{enumerate}
+\item Let $f\in C^1(\Omega)$. The derivative of $f$ at $z\in\Omega$, $Df(z):\mathbb C^n\to\mathbb C$, is an $\mathbb R$-linear map. It is easy to verify that $f$ is analytic on $\Omega$ iff $Df(z)$ is $\mathbb C$-linear for all $z\in\Omega$. If $f$ is analytic then the matrix\IndexMark{idx-170}{derivative of analytic map@Derivative of analytic map} of $Df(z)$, relative to the standard basis of $\mathbb C^n$, is $[\partial f/\partial z_1,\ldots,\partial f/\partial z_n]$.
+\item If $f=(f_1,\ldots,f_m)\in C^1(\Omega,\mathbb C^m)$, we say that $f$ is analytic if each $f_i$ is analytic. It follows from the previous remark that $Df(z):\mathbb C^n\to\mathbb C^m$ is $\mathbb C$-linear with matrix $[\partial f_i/\partial z_j]$.
+\item A consequence of Proposition~\ref{proposition:2.1.1} is that the composite of analytic maps is analytic.
+\item Since the inverse of a $\mathbb C$-linear map is $\mathbb C$-linear, a holomorphic diffeomorphism is necessarily biholomorphic. For the same reason, the inverse function theorem\IndexMark{idx-330}{inverse function theorem@Inverse function theorem}, implicit function theorem and rank theorem all hold for analytic mappings (see Dieudonn\'e \cite{bib:I:dieudonne-j:1} or Field \cite{bib:I:field-m-j:1}).
+\end{enumerate}
+% Original book page 45
+\paragraph*{Notation.} We denote the set of analytic functions on $\Omega$ by $A(\Omega)$.
+
+As in the 1-variable theory, the main technical tool used in developing the elementary theory of analytic functions of several complex variables is an integral representation formula. First, however, some notational conventions.
+
+Given $a=(a_1,\ldots,a_n)\in\mathbb C^n$ and $r_1,\ldots,r_n>0$, we set
+\begin{align*}
+D(a;r_1,\ldots,r_n)&=\prod_{i=1}^n D_{r_i}(a_i)\\
+&=\{z\in\mathbb C^n:|z_j-a_j|<r_j\}.
+\end{align*}
+We call $D(a;r_1,\ldots,r_n)$ an open \emph{polydisc}\IndexMark{idx-450}{polydisc@Polydisc} with centre $a$. We may similarly define closed polydiscs. In case $r_1=\cdots=r_n=r$, we set $D(a;r_1,\ldots,r_n)=D(a;r)$ and call $D(a;r)$ the open polydisc of radius $r$, centre $a$. Note that $D(a;r)$ is just the open disc, radius $r$, centre $a$ relative to the norm $|z|=\max_i|z_i|$ on $\mathbb C^n$.
+
+Suppose $D=\prod_{i=1}^n D_i$ is a polydisc in $\mathbb C^n$. Thus each $D_i$ will be a disc in $\mathbb C$. We let $\partial D_j$ denote the boundary of $D_j$ and define
+\[\partial_0D=\prod_{i=1}^n\partial D_j.\]
+We call $\partial_0D$ the \emph{distinguished boundary}\IndexMark{idx-176}{distinguished boundary@Distinguished boundary} of $D$. We remark that $\partial_0D$ is a proper subset of $\partial D$ and is homeomorphic to a real $n$-dimensional torus.
+
+Given $a=(a_1,\ldots,a_n)\in\mathbb C^n$ and $r>0$, we set
+\[E(z;r)=\{z\in\mathbb C^n:\sum_{i=1}^n|z_i-a_i|^2<r^2\}.\]
+We call $E(z;r)$ the open \emph{Euclidean disc}\IndexMark{idx-233}{euclidean disc@Euclidean disc}, centre $a$, radius $r$. In case $z=0$, we often abbreviate $E(z;r)$ to $E(r)$.
+
+Both polydiscs and Euclidean discs will play an important role in the sequel.
+
+Next we briefly review some multi-index notation\IndexMark{idx-405}{multi index notation@Multi-index notation}. If $\mathbb N$ denotes the positive integers, including zero, and $n$ is a strictly positive
+% Original book page 46
+integer, $m\in\mathbb N^n$ is to be thought of as an $n$-tuple $(m_1,\ldots,m_n)$ of positive integers. Then $m!$ is shorthand for $m_1!\cdots m_n!$; $|m|$ for $|m_1+\cdots+m_n|$; $\partial^m$ for $\partial^{m_1}/\partial z_1^{m_1}\cdots\partial^{m_n}/\partial z_n^{m_n}$; $r^m$ for $r_1^{m_1}\cdots r_n^{m_n}$; $z^m$ for $z_1^{m_1}\cdots z_n^{m_n}$; $f_m(z)$ for $f_{m_1\cdots m_n}(z)$.
+
+\FieldHeading{Theorem}{2.1.3}{ (Cauchy's integral formula for polydiscs).}\IndexMark{idx-071}{cauchy s integral formula@Cauchy's integral formula!for polydiscs@for polydiscs}\FieldTarget{theorem:2.1.3}{2.1.3} Let $D$ be an open polydisc in $\mathbb C^n$ with centre $a$ and suppose $f\in C^0(\bar D)$ is analytic on $D$. Then for all $z=(z_1,\ldots,z_n)\in D$, we have
+\[f(z)=(2\pi i)^{-n}\int_{\partial_0D}f(\zeta_1,\ldots,\zeta_n)\prod_{i=1}^n(\zeta_i-z_i)^{-1}\,d\zeta_1\cdots d\zeta_n.\]
+In particular, $f$ is $C^\infty$ and
+\[\partial^m f(a)=(2\pi i)^{-n}m!\int_{\partial_0D}f(\zeta_1,\ldots,\zeta_n)\prod_{i=1}^n(\zeta_i-a_i)^{-m_i-1}\,d\zeta_1\cdots d\zeta_n.\]
+\begin{proof}
+Repeated application of the Cauchy formula in 1-variable (Corollary~\ref{corollary:A1.3}) gives
+\[f(z)=(2\pi i)^{-n}\int_{\partial D_1}\frac{d\zeta_1}{\zeta_1-z_1}\cdots\int_{\partial D_n}\frac{d\zeta_n}{\zeta_n-z_n}f(\zeta_1,\ldots,\zeta_n),\quad z\in D.\]
+For fixed $z$, the integrand is continuous on a compact domain of integration and so the integral formula follows from Fubini's theorem. The remaining statements are immediate by differentiation under the integral sign.
+\end{proof}
+\FieldHeading{Corollary}{2.1.4}{}\FieldTarget{corollary:2.1.4}{2.1.4} Every analytic function on an open subset of $\mathbb C^n$ is $C^\infty$.
+\begin{proof}
+Immediate from Theorem~\ref{theorem:2.1.3} since infinite differentiability is a local property.
+\end{proof}
+\paragraph*{Remarks.}
+\begin{enumerate}
+\item The proof of Theorem~\ref{theorem:2.1.3} only uses the analyticity of $f$ in each variable \emph{separately} together with the continuity of $f$ on $\bar D$. This observation, together with Corollary~\ref{corollary:2.1.4}, proves Osgood's Lemma: If $f\in C^0(\Omega)$ and is separately analytic on $\Omega$ then $f$ is analytic on $\Omega$. Much less trivial is the amazing theorem of Hartogs\IndexMark{idx-284}{hartogs theorem@Hartogs theorem!separate analyticity@separate analyticity} which states that if $f$ is
+% Original book page 47
+separately analytic, with \emph{no} assumption of continuity on $f$, then $f$ is analytic. This result is definitely false for real analytic functions as the simple example $f(x,y)=xy/(x^2+y^2)$, $(x,y)\neq(0,0)$; $f(0,0)=0$ shows. For proofs of Hartogs theorem we refer the reader to H\"ormander \cite{bib:I:hormander-l:1} or R. Narasimhan \cite{bib:I:narasimhan-r:2}.
+\item The reader should note that we only integrate over the proper subset $\partial_0D$ of $\partial D$ in Cauchy's integral formula. Another, related, way of seeing the significance of $\partial_0D$ is to observe that $f$ must always take its maximum on $\partial_0D$. Indeed, this is a simple consequence of the maximum principle for analytic functions of one variable ($\partial_0D$ is actually the \emph{\v Silov boundary} of $D$. For general facts about \v Silov boundaries see Fuks \cite{bib:I:fuks-b-a:1} or Gamelin \cite{bib:I:gamelin-t-w:1}).
+\item Although we shall not need them in the sequel, we wish to point out that there are several other integral representation formulae for analytic functions of more than one variable that are of considerable importance in some applications. We mention in particular the Bochner--Martinelli, Bergmann--Cauchy--Weil and Cauchy--Fantappi\'e integral formulae. For the first two formulae we refer to Fuks \cite{bib:I:fuks-b-a:2} or Vladimirov \cite{bib:I:vladimirov-v-s:1} and for the third to Leray \cite{bib:I:leray-j:1} or Aizenberg \cite{bib:I:aizenberg-l-a:1}. For the relations between these formulae and Cauchy's integral formula we refer to Harvey \cite{bib:I:harvey-f-r:1}.
+\end{enumerate}
+\FieldHeading{Theorem}{2.1.5}{}\FieldTarget{theorem:2.1.5}{2.1.5}\IndexMark{idx-453}{power series@Power series!in several variables@in several variables} Let $f\in A(\Omega)$ and $D\subset\Omega$ be a polydisc, centre $a$. Then
+\[f(z)=\sum_m a_m(z-a)^m,\quad z\in D,\]
+where convergence is uniform on compact subsets of $D$ and the coefficients $a_m$ are given by $m!a_m=\partial^m f(a)$, $m\in\mathbb N^n$.
+\begin{proof}
+Let $D'\subset D$ be any open polydisc, centre $a$, such that $\bar D'\subset\Omega$ (that is, $D'$ is relatively compact in $\Omega$). By Theorem~\ref{theorem:2.1.3}, we have
+\[f(z)=(2\pi i)^{-n}\int_{\partial_0D'}f(\zeta_1,\ldots,\zeta_n)\prod_{i=1}^n(\zeta_i-z_i)^{-1}\,d\zeta_1\cdots d\zeta_n,\quad z\in D'.\]
+Now if $z\in D'$, $\zeta\in\partial_0D'$ we have
+\[\prod_{i=1}^n(\zeta_i-z_i)^{-1}=\sum_m\frac{(z-a)^m}{(\zeta-a)^m}(\zeta-a)^{-1},\]
+% Original book page 48
+where $(\zeta-a)^{-1}$ is shorthand for $(\zeta_1-a_1)^{-1}\cdots(\zeta_n-a_n)^{-1}$. The convergence of the sum on the right is uniform on compact subsets of $D'$. Multiply by $f(\zeta_1,\ldots,\zeta_n)$ and integrate term by term to obtain
+\begin{align*}
+f(z)&=(2\pi i)^{-n}\sum_m(z-a)^m\int_{\partial_0D}\frac{f(\zeta_1,\ldots,\zeta_n)}{(\zeta-a)^m}(\zeta-a)^{-1}\,d\zeta_1\cdots d\zeta_n\\
+&=\sum_m a_m(z-a)^m.
+\end{align*}
+Differentiation of the power series and evaluation at $a$ give the formulae for $a_m$.
+\end{proof}
+The proofs of the next four results parallel those of their one variable counterparts and we omit them.
+
+\FieldHeading{Corollary}{2.1.6}{}\FieldTarget{corollary:2.1.6}{2.1.6} If $f\in A(\Omega)$, then $\partial^m f\in A(\Omega)$ for all $m\in\mathbb N^n$.
+\FieldHeading{Corollary}{2.1.7}{ (Cauchy's inequalities).}\IndexMark{idx-067}{cauchy s inequalities@Cauchy's inequalities}\FieldTarget{corollary:2.1.7}{2.1.7} If $f$ is analytic on the polydisc $D=D(a;r_1,\ldots,r_n)$ and $|f|\leq M$ on $D$, then
+\[|\partial^m f(a)|\leq Mm!r^{-m},\quad m\in\mathbb N^n.\]
+\FieldHeading{Corollary}{2.1.8}{}\FieldTarget{corollary:2.1.8}{2.1.8} Let $u_n$, $n\geq1$, be a sequence of analytic functions on $\Omega$ which converges uniformly on compact subsets of $\Omega$ to a function $u$. Then $u\in A(\Omega)$.
+\FieldHeading{Corollary}{2.1.9}{ (Montel's theorem).}\IndexMark{idx-403}{montel s theorem@Montel's theorem}\FieldTarget{corollary:2.1.9}{2.1.9} Let $u_n$, $n\geq1$, be a sequence in $A(\Omega)$ which is uniformly bounded on every compact subset of $\Omega$. Then there is a subsequence of the $u_n$ which converges uniformly on compact subsets of $\Omega$ to a limit $u\in A(\Omega)$.
+\paragraph*{Examples.}
+\begin{enumerate}
+\item Let $P(z)=\sum a_mz^m$, where the $a_m\in\mathbb C$ and only finitely many are non-zero. Then $P$ is analytic on $\mathbb C^n$ and is called a \emph{polynomial} (in $n$-variables).
+\item Let $f,g\in A(\Omega)$ and suppose $g$ is not identically zero and has zero set $Z(g)$. Then $f/g$ defines an analytic function on $\Omega\setminus Z(g)$.
+\item If $f\in A(\mathbb C^n)$, we call $f$ an \emph{entire} analytic function. Every polynomial is entire. So also are the Laplace transforms of functions
+% Original book page 49
+(or distributions) with compact support (see, for example, H\"ormander \cite{bib:I:hormander-l:2} or Vladimirov \cite{bib:I:vladimirov-v-s:2}).
+\end{enumerate}
+\FieldHeading{Theorem}{2.1.10}{ (Laurent series).}\IndexMark{idx-354}{laurent series@Laurent series!in several variables@in several variables}\FieldTarget{theorem:2.1.10}{2.1.10} Suppose $f$ is analytic in the annular region $A=\{z\in\mathbb C^n:r_j<|z_j|<R_j,\ j=1,\ldots,n\}$. Then
+\[f(z)=\sum_{|m|=-\infty}^{+\infty}a_mz^m,\quad z\in A,\]
+where the $a_m$ are determined uniquely by $f$ and $A$ and convergence is uniform on compact subsets of $A$.
+\begin{proof}
+Exactly as for the 1-variable case using Cauchy's integral formula. Uniqueness of the coefficients $a_m$ follows by induction on $n$.
+\end{proof}
+\FieldHeading{Proposition}{2.1.11}{ (Uniqueness of analytic continuation).}\IndexMark{idx-010}{analytic continuation@Analytic continuation}\IndexMark{idx-629}{uniqueness of analytic continuation@Uniqueness of analytic continuation}\FieldTarget{proposition:2.1.11}{2.1.11} Let $U,V$ be connected open subsets of $\mathbb C^n$ and suppose $U\cap V\neq\varnothing$. If $f\in A(U)$ and $h$ is an analytic extension of $f$ to $U\cup V$ then $h$ is unique.
+\begin{proof}
+Exactly as for Proposition~\ref{proposition:1.1.6}.
+\end{proof}
+\FieldHeading{Theorem}{2.1.12}{ (Maximum Principle).}\IndexMark{idx-385}{maximum principle@Maximum principle}\FieldTarget{theorem:2.1.12}{2.1.12} Let $f\in A(\Omega)$ and suppose there exists $\zeta\in\Omega$ such that $|f(z)|\leq|f(\zeta)|$ for all $z\in\Omega$. Then $f$ is constant.
+\begin{proof}
+Choose $r>0$ so that the Euclidean disc $E=E(\zeta;r)$ is contained in $\Omega$. If $L$ denotes any (affine) complex line through $\zeta$, the Maximum Principle for analytic functions of one complex variable applied to $f|(L\cap E)$ implies that $f$ is constant on $L\cap E$. This holds for all complex lines through $\zeta$ and so $f$ is constant on $E$. Uniqueness of analytic continuation now implies that $f$ is constant on $\Omega$.
+\end{proof}
+Finally, another simple application of one-variable theory.
+\FieldHeading{Theorem}{2.1.13}{ (Open Mapping Theorem).}\FieldTarget{theorem:2.1.13}{2.1.13} Let $f\in A(\Omega)$ and suppose that $f$ is not constant. Then $f$ is an open mapping. That is, $f$ maps open\IndexMark{idx-420}{open mapping theorem for analytic maps@Open mapping theorem for analytic maps} subsets of $\Omega$ to open subsets of $\mathbb C$.
+\begin{proof}
+It is enough to prove that if $E\subset\Omega$ is any (Euclidean) open disc neighbourhood of $\zeta\in\Omega$, then $f(\zeta)$ is an interior point of $f(E)$. Since $f$ is not constant, it follows by uniqueness of analytic continuation
+% Original book page 50
+that $f|E\cap L$ is not constant on every complex line $L$ through $\zeta$ (compare the proof of Theorem~\ref{theorem:2.1.12}). But if $f|E\cap L$ is not constant, $f(E\cap L)$ is a neighbourhood of $f(\zeta)$ by the well-known one-variable result (Exercise 4, \hyperref[sec:1:1]{\S1, Chapter 1}).
+\end{proof}
+\paragraph*{Exercises.}
+\begin{enumerate}
+\item Let $\Omega$ be a domain in $\mathbb C^n$. We say $\Omega$ is a \emph{Reinhardt domain}\IndexMark{idx-505}{reinhardt domain@Reinhardt domain} if $(z_1,\ldots,z_n)\in\Omega$ implies $(e^{i\theta_1}z_1,\ldots,e^{i\theta_n}z_n)\in\Omega$ for all $\theta_1,\ldots,\theta_n\in\mathbb R$. Show that if $\Omega$ is a Reinhardt domain containing the origin and $f\in A(\Omega)$ then
+\[f(z)=\sum a_mz^m,\quad z\in\Omega,\]
+where convergence is uniform on compact subsets of $\Omega$. (Hint: Given $\epsilon>0$, let $\Omega_\epsilon=\{z\in\Omega:d(z,\partial\Omega)>\epsilon|z|\}$ and $\Omega'_\epsilon$ denote the connected component of $\Omega_\epsilon$ containing the origin. For $z\in\Omega'_\epsilon$, define $g(z)=(2\pi i)^{-n}\int_{\partial_0D}f(t_1z_1,\ldots,t_nz_n)(t-1)^{-1}\,dt_1\cdots dt_n$, where $(t-1)^{-1}$ is shorthand for $(t_1-1)^{-1}\cdots(t_n-1)^{-1}$ and $D=D(0;1+\epsilon)$. Note that if $z\in\Omega'_\epsilon$, then $(1+\epsilon)z\in\Omega$. Certainly $g$ is analytic in $\Omega'_\epsilon$. Show that $f(z)=g(z)$ for $|z|$ sufficiently small. Expand $(t-1)^{-1}$ as a Laurent series in $t$ and integrate term by term to obtain a power series for $f$. Then let $\epsilon\to0$ and note that $\Omega=\bigcup_{\epsilon>0}\Omega'_\epsilon$).
+
+Deduce that if $\Omega$ is a Reinhardt domain containing the origin then the polynomials are dense in $A(\Omega)$ (topology of uniform convergence on compact subsets). In particular, the polynomials are dense in $A(E(0;r))$, $r>0$.
+\item Let $\Omega$ be a domain in $\mathbb C^n$ and $\omega\subset\Omega$ be an open neighbourhood of the compact subset $K$ of $\Omega$. For integers\IndexMark{idx-069}{cauchy s inequalities@Cauchy's inequalities!further estimates@further estimates} $p\geq1$ and $u\in A(\Omega)$ let
+\[|u|_p^\omega=\left(\int_\omega|u|^p\,d\lambda\right)^{1/p},\]
+where $d\lambda$ denotes Lebesgue measure on $\mathbb C^n$ ($|u|_p^\omega$ may be infinite). Show that for all $m\in\mathbb N^n$ there exist constants $C_m$ such that
+\[\sup_{z\in K}|\partial^m u(z)|=\|\partial^m u\|_K\leq C_m|u|_p^\omega,\quad u\in A(\Omega).\]
+% Original book page 51
+Deduce that the spaces $L^p(\Omega)=\{f\in A(\Omega):|f|_p^\Omega<\infty\}$ are Banach spaces and that $L^2(\Omega)$ is a Hilbert space. (Hint for the first part: Repeated application of Corollary~\ref{corollary:A1.4}, see also Exercises 1,2 in the Appendix to Chapter~\ref{ch:1}).
+\end{enumerate}
+
+\section{Removable Singularities}\label{sec:2:2}
+The Riemann removable singularities theorem\IndexMark{idx-521}{riemann removable singularities theorem@Riemann removable singularities theorem!in several variables@in several variables} for functions of one complex variable (\hyperref[sec:1:2]{\S2, Chapter 1}) implies that if $X$ is a discrete subset of $\Omega\subset\mathbb C$ then every analytic function on $\Omega\setminus X$ which is locally bounded on $\Omega$ has a unique analytic extension to $\Omega$. In this section we generalise this result to analytic functions of more than one variable.
+
+\FieldHeading{Definition}{2.2.1}{}\FieldTarget{definition:2.2.1}{2.2.1} Let $X$ be a subset of the domain $\Omega$ in $\mathbb C^n$. We say that $X$ is an \emph{analytic subset}\IndexMark{idx-027}{analytic subset@Analytic subset} of $\Omega$ if for every $z\in\Omega$ there exists an open neighbourhood $U$ of $z$ in $\Omega$ and analytic map $f:U\to\mathbb C^p$ such that $X\cap U=f^{-1}(0)$ ($p$ may depend on $z$).
+
+We shall undertake a more systematic study of analytic sets in Chapters 3 and 4 and for the present we remark only that our definition implies that if $X$ is an analytic subset of $\Omega$ then $X$ is a closed subset of $\Omega$.
+
+\FieldHeading{Theorem}{2.2.2}{ (Riemann removable singularities theorem).}\FieldTarget{theorem:2.2.2}{2.2.2} Let $X$ be a proper analytic subset of the domain $\Omega$ in $\mathbb C^n$ and $f\in A(\Omega\setminus X)$. Suppose that for every $x\in\Omega$, there exists an open neighbourhood $U$ of $x$ in $\Omega$ such that $f|U\setminus X$ is bounded. Then $f$ has a unique analytic extension to $\Omega$.
+\begin{proof}
+It is clearly sufficient to show that we can find an open neighbourhood $D$ of every $z_0\in\Omega$ such that $f|D\setminus X$ extends uniquely to $D$. The case $z_0\notin X$ being trivial we shall suppose $z_0\in X$. Choose an open connected neighbourhood $U$ of $z_0$ so that $X\cap U=g^{-1}(0)$ for some $g\in A(U,\mathbb C^p)$. Writing $g=(g_1,\ldots,g_p)$, we may suppose $h=g_1\not\equiv0$. Since $h$ cannot be identically zero on every affine complex line through $z_0$, we may make an affine linear change of coordinates and suppose that $z_0=0$ and $h(0,\ldots,0,z_n)\not\equiv0$ on a neighbourhood of $z_n=0$. Since $z_n=0$ is an isolated zero of $h(0,\ldots,0,z_n)$, there exists $\delta>0$ such that $h(0,\ldots,0,z_n)\neq0$ for $0<|z_n|\leq\delta$. Denote the variable $(z_1,\ldots,z_{n-1})\in\mathbb C^{n-1}$ by $z'$ and set $|z'|=\max_i|z_i|$. By the continuity of $h$ we may choose $r>0$
+% Original book page 52
+so that $h(z',z_n)\neq0$ for $|z'|\leq r$ and $|z_n|=\delta$. Let $D$ denote the polydisc $\{(z',z_n):|z'|<r,\ |z_n|<\delta\}$. We define
+\[g(z',z_n)=(2\pi i)^{-1}\int_{|\zeta|=\delta}\frac{f(z',\zeta)}{\zeta-z_n}\,d\zeta,\quad (z',z_n)\in D.\]
+Since $f(z',\zeta)$ is holomorphic in $z'$ for $|z'|\leq r$ and $|\zeta|=\delta$, $g\in A(D)$.
+
+For fixed $z'$, $|z'|<r$, the function $f(z',\zeta)$ extends by the one variable Riemann removable singularities theorem to the disc $|\zeta|<\delta$. Hence, by the Cauchy integral formula, $g(z)=f(z)$ if $z\in D\setminus X$.
+\end{proof}
+\FieldHeading{Corollary}{2.2.3}{}\FieldTarget{corollary:2.2.3}{2.2.3} Let $X$ be a proper analytic subset of the domain $\Omega$ in $\mathbb C^n$. Then $\Omega\setminus X$ is an open, connected and dense subset of $\Omega$.
+\begin{proof}
+If $\Omega\setminus X$ were not connected we could define $f\in A(\Omega\setminus X)$ by taking $f\equiv0$ on one connected component of $\Omega\setminus X$ and $f\equiv1$ on all the other connected components. The Riemann removable singularities theorem then implies that $f$ extends uniquely to $\Omega$ and we obtain a contradiction by the uniqueness of analytic continuation. We leave the remaining assertion as an exercise.
+\end{proof}
+Next we state an important removable singularities theorem due to Rado.
+\FieldHeading{Theorem}{2.2.4}{ (Rado's Theorem).}\IndexMark{idx-499}{rado s theorem@Rado's theorem}\FieldTarget{theorem:2.2.4}{2.2.4} Let $\Omega$ be a domain in $\mathbb C^n$ and $f\in C^0(\Omega)$. Suppose that $f$ is analytic on $\Omega\setminus f^{-1}(0)$. Then $f$ is analytic on $\Omega$.
+\begin{proof}
+One possible proof of this theorem depends on a reduction to the one-variable case using Hartog's theorem (Remark 1, \hyperref[sec:2:1]{\S1}). The one-variable proof uses the theory of harmonic and subharmonic functions. We refer the reader to R. Narasimhan \cite{bib:I:narasimhan-r:2} for more details. An alternative elementary proof which avoids the use of Hartogs theorem and makes minimal use of subharmonic functions is given in Whitney \cite{bib:I:whitney-h:1}.
+\end{proof}
+\paragraph*{Remark.} We shall not make any use of Rado's theorem in these notes. Rado's theorem does, however, have important applications, notably to the theory of biholomorphic maps and automorphisms. By way of example, we mention Osgood's theorem\IndexMark{idx-427}{osgood s theorem@Osgood's theorem}: If $f:\Omega\subset\mathbb C^n\to\mathbb C^n$ is an injective holomorphic map then $f(\Omega)$ is open and $f$ is biholomorphic onto its image (The example $f(x)=x^3$, shows that this result is not true for real
+% Original book page 53
+analytic maps). For a proof of Osgood's theorem and further examples and references, we refer to R. Narasimhan \cite{bib:I:narasimhan-r:2}.
+
+We conclude this section by stating an important result on the singularities of analytic functions\IndexMark{idx-285}{hartogs theorem@Hartogs theorem!singularities of analytic functions@singularities of analytic functions} due to Hartog\IndexMark{idx-282}{hartogs theorem@Hartogs theorem!extension of analytic functions@extension of analytic functions}'s. Suppose that $Z$ is a subset of the domain $\Omega$ in $\mathbb C^n$ and $f$ is holomorphic on $\Omega\setminus Z$. We say that $f$ is \emph{singular} at $z\in Z$ if there is no holomorphic function defined on a neighbourhood $U$ of $z$ in $\Omega$ whose restriction to $U\setminus Z$ is $f|U\setminus Z$.
+\FieldHeading{Theorem}{2.2.5}{ (Hartogs).}\FieldTarget{theorem:2.2.5}{2.2.5} Let $\Omega$ be a domain in $\mathbb C^{n-1}$ and suppose $\phi:\Omega\to D_R(0)$ is a map. Let $\Sigma=\{(z,t)\in\Omega\times D_R(0):\phi(z)=t\}$ and suppose $f\in A(\Omega\times D_R(0)\setminus\Sigma)$. If every point of $\Sigma$ is singular for $f$ then $\phi$ is holomorphic. In particular, $\Sigma$ is an analytic subset of $\Omega\times D_R(0)$.
+\begin{proof}
+A proof, depending on the theory of subharmonic functions, may be found in R. Narasimhan \cite{bib:I:narasimhan-r:2}.
+\end{proof}
+As a straightforward corollary of Theorem~\ref{theorem:2.2.5} we have
+\FieldHeading{Corollary}{2.2.6}{}\FieldTarget{corollary:2.2.6}{2.2.6} Let $\Sigma$ be a (real) $k$-dimensional submanifold of the domain $\Omega$ in $\mathbb C^n$. Then
+\begin{enumerate}
+\item If $k<2n-2$, every analytic function on $\Omega\setminus\Sigma$ extends to $\Omega$.
+\item If $k=2n-2$ and there do not exist any points $x\in\Sigma$ which have a neighbourhood $U$ such that $U\cap\Sigma$ is an analytic subset of $U$, then every analytic function on $\Omega\setminus\Sigma$ extends to $\Omega$.
+\end{enumerate}
+\paragraph*{Exercises.}
+\begin{enumerate}
+\item Let $A$ be a subset of the domain $\Omega$ in $\mathbb C^n$. We say that $A$ is \emph{thin} if for every $z\in\Omega$, we may find a polydisc $D(z;r)$ and $f\in A(D(z;r))$, not identically zero, such that $A\cap U\subset f^{-1}(0)$. Show that if $A$ is a thin subset of $\Omega$ and $f$ is analytic on $\Omega\setminus A$ and locally bounded on $\Omega$, then $f$ extends uniquely to an analytic function on $\Omega$.
+\item Prove part 1 of Corollary~\ref{corollary:2.2.6} directly without using Theorem~\ref{theorem:2.2.5} (Use Cauchy's integral formula).
+\end{enumerate}
+% Original book page 54
+\section{Extension of analytic functions}\label{sec:2:3}
+Thus far our development of the theory of analytic functions of more than one complex variable has paralleled the one-variable theory very closely. In this section, we start investigating phenomena peculiar to analytic functions of two or more complex variables.
+\paragraph*{Examples.}
+\begin{enumerate}
+\item Let $f$ be an analytic function on $\mathbb C^n\setminus\{0\}$, $n>1$. Then $f$ extends analytically to $\mathbb C^n$. Indeed, for $(z_1,\ldots,z_n)\in\mathbb C^{n-1}\times D_1(0)$ we may define
+\[F(z_1,\ldots,z_n)=(2\pi i)^{-1}\int_{|\zeta|=1}f(z_1,\ldots,z_{n-1},\zeta)/(\zeta-z_n)\,d\zeta.\]
+Certainly $F\in A(\mathbb C^{n-1}\times D_1(0))$ and by Cauchy's integral formula $F(z_1,\ldots,z_n)=f(z_1,\ldots,z_n)$ provided $(z_1,\ldots,z_{n-1})\neq0$. Hence, by uniqueness of analytic continuation\IndexMark{idx-011}{analytic continuation@Analytic continuation}, $F=f$ on $(\mathbb C^{n-1}\times D_1(0))\setminus\{0\}$. Setting $F=f$ outside $\mathbb C^{n-1}\times D_1(0)$ we see that $F$ is the required analytic extension of $f$ to $\mathbb C^n$. This result is definitely false if $n=1$ (take $f(z)=z^{-1}$!) and shows that Corollary~\ref{corollary:1.3.5} fails for arbitrary domains in $\mathbb C^n$, $n>1$. That is, an arbitrary open subset of $\mathbb C^n$ will not generally be the domain of existence of an analytic function if $n>1$.
+\item Let $D$ be an open polydisc in $\mathbb C^n$ and suppose that $K$ is a compact subset of $D$ such that $D\setminus K$ is connected. Then every analytic function on $D\setminus K$ extends uniquely to an analytic function on $D$. The proof uses the same idea as in example 1 and we leave details to the reader. Notice that in this example $K$ may have interior points. Later in this section we prove the far more general theorem of Hartogs: If $K$ is a compact subset of $\Omega\subset\mathbb C^n$, $n>1$, and $\Omega\setminus K$ is connected, then every analytic function on $\Omega\setminus K$ extends uniquely to $\Omega$.
+\item Let $D=\{(z_1,\ldots,z_n):|z_i|<1,\ 1\leq i\leq n\}$ and
+\[P=\{(z_1,\ldots,z_n)\in D:|z_i|<\tfrac12,\ 1\leq i\leq n-1\text{ or }|z_n|>\tfrac12\}.\]
+\end{enumerate}
+The real parts of $D$ and $P$ are pictured in Figure~\ref{fig:I:2}.
+% Original book page 55
+\begin{center}
+    \begin{minipage}{\linewidth}
+        \centering
+        \input{figures/figure02.tex}
+        \FieldCaption{I}{2}{}
+    \end{minipage}
+\end{center}
+We claim that every analytic function on $P$ extends analytically to $D$. Our proof is similar to that of example 1. Suppose $f\in A(P)$, we define
+\[F(z_1,\ldots,z_n)=(2\pi i)^{-1}\int_{|\zeta|=3/4}f(z_1,\ldots,z_{n-1},\zeta)/(\zeta-z_n)\,d\zeta,\]
+where $|z_i|<1$, $1\leq i\leq n-1$ and $|z_n|<3/4$. Certainly $F$ is analytic and if $|z_1|,\ldots,|z_{n-1}|<\tfrac12$ we see that $F(z_1,\ldots,z_n)=f(z_1,\ldots,z_n)$ by Cauchy's integral formula. It now follows by uniqueness of analytic continuation that $F=f$ wherever both are defined and setting $F=f$ for $1>|z_n|\geq3/4$ we see that $F$ is the required analytic extension of $f$ to $D$. The pair $(D,P)$ is called a \emph{Euclidean Hartogs figure}\IndexMark{idx-280}{hartogs figure@Hartogs figure}\IndexMark{idx-281}{hartogs figure@Hartogs figure!generalised@generalised}.
+\begin{enumerate}\setcounter{enumi}{3}
+\item Suppose $(D,P)$ is as in example 3 and $g:D\to\mathbb C^n$ is biholomorphic onto the image of $g$. Set $\widetilde D=g(D)$, $\widetilde P=g(P)$. We claim that every analytic function on $\widetilde P$ extends uniquely to an analytic function on $\widetilde D$. Indeed, if $f\in A(\widetilde P)$, $gf\in A(P)$. Now $fg$ extends by example 3 to $F\in A(D)$. Clearly $Fg^{-1}\in A(\widetilde D)$ is the required analytic extension of $f$ to $\widetilde D$. The pair $(\widetilde D,\widetilde P)$ is called a \emph{generalised Hartogs figure}. As we shall see later in this chapter we can use generalised Hartogs figures as a test to determine whether or not every analytic function on a given domain can be extended to a larger domain.
+\end{enumerate}
+The remainder of this section is devoted to a proving the Theorem of Hartogs referred to in example 2 above. The proof follows Ehrenpreis \cite{bib:I:ehrenpreis-l:1} and H\"ormander \cite{bib:I:hormander-l:1} and uses an existence theorem for the $\partial/\partial\bar z_j$ operators.
+% Original book page 56
+
+Suppose $f_j\in C^\infty(\mathbb C^n)$, $j=1,\ldots,n$ and that we wish to solve the system of partial differential equations
+\[\partial u/\partial\bar z_j=f_j,\quad 1\leq j\leq n.\]
+We first remark that this system is overdetermined in that for solvability the additional conditions
+\[\partial f_i/\partial\bar z_j=\partial f_j/\partial\bar z_i,\quad 1\leq i,j\leq n\]
+obviously have to be satisfied.
+\FieldHeading{Theorem}{2.3.1}{}\FieldTarget{theorem:2.3.1}{2.3.1} Let $f_j\in C_c^\infty(\mathbb C^n)$, $1\leq j\leq n$ and suppose that $\partial f_i/\partial\bar z_j=\partial f_j/\partial\bar z_i$, $1\leq i,j\leq n$. Then the system of equations
+\[\partial u/\partial\bar z_j=f_j\]
+has a solution $u\in C_c^\infty(\mathbb C^n)$ provided that $n>1$.
+\begin{proof}
+Define
+\[u(z)=(2\pi i)^{-1}\int_{\mathbb C}f_1(\zeta,z_2,\ldots,z_n)/(\zeta-z_1)\,d\zeta\,d\bar\zeta.\]
+Changing variables we see that
+\[u(z)=-(2\pi i)^{-1}\int_{\mathbb C}f_1(z_1-\zeta,z_2,\ldots,z_n)\zeta^{-1}\,d\zeta\,d\bar\zeta\]
+and so $u\in C^\infty(\mathbb C^n)$. Furthermore, since $f_1$ has compact support, $u(z)=0$ provided that $|z_2|+\cdots+|z_n|$ is sufficiently large.
+
+Theorem~\ref{theorem:A1.6} implies that $\partial u/\partial\bar z_1=f_1$. Differentiating under the integral sign with respect to $\bar z_j$ and using the relation $\partial f_j/\partial\bar z_1=\partial f_1/\partial\bar z_j$, we obtain
+\begin{align*}
+\partial u/\partial\bar z_j&=(2\pi i)^{-1}\int_{\mathbb C}(\zeta-z_1)^{-1}\partial f_j/\partial\bar\zeta(\zeta,z_2,\ldots,z_n)\,d\zeta\,d\bar\zeta\\
+&=f_j,\text{ by Theorem~\ref{theorem:A1.2}.}
+\end{align*}
+Hence $u$ is a solution of the given system of equations. Now let $K$ denote the union of the supports of the $f_j$. Then $u\in A(\mathbb C^n\setminus K)$ and $u$
+% Original book page 57
+is zero for $|z_2|+\cdots+|z_n|$ sufficiently large. Hence, by uniqueness of analytic continuation, $u$ is zero on the unbounded component of $\mathbb C^n\setminus K$ and so $u$ has compact support.
+\end{proof}
+\paragraph*{Remarks.}
+\begin{enumerate}
+\item As we remarked in the appendix to Chapter~\ref{ch:1}, Theorem~\ref{theorem:2.3.1} is false for $n=1$.
+\item Later, in Chapter~\ref{ch:5}, we shall rewrite the system of partial differential equations occurring in Theorem~\ref{theorem:2.3.1} in the framework of differential forms.
+\end{enumerate}
+\FieldHeading{Theorem}{2.3.2}{ (Hartog's theorem).}\FieldTarget{theorem:2.3.2}{2.3.2} Let $\Omega$ be a domain in $\mathbb C^n$, $n>1$, and $K$ be a compact subset of $\Omega$ such that $\Omega\setminus K$ is connected. Then every analytic function on $\Omega\setminus K$ extends uniquely to an analytic function on $\Omega$.
+\begin{proof}
+Choose $\theta\in C_c^\infty(\Omega)$ so that $\theta\equiv1$ on $K$. Define $f_0\in C^\infty(\Omega)$ by setting
+\[f_0|K=0;\quad f_0|\Omega\setminus K=(1-\theta)f.\]
+We shall construct $v\in C^\infty(\mathbb C^n)$ so that $f_0+v$ is the required continuation of $f$. First notice that $f_0+v$ will be analytic iff $v$ satisfies
+\begin{align*}
+\partial v/\partial\bar z_j&=-\partial f_0/\partial\bar z_j,\quad j=1,\ldots,n\\
+&=-\partial\theta/\partial\bar z_j f.
+\end{align*}
+Now $-\partial\theta/\partial\bar z_j f\in C_c^\infty(\mathbb C^n)$ and so we may apply Theorem~\ref{theorem:2.3.1} to find $v\in C_c^\infty(\mathbb C^n)$ such that $f_0+v\in A(\Omega)$. Now observe that since $v$ has compact support, $v$ vanishes on the unbounded component of the complement of the support of $\theta$---uniqueness of analytic continuation. Since $\operatorname{supp}(\theta)\subset\Omega$, there exists an open set in $\Omega\setminus K$ where $v=0$ and so $f=f_0$. Since $\Omega\setminus K$ is connected, $f=f_0+v$ on $\Omega\setminus K$ and so $f_0+v$ is the required analytic extension of $f$.
+\end{proof}
+\paragraph*{Remark.} An alternative proof of Hartog's theorem, based on\IndexMark{idx-283}{hartogs theorem@Hartogs theorem!extension of analytic functions@extension of analytic functions} the Bochner--Martinelli integral formula, may be found in Bochner \cite{bib:I:bochner-s:1}. See also Harvey \cite[page 355]{bib:I:harvey-f-r:2}.
+% Original book page 58
+\FieldHeading{Corollary}{2.3.3}{}\FieldTarget{corollary:2.3.3}{2.3.3} Let $\Omega$ be a domain in $\mathbb C^n$, $n>1$, and $f\in A(\Omega)$. Then the zero set $Z(f)$ of $f$ is never a compact subset of $\Omega$.
+\begin{proof}
+If $Z(f)$ were compact, $1/f\in A(\Omega\setminus Z(f))$ would extend analytically to $\Omega$ by Theorem~\ref{theorem:2.3.2}.
+\end{proof}
+The corollary emphasises an important difference between the one- and several-variable theory of analytic functions. The zero set of an analytic function of more than one variable always propagates to the boundary of the domain on which the function is defined. It is this essential non-compactness that makes the study of the zero and pole sets so much harder than for functions of one complex variable.
+\paragraph*{Exercise.} Let $\Omega,\omega$ be domains in $\mathbb C^n$, $\mathbb C$ respectively. A map $f:\Omega\to\omega$ is said to be \emph{proper} if $f^{-1}(K)$ is compact whenever $K\subset\omega$ is compact. Prove that if $n>1$, there are no proper holomorphic maps of $\Omega$ into $\omega$ (Hint: Let $z_0\in f(\Omega)$ and consider $g(z)=(f(z)-z_0)^{-1}\in A(\Omega\setminus f^{-1}(z_0))$).
+
+\section{Domains of Holomorphy}\label{sec:2:4}
+In \hyperref[sec:2:3]{\S3} we gave a large class of examples of domains in $\mathbb C^n$, $n>1$, that possessed the property that every analytic function on them extended to a larger domain. In this section we wish to look at domains where this phenomenon does not happen and the generalisation of Corollary~\ref{corollary:1.3.5} is true.
+
+Throughout this section $\Omega$ will denote a domain in $\mathbb C^n$.
+\FieldHeading{Definition}{2.4.1}{}\FieldTarget{definition:2.4.1}{2.4.1} A domain in $\mathbb C^n$ is called a \emph{domain of holomorphy}\IndexMark{idx-210}{domain of holomorphy@Domain of holomorphy} if whenever we are given open connected subsets $U\subset V\subset\mathbb C^n$, with $U\subset\Omega$, such that $f|U$ extends analytically to $V$ for all $f\in A(\Omega)$, then $V\subset\Omega$.
+
+For $\Omega$ to be a domain of holomorphy we require that we cannot extend every analytic function on $\Omega$ locally across any point of the boundary of $\Omega$. We frame the definition in this rather complicated fashion to exclude the following type of domain:
+% Original book page 59
+\begin{center}
+    \begin{minipage}{\linewidth}
+        \centering
+        \input{figures/figure03.tex}
+        \FieldCaption{I}{3}{}
+    \end{minipage}
+\end{center}
+Referring to the figure, suppose that $f|U$ extends to $F\in A(V)$ for all $f\in A(\Omega)$. Then $\Omega$ will not be a domain of holomorphy. Notice though that $F|\Omega\cap V$ need not equal $f|\Omega\cap V$---we give an explicit example below.
+\paragraph*{Examples.}
+\begin{enumerate}
+\item $\mathbb C^n$ is a domain of holomorphy, $n\geq1$.
+\item If $K$ is a compact subset of $\Omega\subset\mathbb C^n$, $n>1$, such that $\Omega\setminus K$ is connected then $\Omega\setminus K$ is not a domain of holomorphy (Theorem~\ref{theorem:2.3.2}).
+\item Every domain $\Omega$ in $\mathbb C$ is a domain of holomorphy. This is trivial: Given $a\in\partial\Omega$, define $f(z)=(z-a)^{-1}\in A(\Omega)$ and observe that $f$ cannot extend to any open neighbourhood of $a$.
+\item A necessary condition for $\Omega$ to be a domain of holomorphis is that if $(\widetilde D,\widetilde P)$ is any generalised Hartog's figure (Example 4, \hyperref[sec:2:3]{\S3}) with $\widetilde P\subset\Omega$, then $\widetilde D\subset\Omega$. Actually this condition turns out to be sufficient (see the discussion in \hyperref[sec:2:5]{\S5}).
+\item Given open domains $U_i\subset\mathbb C$, $1\leq i\leq n$, $U=\prod_{i=1}^n U_i$ is a domain of holomorphy. Indeed, $\partial U=\bigcup_i U_1\times\cdots\times\partial U_i\times\cdots\times U_n$ and so if $a=(a_1,\ldots,a_n)\in\partial U$, we must have at least one $a_i\in\partial U_i$. Now define $f(z_1,\ldots,z_n)=(z_i-a_i)^{-1}$. Clearly $f$ does not extend to any open neighbourhood of $a$. Alternatively, choose $f_i\in A(U_i)$ satisfying the conditions of Corollary~\ref{corollary:1.3.5}. Define $f(z_1,\ldots,z_n)=\sum_{i=1}^n f_i(z_i)$. In this case we see that $U$ is the ``domain of existence'' for $f$.
+% Original book page 60
+\item Let $V=\{z\in D(0;1):z_1=\cdots=z_{n-1}=0,\ \operatorname{Im}(z_n)=0,\ \operatorname{Re}(z_n)\geq0\}$ and set $\Omega=D(0;1)\setminus V$. Every analytic function on $\Omega$ extends analytically to $D(0;1)$ (Exercise 2, \hyperref[sec:2:2]{\S2} or use Laurent series at 0). On the other hand $\Omega$ is homeomorphic to $D(0;1)$ and so we see that the property of being a domain of holomorphy is not a topological invariant.
+\item We now present an example to show that the phenomenon alluded to after definition 2.4.1 can occur. Our example is in $\mathbb C^2$, though it is easily generalised to $\mathbb C^n$, $n>2$. Let $A\subset\mathbb C^2$ be the product of the ``cut'' annulus $\{z\in\mathbb C:\tfrac12<|z-2|<3/2\}\setminus\{z\in\mathbb C:|z|=\tfrac12\text{ and }\arg(z)\in(0,\pi)\}$ with the disc $|w|<\tfrac14$. We define $\Omega$ to be the union of $A$ with $P=\{(z,w)\in D(0;1):|z|<\tfrac12\text{ or }1>|w|>\tfrac12\}$. Let $D=D(0;1)$.
+\begin{center}
+    \begin{minipage}{\linewidth}
+        \centering
+        \input{figures/figure04.tex}
+        \FieldCaption{I}{4}{}
+    \end{minipage}
+\end{center}
+Since $(D,P)$ is a Euclidean Hartog's figure, $f|P$ extends analytically to $F\in A(D)$ for all $f\in A(\Omega)$. But in general $F|D\cap\Omega\neq f|D\cap\Omega$ as is seen by taking $f(z,w)=\sqrt{(z-2)}$.
+\end{enumerate}
+% Original book page 61
+Example 5 suggests that a domain of holomorphy might be the domain of existence of an analytic function (note that the converse is trivially true). Much of the remainder of this section will be devoted to proving that every domain of holomorphy is the domain of existence of some analytic function. In the course of our proof we shall derive other important characterizations of domains of holomorphy.
+
+Example 3 and 5 also suggest that if $\Omega$ is a domain of holomorphy, $z\in\partial\Omega$ and $(z_n)\subset\Omega$ converges to $z$, then there exists $f\in A(\Omega)$ which is unbounded on the sequence $(z_n)$. We make a formal definition.
+\FieldHeading{Definition}{2.4.2}{}\FieldTarget{definition:2.4.2}{2.4.2} We say that the domain $\Omega$ possesses property (S\IndexMark{idx-477}{property s@Property (S)}) if given any sequence $(z_n)\subset\Omega$ which converges to a point $z\in\partial\Omega$, there exists $f\in A(\Omega)$ which is unbounded on the sequence $(z_n)$.
+\FieldHeading{Lemma}{2.4.3}{}\FieldTarget{lemma:2.4.3}{2.4.3} If the domain $\Omega$ possesses property (S), $\Omega$ is a domain of holomorphy.
+\begin{proof}
+Suppose $\Omega$ is not a domain of holomorphy. Then there exists $z\in\partial\Omega$ and open connected sets $U\subset V\subset\mathbb C^n$ such that $U\subset\Omega$, $z\in V$ and $f|U$ extends to $F\in A(V)$ for every $f\in A(\Omega)$. Now let $(z_n)\subset\Omega\cap V$ converge to $z$. We see immediately that $F$ is bounded on $(z_n)$. Therefore $f$ is bounded on $(z_n)$ for all $f\in A(\Omega)$ and $\Omega$ does not possess property (S).
+\end{proof}
+\paragraph*{Examples.}
+\begin{enumerate}\setcounter{enumi}{6}
+\item The Euclidean disc $E=\{z\in\mathbb C^n:\sum_{i=1}^n|z_i|^2<r^2\}$ is a domain of holomorphy. We show $E$ possesses property (S). Suppose $a=(a_1,\ldots,a_n)\in\partial E$. Define $f(z)=(r^2-\langle z,a\rangle)^{-1}$, where $\langle\ ,\ \rangle$ denotes the standard Hermitian inner product on $\mathbb C^n$. Clearly $f\in A(E)$ and $f$ is not bounded on any sequence of points of $E$ converging to $a$.
+\item Let $f_j\in A(\mathbb C^n)$, $1\leq j\leq q$. The \emph{analytic polyhedron}\IndexMark{idx-020}{analytic polyhedron@Analytic polyhedron} $P=\{z\in\mathbb C^n:|f_j(z)|<1,\ 1\leq j\leq q\}$ possesses property (S) and is a domain of holomorphy. Indeed, if $a\in\partial P$, $|f_i(a)|=1$ for some $i$. Now define $F(z)=(f_i(z)-f_i(a))^{-1}\in A(P)$. Clearly $F$ is not bounded on any sequence of points of $P$ converging to $a$.
+\end{enumerate}
+It turns out that in some ways domains of holomorphy are the complex analogue of convex sets. The next definition reflects these
+% Original book page 62
+convexity properties particularly well. Before giving the definition we recall that if $K$ is a compact subset of $\Omega\subset\mathbb C^n$ and $f:\Omega\to\mathbb C$, then $\|f\|_K$ is, by definition, $\sup_{z\in K}|f(z)|$.
+\FieldHeading{Definition}{2.4.4}{}\FieldTarget{definition:2.4.4}{2.4.4} A domain $\Omega$ is said to be \emph{holomorphically convex}\IndexMark{idx-292}{holomorphic convexivity@Holomorphic convexivity} if given any compact subset $K\subset\Omega$ the set
+\[\widehat K=\{z\in\Omega:|f(z)|\leq\|f\|_K\text{ for all }f\in A(\Omega)\}\]
+is compact.
+\paragraph*{Remark.} We call $\widehat K$ the $A(\Omega)$-hull of $K$. If $K=\widehat K$, we say $K$ is $A(\Omega)$-convex.
+\paragraph*{Examples.}
+\begin{enumerate}\setcounter{enumi}{8}
+\item Every domain $\Omega$ in $\mathbb C$ is holomorphically convex. In fact it is easy to see that $d(K,\partial\Omega)=d(\widehat K,\partial\Omega)$ for every compact subset $K$ of $\Omega$: Just consider functions $f(z)=(z-\zeta)^{-1}\in A(\Omega)$, where $\zeta\in\partial\Omega$.
+\item The domain $\mathbb C^n\setminus\{0\}$, $n>1$, is not holomorphically convex. Indeed suppose $K=\{z\in\mathbb C^n:|z|=1\}$ (the boundary of the unit polydisc). Then $\widehat K=\{z:0<|z|\leq1\}$ (the punctured unit polydisc). To see this we notice that by Theorem~\ref{theorem:2.3.2} any $f\in A(\mathbb C^n\setminus\{0\})$ extends to $F\in A(\mathbb C^n)$. By the Maximum Principle (Theorem~\ref{theorem:2.1.12}), the maximum value of $F$ on $\{z:|z|\leq1\}$ is taken on its boundary, $K$. Since $F$ is an extension of $f$ the same is true for $f$. This implies $\widehat K\supseteq\{z:0<|z|\leq1\}$. The reverse inclusion is trivial. Notice that if $n=1$, $\widehat K=K$ as is seen by taking $f(z)=z^{-1}$.
+\end{enumerate}
+Before stating the next lemma we wish to review a few elementary facts about convex subsets of $\mathbb R^n$. Suppose $X\subset\mathbb R^n$. We say that $X$ is \emph{convex} if, given $x,y\in X$, $tx+(1-t)y\in X$ for all $t\in[0,1]$. Now suppose $X$ is bounded. The (closed) \emph{convex hull}\IndexMark{idx-137}{convex hull closed@Convex hull (closed)}, $X_c$, of $X$ is defined to be
+\[X_c=\{u\in\mathbb R^n:\phi(u)\leq\sup_{x\in X}\phi(x)\text{ for all }\phi\in\mathbb R^{n\prime}\}.\]
+The following properties of the convex hull are easily verified:
+% Original book page 63
+\begin{gather*}
+X_c\text{ is closed, convex and bounded}\\
+X_{cc}=X_c\\
+X_c\supset X\text{ and }X_c\text{ is the smallest closed convex set containing }X\\
+X_c=X\text{ if and only if }X\text{ is closed and convex.}
+\end{gather*}
+\FieldHeading{Lemma}{2.4.5}{}\FieldTarget{lemma:2.4.5}{2.4.5} Let $K$ be a compact subset of the domain $\Omega$ in $\mathbb C^n$. Then
+\begin{enumerate}
+\item $\widehat K\supset K$.
+\item $\widehat K$ is a closed subset of $\Omega$.
+\item $\widehat{\widehat K}=\widehat K$.
+\item $\widehat K\subset K_c$. In particular, $\widehat K$ is bounded.
+\end{enumerate}
+\begin{proof}
+1, 2 and 3 are trivial. Let us prove 4.
+\[K_c=\{u\in\mathbb C^n:\phi(u)\leq\sup_{z\in K}\phi(z)\text{ for all }\phi\in L_{\mathbb R}(\mathbb C^n,\mathbb R)\}.\]
+Given $\phi\in L_{\mathbb R}(\mathbb C^n,\mathbb R)$, we may write
+\[\phi(z_1,\ldots,z_n)=\sum_{i=1}^n a_i z_i+\sum_{i=1}^n b_i\bar z_i\]
+where $a_i,b_i\in\mathbb C$. Since $\phi$ is real valued we must have $b_i=\bar a_i$, $i=1,\ldots,n$, and so
+\[\phi(z_1,\ldots,z_n)=2\operatorname{Re}\sum_{i=1}^n a_i z_i.\]
+Define $f(z)=\exp(2\sum_{i=1}^n a_i z_i)\in A(\Omega)$. If $z\in\widehat K$,
+\[|f(z)|\leq\|f\|_K.\]
+That is,
+\[|\exp\phi(z)|\leq\|\exp\phi\|_K,\text{ since }|f(z)|=|\exp\phi(z)|.\]
+This implies $\phi(z)\leq\sup_K\phi$, since $\phi$ is real. Hence $z\in K_c$.
+\end{proof}
+% Original book page 64
+\paragraph*{Remark.} The reader should note the close analogy between properties of the $A(\Omega)$-hull and the convex hull. It should also be noted that an open subset $\Omega$ of $\mathbb R^n$ is convex if and only if $K_c$ is a compact subset of $\Omega$ for every compact subset $K$ of $\Omega$. Furthermore, convexivity is a local property of the boundary of $\Omega$ (Every disc centered on the boundary of $\Omega$ meets $\Omega$ in a convex set if $\Omega$ is convex and this property characterises the convexivity of $\Omega$). We shall see in \hyperref[sec:2:5]{\S5} that we can also formulate holomorphic convexivity in terms of local properties of the boundary.
+\FieldHeading{Theorem}{2.4.6}{}\FieldTarget{theorem:2.4.6}{2.4.6} A domain $\Omega$ in $\mathbb C^n$ is holomorphically convex if and only if it possesses property (S). In particular, if $\Omega$ is holomorphically convex it is a domain of holomorphy.
+\begin{proof}
+We start by showing that (S) implies holomorphic convexivity. Suppose $\Omega$ possesses property (S). If $\Omega$ is not holomorphically convex there exists a compact subset $K$ of $\Omega$ such that $\widehat K$ is not compact. Since $\widehat K$ is bounded we can therefore find a sequence $(z_n)\subset\widehat K$ which converges to some point of $\partial\Omega$. Now $|f(z_n)|\leq\|f\|_K$ for all $f\in A(\Omega)$ by definition of $\widehat K$. Hence every $f\in A(\Omega)$ must be bounded on $(z_n)$. This is contrary to our assumption that $\Omega$ possesses property (S) and so $\Omega$ is holomorphically convex.
+
+Suppose $\Omega$ is holomorphically convex. Let $(z_n)\subset\Omega$ be a sequence converging to some point of $\partial\Omega$. It is sufficient to construct $f\in A(\Omega)$ which is unbounded on $(z_n)$.
+
+First we choose a sequence $(K_n)$ of compact subsets of $\Omega$ satisfying
+\begin{enumerate}
+\item $K_n\subset K_{n+1}$, $n\geq1$.
+\item $\bigcup_n K_n=\Omega$.
+\item $K_n=\widehat K_n$, $n\geq1$.
+\item Every point of $\Omega$ is an interior point of some $K_n$.
+\end{enumerate}
+To see that such sequences exist, we first construct a sequence $K'_n$ of compact subsets of $\Omega$ satisfying 1, 2 and 4 just as in the proof of Theorem~\ref{theorem:A1.8}. We then define $K_n=\widehat K'_n$ and note that 1 continues to hold since the operation of forming the $A(\Omega)$-hull clearly preserves inclusions.
+% Original book page 65
+Notice that condition 4 implies that every compact subset of $\Omega$ is contained in $K_n$ for $n$ sufficiently large.
+
+Choose an infinite subsequence $(x_k)$ of $(z_n)$ which possesses the property that $x_k\in K_{n(k)+1}\setminus K_{n(k)}$, $k\geq1$, where the sequence $(n(k))$ is strictly increasing. We leave the construction of such a sequence as an easy exercise for the reader (note that $(K_{n+1}-K_n)\cap(z_n)$ is always finite). It is clearly enough to construct $f\in A(\Omega)$ which is unbounded on $(x_k)$. For $k\geq1$, let $L_k=K_{n(k)}$, $\|g\|_k=\|g\|_{L_k}$ and observe that the sequence $(L_k)$ satisfies conditions 1 to 4 above.
+
+We construct inductively a sequence $f_k\in A(\Omega)$ satisfying
+\[f_k(x_k)=k+1+\sum_{j=1}^{k-1}|f_j(x_k)|\quad\text{and}\quad\|f_k\|_k\leq2^{-k+2}.\tag{*}\label{eq:2:star:1}\]
+Take $f_1\equiv2$. Suppose $f_1,\ldots,f_{k-1}$ are constructed. Since $x_k\notin L_k$, there exists $g\in A(\Omega)$ such that $|g(x_k)|>\|g\|_k$. Dividing by $g(x_k)$ we may assume
+\[1=g(x_k)>\|g\|_k.\]
+Choose $p(k)$ so large that
+\[\|g^{p(k)}\|_k\leq2^{-k+2}/\left(k+1+\sum_{j=1}^{k-1}|f_j(x_k)|\right).\]
+Set $f_k=(k+1+\sum_{j=1}^{k-1}|f_j(x_k)|)g^{p(k)}$. The inductive step is completed. We now define
+\[f=\sum_{k=1}^\infty f_k.\]
+Conditions \eqref{eq:2:star:1} imply that the sum converges uniformly on $L_k$ for $k\geq1$ (compare with the proof of Theorem~\ref{theorem:A1.8}) and also that $|f(x_k)|\geq k-1$, $k\geq1$. Since every compact subset of $\Omega$ is contained in $L_k$ for $k$ large enough it follows by Corollary~\ref{corollary:2.1.8} that $f\in A(\Omega)$. Since $f$ is unbounded on $(x_k)$ the proof is complete.
+\end{proof}
+% Original book page 66
+\paragraph*{Remarks.}
+\begin{enumerate}
+\item The technique used to construct the function in the second part of the proof is very effective and we use it again shortly. Holomorphic convexivity is well adapted to the construction of analytic functions.
+\item The sequence $(K_n)$ of compact subsets of $\Omega$ constructed in the proof of Theorem~\ref{theorem:2.4.6} is called a \emph{normal exhaustion}\IndexMark{idx-408}{normal exhaustion@Normal exhaustion} of $\Omega$.
+\end{enumerate}
+\paragraph*{Example 11.} Any open convex subset of $\mathbb C^n$ is a domain of holomorphy. Indeed, since $\widehat K\subset K_c$, any open convex subset of $\mathbb C^n$ must be holomorphically convex. Of course, using the technique of the proof of Lemma~\ref{lemma:2.4.5}, it can easily be proved directly that an open convex subset of $\mathbb C^n$ is a domain of holomorphy.
+\paragraph*{Remark.} Holomorphic convexivity is much weaker than convexivity: Any open subset of $\mathbb C$ is holomorphically convex as are products of open subsets of $\mathbb C$.
+\FieldHeading{Definition}{2.4.7}{}\FieldTarget{definition:2.4.7}{2.4.7} Let $f\in A(\Omega)$. We say that $\Omega$ is the \emph{domain of existence}\IndexMark{idx-209}{domain of existence@Domain of existence} of $f$, if $f$ cannot be analytically continued across any point of the boundary of $\Omega$.
+\paragraph*{Remarks.}
+\begin{enumerate}
+\item Every domain of existence is trivially a domain of holomorphy.
+\item If $\Omega$ is a domain in $\mathbb C$ then $\Omega$ is a domain of existence by Corollary~\ref{corollary:1.3.5}.
+\end{enumerate}
+\FieldHeading{Theorem}{2.4.8}{}\FieldTarget{theorem:2.4.8}{2.4.8} Every holomorphically convex domain $\Omega$ in $\mathbb C^n$ is the domain of existence of some analytic function on $\Omega$.
+\begin{proof}
+Our proof is rather similar to that of Theorem~\ref{theorem:2.4.6}.
+
+Let $(K_n)$ be a normal exhaustion of $\Omega$ and $M$ be a discrete subset of $\Omega$ such that $\bar M\supset\partial\Omega$ (see the proof of Corollary~\ref{corollary:1.3.5} for the construction of $M$). For each $n\geq1$, there exist only finitely many points of $M$ in $K_{n+1}\setminus K_n$, say $x_1,\ldots,x_p$. As in the proof of Theorem~\ref{theorem:2.4.6} there exist $g_1,\ldots,g_p\in A(\Omega)$ such that
+\[1=g_1(x_1)=\cdots=g_p(x_p)>\|g_1\|_{K_n},\ldots,\|g_p\|_{K_n}.\]
+% Original book page 67
+By perturbing each $g_j$ by a term $\theta(z-x_j)$, where $\theta\in\mathbb C^{n*}$ is small, it is clear that we can assume that $|g_j(x_k)|\neq1$, $j\neq k$.
+
+Set $a_{jk}(z)=(g_j(z)-g_j(x_k))/(1-g_j(x_k))$, $j\neq k$. Taking sufficiently high powers of the $g_j$'s, we may further require that
+\[\|g_j\|_{K_n}\leq2^{-n-p}/p\quad\text{and}\quad\|a_{jk}\|_{K_n}\leq2.\]
+We now define
+\[f_n(z)=\sum_{j=1}^p\left(\prod_{k\neq j}a_{jk}(z)\right)g_j(z),\quad z\in\Omega.\]
+Our estimates imply that
+\[f_n(x_i)=1,\quad1\leq i\leq p\]
+\[\|f_n\|_{K_n}\leq2^{-n}.\]
+Define
+\[f=\prod_{n=1}^\infty(1-f_n)^n.\]
+Since $\sum_{n=1}^\infty n2^{-n}$ is convergent, the infinite product converges uniformly on compact subsets of $\Omega$ and so $f\in A(\Omega)$. The convergence of the infinite product together with the fact that no $f_n$ is identically equal to 1 implies that $f$ is not identically zero.
+
+Let $(x_k)\subset M$ be a sequence converging to $x\in\partial\Omega$. If $x_k\in K_{n(k)+1}\setminus K_{n(k)}$, $f$ and its first $n(k)$ derivatives vanish at $x_k$. Since $n(k)\to\infty$ as $k\to\infty$, we see that any analytic extension of $f$ to a neighbourhood of $x$ would have all its derivatives vanishing at $x$. But this implies, by uniqueness of analytic continuation, that $f\equiv0$. Hence $f$ does not extend across any point of $\partial\Omega$ and $\Omega$ is the domain of existence of $f$.
+\end{proof}
+\paragraph*{Remark.} Using the method of proof of Theorems~\ref{theorem:2.4.6}, \ref{theorem:2.4.8} it is not hard to show that if $M$ is an infinite discrete subset of a holomorphically convex domain $\Omega$, then there exists $f\in A(\Omega)$ which is unbounded on \emph{every} infinite subset of $M$. Clearly this very strong form of Property (S) implies Theorem~\ref{theorem:2.4.8} as well as the non-trivial part of Theorem~\ref{theorem:2.4.6}.
+% Original book page 68
+
+Let us summarise what we have proved so far. We have shown that for a domain $\Omega$ in $\mathbb C^n$, Property (S) is equivalent to holomorphic convexivity. We have also proved that if $\Omega$ is holomorphically convex then $\Omega$ is a domain of existence which in turn implies that $\Omega$ is a domain of holomorphy. We next show that these four properties are equivalent by proving that every domain of holomorphy is holomorphically convex.
+
+First some notation. If $K\subset\Omega$ is compact, we let
+\begin{align*}
+d_\Omega(K)&=d(\partial\Omega,K)\\
+&=\inf\{|z-\zeta|:z\in\partial\Omega,\ \zeta\in K\}.
+\end{align*}
+Provided that $\Omega\neq\mathbb C^n$, $d_\Omega(K)<\infty$. We remark that if $d(z,\partial\Omega)=r$ and $z\in\Omega$, then $D(z;r)\subset\Omega$ and indeed is the largest open polydisc $D(z;s)$ contained in $\Omega$ and centered at $z$.
+\FieldHeading{Proposition}{2.4.9}{}\FieldTarget{proposition:2.4.9}{2.4.9} Let $K$ be a compact subset of $\Omega\subset\mathbb C^n$ and $z_0\in\widehat K$. If $f\in A(\Omega)$, the power series for $f$ at $z_0$,
+\[f(z)=\sum_m\frac1{m!}\partial^m f(z_0)(z-z_0)^m,\]
+converges on $D(z_0;d_\Omega(K))$.
+\begin{proof}
+Choose $r$, $0<r<d_\Omega(K)$ and define $K_r=\bigcup_{z\in K}\bar D(z;r)$. $K_r$ is certainly compact and contained in $\Omega$. Let $M=\|f\|_{K_r}$. By Corollary~\ref{corollary:2.1.8} applied to $\bar D(z;r)$ we have
+\[|\partial^m f(z)|\leq Mm!r^{-|m|}\]
+for $z\in K$ ($|m|=m_1+\cdots+m_n$). Hence
+\[\|\partial^m f\|_K\leq Mm!r^{-|m|}.\]
+Since $\partial^m f\in A(\Omega)$ we have, by definition of $\widehat K$,
+\[\|\partial^m f\|_{\widehat K}\leq Mm!r^{-|m|}.\]
+Since $z_0\in\widehat K$, this estimate implies
+% Original book page 69
+\[|\partial^m f(z_0)|\leq Mm!r^{-|m|}\]
+and so the series $\sum\frac1{m!}\partial^m f(z_0)(z-z_0)^m$ converges for $|z-z_0|<r$. Since this is true for all $r<d_\Omega(K)$, the Proposition follows.
+\end{proof}
+\FieldHeading{Theorem}{2.4.10}{ (Cartan--Thullen).}\IndexMark{idx-064}{cartan thullen theorem@Cartan--Thullen theorem}\FieldTarget{theorem:2.4.10}{2.4.10} A domain of holomorphy is holomorphically convex.
+\begin{proof}
+It is clearly enough to prove that for any compact subset $K$ of a domain of holomorphy $\Omega$, $d_\Omega(K)=d_\Omega(\widehat K)$. Obviously $d_\Omega(K)\geq d_\Omega(\widehat K)$. Suppose that for some compact subset $K$ of $\Omega$, $d_\Omega(K)>d_\Omega(\widehat K)$. Pick $z_0\in\widehat K$ such that $d(z_0,\partial\Omega)<d_\Omega(K)$. By Proposition~\ref{proposition:2.4.9}, $\sum\frac1{m!}\partial^m f(z_0)(z-z_0)^m$ converges on $D(z_0;d_\Omega(K))$. But $D(z_0;d_\Omega(K))\not\subset\Omega$ (see remarks immediately preceding Proposition~\ref{proposition:2.4.9}). Hence we have constructed an analytic extension of every $f\in A(\Omega)$ to some open set not contained in $\Omega$. Contradiction. Hence $\Omega$ is holomorphically convex.
+\end{proof}
+\paragraph*{Examples.}
+\begin{enumerate}\setcounter{enumi}{11}
+\item Suppose $\Omega,\Omega'\subset\mathbb C^n$ and $f:\Omega\to\Omega'$ is biholomorphic. If one of $\Omega$, $\Omega'$ is a domain of holomorphy so is the other. This follows since holomorphic convexivity is obviously preserved by biholomorphic maps. Notice that it is \emph{not} obvious from the definitions that domains of holomorphy or existence are preserved by biholomorphic maps.
+\item Suppose that $\Omega\subset\mathbb C^n$, $\Omega'\subset\mathbb C^m$ are domains of holomorphy and $f:\Omega\to\mathbb C^m$ is analytic. Then $f^{-1}(\Omega')$ is a domain of holomorphy. We show that $f^{-1}(\Omega')$ possesses property (S). Let $(z_n)$ be a sequence of points of $f^{-1}(\Omega')$ converging to some point $z\in\partial f^{-1}(\Omega')$. If $z\in\partial\Omega$, then there exists $g\in A(\Omega)$ which is unbounded on $(z_n)$. Restricting to $f^{-1}(\Omega')$, we have found an analytic function on $f^{-1}(\Omega')$ unbounded on $(z_n)$. If $z\notin\partial\Omega$, then $(f(z_n))$ converges to $f(z)\in\mathbb C^m$. Clearly, $f(z)\in\partial\Omega'$, and so there exists $g\in A(\Omega')$ which is unbounded on $(f(z_n))$. But then $gf\in A(f^{-1}(\Omega'))$ is unbounded on $(z_n)$. We remark that we can weaken the conditions on $\Omega$ to require only that $\Omega$ possesses property (S) at all points of $\partial\Omega\cap\partial f^{-1}(\Omega')$.
+\item Let $\Omega\subset\mathbb C^n$ be a domain of holomorphy and $f_1,\ldots,f_q\in A(\Omega)$\IndexMark{idx-021}{analytic polyhedron@Analytic polyhedron}. Then $P=\{z\in\Omega:|f_j(z)|<1,\ j=1,\ldots,q\}$ is a domain of holomorphy. Indeed,
+% Original book page 70
+set $f=(f_1,\ldots,f_q):\Omega\to\mathbb C^q$. Then $P=f^{-1}(D(0;1))$ and example 13 applies. We recall that $P$ is an analytic polyhedron.
+\item Let $\Omega_i\subset\mathbb C^n$, $i\in I$, be domains of holomorphy. Then $\Omega=\operatorname{Interior}(\bigcap_{i\in I}\Omega_i)$ is a domain of holomorphy. We prove that $\Omega$ is holomorphically convex. Let $K$ be a compact subset of $\Omega$ and $\widehat K$ and $\widehat K_i$ respectively denote the $A(\Omega)$- and $A(\Omega_i)$-hulls of $K$. Certainly $\widehat K\subset\widehat K_i$, $i\in I$. Hence, with the notation of Theorem~\ref{theorem:2.4.10}, $d_\Omega(K)\leq d_{\Omega_i}(\widehat K)$, $i\in I$. This being true for all $i\in I$, we must have $d_\Omega(\widehat K)\geq d_\Omega(K)$ and so $\widehat K$ is a compact subset of $\Omega$.
+\end{enumerate}
+\paragraph*{Exercises.}
+\begin{enumerate}
+\item Let $\Omega$ be a domain of holomorphy and $M$ be an infinite discrete subset of $\Omega$. Show that there exists an analytic function on $\Omega$ which is unbounded on every infinite subset of $M$ (see the remarks following Theorem~\ref{theorem:2.4.8}).
+\item Let $\Omega$ be holomorphically convex. Show that there exist normal exhaustions\IndexMark{idx-409}{normal exhaustion@Normal exhaustion} $(K_n)$ of $\Omega$ that satisfy the additional property $K_n\subset\mathring K_{n+1}$, $n\geq1$.
+\end{enumerate}
+
+\section{Pseudoconvexivity}\label{sec:2:5}
+The results of \hyperref[sec:2:4]{\S4} show that there is a close parallel between the convexivity of domains in $\mathbb R^n$ and holomorphic convexivity of domains in $\mathbb C^n$. In this section we shall explore this analogy further. First we shall review some facts about convex domains in $\mathbb R^n$. A standard reference is Bonnesen and Fenchel \cite{bib:I:bonnesen-t-and-fenchel-w:1}.
+
+Let $\Omega$ be a proper subdomain of $\mathbb R^n$ and suppose $\partial\Omega$ is a $C^r$ submanifold of $\mathbb R^n$, $r\geq1$. Using partitions of unity it is not hard to construct $\phi\in C^r(\mathbb R^n,\mathbb R)$ satisfying
+\begin{enumerate}
+\item[A)] $\Omega=\{x\in\mathbb R^n:\phi(x)<0\}$
+\item[B)] $\partial\Omega=\{x\in\mathbb R^n:\phi(x)=0\}$
+\item[C)] $d\phi\neq0$ on $\partial\Omega$.
+\end{enumerate}
+% Original book page 71
+We call a map $\phi$ satisfying these conditions a ($C^r$-) defining function for $\Omega$. The following technical lemma will be important in defining boundary invariants of $\Omega$.
+\FieldHeading{Lemma}{2.5.1}{}\FieldTarget{lemma:2.5.1}{2.5.1} Let $\Omega$ be a proper subdomain of $\mathbb R^n$ with $C^2$ boundary and suppose that $\phi$ and $\theta$ are defining functions for $\Omega$. Then there exists $h\in C^1(\mathbb R^n,\mathbb R)$ satisfying
+\begin{enumerate}
+\item[a)] $\phi=h.\theta$
+\item[b)] $h$ is strictly positive
+\item[c)] $h$ is $C^2$ off $\partial\Omega$
+\item[d)] Given $1\leq i,j\leq n$, let
+\[a_{ij}(x)=\begin{cases}d(x,\partial\Omega)\dfrac{\partial^2h}{\partial x_i\partial x_j}(x),&x\notin\partial\Omega,\\0,&x\in\partial\Omega.\end{cases}\]
+Then $a_{ij}$ is continuous.
+\end{enumerate}
+($d(x,\partial\Omega)$ is the distance from $x$ to $\partial\Omega$, relative to some norm on $\mathbb R^n$).
+\begin{proof}
+Clearly we may define $h=\phi/\theta$ on $\mathbb R^n\setminus\partial\Omega$ and $h$ is $C^2$ on $\mathbb R^n\setminus\partial\Omega$. The problem is to show that $h$ extends as a positive $C^1$ function across $\partial\Omega$ satisfying property d). Fix $z\in\partial\Omega$. It is enough to find an open neighbourhood $U$ of $z$ in $\mathbb R^n$ and $h\in C^1(U,\mathbb R)$ such that $h$ satisfies properties a)--d) in $U$. Choose local coordinates on some open neighbourhood $U$ of $z$ so that $z$ corresponds to zero, $\partial\Omega\cap U=\{x\in U:x_1=0\}$ and, in the new coordinates, $U$ is convex. In the new coordinate system we have $\phi(0,x_2,\ldots,x_n)=0$ and $\frac{\partial\phi}{\partial x_1}(0,x_2,\ldots,x_n)\neq0$ for $(0,x_2,\ldots,x_n)\in U$. Similarly for $\theta$. Now
+\begin{align*}
+\phi(x_1,\ldots,x_n)&=\int_0^1\frac{d}{dt}(\phi(tx_1,\ldots,x_n))\,dt\\
+&=\int_0^1x_1\frac{\partial\phi}{\partial x_1}(tx_1,\ldots,x_n)\,dt\\
+&=x_1\widetilde\phi(x_1,\ldots,x_n).
+\end{align*}
+Since $\frac{\partial\phi}{\partial x_1}(0,x_2,\ldots,x_n)\neq0$, $\widetilde\phi(0,x_2,\ldots,x_n)\neq0$ on $\partial\Omega\cap U$. Furthermore $\widetilde\phi$ is $C^1$ on $U$. Similarly, $\theta(x_1,\ldots,x_n)=x_1\widetilde\theta(x_1,\ldots,x_n)$ and so we may extend $h$ to a $C^1$ function on $U$ by setting $h=\widetilde\phi/\widetilde\theta$.
+% Original book page 72
+
+For property d), it is enough to show that the function
+\[A_{ij}(x)=\begin{cases}x_1\dfrac{\partial^2\widetilde\phi}{\partial x_i\partial x_j}(x),&x\notin\partial\Omega\cap U,\\0,&x\in\partial\Omega\cap U\end{cases}\]
+is continuous on $U$ for $1\leq i,j\leq n$. We shall prove this is so in case $i=j=1$, leaving the remaining (easier) cases $i=1$, $j\neq1$ and $i,j\neq1$ to the reader.
+
+Since $\widetilde\phi$ is $C^2$ provided $x_1\neq0$, we may differentiate the identity $\phi=x_1\widetilde\phi$ twice to obtain
+\begin{align*}
+\frac{\partial\phi}{\partial x_1}&=\widetilde\phi+x_1\frac{\partial\widetilde\phi}{\partial x_1}\\
+\frac{\partial^2\phi}{\partial x_1^2}&=2\frac{\partial\widetilde\phi}{\partial x_1}+x_1\frac{\partial^2\widetilde\phi}{\partial x_1^2},\quad x_1\neq0.
+\end{align*}
+Eliminating $\partial\widetilde\phi/\partial x_1$ from the second relation we obtain
+\[x_1\widetilde\phi_{11}=\frac{\tfrac12 x_1^2\phi_{11}-x_1\phi_1+\phi}{\tfrac12 x_1^2},\quad x_1\neq0,\tag{*}\label{eq:2:star:2}\]
+where we have used the abbreviated notation $\phi_{11}$ and $\phi_1$ for $\partial^2\phi/\partial x_1^2$ and $\partial\phi/\partial x_1$ respectively.
+
+By Taylor's theorem, there exists $\xi$, $0<\xi<1$, such that
+\begin{align*}
+\phi(x_1,x_2,\ldots,x_n)&=\phi(0,x_2,\ldots,x_n)+x_1\phi_1(0,x_2,\ldots,x_n)\\
+&\qquad+\tfrac12 x_1^2\phi_{11}(\xi x_1,x_2,\ldots,x_n)\\
+&=x_1\phi_1(0,x_2,\ldots,x_n)+\tfrac12 x_1^2\phi_{11}(\xi x_1,x_2,\ldots,x_n).
+\end{align*}
+Substituting, we see that the numerator of the right hand side of *) is equal to
+\[\tfrac12 x_1^2\phi_{11}(x_1,\ldots,x_n)-x_1\phi_1(x_1,\ldots,x_n)+x_1\phi_1(0,\ldots,x_n)+\tfrac12 x_1^2\phi_{11}(\xi x_1,\ldots,x_n).\]
+By the Mean value theorem there exists $\rho$, $0<\rho<1$, such that
+\[x_1\phi_1(x_1,\ldots,x_n)-x_1\phi_1(0,\ldots,x_n)=x_1^2\phi_{11}(\rho x_1,\ldots,x_n).\]
+% Original book page 73
+Substituting in the above expression for the numerator of the right hand side of *), we arrive at the following formula for $x_1\widetilde\phi_{11}$:
+\[x_1\widetilde\phi_{11}(x_1,\ldots,x_n)=\frac{x_1^2}{2}(\phi_{11}(x_1,\ldots,x_n)+\phi_{11}(\xi x_1,\ldots,x_n)-2\phi_{11}(\rho x_1,\ldots,x_n)),\]
+provided $x_1\neq0$. The continuity of $A_{11}$ now follows from the continuity of $\phi_{11}$.
+\end{proof}
+\paragraph*{Remark.} It must be emphasised that even though $\phi$ and $\theta$ are $C^2$, $h$ may not be $C^2$. For example, if $n=1$, $\phi(x)=x+x^2|x|$, $\theta(x)=x$, then $\phi/\theta$ will only be of class $C^1$.
+
+Let $Q_n(\mathbb R)$ denote the space of real quadratic forms on $\mathbb R^n$. Taking the standard basis on $\mathbb R^n$, we may identify $Q_n(\mathbb R)$ with the space of $n\times n$ real symmetric matrices and we shall give $Q_n(\mathbb R)$ the topology induced from that on the space of $n\times n$ real matrices. If $q\in Q_n(\mathbb R)$ corresponds to $[a_{ij}]$, we set
+\[q(v)=\sum_{i,j=1}^n a_{ij}v_i v_j,\quad v=(v_1,\ldots,v_n)\in\mathbb R^n.\]
+Let $\phi\in C^2(\mathbb R^n,\mathbb R)$. The \emph{Hessian}\IndexMark{idx-289}{hessian@Hessian} of $\phi$ is the continuous map $H(\phi):\mathbb R^n\to Q_n(\mathbb R)$ defined by
+\[H(\phi)(x)=\left[\frac{\partial^2\phi}{\partial x_i\partial x_j}(x)\right].\]
+Avoiding coordinates, we may equivalently define $H(\phi)(x)=D^2\phi_x$---the second derivative of $\phi$ at $x$.
+
+Suppose $\Omega\subset\mathbb R^n$ has $C^2$ boundary and that $\phi$ is a $C^2$ defining function for $\Omega$. We say that $H(\phi)$ is positive semi-definite on tangent vectors to $\partial\Omega$ if for all $x\in\partial\Omega$
+\[H(\phi)(x)(v)\geq0,\text{ for all }v\in\mathbb R^n\text{ such that }d\phi(x)(v)=0.\]
+We say $H(\phi)$ is positive definite on tangent vectors to $\partial\Omega$ if for all $x\in\partial\Omega$
+\[H(\phi)(x)(v)>0,\text{ for all non-zero }v\in\mathbb R^n\text{ such that }d\phi(x)(v)=0.\]
+% Original book page 74
+\FieldHeading{Lemma}{2.5.2}{}\FieldTarget{lemma:2.5.2}{2.5.2} Suppose $\Omega$ is a proper subdomain of $\mathbb R^n$ with $C^2$ boundary. If there exists a $C^2$ defining function $\phi$ for $\Omega$ such that $H(\phi)$ is positive (semi-) definite on tangent vectors to $\partial\Omega$ then the same is true for the Hessian of every $C^2$ defining function for $\Omega$.
+\begin{proof}
+Suppose $\theta$ is another $C^2$ defining function for $\Omega$. By Lemma~\ref{lemma:2.5.1} there exists a strictly positive $C^1$ function $h$ on $\mathbb R^n$ such that $\phi=h.\theta$. Since $h$ is $C^2$ off $\partial\Omega$, we certainly have
+\[H(\phi)(x)=\theta(x)H(h)(x)+2(d\theta(x),dh(x))+h(x)H(\theta)(x),\quad x\in\mathbb R^n\setminus\partial\Omega.\]
+By part d) of Lemma~\ref{lemma:2.5.1}, the function $x\mapsto\theta(x)H(h)(x)$ extends to a continuous function on $\mathbb R^n$ which vanishes on $\partial\Omega$. Hence
+\[H(\phi)(x)(v)=2(dh(x)(v)d\theta(x)(v))+h(x)H(\theta)(x)(v),\]
+$x\in\partial\Omega$, $v\in\mathbb R^n$. If $v$ is a tangent vector to $\partial\Omega$, $d\theta(x)(v)=0$ and so we see that
+\[H(\phi)(x)(v)=h(x)H(\theta)(x)(v),\quad x\in\partial\Omega,\ v\text{ a tangent vector to }\partial\Omega\text{ at }x.\]
+Since $h(x)>0$, the result follows.
+\end{proof}
+\FieldHeading{Theorem}{2.5.3}{}\FieldTarget{theorem:2.5.3}{2.5.3}\IndexMark{idx-138}{convexity@Convexity} Let $\Omega$ be a proper subdomain of $\mathbb R^n$ with $C^2$ boundary. Then $\Omega$ is convex if and only if for some defining function $\phi$ for $\Omega$, $H(\phi)$ is positive semi-definite on tangent vectors to $\partial\Omega$.
+\begin{proof}
+We shall prove that the positive semi-definiteness of $H(\phi)$ on tangent vectors to $\partial\Omega$ implies the convexivity of $\Omega$ and leave the converse as an easy exercise for the reader. We first remark that it is sufficient to prove that $\bar\Omega$ is locally convex. That is, for each $z\in\partial\Omega$ there exists a (convex) neighbourhood $N$ of $z$ in $\mathbb R^n$ such that $N\cap\bar\Omega$ is convex. A proof of this well known characterisation of convex domains may be found in Valentine \cite{bib:I:valentine-f-a:1}. Take the Euclidean norm on $\mathbb R^n$ and let $\bar E_r(x)$ denote the closed disc, radius $r$ and centre $x$ in $\mathbb R^n$. For local convexivity it is sufficient to show that for each $z\in\partial\Omega$, there exists $r>0$ such that $T_y\partial\Omega\cap\bar E_r(z)\cap\Omega=\varnothing$, for all $y\in\partial\Omega\cap\bar E_r(z)$. Indeed, this condition implies that $\bar E_r(z)\cap\bar\Omega$ is convex (see the characterisation of closed convex hull given in \hyperref[sec:2:4]{\S4}).
+% Original book page 75
+
+Fix $z\in\partial\Omega$. By an affine linear change of coordinates we may assume that $z=0$, the tangent plane to $\partial\Omega$ at 0 is the hyperplane $x_n=0$ and $\frac{\partial\phi}{\partial x_n}(0)<0$.
+\begin{center}
+    \begin{minipage}{\linewidth}
+        \centering
+        \input{figures/figure05.tex}
+        \FieldCaption{I}{5}{}
+    \end{minipage}
+\end{center}
+By the implicit function theorem we can choose an open neighbourhood $U\times V$ of $(0,0)\in\mathbb R^{n-1}\times\mathbb R$ such that $(U\times V)\cap\partial\Omega$ can be represented as the graph of a $C^2$ function $\psi:U\to V$. That is, $\phi(x,\psi(x))=0$, $x\in U$, and $(U\times V)\cap\partial\Omega=\{(x,\psi(x)):x\in U\}$.
+
+Differentiating the identity $\phi(x,\psi(x))=0$ twice we obtain
+\[0=D_1^2\phi_X+2D_{12}\phi_X.D\psi_x+D_2^2\phi_X.(D\psi_x,D\psi_x)+D_2\phi_X.D^2\psi_x,\quad x\in U.\]
+Here we have set $X=(x,\psi(x))$ and we follow the derivative notation of Field \cite{bib:I:field-m-j:1}.
+
+Now any tangent vector to $\operatorname{graph}(\psi)$ at $x$ is of the form $(v,D\psi_x(v))$, $v\in\mathbb R^{n-1}$. Set $V=(v,D\psi_x(v))$, $v\in\mathbb R^{n-1}$. Evaluating the above quadratic form on $V$, we obtain
+\[0=H(\phi)(X)(V)+\frac{\partial\phi}{\partial x_n}(X)D^2\psi_x(v,v),\quad v\in\mathbb R^{n-1},\ x\in U.\]
+Now $H(\phi)(X)(V)\geq0$ by assumption. Furthermore, since $\frac{\partial\phi}{\partial x_n}(0)<0$, we can find $s>0$ such that $\frac{\partial\phi}{\partial x_n}(X)<0$, $\|(x_1,\ldots,x_{n-1})\|<s$ ($\|\ \|$ denotes the Euclidean norm). Therefore, $D^2\psi_x(v,v)\geq0$, $\|x\|<s$, $v\in\mathbb R^{n-1}$.
+% Original book page 76
+
+Pick a unit vector $u\in\mathbb R^{n-1}$ and let $L_u$ denote the line through the origin of $\mathbb R^{n-1}$ defined by $u$. Let $\psi^u=\psi|L_u$. The positivity of $D^2\psi_x$ implies that
+\[\frac{d^2\psi^u}{du^2}(x)\geq0,\quad x\in L^u,\ \|x\|<s.\]
+As is well known this implies that the graph of $\psi^u$ is convex. In particular, $L^u\cap\operatorname{graph}(\psi^u)\neq\varnothing$. This is true for all unit vectors $u$ in $\mathbb R^{n-1}$ and so the open disc in $\mathbb R^{n-1}$ of radius $s$, centre 0, does not intersect $\Omega\cap\bar E_s(0)$. A straightforward argument based on the continuity of $\operatorname{grad}(\phi)$ shows that we can extend this result to find $r$, $0<r\leq s$, such that $T_y\partial\Omega\cap\bar E_r(0)\cap\Omega=\varnothing$, for all $y\in\partial\Omega\cap\bar E_r(0)$. As we pointed out above, this is sufficient to prove the convexivity of $\Omega$.
+\end{proof}
+\FieldHeading{Definition}{2.5.4}{}\FieldTarget{definition:2.5.4}{2.5.4} Let $\Omega$ be a proper subdomain of $\mathbb R^n$ with $C^2$ boundary. We say that $\Omega$ is \emph{strictly convex}\IndexMark{idx-139}{convexity@Convexity!strict@strict} if for some defining function $\phi$ for $\Omega$, $H(\phi)$ is positive definite on tangent vectors to $\partial\Omega$.
+\FieldHeading{Proposition}{2.5.5}{}\FieldTarget{proposition:2.5.5}{2.5.5} Let $\Omega$ be a strictly convex bounded domain in $\mathbb R^n$ with $C^2$ boundary. Then there exists a defining function $\phi$ for $\Omega$ such that $H(\phi)(x)$ is a positive definite quadratic form for all $x\in\partial\Omega$.
+\begin{proof}
+Let $\theta$ be any $C^2$ defining function for $\Omega$. For $\lambda\in\mathbb R$, set $\phi_\lambda=\theta e^{\lambda\theta}$. Clearly for all values of $\lambda$, $\phi_\lambda$ is a $C^2$ defining function on $\Omega$ which is positive definite on tangent vectors to $\partial\Omega$. Computing the Hessian of $\phi_\lambda$ and restricting to $\partial\Omega$ we find
+\[H(\phi_\lambda)(x)(v)=H(\theta)(x)(v)+2\lambda(d\theta(x)(v))^2,\quad v\in\mathbb R^n,\ x\in\partial\Omega.\]
+Restrict $H(\phi_\lambda)$ to the compact set $\Gamma=\partial\Omega\times S^{n-1}$, where $S^{n-1}$ denotes the unit sphere in $\mathbb R^n$. Let $K=\{(x,u)\in\Gamma,\ d\theta(x)(v)=0\}$ (unit tangent bundle of $\partial\Omega$). $H(\theta)$ is strictly positive on $K$ and so, by continuity, is strictly positive on some open neighbourhood $U$ of $K$ in $\Gamma$. Let $m$ be the infimum of $2(d\theta(x)(v))^2$ over $\Gamma\setminus U$ and $M$ the supremum of $H(\theta)(x)(v)$ over $\Gamma\setminus U$. Since the compact set $\Gamma\setminus U$ does not meet the zero set of $d\theta$, $m>0$. Taking $\lambda_0=2M/m$, we see immediately that $H(\phi_\lambda)$ is strictly positive on $\Gamma$, $\lambda\geq\lambda_0$.
+\end{proof}
+% Original book page 77
+This completes our review of convex domains in $\mathbb R^n$. Our aim is now to obtain a characterisation of domains of holomorphy with $C^2$ boundary in terms of local properties of the boundary. For the remainder of this section $\Omega$ will always denote an open, connected subset of $\mathbb C^n$.
+
+We let $H_n(\mathbb C)$ denote the space of Hermitian quadratic forms on $\mathbb C^n$. Taking the standard complex basis on $\mathbb C^n$, we may identify $H_n(\mathbb C)$ with the space of $n\times n$ Hermitian matrices and we give $H_n(\mathbb C)$ the corresponding topology.
+\FieldHeading{Definition}{2.5.6}{}\FieldTarget{definition:2.5.6}{2.5.6} Let $D$ be an open subset of $\mathbb C^n$, and $\phi\in C^2(D,\mathbb R)$. The \emph{Levi form}\IndexMark{idx-360}{levi form@Levi form} of $\phi$ is the map
+\[L(\phi):D\to H_n(\mathbb C)\]
+defined by
+\[L(\phi)(z)=\left[\frac{\partial^2\phi}{\partial z_i\partial\bar z_j}\right],\quad z\in D.\]
+\paragraph*{Remarks.}
+\begin{enumerate}
+\item Given $Z=(Z_1,\ldots,Z_n)\in\mathbb C^n$, $z\in D$,
+\[L(\phi)(z)(Z)=\sum_{i,j=1}^n\frac{\partial^2\phi}{\partial z_i\partial\bar z_j}(z)Z_i\bar Z_j.\]
+\item In Chapter~\ref{ch:5} we shall give an invariant definition of the Levi form.
+\end{enumerate}
+As we shall soon see the Levi form is the complex analogue of the Hessian.
+\FieldHeading{Lemma}{2.5.7}{}\FieldTarget{lemma:2.5.7}{2.5.7} Let $\Omega,\Omega'$ be domains in $\mathbb C^n$ and $h:\Omega\to\Omega'$ be biholomorphic. If $\phi\in C^2(\Omega',\mathbb R)$ then
+\[L(\phi h)=L(\phi)(Dh,\overline{Dh}).\]
+(Here $[Dh]=[\partial h_i/\partial z_j]$; $[\overline{Dh}]=[\overline{\partial h_i/\partial z_j}]$).
+\begin{proof}
+We have to show that for $1\leq i,j\leq n$,
+\[\frac{\partial^2\phi h}{\partial z_i\partial\bar z_j}=\sum_{\alpha,\beta=1}^n\frac{\partial^2\phi}{\partial z_\alpha\partial\bar z_\beta}\frac{\partial h_\alpha}{\partial z_i}\overline{\frac{\partial h_\beta}{\partial z_j}}.\]
+This is a straightforward computation using Proposition~\ref{proposition:2.1.1} and we omit details.
+\end{proof}
+% Original book page 78
+Lemma~\ref{lemma:2.5.7} shows that the Levi form is invariant under holomorphic changes of variables. Of course, the Hessian is only invariant under affine linear changes of variables.
+\FieldHeading{Lemma}{2.5.8}{}\FieldTarget{lemma:2.5.8}{2.5.8} Let $\phi\in C^2(\Omega,\mathbb R)$. Then
+\[L(\phi)=\tfrac14(H(\phi)+H(\phi)(J)).\]
+That is, for $z\in\Omega$, $Z\in\mathbb C^n$,
+\[L(\phi)(z)(Z)=\tfrac14(H(\phi)(z)(Z)+H(\phi)(z)(JZ)),\]
+where on the right hand side we use the standard identification of $\mathbb C^n$ with $\mathbb R^{2n}$ and regard $Z\in\mathbb R^{2n}$ ($J$ denotes the standard complex structure on $\mathbb C^n$ (see \hyperref[sec:1:5]{\S5, Chapter 1})).
+\begin{proof}
+A straightforward, if tedious, calculation and we omit details.
+\end{proof}
+\paragraph*{Example 1.} Let $\Omega\subset\mathbb C^n$ be a bounded convex domain. We know from \hyperref[sec:2:4]{\S4} that every biholomorphic image of $\Omega$ is a domain of holomorphy. Suppose that $\Omega$ has $C^2$ boundary and that $g\in C^2(\bar\Omega,\mathbb C^n)$ is a diffeomorphism of some neighbourhood $U$ of $\bar\Omega$ into $\mathbb C^n$ which maps $\Omega$ biholomorphically onto a domain $\Omega'\subset\mathbb C^n$. Certainly $\Omega'$ has $C^2$ boundary and $\partial\Omega'=g(\partial\Omega)$. Set $h=(g|U)^{-1}$. If $\phi$ is a defining function for $\Omega$, then $\phi h$ is a defining function for $\Omega'$ ($\phi h$ is only defined on a neighbourhood of $\Omega'$, but we can always extend to a $C^2$ function on the whole of $\mathbb C^n$ which is strictly positive outside $\Omega'$). Since $\Omega$ is convex, $H(\phi)$ is positive semi-definite on tangent vectors to $\partial\Omega$. Suppose $Z$ is a holomorphic tangent vector to $\Omega'$ at $x$. That is,
+\[\sum_{i=1}^n\frac{\partial(\phi h)}{\partial z_i}(x)Z_i=0,\quad Z=(Z_1,\ldots,Z_n).\]
+Taking real and imaginary parts, we find that $Z$ and $JZ$ are \emph{real} tangent vectors to $\partial\Omega'$ at $x$. Therefore, by Lemmas~\ref{lemma:2.5.7}, \ref{lemma:2.5.8},
+\[L(\phi h)(x)(Z)=\tfrac14\bigl(H(\phi)(x)(Dh_x(Z))+H(\phi)(x)(JDh_x(Z))\bigr)\geq0.\]
+% Original book page 79
+In other words, the Levi form is positive semi-definite on holomorphic tangent vectors to $\partial\Omega'$. Furthermore, if $\Omega$ is strictly convex, the Levi form will be positive definite on holomorphic tangent vectors to $\partial\Omega'$.
+\paragraph*{Remark.} Of course a domain of holomorphy need not be the biholomorphic image of a convex set. However, if $\Omega$ is a domain in $\mathbb C^n$ with $C^2$ boundary and defining function $\phi$ such that $L(\phi)$ is positive definite at a point $z\in\partial\Omega$, then we may clearly make a local ($\mathbb C$-linear) holomorphic change of coordinates on some neighbourhood $U$ of $z$ such that, in the new coordinates, $U\cap\Omega$ is convex. In particular, if $L(\phi)$ is positive definite at all points of $\partial\Omega$, we see that $\Omega$ is locally the biholomorphic image of a convex set. Consequently, by example 1, $\Omega$ will locally be a domain of holomorphy. That is, for every $z\in\bar\Omega$, there will exist an open neighbourhood $U$ of $z$ in $\mathbb C^n$ such that $U\cap\Omega$ is a domain of holomorphy. However, if $L(\phi)$ is not positive definite and only positive semi-definite, even at just one point of $\partial\Omega$, it is not generally the case that $\Omega$ is locally the biholomorphic image of a convex set (it will however, be locally a domain of holomorphy). For examples and further references we refer the reader to the survey article by Y-T Siu \cite{bib:I:siu-y-t:1}, especially \S7. We should mention that the question of boundary invariants of domains with real analytic boundary is currently a topic of much interest. See, for example, the paper of Chern and Moser \cite{bib:I:chern-s-s-and-moser-j:1}.
+\FieldHeading{Definition}{2.5.9}{}\FieldTarget{definition:2.5.9}{2.5.9} Let $\Omega$ be a domain in $\mathbb C^n$ with $C^2$ boundary. Suppose that there exists a defining function $\phi$ for $\Omega$ such that $L(\phi)$ is positive semi-definite on holomorphic tangent vectors to $\partial\Omega$. Then we say that $\Omega$ is \emph{Levi pseudoconvex}\IndexMark{idx-350}{l p domain@L.p. domain}\IndexMark{idx-362}{levi pseudoconvex@Levi pseudoconvex}\IndexMark{idx-480}{pseudoconvex@Pseudoconvex!levi@Levi} (abbreviated L.p.). In case $L(\phi)$ is positive definite on holomorphic tangent vectors to $\partial\Omega$, we say $\Omega$ is \emph{strictly Levi pseudoconvex}\IndexMark{idx-481}{pseudoconvex@Pseudoconvex!strictly levi@strictly Levi}\IndexMark{idx-535}{s l p domain@s.L.p. domain}\IndexMark{idx-586}{strictly levi pseudoconvex@Strictly Levi pseudoconvex} (abbreviated s.L.p.).
+
+Exactly as we did for convex subsets of $\mathbb R^n$ we may prove
+\FieldHeading{Lemma}{2.5.10}{}\FieldTarget{lemma:2.5.10}{2.5.10} Suppose $\Omega$ is a domain in $\mathbb C^n$ with $C^2$ boundary. If $\Omega$ is L.p. then $L(\phi)$ is positive semi-definite on holomorphic tangent vectors to $\partial\Omega$ for \emph{all} $C^2$ defining functions $\phi$ for $\Omega$. Similarly for s.L.p. domains.
+\FieldHeading{Lemma}{2.5.11}{}\FieldTarget{lemma:2.5.11}{2.5.11} If $\Omega\subset\mathbb C^n$ is a bounded, strictly Levi pseudoconvex domain with $C^2$ boundary then there exists a defining function $\phi$ for such that $L(\phi)$ is positive definite on $\partial\Omega$.
+% Original book page 80
+
+Just as for convexivity, Levi\IndexMark{idx-366}{levi theorem@Levi theorem} pseudoconvexivity is a local property of the boundary. More precisely we have
+\FieldHeading{Proposition}{2.5.12}{}\FieldTarget{proposition:2.5.12}{2.5.12} Let $\Omega$ be a bounded domain in $\mathbb C^n$ with $C^2$ boundary. Suppose that for each $x\in\partial\Omega$, there exists an open neighbourhood $U$ of $x$ and $\phi\in C^2(U,\mathbb R)$ such that
+\begin{enumerate}
+\item[a)] $\Omega\cap U=\{x\in U:\phi(x)<0\}$.
+\item[b)] $d\phi\neq0$ on $\partial\Omega\cap U$.
+\item[c)] $L(\phi)(y)(v)\geq0$ for all $y\in\partial\Omega\cap U$ and holomorphic tangent vectors $v$ to $\partial\Omega$ at $y$.
+\end{enumerate}
+Then $\Omega$ is Levi pseudoconvex. If in c), $L(\phi)$ is positive definite on holomorphic tangent vectors then $\Omega$ is strictly Levi pseudoconvex.
+\begin{proof}
+Since $\partial\Omega$ is compact, we can find finitely many open subsets $U_j$ of $\mathbb R^n$ and $\phi_j\in C^2(U_j,\mathbb R)$ such that $\partial\Omega\subset\bigcup U_j$ and the $\phi_j$ satisfy the conditions of the proposition. Set $U=\bigcup U_j$ and choose $\theta_i\in C_c^\infty(U_i)$ such that $\theta_i\geq0$ and $\bigcup_i\operatorname{Interior}(\operatorname{supp}(\theta_i))\supset\partial\Omega$. Define $\widetilde\phi=\sum\theta_i\phi_i\in C_c^\infty(U,\mathbb R)$. Since $\widetilde\phi(x)<0$ if $x\in\Omega\cap U$ and $\widetilde\phi(x)=0$ if $x\in\partial\Omega$, we may choose $\psi\in C^\infty(\mathbb C^n,\mathbb R)$ such that $\psi\equiv0$ on a neighbourhood of $\partial\Omega$ and $\Omega=\{x\in\mathbb C^n:(\widetilde\phi+\psi)(x)<0\}$, $\partial\Omega=\{x\in\mathbb C^n:(\widetilde\phi+\psi)(x)=0\}$. Set $\phi=\widetilde\phi+\psi$. On $\partial\Omega$,
+\begin{align*}d\phi&=d\widetilde\phi=\sum\theta_i d\phi_i\\&\neq0.\end{align*}
+Computing $L(\phi)$, we find that on $\partial\Omega$
+\begin{align*}
+L(\phi)(x)(v)&=\sum\theta_i(x)L(\phi_i)(x)(v),\quad\text{if }v\text{ is a holomorphic tangent vector to }\partial\Omega\text{ at }x,\\
+&\geq0.
+\end{align*}
+\end{proof}
+\FieldHeading{Theorem}{2.5.13}{ (E.E. Levi).}\FieldTarget{theorem:2.5.13}{2.5.13} Suppose $\Omega$ is a holomorphically convex domain in $\mathbb C^n$ with $C^2$ boundary. Then $\Omega$ is Levi pseudoconvex.
+\begin{proof}
+Let $\phi$ be a defining function for $\Omega$ and suppose that at some point $x\in\partial\Omega$, $L(\phi)$ is not positive semi-definite on holomorphic tangent vectors to $\partial\Omega$ at $x$. By a complex affine linear change of coordinates
+% Original book page 81
+we may suppose that $x=0$, $d\phi(0)=dx_1(0)$ and $L(\phi)(u)<0$, where $u$ is the unit basis vector in the $z_2$-direction. Thus, if for $1\leq i,j\leq n$ we set $\phi_i(0)=\frac{\partial\phi}{\partial z_i}(0)$, $\phi_{\bar j}(0)=\frac{\partial\phi}{\partial\bar z_j}(0)$, $\phi_{i\bar j}(0)=\frac{\partial^2\phi}{\partial z_i\partial\bar z_j}(0)$, etc., we will have
+\[\phi_{\bar1}(0)=\phi_1(0)=\tfrac12;\quad\phi_i(0)=\phi_{\bar i}(0)=0,\ i>1;\quad\phi_{2\bar2}(0)<0.\]
+For $t\in\mathbb R$, we define the analytic embedding $\phi_t:\mathbb C\to\mathbb C^n$ by
+\[\phi_t(s)=(-2\phi_{22}(0)s^2-t,s,0,0,\ldots,0).\]
+For $r>0$, set $V_t(r)=\phi_t(D_r(0))$. $V_t(r)$ is an embedded disc in $\mathbb C^n$. We observe that $0\in V_0(r)$. We claim that there exists $r>0$ such that
+\[\overline{V_t(r)}\subset\Omega,\quad t\in(0,r]\]
+\[\overline{V_0(r)}\setminus\{0\}\subset\Omega.\]
+On the assumption that such an $r$ exists we now show that $\Omega$ cannot be holomorphically convex. Define
+\[K=\bigcup_{0\leq t\leq r}\phi_t(\partial D_r(0))=\bigcup_{0\leq t\leq r}\partial V_t(r).\]
+$K$ is a compact subset of $\Omega$. If $f\in A(\Omega)$, $0<t\leq r$, then $f\phi_t\in A(D_r(0))$ and is continuous on $\bar D_r(0)$. Hence, by the maximum principle, $\|f\phi_t\|_{\bar D_r(0)}=\|f\phi_t\|_{\partial D_r(0)}$. This implies that $\overline{V_t(r)}\subset\widehat K$, $0<t\leq r$. By continuity, $\overline{V_0(r)}\setminus\{0\}\subset\widehat K$. But therefore $\widehat K$ cannot be compact and so $\Omega$ is not holomorphically convex.
+
+To construct $r$ we proceed as follows. By Taylor's theorem we may write
+\[\phi(z)=x_1+\sum_{i,j}(\phi_{ij}(0)z_i z_j+\phi_{i\bar j}(0)z_i\bar z_j+\phi_{\bar i\bar j}(0)\bar z_i\bar z_j)+o(|z|^2).\]
+Restricting $\phi$ to the sets $V_t$, we may regard $\phi$ as a function of $s$ and $t$. Substituting we find
+\[\phi(s,t)=\phi_{2\bar2}(0)|s|^2+o(|s|^2)+tg(t,s),\]
+% Original book page 82
+where $g$ is a continuous function of $s$ and $t$ satisfying $g(0,0)=-1$. Since $\phi_{2\bar2}(0)<0$, we see that we can choose $r>0$ so that $\phi(s,t)<0$ for $t\in(0,r]$, $|s|\leq r$ or $t=0$, $0<|s|\leq r$.
+\end{proof}
+We may now state one of the most famous problems in several complex variables.
+\paragraph*{Levi's problem (E.E. Levi \cite{bib:I:levi-e-e:1}).}\IndexMark{idx-364}{levi s problem@Levi's problem} Show that every Levi pseudoconvex domain in $\mathbb C^n$ is a domain of holomorphy.
+
+Levi's problem was answered affirmatively by Oka \cite{bib:I:oka-k:1} in case $n=2$ and later, independently, by Bremermann \cite{bib:I:bremermann-h-j:1}, Norguet \cite{bib:I:norgeut-f:1} and Oka \cite{bib:I:oka-k:2} for general $n$. We shall give a proof of a generalisation of Levi's problem, due to Grauert, in Chapter~\ref{ch:7}.
+
+For the remainder of this section we shall investigate some alternative pseudoconvexivity definitions. First we need a technical lemma, the proof of which was shown to us by D.B.A. Epstein.
+\FieldHeading{Lemma}{2.5.14}{}\FieldTarget{lemma:2.5.14}{2.5.14} Let $\Omega$ be a bounded domain in $\mathbb R^n$ with $C^r$ boundary, $r\geq2$. Define $d:\mathbb R^n\to\mathbb R$ by
+\[d(x)=\begin{cases}d(x,\partial\Omega),&x\in\Omega\\-d(x,\partial\Omega),&x\notin\Omega,\end{cases}\]
+where distances are computed relative to the Euclidean metric on $\mathbb R^n$. Then $d$ is $C^r$ on some neighbourhood of $\partial\Omega$ in $\mathbb R^n$.
+\begin{proof}
+Let $n(z)$ denote the unit inward normal to $\partial\Omega$ at $z\in\partial\Omega$ and $\phi:\partial\Omega\times\mathbb R\to\mathbb R^n$ be the map $\phi(z,\lambda)=z+\lambda n(z)$. Thus $\phi$ is the exponential map of the normal bundle of $\partial\Omega$, relative to the Euclidean norm on $\mathbb R^n$. In particular, $\phi$ defines a $C^{r-1}$ diffeomorphism of some open neighbourhood of $\partial\Omega\times\{0\}\subset\partial\Omega\times\mathbb R$ onto an open neighbourhood $U$ of $\partial\Omega$ in $\mathbb R^n$ (note that $n(\ )$ is only of class $C^{r-1}$ on $\partial\Omega$). If $X\in U$ we may write $\phi^{-1}(X)=(\pi(X),\lambda(X))$, where $\pi:U\to\partial\Omega$, $\lambda:U\to\mathbb R$ are $C^{r-1}$ functions. Thus
+\[X-\pi(X)=\lambda(X)n(\pi(X)),\quad X\in U.\]
+% Original book page 83
+Differentiating this expression with respect to $X$ and evaluating at $y\in\mathbb R^n$ we see that
+\[y-D\pi_X(y)=D\lambda_X(y)n(\pi(X))+\lambda(X)Dn_{\pi(X)}(D\pi_X(y)).\]
+Take the inner product with $n(\pi(X))$ to obtain
+\[\langle y,n(\pi(X))\rangle=D\lambda_X(y)+\lambda(X)\langle Dn_{\pi(X)}(D\pi_X(y)),n(\pi(X))\rangle.\]
+Now
+\[\langle Dn_{\pi(X)}(D\pi_X(y)),n(\pi(X))\rangle=0\]
+as is seen by differentiating the identity $\langle n(\pi(X)),n(\pi(X))\rangle=1$. Hence
+\[D\lambda_X(y)=\langle y,n(\pi(X))\rangle.\]
+But $\langle y,n(\pi(X))\rangle$ is a $C^{r-1}$ function of $X$. Therefore, $D\lambda$ is $C^{r-1}$ and so $\lambda$ is $C^r$. Since $d(x)=\lambda(x)$, the result follows.
+\end{proof}
+Continuing with the notation of the proof of Lemma~\ref{lemma:2.5.14}, we see that $Dd_x=\langle\cdot,n(\pi(x))\rangle$, for $x\in\partial\Omega$ and so $Dd$ is non-vanishing on $\partial\Omega$. Hence $-d$ is a continuous defining function for $\Omega$ which is $C^r$ on some neighbourhood of $\partial\Omega$ in $\mathbb R^n$.
+
+Now suppose $\Omega$ is a bounded domain in $\mathbb C^n$ with $C^2$ boundary. As in Lemma~\ref{lemma:2.5.14}, we let $d:\mathbb C^n\to\mathbb R$ denote the signed Euclidean distance function to the boundary of $\Omega$.
+\FieldHeading{Proposition}{2.5.15}{}\FieldTarget{proposition:2.5.15}{2.5.15} Let $\Omega$ be a bounded domain in $\mathbb C^n$ with $C^2$ boundary and suppose that $d:\mathbb C^n\to\mathbb R$ is $C^2$ on the open neighbourhood $U$ of $\partial\Omega$ in $\mathbb C^n$. Then the following conditions are equivalent:
+\begin{enumerate}
+\item[i)] $\Omega$ is Levi pseudoconvex.
+\item[ii)] The Levi form of $-\log(d)$ is positive semi-definite on $U\cap\Omega$.
+\end{enumerate}
+\begin{proof}
+First suppose that $L(-\log d)$ is positive semi-definite on $U\cap\Omega$. Set $\delta=-\log d=\log d^{-1}$. Computing we find that
+\[\frac{\partial^2\delta}{\partial z_i\partial\bar z_j}=-d^{-1}\frac{\partial^2d}{\partial z_i\partial\bar z_j}+d^{-2}\frac{\partial d}{\partial z_i}\overline{\frac{\partial d}{\partial z_j}}\quad\text{on }U.\]
+% Original book page 84
+Hence for $z\in U\cap\Omega$, we have
+\[\sum_{i,j}\frac{\partial^2d}{\partial z_i\partial\bar z_j}(z)Z_i\bar Z_j\geq0,\quad\text{provided that }\sum_i\frac{\partial d}{\partial z_i}(z)Z_i=0.\]
+By continuity, this result holds on $\partial\Omega$ and so $\Omega$ is Levi pseudoconvex.
+
+For the converse, we first note that since $-d$ is a $C^2$ defining function for $\Omega$, at least on $U$, Lemma~\ref{lemma:2.5.10} implies that $L(-d)$ is positive semi-definite on holomorphic tangent vectors to $\partial\Omega$. Suppose that there exists $z\in U\cap\Omega$ such that the Levi form of $-\log d$ is not positive semi-definite at $z$. This implies that there exists a unit vector $u\in\mathbb C^n$ such that
+\[\left.\frac{\partial^2}{\partial t\partial\bar t}(\log d(z+tu))\right|_{t=0}>0.\]
+As in the proof of Theorem~\ref{theorem:2.5.13}, Taylor's theorem implies that
+\[\log d(z+tu)=\log d(z)+\operatorname{Re}(at+bt^2)+c|t|^2+O(|t|^2),\]
+for constants $a,b\in\mathbb C$. Choose $\zeta\in\mathbb C^n$ such that $z+\zeta\in\partial\Omega$ and $d(z)=\|\zeta\|$. Consider the holomorphic curve
+\[\phi(t)=z+tu+\zeta\exp(at+bt^2)\]
+and note that $\phi(0)=z+\zeta\in\partial\Omega$. By the triangle inequality we have
+\[d(\phi(t))\geq d(z+tu)-\|\zeta\|\exp(at+bt^2),\quad t\in\mathbb C.\]
+Using the expression above for $\log d(z+tu)$ it follows that for sufficiently small values of $|t|$ we have
+\[d(\phi(t))\geq\|\zeta\|(\exp(c|t|^2/2)-1)|\exp(at+bt^2)|.\]
+But this estimate implies that at $t=0$ we have
+\[\frac{\partial}{\partial t}d(\phi(t))=0\quad\text{and}\quad\frac{\partial^2}{\partial t\partial\bar t}d(\phi(t))>0\]
+and so
+% Original book page 85
+\[\sum_i\frac{\partial d}{\partial z_i}(z+\zeta)\phi_i'(0)=0,\quad
+\sum_{i,j}\frac{\partial^2d}{\partial z_i\partial\bar z_j}(z+\zeta)\phi_i'(0)\overline{\phi_j'(0)}<0,\]
+contradicting the positive semi-definiteness of $L(d)$ on holomorphic tangent vectors to $\partial\Omega$.
+\end{proof}
+\FieldHeading{Definition}{2.5.16}{}\FieldTarget{definition:2.5.16}{2.5.16} Let $\Omega$ be a domain in $\mathbb C^n$ and $\phi:\Omega\to\mathbb R$ be $C^2$. We say that $\phi$ is \emph{plurisubharmonic}\IndexMark{idx-439}{plurisubharmonic@Plurisubharmonic}\IndexMark{idx-443}{plurisubharmonic@Plurisubharmonic!strict@strict} (psh for short) if $L(\phi)$ is positive semi-definite on $\Omega$. We say $\phi$ is \emph{strictly plurisubharmonic} if $L(\phi)$ is positive definite on $\partial$.
+\paragraph*{Remark.} Notice that if $\phi:\Omega\to\mathbb R$ is $C^2$ and psh (respectively, strictly psh) and $h:\Omega'\to\Omega$ is biholomorphic then $h$ is psh (respectively, strictly psh).
+
+In practice, it is useful to remove the differentiability requirement on psh functions. Thus suppose $\phi:\Omega\to[-\infty,+\infty)$ is semi-continuous from above. We say $\phi$ is psh if for arbitrary, $z,w\in\mathbb C^n$, the function $t\mapsto\phi(z+tw)$ is \emph{subharmonic} wherever defined. We recall that a function $u$ on a domain $U\subset\mathbb C$ is said to be subharmonic if given any compact subset $K$ of $U$ and continuous function $h$ on $K$ which is harmonic on $\mathring K$ and $\geq u$ on $\partial K$ then $u\leq h$ on $K$. Equivalently, $\phi$ is psh if $L(\phi)$ is positive semi-definite in the distributional sense. That is, if $\int_\Omega L(u)(x)(X)\phi(x)\,d\lambda(x)\geq0$ for all $u\in C_c^\infty(\Omega)$, $X\in\mathbb C^n$. We refer the reader to H\"ormander \cite{bib:I:hormander-l:1} or Vladimirov \cite{bib:I:vladimirov-v-s:1} for the basic properties of subharmonic and psh functions\IndexMark{idx-589}{subharmonic function@Subharmonic function} that are used in several complex variables. We should stress that the only reference to subharmonic functions in these notes will be in this section.
+
+The next result is a generalisation of Proposition~\ref{proposition:2.5.15} to domains which do not have smooth boundary.
+\FieldHeading{Proposition}{2.5.17}{}\FieldTarget{proposition:2.5.17}{2.5.17} If $\Omega$ is a domain of holomorphy in $\mathbb C^n$ then $-\log d(x)$ is psh.
+\begin{proof}
+See Bremermann \cite{bib:I:bremermann-h-j:2}, H\"ormander \cite{bib:I:hormander-l:1} or Vladimirov \cite{bib:I:vladimirov-v-s:1}.
+\end{proof}
+\FieldHeading{Definition}{2.5.18}{}\FieldTarget{definition:2.5.18}{2.5.18} A domain $\Omega$ in $\mathbb C^n$ is said to be \emph{pseudoconvex}\IndexMark{idx-478}{pseudoconvex@Pseudoconvex} if $-\log d(x)$ is psh.
+
+We now define a very strong form of pseudoconvexivity.
+% Original book page 86
+\FieldHeading{Definition}{2.5.19}{}\FieldTarget{definition:2.5.19}{2.5.19} A domain $\Omega$ in $\mathbb C^n$ is said to be \emph{0-complete}\IndexMark{idx-660}{zero complete 0 complete@Zero-complete (0-complete)} or \emph{holomorphically complete}\IndexMark{idx-306}{holomorphically complete@Holomorphically complete} if there exists $\phi\in C_{\mathbb R}^\infty(\Omega)$ such that
+\begin{enumerate}
+\item $\phi$ is strictly psh.
+\item For every $a\in\mathbb R$, $\Omega_a=\{z\in\Omega:\phi(z)<a\}$ is relatively compact in $\Omega$.
+\end{enumerate}
+It is not hard to show that a domain $\Omega$ in $\mathbb C^n$ is pseudoconvex if and only if it is 0-complete. See, for example, H\"ormander \cite{bib:I:hormander-l:1} or Vladimirov \cite{bib:I:vladimirov-v-s:1}. We shall prove directly that every domain of holomorphy is 0-complete.
+\FieldHeading{Theorem}{2.5.20}{}\FieldTarget{theorem:2.5.20}{2.5.20} Let $\Omega$ be a domain of holomorphy. Then $\Omega$ is 0-complete.
+\begin{proof}
+Since $\Omega$ is holomorphically convex we may find a normal exhaustion\IndexMark{idx-243}{exhaustion function@Exhaustion function} $(K_n)_{n\geq1}$ of $\Omega$. Choose an increasing sequence $(U_n)$ of relatively compact open subsets of $\Omega$ such that for all $n$, $K_n\subset U_n$ and $U_n$ is relatively compact in $U_{n+1}$. Since $\widehat K_n=K_n$ and $\bar U_{n+1}\setminus U_n$ is compact there exist $f_{nk}\in A(\Omega)$, $1=1,\ldots,k(n)$, such that
+\[\|f_{nk}\|_{K_n}<1\quad\text{and}\quad\max_k|f_{nk}(z)|>1,\quad z\in\bar U_{n+1}\setminus U_n.\]
+Raising the $f_{nk}$ to sufficiently high powers we may further assume that
+\[\sum_{n=1}^{k(n)}|f_{nk}(z)|^2<2^{-n},\quad z\in K_n.\tag{A}\label{eq:2:a:1}\]
+\[\sum_{k=1}^{k(n)}|f_{nk}(z)|^2>n,\quad z\in\bar U_{n+1}\setminus U_n.\tag{B}\label{eq:2:b:1}\]
+Since $\Omega\subset\mathbb C^n$, we may further require that for every $z\in K_n$ there exist $n$ of the $f_{nk}$ which gives local holomorphic coordinates at $z$. Define
+\[\phi(z)=\sum_{n,k}|f_{nk}(z)|^2,\quad z\in\Omega.\]
+The sum converges by estimate A for all $z\in\Omega$. We claim that $\phi\in C_{\mathbb R}^\infty(\Omega)$. This follows since $\sum f_{nk}(z)\overline{f_{nk}(\zeta)}$ is uniformly convergent on compact subsets of $\Omega\times\Omega$ and so, by Corollary~\ref{corollary:2.1.8}, the sum is analytic in $z$ and $\bar\zeta$. Next notice that estimate B implies that $\phi(z)>n$, for $z\in\Omega\setminus U_n$. Hence, for all $a\in\mathbb R$, $\Omega_a=\{z:\phi(z)<a\}$ is relatively compact. Finally, we have
+% Original book page 87
+\[L(\phi)=\sum\frac{\partial f_{nk}}{\partial z_i}\overline{\frac{\partial f_{nk}}{\partial z_j}}\]
+and so $L(\phi)$ is certainly positive semi-definite. To prove positive definiteness suppose that $L(\phi)(z)(Z)=0$, $z\in K_n$. This implies that $\sum_{i,k}\frac{\partial f_{nk}}{\partial z_i}(z)Z_i=0$. But it is possible to find $n$ of the $f_{nk}$ which give a local coordinate system at $z$. Hence $Z=0$.
+\end{proof}
+\paragraph*{Remarks.}
+\begin{enumerate}
+\item We call functions $\phi$ that satisfy the conditions of Definition~\ref{definition:2.5.19} \emph{strictly psh exhaustion functions}\IndexMark{idx-441}{plurisubharmonic@Plurisubharmonic!exhaustion function@exhaustion function} for $\Omega$. Notice that our definition of 0-completeness is invariant under biholomorphic maps and makes no explicit mention of the boundary of $\Omega$. Later, in Chapter~\ref{ch:5}, we shall generalise our 0-completeness definition to complex manifolds.
+\item It follows easily from Sard's theorem that if $\Omega$ is 0-complete then $\Omega$ is the limit of an increasing sequence of s.L.p. domains (see also the discussion in \hyperref[sec:7:4]{\S4, Chapter 7}).
+\end{enumerate}
+Next we wish to give a brief discussion of some ``continuity'' principles that hold for pseudoconvex\IndexMark{idx-479}{pseudoconvex@Pseudoconvex!h@H-} domains. Motivation for the next definition is given by the proof of Theorem~\ref{theorem:2.5.13}.
+\FieldHeading{Definition}{2.5.21}{}\FieldTarget{definition:2.5.21}{2.5.21} A domain $\Omega$ in $\mathbb C^n$ is said to satisfy the \emph{weak continuity principle}\IndexMark{idx-647}{weak continuity principle@Weak continuity principle} if, given any sequence $\{V_n\}$ of holomorphically embedded discs in $\Omega$ which satisfy
+\begin{enumerate}
+\item For all $n$, $V_n\cup\partial V_n$ is a relatively compact subset of $\Omega$.
+\item $\lim V_n=V_0$ exists and $\partial V_0$ is relatively compact subset of $\Omega$.
+\end{enumerate}
+Then, provided that $V_0$ is bounded, $V_0$ is a relatively compact subset of $\Omega$.
+
+Using subharmonic functions it is not too hard to show that a domain is pseudoconvex if and only if it satisfies the weak continuity principle (see Bremermann \cite{bib:I:bremermann-h-j:2}, Vladimirov \cite{bib:I:vladimirov-v-s:1}). If we say that a domain $\Omega$ in $\mathbb C^n$ is H-pseudoconvex\IndexMark{idx-279}{h pseudoconvex@H-pseudoconvex} if it contains all its generalised Hartogs figures, then it is straightforward to show that $\Omega$ is H-pseudoconvex if and only if it satisfies the weak continuity principle (see Grauert and Fritzsche \cite{bib:I:grauert-h-and-fritzche-k:1} and also Andreotti and Grauert \cite[page 217ff]{bib:I:andreotti-a-and-grauert-h:1}).
+% Original book page 88
+
+Let us summarise the relations between the various definitions we have been considering.
+\begin{center}
+    \begin{minipage}{\linewidth}
+        \centering
+        \input{figures/implications.tex}
+    \end{minipage}
+\end{center}
+In Chapter 12 we shall prove the fundamental result that every 0-complete domain in $\mathbb C^n$ is a domain of holomorphy. As a consequence, the definitions above will have all been shown to be equivalent.
+
+Finally the reader interested in pseudoconvexivity and its relationship with domains of holomorphy should certainly consult the original works of Oka \cite{bib:I:oka-k:3} and the H. Cartan seminar [2].
+\paragraph*{Exercises.}
+\begin{enumerate}
+\item Show that Lemma~\ref{lemma:2.5.10} is false if $\partial\Omega$ is only $C^1$. Can you find an example of a domain in $\mathbb C^n$ with $C^1$ boundary such that $d(x)$ is not differentiable at any point of $\mathbb C^n$?
+\item Show
+\begin{enumerate}
+\item[a)] The interior of an arbitrary intersection of pseudoconvex domains is pseudoconvex (cf. Example 15, \hyperref[sec:2:4]{\S4}).
+\item[b)] If $\Omega$ is a domain in $\mathbb C^n$ such that every point $z\in\partial\Omega$ has an open neighbourhood $U$ such that $U\cap\Omega$ is pseudoconvex then $\Omega$ is pseudoconvex (the same result is true for domains of holomorphy but depends on the equivalence between domains of holomorphy and pseudoconvex domains).
+\end{enumerate}
+(Both a) and b) use elementary properties of subharmonic functions).
+\item (Kohn and Nirenberg \cite{bib:I:kohn-j-j-and-nirenberg-l:1}). Show that the domain $\Omega$ in $\mathbb C^2$ defined by $\operatorname{Re}(w)+|zw|^2+|z|^8+\frac{15}{7}|z|^2\operatorname{Re}(z^6)<0$ is L.p. and s.L.p. at every point of $\partial\Omega$ except 0.
+% Original book page 89
+
+($\Omega$ is not convex at 0 in any local system of holomorphic coordinates, See Kohn and Nirenberg \cite{bib:I:kohn-j-j-and-nirenberg-l:1} and also Y.T. Siu \cite{bib:I:siu-y-t:1}).
+\end{enumerate}
+
+\section{The Bergman kernel function}\IndexMark{idx-038}{bergman kernel function@Bergman kernel function}\label{sec:2:6}
+In this section we describe how some domains of holomorphy in $\mathbb C^n$ have an intrinsic strictly psh exhaustion function (granted the Euclidean metric structure on $\mathbb C^n$). For the most part we either omit or give very brief indications of proofs. Full details may be found in Bergman \cite{bib:I:bergman-s:1,bib:I:bergman-s:2} or Fuks \cite{bib:I:fuks-b-a:1}. We shall also assume some elementary Hilbert space theory.
+
+Throughout this section we shall suppose that $\Omega$ is a bounded domain in $\mathbb C^n$. We have already shown in Exercise 2, \hyperref[sec:2:1]{\S1}, that $L^2(\Omega)$ is a Hilbert space with inner product defined by $(f,g)=\int_\Omega\bar f g\,d\lambda$, where $d\lambda$ is Lebesgue measure on $\mathbb C^n$. We set $|f|=(f,f)^{\frac12}$, $f\in L^2(\Omega)$. Since $L^2(\Omega)$ is separable, we may find a countable orthonormal (Hilbert space) basis $\{\phi_j:j\geq1\}$ for $L^2(\Omega)$. We remark that if $\{\psi_j\}$ is an arbitrary Hilbert space basis for $L^2(\Omega)$ then we can construct an orthonormal basis for $L^2(\Omega)$ from $\{\psi_j\}$ using the Gram--Schmidt orthogonalisation process.
+\FieldHeading{Proposition}{2.6.1}{}\FieldTarget{proposition:2.6.1}{2.6.1} Let $\{\phi_j\}$ be an orthonormal basis for $L^2(\Omega)$. Given $f\in L^2(\Omega)$, set $a_j=(\phi_j,f)$, $j\geq1$. Then
+\begin{enumerate}
+\item $f=\sum_{j=1}^\infty a_j\phi_j$, where convergence is uniform on compact subsets of $\partial\Omega$.
+\item $|f|^2=\sum_{j=1}^\infty|a_j|^2$ (Parseval's equality).
+\end{enumerate}
+\begin{proof}
+Straightforward and based on the estimates of Exercise 2, \hyperref[sec:2:1]{\S1}. See also the proof of Proposition~\ref{proposition:2.6.2} below.
+\end{proof}
+\FieldHeading{Proposition}{2.6.2}{}\FieldTarget{proposition:2.6.2}{2.6.2} Let $\{\phi_j\}$ be an orthonormal basis for $L^2(\Omega)$. Then the series
+\[\sum_{j=1}^\infty\phi_j(z)\overline{\phi_j(\zeta)}\]
+converges uniformly on compact subsets of $\Omega\times\Omega$ to a function $K_\Omega(z,\bar\zeta)$ which is analytic in $(z,\bar\zeta)$. In particular, $K_\Omega$ is $C^\infty$.
+% Original book page 90
+\begin{proof}
+Let $D_0=D(z_0;r)$, $D_1=D(\zeta_0;s)$ be relatively compact polydiscs in $\Omega$. By Exercise 2, \hyperref[sec:2:1]{\S1}, there exists $C_0\geq0$ such that for all $f\in L^2(\Omega)$, $\|f\|_{\bar D_0}\leq C_0|f|$. Therefore for $z\in D_0$ we have
+\begin{align*}
+\sum_{j=1}^m|\phi_j(z)|^2&=\int_\Omega\left|\sum_{j=1}^m\phi_j(\tau)\overline{\phi_j(z)}\right|^2\,d\lambda(\tau)\\
+&\geq C_0\left\|\sum_{j=1}^m\phi_j(\tau)\overline{\phi_j(z)}\right\|_{D_0}^2\\
+&\geq C_0\left\|\sum_{j=1}^m|\phi_j(z)|^2\right\|_{D_0}^2.
+\end{align*}
+Hence
+\[\sum_{j=1}^m|\phi_j(z)|^2\leq C_0^{-1},\quad z\in D_0.\]
+Similarly,
+\[\sum_{j=1}^m|\phi_j(\zeta)|^2\leq C_1^{-1},\quad\zeta\in D_1.\]
+By the Cauchy--Schwarz inequality
+\[\left\{\sum_{j=1}^m|\phi_j(z)\overline{\phi_j(\zeta)}|\right\}^2\leq\left\{\sum_{j=1}^m|\phi_j(z)|^2\right\}^2\left\{\sum_{j=1}^m|\phi_j(\zeta)|^2\right\}^2\]
+and so
+\[\sum_{j=1}^m|\phi_j(z)\overline{\phi_j(\zeta)}|\leq(C_0C_1)^{-1},\quad z\in D_0,\ \zeta\in D_1.\]
+Therefore $\sum_{j=1}^\infty\phi_j(z)\overline{\phi_j(\zeta)}$ converges uniformly on compact subsets of $\Omega\times\Omega$ and so the result follows by Corollary~\ref{corollary:2.1.8}.
+\end{proof}
+\FieldHeading{Definition}{2.6.3}{}\FieldTarget{definition:2.6.3}{2.6.3} Let $\{\phi_j\}$ be an orthonormal basis for $L^2(\Omega)$. Then the function $K_\Omega(z,\bar\zeta)=\sum_{j=1}^\infty\phi_j(z)\overline{\phi_j(\zeta)}$ is called the \emph{(Bergman) kernel function} of the domain $\Omega$, relative to the orthonormal basis $\{\phi_j\}$.
+\FieldHeading{Theorem}{2.6.4}{}\FieldTarget{theorem:2.6.4}{2.6.4} The kernel function $K_\Omega(z,\bar\zeta)$ is independent of the choice of orthonormal basis for $L^2(\Omega)$. It satisfies the following characteristic variational property:
+% Original book page 91
+Given $z_0\in\Omega$, the function
+\[f(z)=K_\Omega(z,\bar z_0)/K_\Omega(z_0,\bar z_0)\]
+is the unique function in $L^2(\Omega)$ which minimises the integral $|f|$, subject to the normalising condition $f(z_0)=1$.
+\begin{proof}
+Straightforward and we refer to the references.
+\end{proof}
+In view of Theorem~\ref{theorem:2.6.4} we may now talk about \emph{the} kernel function of the domain $\Omega$.
+\FieldHeading{Theorem}{2.6.5}{ (Reproducing property of the kernel function).}\IndexMark{idx-507}{reproducing property of kernel function@Reproducing property of kernel function}\FieldTarget{theorem:2.6.5}{2.6.5} For all $f\in L^2(\Omega)$, we have
+\[f(z)=\int_\Omega f(\zeta)K_\Omega(z,\bar\zeta)\,d\lambda(\zeta).\]
+\begin{proof}
+Take the Fourier series expansion of $f$ relative to an orthonormal basis of $L^2(\Omega)$ and integrate term by term.
+\end{proof}
+\paragraph*{Example.} Set $D=D(0;r_1,\ldots,r_n)$, $E=E(0;r)$. Then $\{z^m/m!:m\in\mathbb N^n\}$ is easily seen to be an orthogonal basis for both $L^2(D)$ and $L^2(E)$. Normalising and computing the kernel functions we find
+\[K_D(z,\bar\zeta)=\pi^{-n}r_1^2\cdots r_n^2\prod_{j=1}^n(r_j-z_j\bar\zeta_j)^{-2}\]\IndexMark{idx-039}{bergman kernel function@Bergman kernel function!of polydisc@of polydisc}
+\[K_E(z,\bar\zeta)=\pi^{-n}r^2n!\left(r^2-\sum_{j=1}^n z_j\bar\zeta_j\right)^{-n-1}.\]\IndexMark{idx-040}{bergman kernel function@Bergman kernel function!of euclidean disc@of Euclidean disc}
+Observe that $K_D(z,\bar z)$, $K_E(z,\bar z)$ are strictly psh exhaustion functions for their respective domains. The reader may find computations of the kernel functions of the ``classical domains'' (see \hyperref[sec:4:2]{Chapter 4, \S2}) in Hua \cite{bib:I:hua-l-k:1}.
+
+Next we examine how the kernel function transforms under biholomorphic maps.
+\FieldHeading{Proposition}{2.6.6}{}\FieldTarget{proposition:2.6.6}{2.6.6} Let $h:\Omega\to\Omega'$ be a biholomorphic map between bounded domains in $\mathbb C^n$. Then
+\[K_\Omega(z,\bar z)=K_{\Omega'}(h(z),\overline{h(z)})|\det_{\mathbb C}Dh_z|^2.\]
+% Original book page 92
+\begin{proof}
+A straightforward computation using the change of variables formula for multiple integrals and the fact that $\det_{\mathbb R}Dh_z=|\det_{\mathbb C}Dh_z|^2$ (see \hyperref[sec:5:4]{\S4, Chapter 5}).
+\end{proof}
+\paragraph*{Remarks.}
+\begin{enumerate}
+\item Proposition~\ref{proposition:2.6.6} implies that the kernel function is invariantly defined as a section of an appropriate tensor bundle on $\Omega$. We return to this point in Chapter~\ref{ch:5}.
+\setcounter{enumi}{2}
+\item Note that Proposition~\ref{proposition:2.6.6} in combination with the computations of the Example, shows that the open polydisc and Euclidean disc in $\mathbb C^n$ are biholomorphically inequivalent\IndexMark{idx-046}{biholomorphic inequivalence of disc and polydisc@Biholomorphic inequivalence of disc and polydisc}, $n>1$. See also \hyperref[sec:4:2]{\S2 of Chapter 4}.
+\end{enumerate}
+\FieldHeading{Corollary}{2.6.7}{}\FieldTarget{corollary:2.6.7}{2.6.7} The Levi form of\IndexMark{idx-041}{bergman kernel function@Bergman kernel function!levi form of@Levi form of} $\log K_\Omega(z,\bar z)$ is invariant under biholomorphic transformations.
+
+Because of Corollary~\ref{corollary:2.6.7} and the analogy with pseudoconvexivity we prefer to work with $\log K_\Omega(z,\bar z)$ rather than $K_\Omega(z,\bar z)$.
+\FieldHeading{Proposition}{2.6.8}{}\FieldTarget{proposition:2.6.8}{2.6.8} Let $\Omega$ be a bounded domain in $\mathbb C^n$. Then $\log K_\Omega(z,\bar z)$ is a $C^\infty$ strictly psh function.
+\begin{proof}
+A straightforward computation that makes use of the fact that since $\Omega$ is bounded we can define local coordinate systems at any point of $\Omega$ using elements of a fixed orthonormal basis for $L^2(\Omega)$.
+\end{proof}
+The question now arises as to the conditions under which $\log K_\Omega(z,\bar z)$ gives a strictly psh exhaustion function for a domain of holomorphy $\Omega$. In general it does not (see Bremermann \cite{bib:I:bremermann-h-j:3}). However, it is certainly true that a sufficient condition for $\Omega$ to be a domain of holomorphy is that $\log K_\Omega(z,\bar z)$ is a strictly psh exhaustion function for $\Omega$. Moreover, it can be shown that every domain of holomorphy is the limit of an increasing sequence of domains of holomorphy for which $\log K(z,\bar z)$ is a strictly psh exhaustion function (see Bremermann \cite{bib:I:bremermann-h-j:2} and compare with the corresponding approximation of domains of holomorphy by s.L.p. domains). Finally we should mention that if we define a weighted inner product $(f,g)_\phi=\int_\Omega\bar f g e^{-\phi}\,d\lambda$ and let $L^2(\Omega;\phi)$ denote the corresponding Hilbert space of analytic functions on $\Omega$, then the kernel theory continues to hold. Sharp estimates on the growth of the associated kernel function at the boundary of $\Omega$ are given in H\"ormander \cite{bib:I:hormander-l:3}. See also Bremermann \cite{bib:I:bremermann-h-j:2}. Notice that the introduction of weighting functions amounts to a change of metric on $\Omega$.
+% Original book page 93
+
+For a survey of recent results on the kernel function and its applications to complex analysis see Diederich \cite{bib:I:diederich-k:1}.
+\paragraph*{Exercises.}
+\begin{enumerate}
+\item Verify that the kernel function of a domain $\Omega$ is Hermitian: $K_\Omega(z,\zeta)=\overline{K_\Omega(\zeta,z)}$, $z,\zeta\in\Omega$.
+\item Verify the expressions for the kernel functions of the polydisc and Euclidean disc given in the example.
+\end{enumerate}
+
+\section{The Cousin problems}\IndexMark{idx-144}{cousin domains@Cousin domains}\IndexMark{idx-148}{cousin problems@Cousin problems}\label{sec:2:7}
+In this section we wish to consider the problem of constructing meromorphic functions with specified principle parts or zero and pole sets on a given domain in $\mathbb C^n$, $n>1$. These questions were first raised by P. Cousin around the turn of the century and, following H. Cartan \cite{bib:I:cartan-h:1}, now bear his name. As yet, of course, we have not defined meromorphic functions of more than one variable (see Chapter~\ref{ch:3}) but, as we showed in Chapter~\ref{ch:1}, it is possible to formulate both the Mittag--Leffler and Weierstrass theorems in a way that avoids explicit mention of meromorphic functions. We adopt this approach here but we must caution the reader that our consequent definition of the Cousin problems is \emph{not} the classical one (see the remarks below).
+\paragraph*{Cousin's problem A.}
+Let $\Omega$ be a domain in $\mathbb C^n$ and $\{U_i:i\in I\}$ be an open cover of $\Omega$. Suppose we are given $f_{ij}\in A(U_{ij})$ such that for all $i,j,k$
+\[f_{ij}=-f_{ji}\text{ on }U_{ij};\quad f_{ij}+f_{jk}+f_{ki}=0\text{ on }U_{ijk}.\]
+When can we find $f_i\in A(U_i)$ such that $f_{ij}=f_j-f_i$ on $U_{ij}$ for all $i,j\in I$?
+
+We say $\Omega$ is a \emph{Cousin A domain} if we can always solve the Cousin A problem on $\Omega$.
+\paragraph*{Cousin's problem B.}
+Let $\Omega$ be a domain in $\mathbb C^n$ and $\{U_i:i\in I\}$ be an open cover of $\Omega$. Suppose we are given $f_{ij}\in A^*(U_{ij})$ such that for all $i,j,k$
+% Original book page 94
+\[f_{ij}=f_{ji}^{-1}\text{ on }U_{ij};\quad f_{ij}f_{jk}f_{ki}=1\text{ on }U_{ijk}.\]
+When can we find $f_i\in A(U_i)$ such that $f_{ij}=f_j/f_i$ on $U_{ij}$ for all $i,j\in I$?
+
+We say $\Omega$ is a \emph{Cousin B domain}\IndexMark{idx-145}{cousin domains@Cousin domains} if we can always solve the Cousin B problem\IndexMark{idx-149}{cousin problems@Cousin problems} on $\Omega$.
+\FieldHeading{Proposition}{2.7.1}{}\FieldTarget{proposition:2.7.1}{2.7.1} Let $\Omega$ be a domain in $\mathbb C^n$. Then
+\begin{enumerate}
+\item $\Omega$ is a Cousin A domain if and only if we can solve the Cauchy--Riemann equations on $\Omega$.
+\item $\Omega$ is a Cousin B domain if and only if every holomorphic line bundle on $\Omega$ is holomorphically trivial.
+\end{enumerate}
+\begin{proof}
+To say that we can solve the Cauchy--Riemann equations on $\Omega$ means that if we are given $f_j\in C^\infty(\Omega)$, $1\leq j\leq n$, such that $\partial f_j/\partial\bar z_i=\partial f_i/\partial\bar z_j$, $1\leq i,j\leq n$, then there exists $u\in C^\infty(\Omega)$ such that $\partial u/\partial\bar z_j=f_j$, $1\leq j\leq n$ (see \hyperref[sec:2:3]{\S3}, especially Theorem~\ref{theorem:2.3.1}). Suppose that we can solve the Cauchy--Riemann equations on $\Omega$. Then, exactly as in the proof of Theorem~\ref{theorem:1.3.2}, we can solve the Cousin A problem on $\Omega$. We defer the proof of the converse to Chapter~\ref{ch:6}. The second statement is an immediate consequence of the definition of a holomorphically trivial line bundle (see \hyperref[sec:1:5]{\S5, Chapter 1}).
+\end{proof}
+We know from Chapter~\ref{ch:1} that every domain in $\mathbb C$ is a Cousin A and Cousin B domain. Notice that if $\Omega$ is a domain in $\mathbb C$ and $f_{ij}\in A(U_{ij})$ is the data for a Cousin A problem on $\Omega$ then we can find $m_j\in M(U_j)$ such that $f_{ij}=m_j-m_i$. Indeed, we can choose $m_j\in A(U_j)$ satisfying these conditions since $\Omega$ is a Cousin A domain! Hence, for domains in $\mathbb C$, there is really no difference between the Cousin A problem and the problem of constructing meromorphic functions with specified principal parts. Similarly for the multiplicative problem. It turns out that this equivalence between the Cousin A and B problems and the problem of finding meromorphic functions with specified principal parts or pole and zero sets no longer holds for domains in $\mathbb C^n$, $n>1$. As we shall see in Chapter 12, it is possible, for example, to have domains in $\mathbb C^2$ for which we can always construct meromorphic functions with specified pole and zero sets but which are nevertheless not Cousin B (or A) domains. To clarify this point we now give the original definition of a Cousin II domain.
+% Original book page 95
+\FieldHeading{Definition}{2.7.2}{}\FieldTarget{definition:2.7.2}{2.7.2} We say that a domain $\Omega$ in $\mathbb C^n$ is a \emph{Cousin II domain} if given any open cover $\{U_i\}$ of $\Omega$ and analytic functions $f_i\in A^*(U_i)$ such that $f_i/f_j\in A^*(U_{ij})$ then there exists $F\in A(\Omega)$ such that $Ff_i^{-1}\in A^*(U_i)$ for all $i$.
+\paragraph*{Remark.} We shall see in \hyperref[sec:3:4]{\S4 of Chapter 3}, if $\Omega$ is a Cousin II domain then we can construct meromorphic functions on $\Omega$ with specified pole and zero sets. However, a Cousin II domain need not be a Cousin B domain if $n>1$.
+\paragraph*{Examples.}
+\begin{enumerate}
+\item Every open polydisc $D\subset\mathbb C^n$ is a Cousin A domain. To prove this we shall show that the Cauchy--Riemann equations are solvable in $D$. Our proof will be very close to that of Theorem~\ref{theorem:1.3.1}. Let $D=D(0;r_1,\ldots,r_n)$ and for $s\in(0,1]$, set $D_s=sD$. Suppose $f\in A(D)$. By Theorem~\ref{theorem:2.1.5}
+\[f(z)=\sum\frac1{m!}\partial^m f(0)z^m,\quad z\in D,\]
+with uniform convergence on compact subsets of $D$. Hence, given $s\in(0,1)$ and $\epsilon>0$, there exists $N>0$ such that $\|f-f_N\|_{\bar D_s}\leq\epsilon$, where $f_N(z)=\sum_{|m|\leq N}\frac{\partial^m f(0)}{m!}z^m$. Hence polynomials are dense in $A(D)$. Using this approximation result together with Theorem~\ref{theorem:2.3.1} we can now use the method of proof of Theorem~\ref{theorem:A1.8} (Theorem~\ref{theorem:1.3.1}) to show that the Cauchy--Riemann equations are solvable on $D$. We leave details to the reader (see also Theorem~\ref{theorem:5.8.2}).
+
+This example can be generalised in the following way: We say that $\Omega\subset\mathbb C^n$ is a \emph{Runge domain}\IndexMark{idx-533}{runge domain@Runge domain} if polynomials are dense in $A(\Omega)$. It may be proved, using an ingenious inductive argument due to Oka, that the Cauchy--Riemann equations may always be solved on a Runge domain. For further details and references we refer the reader to H\"ormander \cite{bib:I:hormander-l:1}, Gunning and Rossi \cite{bib:I:gunning-r-c-and-rossi-h:1}.
+\item The domain $\Omega=\mathbb C^2\setminus\{0\}$ is not a Cousin A domain. We shall show that the Cauchy--Riemann equations are not always solvable on $\Omega$. Let $z=(z_1,z_2)\in\Omega$ and set $\|z\|^2=|z_1|^2+|z_2|^2$. We define functions $f_1,f_2$ by
+% Original book page 96
+\begin{align*}
+f_1(z)&=\frac{\partial}{\partial\bar z_1}(\bar z_2/z_1\|z\|^2),\quad z_1\neq0\\
+&=\frac{\partial}{\partial\bar z_1}(\bar z_1/z_2\|z\|^2),\quad z_2\neq0\\
+f_2(z)&=\frac{\partial}{\partial\bar z_2}(\bar z_2/z_1\|z\|^2),\quad z_1\neq0\\
+&=\frac{\partial}{\partial\bar z_2}(\bar z_1/z_2\|z\|^2),\quad z_2\neq0.
+\end{align*}
+The identity $\frac1{z_1z_2}=\bar z_2/z_1\|z\|^2+\bar z_1/z_2\|z\|^2$, $z_1z_2\neq0$, implies that $f_1,f_2\in C^\infty(\Omega)$. Clearly we also have $\partial f_1/\partial\bar z_2=\partial f_2/\partial\bar z_1$ on $\Omega$. Suppose that there exists $u\in C^\infty(\Omega)$ such that $\partial u/\partial\bar z_j=f_j$, $j=1,2$. The function $G=z_1u-\bar z_2/\|z\|^2$ is holomorphic for $z_1\neq0$ since $z_1^{-1}\partial G/\partial\bar z_j=\partial u/\partial\bar z_j-f_j=0$, $j=1,2$. Now $G$ is locally bounded on $\Omega$ and so, by the Riemann removable singularities theorem, $G$ extends to an analytic function on $\Omega$. Hartogs theorem implies that $G$ extends to an analytic function on $\mathbb C^2$. But $G(0,z_2)=1/z_2$, $z_2\neq0$, and so $G$ cannot be holomorphic at 0. Contradiction and so we cannot solve this set of Cauchy--Riemann equations on $\Omega$. We shall show in Chapter 12 that $\mathbb C^n\setminus\{0\}$ is a Cousin A domain for $n\geq3$.
+\end{enumerate}
+\FieldHeading{Proposition}{2.7.3}{}\FieldTarget{proposition:2.7.3}{2.7.3} Let $\Omega$ be a domain in $\mathbb C^n$. Then $\Omega$ is a Cousin B domain if and only if we can solve the Cauchy--Riemann equations on $\Omega$ and $H^2(\Omega,\mathbb Z)=0$.
+\begin{proof}
+If we can solve the Cauchy--Riemann equations on $\Omega$ and $H^2(\Omega,\mathbb Z)=0$ then, exactly as in the Proof of Theorem~\ref{theorem:1.3.2} we can solve the Cousin B problem on $\Omega$. We defer the proof of the converse to Chapter~\ref{ch:6}.
+\end{proof}
+\paragraph*{Example 3.} Every open polydisc in $\mathbb C^n$ is a Cousin B domain.
+
+The next theorem is very deep and we defer the proof until Chapter 12.
+\paragraph*{Theorem.} The Cauchy--Riemann equations are solvable on every domain of holomorphy.
+\paragraph*{Corollary.} If $\Omega$ is a domain of holomorphy, $\Omega$ is a Cousin A domain. If, in addition, $H^2(\Omega,\mathbb Z)=0$, $\Omega$ is a Cousin B domain.
+% Original book page 97
+
+As we have already seen there are Cousin A domains which are not domains of holomorphy. However, in case $\Omega\subset\mathbb C^2$ it is true that a Cousin A(B) domain is a domain of Holomorphy (see H. Cartan \cite{bib:I:cartan-h:2} and Chapter 12). To actually characterise domains of holomorphy in terms of Cauchy--Riemann equations we have to take account of higher order versions of the Cauchy--Riemann equations. See Chapter 12.
+\paragraph*{Exercise.} Show that Cauchy--Riemann equations are solvable on the Euclidean disc $E(r)$ (Use Exercise 1, \hyperref[sec:2:1]{\S1}).

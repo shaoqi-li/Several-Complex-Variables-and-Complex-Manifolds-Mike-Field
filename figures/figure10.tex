@@ -1,0 +1,27 @@
+% Figure 10. Curve diagrams deliberately have no area fill.
+\begin{tikzpicture}[field/diagram, x=1.05cm, y=1.15cm]
+    \draw[field/axis] (-1.95,0) -- (1.95,0) node[right] {$X_1$};
+    \draw[field/axis] (0,-1.65) -- (0,1.8) node[above] {$X_2$};
+    \draw[field/curve] (-1.50,1) -- (1.50,1)
+                       (-1.50,-1) -- (1.50,-1);
+    \node[above left, inner sep=3pt] at (0,1) {$+1$};
+    \node[below left, inner sep=3pt] at (0,-1) {$-1$};
+    \node[below right] at (0,-1.62) {$E$};
+    \node (Zstar) at (-2.28,0.15) {$Z^*$};
+    \draw[field/leader] (Zstar.north east) -- (-1.18,0.97);
+    \draw[field/leader] (Zstar.south east) -- (-1.18,-0.97);
+    \draw[field/map] (2.45,0.32)
+        .. controls (3.05,0.48) and (3.65,0.48) .. (4.22,0.32)
+        node[midway, above=5pt] {$\pi\phi_1^{-1}$};
+    \begin{scope}[shift={(6.6,0)}]
+        \draw[field/axis] (-1.95,0) -- (1.95,0) node[right] {$z_1$};
+        \draw[field/axis] (0,-1.65) -- (0,1.8) node[above] {$z_2$};
+        \draw[field/curve] (-1.4,-1.4) -- (1.4,1.4)
+                           (-1.4,1.4) -- (1.4,-1.4);
+        \node[anchor=west] at (1.40,1.12) {$z_1=z_2$};
+        \node[anchor=west] at (1.40,-1.12) {$z_1=-z_2$};
+        \node (Z) at (-1.76,0.35) {$Z$};
+        \draw[field/leader] (Z.north east) -- (-0.99,0.99);
+        \draw[field/leader] (Z.south east) -- (-0.98,-0.98);
+    \end{scope}
+\end{tikzpicture}

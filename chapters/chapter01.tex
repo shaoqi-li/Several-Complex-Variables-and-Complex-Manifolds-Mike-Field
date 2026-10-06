@@ -1,0 +1,753 @@
+% !TeX root = ../main.tex
+\chapter{Functions of One Complex Variable}\label{ch:1}
+% Original book page 1
+\ChapterOneIntroduction
+
+\section{Analytic functions and power series}\label{sec:1:1}
+Let $\Omega$ be a domain in $\mathbb C$. We recall that a function $f:\Omega\to\mathbb C$ is said to be \emph{analytic} or \emph{holomorphic}\IndexMark{idx-015}{analytic function@Analytic function!of one variable@of one variable} if it is complex differentiable on $\Omega$. Writing $f$ in real and imaginary parts, $f=u+iv$, analyticity implies that $u$ and $v$ satisfy the Cauchy--Riemann equations\IndexMark{idx-072}{cauchy riemann equations@Cauchy--Riemann equations} on $\Omega$:
+\[
+\partial u/\partial x=\partial v/\partial y;\qquad \partial u/\partial y=-\partial v/\partial x.
+\]
+Recalling that a real $2\times2$-matrix $[a_{ij}]$ induces a complex linear endomorphism of $\mathbb C$ if and only if $a_{11}=a_{22}$ and $a_{12}=-a_{21}$, we may interpret the Cauchy--Riemann equations as saying that if $f$ is analytic then $f$ is differentiable in the real sense and the (real) derivative of $f$ is everywhere a complex linear map (see, for example, Field \cite[Example 3, page 133]{bib:I:field-m-j:1}).
+
+Let $A(\Omega)$ denote the set of all analytic functions on $\Omega$.
+
+We now introduce a pair of partial differential operators which, together with their generalisations to several variables, will be of the utmost importance in the sequel. We set
+% Original book page 2
+\[
+\partial/\partial z=\tfrac12(\partial/\partial x-i\partial/\partial y);\qquad
+\partial/\partial\bar z=\tfrac12(\partial/\partial x+i\partial/\partial y).
+\]
+For $r\geq1$,
+\[
+\partial/\partial z,\partial/\partial\bar z:C^r(\Omega)\longrightarrow C^{r-1}(\Omega).
+\]
+The significance of these operators may be gauged from
+
+\FieldHeading{Lemma}{1.1.1}{}\FieldTarget{lemma:1.1.1}{1.1.1} A function $f\in C^1(\Omega)$ is analytic if and only if $\partial f/\partial\bar z=0$.
+\begin{proof} The reader may verify that $\partial f/\partial\bar z=0$ iff the Cauchy--Riemann equations hold. Since $f$ is assumed to be $C^1$, the Cauchy--Riemann equations hold iff $f$ is analytic. \end{proof}
+Next we recall the basic theorem on the local representation of analytic functions by power series\IndexMark{idx-452}{power series@Power series!in one variable@in one variable}.
+
+\FieldHeading{Theorem}{1.1.2}{}\FieldTarget{theorem:1.1.2}{1.1.2} Let $f\in A(\Omega)$. Given $\zeta\in\Omega$ and $r>0$ such that $D_r(\zeta)\subset\Omega$, we have
+\[
+f(z)=\sum_{j=0}^{\infty}a_j(z-\zeta)^j,\quad z\in D_r(\zeta),
+\]
+where $a_j=\partial^j f/\partial z^j(\zeta)/j!$, and convergence is uniform on compact subsets of $D_r(\zeta)$.
+
+\paragraph*{Remark.} Simple examples, such as $f(z)=(1-z)^{-1}$, $\Omega=\mathbb C\setminus\{1\}$, show that the power series at $\zeta$ need not converge on the whole of $\Omega$.
+
+\FieldHeading{Corollary}{1.1.3}{}\FieldTarget{corollary:1.1.3}{1.1.3} An analytic function is $C^\infty$.
+\paragraph*{Remark.} Notice that $A(\Omega)=\operatorname{Kernel}(\partial/\partial\bar z)$. Now $\partial/\partial\bar z$ is an example of an \emph{elliptic} differential operator and it can be shown that the kernel of any elliptic operator consists of $C^\infty$ functions. We shall return to this type of question in later chapters.
+
+\FieldHeading{Corollary}{1.1.4}{}\FieldTarget{corollary:1.1.4}{1.1.4} If $f\in A(\Omega)$, then $\partial^j f/\partial z^j\in A(\Omega)$, $j\geq0$.
+
+\FieldHeading{Corollary}{1.1.5}{}\FieldTarget{corollary:1.1.5}{1.1.5} Let $\Omega$ be a domain in $\mathbb C$. Suppose $f\in A(\Omega)$ and that at some point $\zeta\in\Omega$, $\partial^j f/\partial z^j(\zeta)=0$, $j\geq0$. Then $f$ vanishes identically on $\Omega$.
+% Original book page 3
+\begin{proof} Let $X=\{z\in\Omega:\partial^j f/\partial z^j=0,\text{ all }j\geq0\}$. $X$ is open by the power series representation of analytic functions given by Theorem~\ref{theorem:1.1.2} and $X$ is certainly non-empty since $\zeta\in X$. Since $X$ is the intersection of the closed sets $\{z\in\Omega:\partial^j f/\partial z^j(z)=0\}$, $X$ is also closed. Since $\Omega$ is connected, $X=\Omega$. \end{proof}
+\paragraph*{Remark.} Another way of stating this corollary is that the value of an analytic function and all its derivatives at a single point of a domain determine the function uniquely. This type of behaviour does not, of course, hold for $C^\infty$ or continuous functions.
+
+\FieldHeading{Proposition}{1.1.6}{ (Uniqueness of analytic continuation).}\IndexMark{idx-009}{analytic continuation@Analytic continuation}\IndexMark{idx-628}{uniqueness of analytic continuation@Uniqueness of analytic continuation}\FieldTarget{proposition:1.1.6}{1.1.6} Let $U,V$ be connected open subsets of $\mathbb C$ and suppose $U\cap V\ne\varnothing$. If $f\in A(U)$ and $h$ is an analytic extension of $f$ to $U\cup V$ (that is, $h\in A(U\cup V)$ and $h|U=f$), then $h$ is unique.
+\begin{proof} If $h_1,h_2$ are analytic extensions of $f$ to $U\cup V$ then $h_1-h_2$ is an analytic extension of the zero function on $U$ to $U\cup V$. Therefore, $h_1-h_2$ is identically zero by Corollary~\ref{corollary:1.1.5}. \end{proof}
+\paragraph*{Remark.} Once we have uniqueness of analytic continuation it is natural to try to construct the largest domain to which any given analytic function may be extended. It turns out of course that we have to enlarge our class of domains to include Riemann surfaces spread over $\mathbb C$. We return to this question in \hyperref[sec:1:4]{\S4} of this chapter and again in \hyperref[sec:6:2]{\S2 of Chapter 6}.
+
+\paragraph*{Exercises.} These exercises are revision of basic theory of functions of one complex variable. Proofs may be found in any of the many introductory texts on complex analysis.
+\begin{enumerate}
+\item[(1)] (Laurent series\IndexMark{idx-353}{laurent series@Laurent series!in one variable@in one variable}). Let $f$ be analytic on the annulus $r<|z-z_0|<R$. Derive the Laurent series of $f$ at $z_0$,
+\[
+f(z)=\sum_{n=-\infty}^{n=+\infty}a_n(z-z_0)^n,\quad r<|z-z_0|<R
+\]
+where $a_n=(2\pi i)^{-1}\int_{|\zeta-z_0|=s}f(\zeta)/(\zeta-z_0)^{n+1}\,d\zeta$, $r<s<R$, and convergence is uniform on compact subsets of the annulus.
+% Original book page 4
+\item[(2)] (Cauchy's inequalities\IndexMark{idx-066}{cauchy s inequalities@Cauchy's inequalities}). Continuing with the notation and assumptions of question 1, show that if $M(t)=\sup\{|f(z)|:|z-z_0|=t\}$, $r<t<R$, then
+\[ |a_n|\leq M(t)/t^n,\quad n\in\mathbb Z. \]
+In particular, show that if $f$ is holomorphic on the disc $D_R(z_0)$ then
+\[ |\partial^n f/\partial z^n(z_0)|\leq M(t)n!/t^n,\quad n\geq0. \]
+\item[(3)] (Riemann removable singularities theorem\IndexMark{idx-520}{riemann removable singularities theorem@Riemann removable singularities theorem!in one variable@in one variable}). Suppose that $f$ is an analytic function in the punctured disc $D_r(z_0)^*=\{z:0<|z-z_0|<r\}$. Show that a necessary and sufficient condition for $f$ to extend analytically to $D_r(z_0)$ is that $f$ is bounded on some neighbourhood of $z_0$. (Use the result of question 2).
+\item[(4)] (Open mapping theorem). Let $f$ be analytic\IndexMark{idx-419}{open mapping theorem for analytic maps@Open mapping theorem for analytic maps} and not identically zero on the domain $U$ in $\mathbb C$. Prove that $f(U)$ is open in $\mathbb C$.
+% The source says "not identically zero"; preserved verbatim.
+\item[(5)] (Monodromy theorem\IndexMark{idx-400}{monodromy theorem@Monodromy theorem}). Let $\Omega$ be a domain in $\mathbb C$, $z_0,y_0\in\Omega$ and suppose $f$ is analytic on some neighbourhood $U$ of $z_0$. Let $C$ be a continuous path in $\Omega$ parametrized by $\phi:[0,1]\to\Omega$ with $\phi(0)=z_0$, $\phi(1)=y_0$. We say $f$ can be analytically continued along $C$ if we can find discs $D_i=D_{r_i}(\phi(t_i))$, $0=t_0<\cdots<t_k=1$, covering $C$, $h_i\in A(D_i)$, $i=0,\ldots,k$, such that $h_0=f$ on $U\cap D_0$ and $h_i=h_{i+1}$ on $D_i\cap D_{i+1}$, $i\geq0$. Define $f_C(y_0)$ to be $h_k(y_0)$. Show that
+\begin{enumerate}
+\item[(a)] $f_C(y_0)$ depends only on $C$ and not on any of the choices we have made.
+\item[(b)] If $C,C'$ are homotopic curves in $\Omega$ joining $z_0$ to $y_0$ then $f_C(y_0)=f_{C'}(y_0)$.
+\end{enumerate}
+Give examples to show that if $\Omega$ is not simply connected and $C,C'$ are non-homotopic curves joining $z_0$ to $y_0$ then $f_C(y_0)$ may not equal $f_{C'}(y_0)$.
+\item[(6)] (Maximum principle\IndexMark{idx-384}{maximum principle@Maximum principle}). Let $f$ be analytic on the domain $\Omega$ in $\mathbb C$. If $|f|$ has a maximum in $\Omega$ then $f$ is constant.
+% Original book page 5
+\item[(7)] (Schwarz' lemma\IndexMark{idx-538}{schwarz lemma@Schwarz lemma}). Suppose $f\in A(D_1(0))$ and satisfies $f(0)=0$ and $|f(z)|\leq1$, $z\in D_1(0)$. Then $|f(z)|\leq z$ and $|f'(0)|\leq1$. Equality holds if and only if $f(z)=cz$, where $|c|=1$ (Hint: Apply the maximum principle to the function $f(z)/z$).
+% The source prints z, rather than |z|, in the preceding inequality.
+\end{enumerate}
+
+\section{Meromorphic functions}\label{sec:1:2}
+Roughly speaking meromorphic functions are the analytic analogue of rational functions and in this section we briefly review their definition and elementary properties. Throughout the section $\Omega$ will denote a domain in $\mathbb C$.
+
+Let $\zeta\in\Omega$ and $\Omega'=\Omega\setminus\{\zeta\}$. Suppose $f\in A(\Omega')$. By Laurent's expansion we have
+\[ f(z)=\sum_{j=-\infty}^{j=+\infty}a_j(z-\zeta)^j,\quad z\in D_r(\zeta)^*\subset\Omega. \]
+There are three possibilities:
+\begin{enumerate}
+\item[(a)] $f$ is bounded on some neighbourhood of $\zeta$. In this case $a_j=0$, $j<0$, and $f$ extends uniquely to an analytic function on $\Omega$ (Riemann removable singularities theorem).
+\item[(b)] $f(z)\to\infty$ as $z\to\zeta$. Here one can show that there exists a strictly positive integer $N$ such that $a_j=0$, $j<-N$ and $a_{-N}\ne0$.
+\item[(c)] Neither a) or b) occurs ($\zeta$ is an \emph{essential singularity}\IndexMark{idx-232}{essential singularity@Essential singularity} of $f$).
+\end{enumerate}
+In case b), $f$ is an example of a \emph{meromorphic function}\IndexMark{idx-386}{meromorphic function@Meromorphic function!of one variable@of one variable} on $\Omega$ with a single pole\IndexMark{idx-446}{pole@Pole} of order $N$ at $\zeta$. We may write $f(z)=u(z)/(z-\zeta)^N$, $z\in D_r(\zeta)^*$, where $u\in A(D_r(\zeta)^*)$ and the power series of $u$ at $\zeta$ is given explicitly as the Laurent series of $f$ at $\zeta$ multiplied by $(z-\zeta)^N$. We may extend $u$ analytically to $\Omega$ by taking $u(z)=(z-\zeta)^Nf(z)$, $z\ne\zeta$. In this way we may represent $f$ as the quotient $u(z)/(z-\zeta)^N$ of analytic functions defined on all of $\Omega$.
+
+There are some problems in giving a satisfactory general definition of a meromorphic function. If we attempt to define a meromorphic function on $\Omega$ as a quotient $f/g$, $f,g\in A(\Omega)$, $g\not\equiv0$, we are
+% Original book page 6
+faced with the difficulty that $f$ and $g$ may have infinitely many common zeros. If this happens we cannot cancel the zeros using the elementary power series techniques of the previous paragraph to obtain the maximal subdomain of $\Omega$ on which the meromorphic function is defined as an analytic function. That is, the representation $f/g$ may be rather non-canonical. We start by giving a definition that is rather special to functions of one complex variable and then show how to reformulate the definition in a way that generalises well to functions of several complex variables.
+
+\FieldHeading{Definition}{1.2.1}{}\FieldTarget{definition:1.2.1}{1.2.1} We say that $m$ is a \emph{meromorphic function} on $\Omega$ if there exists a discrete subset $X$ of $\Omega$ such that
+\begin{enumerate}
+\item[(i)] $m$ is an analytic function on $\Omega\setminus X$.
+\item[(ii)] Every point of $X$ is a pole of $m$.
+\end{enumerate}
+We notice that the definition excludes essential singularities and so, for example, $e^{-1/z}$ would not define a meromorphic function on $\mathbb C$.
+
+We denote the set of meromorphic functions on $\Omega$ by $M(\Omega)$.
+
+Locally a meromorphic function can be expressed as a quotient of analytic functions. That is, given $m\in M(\Omega)$ and $z\in\Omega$, we can find an open neighbourhood $U$ of $z$ and $f,g\in A(U)$ such that $g$ is not identically zero and $m|U=f/g$ outside of any poles of $m$ in $U$. Of course, if $U$ does not contain any poles of $m$, we can take $g=1$.
+
+We now work towards an alternative definition of a meromorphic function which is framed in terms of local information and requires no explicit information about the pole set.
+
+Suppose that $\{U_i:i\in I\}$ is an open cover of $\Omega$ and that for each $i\in I$ we are given $f_i,g_i\in A(U_i)$ with $g_i$ not vanishing identically on any connected component of $U_i$. Then $\{(f_i,g_i):i\in I\}$ defines a meromorphic function $m$ on $\Omega$ provided that for all $i,j\in I$ we have
+\[ f_i/g_i=f_j/g_j \]
+at all points of $U_i\cap U_j$ where both $g_i$ and $g_j$ are non-zero. (Equivalently, $f_i g_j=f_j g_i$ on $U_i\cap U_j$). We omit the routine construction of $m$. If
+% Original book page 7
+$\{V_j:j\in J\}$ is another open cover of $\Omega$ and $\{(a_j,b_j):j\in J\}$ a corresponding set of analytic functions satisfying the above conditions, it is easily verified that $\{(f_i,g_i):i\in I\}$ and $\{(a_j,b_j):j\in J\}$ define the same meromorphic function if and only if
+\[ f_i/g_i=a_j/b_j \]
+at all points of $U_i\cap V_j$ where both $g_i$ and $b_j$ are non-zero.
+
+We can now use this condition to define an equivalence relation on all sets of pairs of analytic functions $\{(f_i,g_i):i\in I\}$ satisfying the requisite compatibility conditions. The equivalence classes of this relation are then defined to be meromorphic functions. This is essentially the approach that we adopt in later chapters.
+
+One immediate consequence of our local description of meromorphic functions is that $M(\Omega)$ is a field (the connectedness of $\Omega$ is essential here to avoid zero\IndexMark{idx-658}{zero set@Zero set!meromorphic function of one variable@meromorphic function of one variable} divisors).
+
+Suppose $m\in M(\Omega)$ and $\zeta\in\Omega$. We define the \emph{order}\IndexMark{idx-422}{order of pole zero@Order (of pole, zero)} of $m$ at $\zeta$, $\operatorname{ord}(m,\zeta)$, to be the smallest index with non-zero coefficient in the Laurent expansion of $m$ at $\zeta$. That is, if
+\[ m(z)=\sum_{j=N}^{\infty}a_j(z-\zeta)^j \]
+on some neighbourhood of $\zeta$ and $a_N\ne0$, then $\operatorname{ord}(m,\zeta)=N$. Clearly, if $m=f/g$ in some neighbourhood of $\zeta$, $\operatorname{ord}(m,\zeta)=\operatorname{ord}(f,\zeta)-\operatorname{ord}(g,\zeta)$ though of course the terms on the right hand side depend on the choice of local representation for $m$!
+
+If $\operatorname{ord}(m,\zeta)>0$, we say that $m$ has a \emph{zero of order} $\operatorname{ord}(m,\zeta)$ at $\zeta$ and if $\operatorname{ord}(m,\zeta)<0$, we say that $m$ has a \emph{pole of order} $-\operatorname{ord}(m,\zeta)$ at $\zeta$. We set
+\begin{align*}
+Z(m)&=\{z\in\Omega:\operatorname{ord}(m,z)>0\}=\{z\in\Omega:m(z)=0\},\\
+P(m)&=\{z\in\Omega:\operatorname{ord}(m,z)<0\}=\{z\in\Omega:m\text{ has a pole at }z\}.
+\end{align*}
+$Z(m)$ and $P(m)$ are called the zero and pole set\IndexMark{idx-447}{pole set@Pole set!meromorphic function of one variable@meromorphic function of one variable} of $m$ respectively. Clearly $Z(m)$ and $P(m)$ are disjoint discrete subsets of $\Omega$ (assuming $m\not\equiv0$).
+% Original book page 8
+
+We now introduce some useful definitions and notation. Suppose $p:\Omega\to\mathbb Z$ and $\{z\in\Omega:p(z)\ne0\}$ is a discrete subset of $\Omega$. We call the formal sum $\sum_{z\in\Omega}p(z)\cdot z$ a \emph{divisor}\IndexMark{idx-181}{divisor@Divisor} on $\Omega$. We denote the set of divisors on $\Omega$ by $\mathcal D(\Omega)$. $\mathcal D(\Omega)$ has the structure of an ordered abelian group\IndexMark{idx-188}{divisor group@Divisor group} if we define
+\[ \left(\sum_{z\in\Omega}p(z)\cdot z\ \pm\sum_{z\in\Omega}q(z)\cdot z\right)=\sum_{z\in\Omega}(p\pm q)(z)\cdot z \]
+\[ \sum_{z\in\Omega}p(z)\cdot z>\sum_{z\in\Omega}q(z)\cdot z\quad\text{if and only if} \]
+$p(z)\geq q(z)$ for all $z\in\Omega$ with strict inequality for at least one point of $\Omega$.
+
+Let $M^*(\Omega)$ denote the group of invertible elements of $M(\Omega)$. Since $\Omega$ is assumed connected, $M^*(\Omega)$ is all of $M(\Omega)$ except the zero function. Given $m\in M^*(\Omega)$, the divisor of\IndexMark{idx-191}{divisor of meromorphic function@Divisor of meromorphic function!of one variable@of one variable} $m$, $\operatorname{div}(m)$, is defined to be
+\[ \sum_{z\in\Omega}\operatorname{ord}(m,z)\cdot z. \]
+$\operatorname{div}:M^*(\Omega)\to\mathcal D(\Omega)$ is a homomorphism (relative to the multiplicative structure on $M^*(\Omega)$). We note that $\operatorname{div}(m)\geq0$ if and only if $m\in A(\Omega)$.
+
+Suppose $m\in M(\Omega)$ and $\zeta\in\Omega$. Let $m$ have Laurent series
+\[ \sum_{j=N}^{\infty}a_j(z-\zeta)^j \]
+at $\zeta$, where we suppose $a_N\ne0$. The principal part of $m$ at $\zeta$ is defined to be
+\[ \sum_{j=N}^{-1}a_j(z-\zeta)^j \]
+if $N\leq-1$ and zero otherwise. We note that $m,m'\in M(\Omega)$ have the same principal part at $\zeta$ if and only if $m-m'$ is analytic on some neighbourhood of $\zeta$.
+
+To conclude this section we remark that Proposition~\ref{proposition:1.1.6} generalises to meromorphic functions and therefore we can discuss meromorphic continuation. We leave details to the reader.
+% Original book page 9
+\paragraph*{Exercises}
+\begin{enumerate}
+\item Verify that
+\begin{align*}
+\operatorname{div}(mm')&=\operatorname{div}(m)+\operatorname{div}(m'),\quad m,m'\in M^*(\Omega),\\
+\operatorname{div}(m^{-1})&=-\operatorname{div}(m),\quad m\in M^*(\Omega),
+\end{align*}
+$\operatorname{div}(m)=0$ if and only if $m$ is a nowhere vanishing analytic function on $\Omega$.
+\item Let $m\in M^*(\mathbb C)$. Show that if $\operatorname{div}(m)=0$ then either $m$ is constant or $m$ has an essential singularity at infinity.
+\item Under what conditions is the composition of two meromorphic functions meromorphic?
+\end{enumerate}
+
+\section{Theorems of Weierstrass and Mittag-Leffler}\label{sec:1:3}
+In the preceding sections we have reviewed some of the basic elementary properties of analytic and meromorphic functions. However, we have as yet given no means of constructing such functions so as to satisfy specified properties. For example, if $X$ is any closed subset of $\mathbb C$ it is not difficult to construct a $C^\infty$ function on $\mathbb C$ with zero set $X$. Can we find an analytic function whose zero set is equal to $X$? Clearly we cannot unless $X$ is a discrete subset of $\mathbb C$. It turns out though that if $X$ is discrete we can always find an analytic function on $\mathbb C$ with zero set $X$. This is exactly the type of result we need if our study of analytic functions is to amount to much more than a study of polynomials, rational functions and the standard analytic functions such as $\log$ and $\exp$.
+
+Our aim in this section will be to show the importance of the theory of the partial differential operator $\partial/\partial\bar z$ and the topology of domains in $\mathbb C$ in questions involving the construction of analytic and meromorphic functions with specified behaviour at prescribed poles and zeros. We adopt this approach because it generalises well to functions of several complex variables and complex manifolds. We must emphasise, however, that the Mittag-Leffler and Weierstrass theorems can be given
+% Original book page 10
+rather more elementary proofs than those presented here which do not depend on the theory of $\partial/\partial\bar z$ (see, for example, Heins \cite{bib:I:heins-m:1} or Hille \cite{bib:I:hille-e:1}).
+
+Throughout this section $\Omega$ will denote an open subset of $\mathbb C$.
+
+We give the proof of the following basic existence theorem in the appendix to this chapter.
+\FieldHeading{Theorem}{1.3.1}{}\FieldTarget{theorem:1.3.1}{1.3.1} Let $f\in C^\infty(\Omega)$. Then there exists $u\in C^\infty(\Omega)$ such that
+\[ \partial u/\partial\bar z=f. \]
+\paragraph*{Remark.} An equivalent formulation of Theorem~\ref{theorem:1.3.1} is that the sequence
+\[ 0\longrightarrow A(\Omega)\xrightarrow{i}C^\infty(\Omega)\xrightarrow{\partial/\partial\bar z}C^\infty(\Omega)\longrightarrow0 \]
+is exact for every open subset $\Omega$ of $\mathbb C$ ($i$ denotes inclusion).
+
+The Mittag-Leffler theorem\IndexMark{idx-397}{mittag leffler theorem@Mittag-Leffler theorem} gives conditions under which there exists a meromorphic function on $\Omega$ with specified principal parts.
+
+Before stating the Mittag-Leffler theorem we introduce some useful notation. Suppose $U_i,U_j$ are sets, then we let $U_{ij}$ denote the intersection $U_i\cap U_j$. We use the obvious generalisation of this notation for intersections of more than two indexed sets.
+
+\FieldHeading{Theorem}{1.3.2}{ (Mittag-Leffler theorem)}\FieldTarget{theorem:1.3.2}{1.3.2} Let $\{U_i:i\in I\}$ be an open cover of $\Omega$ and suppose we are given $m_i\in M(U_i)$ for each $i\in I$. Then, provided that $m_i-m_j\in A(U_{ij})$ for all $i,j\in I$, there exists $m\in M(\Omega)$ such that
+\[ m-m_i\in A(U_i),\quad i\in I. \]
+\paragraph*{Remark.} An alternative formulation of this theorem would be: Suppose $X$ is a discrete subset of $\Omega$ and that for each $z\in X$ we are given a meromorphic function $m^z$ which is defined on some neighbourhood of $z$ and has a single pole at $z$. Then there exists $m\in M(\Omega)$ with pole set $X$ and such that the principal part of $m$ at $z$ equals the principal part of $m^z$ at $z$ for all $z\in X$.
+
+% Original book page 11
+\begin{proof}[Proof of theorem]
+(Following H\"ormander \cite{bib:I:hormander-l:1}). Observe that it suffices to construct $f_i\in A(U_i)$ such that for all $i,j$
+\[ m_i+f_i=m_j+f_j\quad\text{on }U_{ij}. \]
+Indeed, if these compatibility conditions hold we can define $m\in M(\Omega)$ by setting $m|U_i=m_i+f_i$ and $m$ will then obviously satisfy the requirements of the theorem.
+
+What we shall do is to start by constructing $h_i\in C^\infty(U_i)$ such that $m_i+h_i=m_j+h_j$ on $U_{ij}$. This will only use the theory of $C^\infty$ functions and no complex analysis. Using Theorem~\ref{theorem:1.3.1}, we then construct a ``correction'' term $u\in C^\infty(\Omega)$ such that for all $i\in I$, $h_i+u\in A(U_i)$. It is then enough to take $f_i=h_i+u$.
+
+\textit{Step 1.} Choose a partition of unity\IndexMark{idx-433}{partition of unity@Partition of unity} $\{\theta_\alpha:\alpha\in\Lambda\}$ subordinate to the cover $\{U_i:i\in I\}$. That is, each $\theta_\alpha$ is a positive $C^\infty$ function with compact support, $\operatorname{supp}(\theta_\alpha)\subset U_{\tau(\alpha)}$ for some $\tau(\alpha)\in I$, only finitely many $\theta_\alpha$ are non-zero on any given compact subset of $\Omega$ and $\sum_{\alpha\in\Lambda}\theta_\alpha=1$ on $\Omega$ (for the construction of partitions of unity we refer to Lang \cite{bib:I:lang-s:1}, Spivak \cite{bib:I:spivak-m:1} or de Rham \cite{bib:I:de-rham-g:1}).
+
+Set $f_{ij}=m_i-m_j\in A(U_{ij})$ and observe that for all $i,j,k\in I$
+\begin{equation}
+f_{ij}+f_{jk}+f_{ki}=0\text{ on }U_{ijk}\quad\text{and}\quad f_{ij}=-f_{ji}\text{ on }U_{ij}.\tag{A}\label{eq:1:a:1}
+\end{equation}
+We define
+\[ h_i=\sum_{\alpha\in\Lambda}\theta_\alpha f_{\tau(\alpha)i}. \]
+Setting $f_{\tau(\alpha)i}=0$ outside $U_{\tau(\alpha)i}$ it is clear that $h_i\in C^\infty(U_i)$. Moreover
+\begin{align*}
+h_j-h_i&=\sum_{\alpha\in\Lambda}\theta_\alpha(f_{\tau(\alpha)j}-f_{\tau(\alpha)i})\\
+&=\sum_{\alpha\in\Lambda}\theta_\alpha f_{ij},\quad\text{by (A)}\\
+&=f_{ij}=m_i-m_j.
+\end{align*}
+Hence we have found $h_i\in C^\infty(U_i)$ satisfying $m_i+h_i=m_j+h_j$ on $U_{ij}$.
+% Original book page 12
+
+\textit{Step 2.} Since $h_i-h_j\in A(U_{ij})$,
+\[ \partial h_i/\partial\bar z=\partial h_j/\partial\bar z\quad\text{on }U_{ij}. \]
+Hence we may define $F\in C^\infty(\Omega)$ by requiring that $F|U_i=\partial h_i/\partial\bar z$.
+
+To construct $u\in C^\infty(\Omega)$ satisfying $u+h_i\in A(U_i)$ for all $i\in I$, we require $\partial u/\partial\bar z+\partial h_i/\partial\bar z=0$ on $U_i$. That is,
+\[ \partial u/\partial\bar z=-F\quad\text{on }\Omega. \]
+By Theorem~\ref{theorem:1.3.1}, there exists $u\in C^\infty(\Omega)$ satisfying this equation. Finally we take $f_i=u+h_i\in A(U_i)$ and define $m$ as indicated in the introduction to the proof.
+\end{proof}
+The relation \eqref{eq:1:a:1} occurring in the proof of Theorem~\ref{theorem:1.3.2} is usually referred to as a \emph{cocycle} condition\IndexMark{idx-090}{cocycle condition@Cocycle condition} and $\{f_{ij}:i,j\in I\}$ as a cocycle. We shall meet this type of relation frequently in the sequel. The proof of Theorem~\ref{theorem:1.3.2} clearly proves the slightly stronger
+
+\FieldHeading{Theorem}{\ensuremath{1.3.2'}}{}\FieldTarget{theorem:1.3.2prime}{\ensuremath{1.3.2'}} Let $f_{ij}\in A(U_{ij})$ satisfy the cocycle conditions
+\[ f_{ij}+f_{jk}+f_{ki}=0\text{ on }U_{ijk}\quad\text{and}\quad f_{ij}=-f_{ji}\text{ on }U_{ij},\quad\text{all }i,j,k. \]
+Then there exist $g_i\in A(U_i)$ such that for all $i,j$,
+\[ f_{ij}=g_j-g_i\quad\text{on }U_{ij}. \]
+\paragraph*{Notation.} If $U$ is an open subset of $\mathbb C$, we shall let $A^*(U)$ denote the set of nowhere vanishing analytic functions on $U$. That is, the units in $A(U)$.
+
+\FieldHeading{Theorem}{1.3.3}{ (Weierstrass theorem)}\IndexMark{idx-654}{weierstrass theorem@Weierstrass theorem}\FieldTarget{theorem:1.3.3}{1.3.3} Let $\mathcal U=\{U_i:i\in I\}$ be an open cover of $\Omega$ and suppose that we are given $m_i\in M^*(U_i)$ for each $i\in I$. Then, provided that $m_i/m_j\in A^*(U_{ij})$ for all $i,j\in I$, there exists $m\in M^*(\Omega)$ such that
+\[ m/m_i\in A^*(U_i),\quad\text{for all }i\in I. \]
+% Original book page 13
+Equivalently: The map $\operatorname{div}:M^*(\Omega)\to\mathcal D(\Omega)$ is surjective. That is, subject to the requirement that pole and zero sets are discrete, we may construct a meromorphic function on $\Omega$ with prescribed zeros and poles of given orders.
+
+\begin{proof}
+By taking a refinement of the cover $\mathcal U$, it is no loss of generality to assume that each $U_i\in\mathcal U$ is convex (for example, an open disc).
+
+Given $i,j\in I$, set $h_{ij}=m_i/m_j$. Fix a branch of $\log h_{ij}$ on $U_{ij}$ and define
+\[ c_{ijk}=\frac{1}{2\pi i}(\log h_{ij}+\log h_{jk}+\log h_{ki}). \]
+Since $h_{ij}h_{jk}h_{ki}=1$, $c_{ijk}\in\mathbb Z$ for all $i,j,k$ (note that $U_{ijk}$ is convex and therefore connected and so $c_{ijk}$ is constant on $U_{ijk}$).
+
+Suppose that we can choose the branches of $\log h_{ij}$ so that $c_{ijk}=0$ for all $i,j,k\in I$. Then if we set $f_{ij}=\log h_{ij}\in A(U_{ij})$, we see that the conditions of Theorem~\ref{theorem:1.3.2prime} are satisfied. Hence there exist $g_i\in A(U_i)$ such that for all $i,j\in I$
+\[ \log h_{ij}=g_j-g_i\quad\text{on }U_{ij}. \]
+Now define $a_i=\exp(g_i)\in A^*(U_i)$. Clearly $a_j/a_i=h_{ij}=m_i/m_j$ and so
+\[ m_i a_i=m_j a_j\quad\text{on }U_{ij}. \]
+Hence we can define $m\in M^*(\Omega)$ by taking $m|U_i=m_i a_i$. Clearly $m$ satisfies the required conditions.
+
+To complete the proof it is sufficient to show that we can choose the branches of $\log h_{ij}$ so that $c_{ijk}=0$ for all $i,j,k$. This is essentially a topological problem. First we observe that $\{c_{ijk}\}$ defines a class in $H^2(\mathcal U,\mathbb Z)$ (For those unfamiliar with \v Cech theory we refer to Chapter~\ref{ch:6}). Now any finite intersection $U$ of open sets of the cover $\mathcal U$ is convex and so $H^p(U,\mathbb Z)=0$, $p\ne0$. Hence by Leray's theorem\IndexMark{idx-358}{leray s theorem@Leray's theorem} (Theorem~\ref{theorem:6.3.16})
+\[ H^2(\mathcal U,\mathbb Z)\cong H^2(\Omega,\mathbb Z). \]
+% Original book page 14
+But $H^2(\Omega,\mathbb Z)=0$ for all open domains in $\mathbb C$ (in fact for all non-compact oriented 2-manifolds---see the remarks following this proof). Hence $\{c_{ijk}\}$ is a coboundary and there exist integers $n_{ij}$, $i,j\in I$, such that
+\[ c_{ijk}=n_{ij}+n_{jk}+n_{ki},\quad\text{for all }i,j,k\in I. \]
+Now define a new branch of $\log h_{ij}$ by subtracting $2\pi i n_{ij}$ from the original choice. For the new choice of branches we have $c_{ijk}=0$, for all $i,j,k$.
+\end{proof}
+Notice that the proof of Theorem~\ref{theorem:1.3.3} actually proves the slightly stronger
+\FieldHeading{Theorem}{\ensuremath{1.3.3'}}{}\FieldTarget{theorem:1.3.3prime}{\ensuremath{1.3.3'}} Let $h_{ij}\in A^*(U_{ij})$ satisfy the cocycle conditions
+\[ h_{ij}h_{jk}h_{ki}=1\text{ on }U_{ijk}\quad\text{and}\quad h_{ij}=h_{ji}^{-1}\text{ on }U_{ij},\quad i,j,k\in I. \]
+Then there exist $h_i\in A^*(U_i)$ such that for all $i,j$
+\[ h_{ij}=h_jh_i^{-1}\quad\text{on }U_{ij}. \]
+\paragraph*{Remarks}
+\begin{enumerate}
+\item The reader should observe the similarity between the proofs of Theorems~\ref{theorem:1.3.2} and \ref{theorem:1.3.3}. Indeed the last part of the above proof can be written as a problem in $C^\infty$ functions if we note that $c_{ijk}=0$ for all $i,j,k$ iff there exists $b_i\in C^\infty(U_i)$ such that $\log h_{ij}=b_j/b_i$. Later, in Chapter~\ref{ch:6}, we develop machinery that handles all arguments of this type in a particularly simple and elegant way.
+% The quotient b_j/b_i is printed in the source and is preserved.
+\item The explicit use of cohomology can of course be avoided in the proof of Weierstrass' theorem. See, for example, the proof given in H\"ormander \cite{bib:I:hormander-l:1}. The reader might wish to attempt a direct construction of the integers $n_{ij}$ without using any general facts about the cohomology of 2-manifolds.
+\item For the vanishing of $H^2(\Omega,\mathbb Z)$, we note that $H^2(\Omega,\mathbb Z)\cong H_2(\Omega,\mathbb Z)$ (computation using universal coefficient theorems and the fact
+% Original book page 15
+that $\Omega$ is a 2-manifold). Since $\Omega$ is assumed oriented, Poincar\'e duality implies that $H_2(\Omega,\mathbb Z)\cong H_c^0(\Omega,\mathbb Z)$, where $c$ denotes compact supports. Since $\Omega$ is non-compact, $H_c^0(\Omega,\mathbb Z)=0$. For further details and references we refer the reader to the appendix in Milnor and Stasheff \cite{bib:I:milnor-j-w-and-stasheff-j-d:1}.
+\end{enumerate}
+\FieldHeading{Corollary}{1.3.4}{}\FieldTarget{corollary:1.3.4}{1.3.4} Let $m\in M(\Omega)$. Then there exist $f,g\in A(\Omega)$ such that
+\begin{enumerate}
+\item[(i)] Off the pole set of $m$, $m=f/g$.
+\item[(ii)] $Z(m)=Z(f)$, $P(m)=Z(g)$ and $Z(f)\cap Z(g)=\varnothing$.
+\end{enumerate}
+\begin{proof}
+Suppose $m$ has poles $z_j$ with orders $p_j$. Then, by Weierstrass' theorem there exists $g\in A(\Omega)$ such that $\operatorname{div}(g)=\sum_j p_j\cdot z_j$. Since $\operatorname{div}(mg)\geq0$, $mg\in A(\Omega)$. Taking $f=mg$, it is clear that $f$ and $g$ satisfy the conditions of the corollary.
+\end{proof}
+\paragraph*{Remark.} $f$ and $g$ are unique up to multiplication by elements of $A^*(\Omega)$.
+\FieldHeading{Corollary}{1.3.5}{}\FieldTarget{corollary:1.3.5}{1.3.5} There exists $f\in A(\Omega)$ which cannot be extended as an analytic or meromorphic function to any open subset strictly containing $\Omega$.
+\begin{proof}
+Let $d(z,\partial\Omega)$ denote the distance between $z\in\mathbb C$ and the boundary of $\Omega$, $\partial\Omega$. Define
+\[
+X=\left\{\left(\frac p{2^n},\frac q{2^n}\right)\in\Omega:
+\begin{array}{l}p,q,n\in\mathbb Z,\ n\geq0\text{ and}\\ d((p/2^n,q/2^n),\partial\Omega)<2^{-n+2}\end{array}\right\}.
+\]
+$X$ is a discrete subset of $\Omega$ and every point of $\partial\Omega$ is the limit of some subsequence of $X$. By Weierstrass' theorem there exists $f\in A(\Omega)$ such that
+\[ \operatorname{div}(f)=\sum_{x\in X}1\cdot x. \]
+Since the zeros of an analytic or meromorphic function are isolated, we see that $f$ cannot be extended to any domain strictly containing $\Omega$. Indeed, such a domain would contain at least one point of $\partial\Omega$ and this point would then be a non-isolated zero of the extension.
+\end{proof}
+% Original book page 16
+\paragraph*{Remark.} The proof of Corollary~\ref{corollary:1.3.5} actually shows that we can find an analytic function on $\Omega$ which cannot be continued (locally) across any point of the boundary of $\Omega$.
+\paragraph*{Exercise.} Let $\{z_i:i\geq0\}$ be a discrete subset of $\Omega\subset\mathbb C$ and suppose that for each $i$ we are given a polynomial $P_i(z)=\sum_{j=0}^{k_i}a_{ij}(z-z_i)^j$. Show that there exists an analytic function $f$ on $\Omega$ such that the Taylor series of $f$ at each $z_i$ agrees with $P_i$ to order $k_i$. (Hint: Find a meromorphic function $m$ on $\Omega$ such that at each $z_i$ the principal part of $m$ equals $(z-z_i)^{-k_i-1}P_i(z)$. Then use Weierstrass' theorem).
+
+\section{Riemann surfaces}\label{sec:1:4}
+In sections 4 and 5 we make a preliminary investigation of possible generalisations of the results of \hyperref[sec:1:3]{\S3} to Riemann surfaces. As we shall see both the topology and complex structure of a Riemann surface\IndexMark{idx-525}{riemann@Riemann!surface@surface} play a crucial role as is also the case in the theory of higher dimensional complex manifolds.
+
+Let $U$ and $V$ be open subsets of $\mathbb C$ and $f:U\to V$. We shall say that $f$ is \emph{biholomorphic}\IndexMark{idx-043}{biholomorphic@Biholomorphic} if $f$ is a homeomorphism onto $V$ and both $f$ and $f^{-1}$ are analytic. We remark that, by the inverse function theorem, for $f$ to be biholomorphic it is sufficient for $f$ to be bijective and everywhere analytic with non-vanishing derivative.
+
+Before recalling the definition of a Riemann surface, we wish to stress that all topological spaces considered in this book will be Hausdorff and paracompact. Unless the contrary is clearly indicated they will also be connected. The Hausdorff and paracompactness assumptions imply metrizability and, together with connectedness, imply separability (see, for example, Matsushima \cite{bib:I:matsushima-y:1}).
+
+A \emph{chart}\IndexMark{idx-076}{chart@Chart} on a topological space $M$ consists of a pair $(U,\phi)$ where $U$ is an open subset of $M$ and $\phi$ is a homeomorphism of $U$ onto an open subset of Euclidean space.
+
+\FieldHeading{Definition}{1.4.1}{}\FieldTarget{definition:1.4.1}{1.4.1} Let $M$ be a topological space. Suppose that we are given a set $\mathcal A=\{(U_i,\phi_i):i\in I\}$ of charts on $M$ satisfying
+% Original book page 17
+\begin{enumerate}
+\item $\{U_i\}$ is an open cover of $M$.
+\item For each $i\in I$, $\phi_i$ is a homeomorphism of $U_i$ onto an open subset of $\mathbb C$.
+\item For all $i,j\in I$, $\phi_i\phi_j^{-1}$ is a biholomorphism of $\phi_j(U_{ij})$ with $\phi_i(U_{ij})$.
+\end{enumerate}
+Then $\mathcal A$ is called a \emph{(complex analytic) atlas}\IndexMark{idx-034}{atlas complex analytic@Atlas (complex analytic)} on $M$ and $M$, together with the atlas $\mathcal A$, is called a \emph{Riemann surface}\IndexMark{idx-199}{divisors@Divisors!riemann surface@Riemann surface}.
+\paragraph*{Remarks.}
+\begin{enumerate}
+\item We refer to charts $(U,\phi)\in\mathcal A$ as complex analytic charts on $M$ or just charts on $M$ if the analyticity is clear from the context.
+\item If $\mathcal A$ is an atlas on $M$, we shall generally assume that $\mathcal A$ is maximal in the sense that if $(U,\phi)$ is a chart on $M$ such that $\phi\phi_i^{-1}$ is biholomorphic for all $(U_i,\phi_i)\in\mathcal A$ then $(U,\phi)\in\mathcal A$. Of course, every atlas can be completed to a maximal atlas.
+\end{enumerate}
+Before giving examples and motivation for the study of Riemann surfaces we shall generalise some of the definitions of \S\S1,2.
+
+Suppose that $M$ is a Riemann surface with atlas $\mathcal A$. Let $W$ be an open subset of $M$. If $f:W\to\mathbb C$, we say $f$ is analytic if $f\phi^{-1}\in A(\phi(U\cap W))$ for all $(U,\phi)\in\mathcal A$. We let $A(W)$ denote the ring of analytic functions on $W$. We say that $m$ is a meromorphic function\IndexMark{idx-391}{meromorphic function@Meromorphic function!on riemann surface@on Riemann surface} on $W$ if $m\phi^{-1}\in M(\phi(U\cap W))$ for all $(U,\phi)\in\mathcal A$ (a more careful definition can be made along the lines of Definition~\ref{definition:1.2.1}). We let $M(W)$ denote the ring of meromorphic functions on $W$ and $M^*(W)$, $A^*(W)$ denote the groups of units in $M(W)$, $A(W)$ respectively. Note that if $W$ is connected $M(W)$ is a field.
+
+Let $m\in M^*(M)$. We define the zero set $Z(m)$ of $m$ by
+\[ Z(m)=\bigcup\phi^{-1}Z(m\phi^{-1}), \]
+where the union is over all charts $(U,\phi)\in\mathcal A$. We similarly define the pole set\IndexMark{idx-448}{pole set@Pole set!meromorphic function on riemann surface@meromorphic function on Riemann surface} $P(m)$ of $m$. We define the \emph{order of $m$ at $z$}\IndexMark{idx-423}{order of pole zero@Order (of pole, zero)}, $\operatorname{ord}(m,z)$ to be $\operatorname{ord}(m\phi^{-1},\phi(z))$, where $(U,\phi)\in\mathcal A$ contains $z$, and the \emph{divisor}\IndexMark{idx-192}{divisor of meromorphic function@Divisor of meromorphic function!on a riemann surface@on a Riemann surface} of $m$, $\operatorname{div}(m)$, by
+% Original book page 18
+\[ \operatorname{div}(m)=\sum_{z\in M}\operatorname{ord}(m,z)\cdot z. \]
+We leave it to the reader to verify that $Z(m)$ and $P(m)$ are well-defined, discrete, disjoint subsets of $M$; that $M\setminus P(m)$ is the largest subset of $M$ on which $m$ is analytic; that $\operatorname{ord}(m,z)$ does not depend on the choice of chart containing $z$ and that if $M$ is compact, $Z(m)$ and $P(m)$ are finite.
+
+Suppose $N$ is another Riemann surface with atlas $\mathcal B$ and $f:M\to N$. We say that $f$ is analytic or holomorphic if $\psi f\phi^{-1}:\phi(U\cap f^{-1}(V))\to\mathbb C$ is analytic for all $(U,\phi)\in\mathcal A$, $(V,\psi)\in\mathcal B$ and that $f$ is biholomorphic\IndexMark{idx-044}{biholomorphic@Biholomorphic} if $f$ is bijective and both $f$ and $f^{-1}$ are analytic. If there exists a biholomorphic map between $M$ and $N$, we say that $M$ and $N$ are biholomorphically equivalent or analytically isomorphic.
+
+\paragraph*{Examples.}
+\begin{enumerate}
+\item The \emph{Riemann sphere}\IndexMark{idx-524}{riemann@Riemann!sphere@sphere}. The Riemann sphere is defined to be the 1-point compactification of $\mathbb C$, $\mathbb C\cup\{\infty\}$, and we shall denote it by either $S^2$ or $P^1(\mathbb C)$ (see Chapter~\ref{ch:4} for the second notation). We define an atlas $\{(U,\phi),(V,\psi)\}$ on $S^2$ by taking $U=\mathbb C$, $V=\mathbb C^\bullet\cup\{\infty\}$ ($\mathbb C^\bullet$ here denotes non-zero complex numbers) and $\phi(z)=z$; $\psi(z)=1/z$, $\psi(\infty)=0$.
+
+Suppose $\Omega$ is an open subset of $\mathbb C$ and $m\in M(\Omega)$. Then $m$ induces an analytic map $\widetilde m:\Omega\to S^2$ if we take $\widetilde m|\Omega\setminus P(m)=m$ and set $\widetilde m(p)=\infty$, for all $p\in P(m)$. The verification that $\widetilde m$ is analytic is easy using our explicit atlas for $S^2$.
+
+\item If $M$ is a \emph{simply connected} Riemann surface then $M$ is biholomorphic to precisely one of: The Riemann sphere, the open unit disc, the complex plane. This is the fundamental (and difficult!) theorem of Riemann surfaces known as the \emph{Uniformization Theorem}\IndexMark{idx-626}{uniformization theorem@Uniformization theorem} (for a proof and more details we refer to Ahlfors and Sario \cite{bib:I:ahlfors-l-v-and-sario-l:1}, Siegel \cite{bib:I:siegel-c-l:1}, Springer \cite{bib:I:springer-g:1}).
+
+\item Let $f:M\to N$ be a local homeomorphism between topological spaces $M$ and $N$. That is, for each $x\in M$ there exists an open neighbourhood $U$ of $x$ such that $f(U)$ is an open subset of $N$ and $f|U$ maps $U$ homeomorphically onto $f(U)$. Suppose that $N$ is a Riemann surface with atlas $\mathcal A$. Then $f$ induces the structure of a Riemann surface on $M$ in such a way that $f$ becomes a holomorphic map which is locally biholomorphic. Indeed, suppose $U$ is an open subset of $M$ which is mapped homeomorphically by $f$ onto an
+% Original book page 19
+open subset of $N$. Suppose $(W,\phi)\in\mathcal A$ and $W\supset f(U)$. Then $(U,\phi f)$ is a chart on $M$. The set of all charts on $M$ constructed in this way is easily seen to define a complex analytic atlas on $M$ with respect to which $f$ is locally biholomorphic.
+
+\item By examples 2 and 3, the simply connected covering surface of a Riemann surface has the natural structure of a Riemann surface and is biholomorphic to one of: the Riemann sphere, the open unit disc, the complex plane (see also Chapter~\ref{ch:4}).
+
+\item If $M$ is a compact Riemann surface, $M$ is diffeomorphic to a compact orientable surface. Such surfaces are classified, up to diffeomorphism by their \emph{genus}\IndexMark{idx-264}{genus@Genus} or number of handles (see Hirsch \cite{bib:I:hirsch-m-w:1}). However, genus does not classify $M$ up to biholomorphic equivalence (unless $M$ is simply connected). For a specific example, we refer to \hyperref[sec:4:4]{Chapter 4, \S4}.
+
+\item Suppose $\pi:M\to\mathbb C$ is a local homeomorphism. Then $M$ has the structure of a non-compact Riemann surface with respect to which $\pi$ is locally biholomorphic. The pair $(M,\pi)$ is called a \emph{Riemann domain}\IndexMark{idx-523}{riemann@Riemann!domain@domain} or \emph{spreading}\IndexMark{idx-579}{spreading@Spreading!of riemann surface@of Riemann surface} of $M$ over $\mathbb C$. Riemann domains occur as the domains of maximal analytic continuation of analytic functions defined on open subsets of $\mathbb C$. Indeed, if $\Omega$ is a domain in $\mathbb C$ and $f\in A(\Omega)$, it is not hard to construct a Riemann domain $(M_f,\pi)$ such that $f$ extends analytically to $M_f$ and $(M_f,\pi)$ is the maximal Riemann domain to which $f$ can be continued analytically (The converse is also true but much harder: Any Riemann domain is the domain of maximal analytic continuation of an analytic function. This result, due to Behnke and Stein \cite{bib:I:behnke-h-and-stein-k:1}, generalises Corollary~\ref{corollary:1.3.5} of the Weierstrass theorem. See also R.~Narasimhan \cite{bib:I:narasimhan-r:1} and Gunning and Rossi \cite{bib:I:gunning-r-c-and-rossi-h:1}). We give one explicit example here and leave the general construction to Chapter~\ref{ch:6}.
+
+Let $\operatorname{Log}$ denote the principal branch of the logarithm defined off the negative real axis. We let $M\subset\mathbb C^2$ denote the set of all points $(z,\log|z|+i\arg z)$, $z\in\mathbb C^\bullet$, where $\arg z$ is a value of the argument of $z$. If we let $\pi$ denote the restriction to $M$ of the projection of $\mathbb C^2$ on the first factor, we may easily verify that $(M,\pi)$ is a Riemann domain. Furthermore, $M$ is the maximal Riemann domain to which $\operatorname{Log}$ extends analytically. Moreover, if we let $\log:M\to\mathbb C$ denote the restriction to $M$ of
+% Original book page 20
+the projection of $\mathbb C^2$ on the second factor, we see that $\log$ is the analytic extension of $\operatorname{Log}$ to $M$ and that if $y\in\pi^{-1}(z)$, $z\in\mathbb C^\bullet$, then $\log(y)=\log|z|+i\phi$, where $\phi$ is a value of $\arg z$.
+
+\item There is no natural way of compactifying the Riemann domain associated to the logarithm that we constructed in the previous example. This is a reflection of the transcendental (non-algebraic) character of $\log$ (see Chapter~\ref{ch:7}). In the case of algebraic functions we can always compactify the Riemann domain associated to the function in a particularly nice way. Here we shall consider a simple example and refer the reader to Ahlfors \cite{bib:I:ahlfors-l-v:1} or Siegel \cite{bib:I:siegel-c-l:1} for the general theory.
+
+Let us regard $P(y,z)=y^3-z^2$ as a polynomial in $y$ with coefficients depending on $z$. The zero set of $P$ defines a subset $X$ of $\mathbb C^2$. Now $X$ will not be a complex submanifold of $\mathbb C^2$ as there is a \emph{singularity}\IndexMark{idx-576}{singularity@Singularity} or \emph{branch point}\IndexMark{idx-054}{branch point@Branch point} at $z=0$ (see Chapter~\ref{ch:4} for terminology). Let $\pi:X\to\mathbb C$ denote the restriction to $X$ of the projection of $\mathbb C^2$ on the $z$-axis. If $X_P$ denotes the 1-point compactification of $X$ then, if we define $\pi(\infty)=\infty$, $\pi$ extends continuously to $X_P$ and $\pi:X_P\to S^2$ is a 3-fold branched cover of $S^2$ with branch points at 0 and $\infty$. In particular, if we set $X^*=X\setminus\{0,\infty\}$, $\pi:X^*\to\mathbb C^\bullet$ is a local homeomorphism and $\pi^{-1}(z)$ contains precisely three points for all $z\in\mathbb C^\bullet$. Now, by example 3, $(X^*,\pi)$ is a Riemann domain and we denote its atlas by $\mathcal A^*$. We now construct a complex analytic atlas for the whole of $X_P$ with respect to which $\pi$ is analytic. Let $D$ denote the open unit disc centre zero in the $\zeta$-plane. We define
+\begin{align*}
+\phi:D\to X_P&\quad\text{by }\phi(\zeta)=(\zeta^2,\zeta^3),\\
+\psi:D\to X_P&\quad\text{by }\phi(\zeta)=\begin{cases}(\zeta^{-2},\zeta^{-3}),&\zeta\ne0,\\\infty,&\zeta=0.\end{cases}
+\end{align*}
+% Source prints phi in the formula defining psi; preserved.
+Notice that $\phi$ and $\psi$ are homeomorphisms onto open neighbourhoods of $\pi^{-1}(0)$ and $\infty$ respectively. As atlas on $X_P$ we take
+\[ \{(\phi(D),\phi^{-1}),(\psi(D),\psi^{-1})\}\cup\mathcal A^*. \]
+We leave it to the reader to verify that this atlas defines on $X_P$ the structure of a compact Riemann surface, biholomorphic to the Riemann sphere, with respect to which $\pi$ is analytic.
+
+
+% Original book page 21
+Let $p:X_P\to S^2$ denote the restriction to $X_P$ of the projection of $\mathbb C^2$ onto the second factor where we have defined $p(\infty)=\infty$. Then $p$ is a meromorphic function on $X_P$ with a pole of order 3 at $\infty$ and a zero of order 3 at 0. $p$ gives all the roots of $y^3=z^2$ in the sense that $\{p(x):x\in\pi^{-1}(z)\}$ is the set of all roots of $y^3=z^2$ for all $z\in\mathbb C$.
+
+\end{enumerate}
+
+For the remainder of this section we wish to investigate the possible generalisation of Weierstrass' theorem to compact Riemann surfaces. So from now on assume $M$ is a compact Riemann surface.
+
+\FieldHeading{Lemma}{1.4.2}{}\FieldTarget{lemma:1.4.2}{1.4.2} Every analytic function on $M$ is constant.
+\begin{proof} If $f\in A(M)$, $|f|$ has a maximum on $M$, say at $z_0$. A simple application of the maximum modulus theorem shows that $f$ is constant in some neighbourhood of $z_0$. Uniqueness of analytic continuation then implies that $f$ is constant on $M$. \end{proof}
+In view of this Lemma it becomes a matter of some importance to prove that there exist plenty of non-constant meromorphic functions on $M$. Specifically: Let $d\in\mathcal D(M)$. Under what conditions on $d$, if any, do there exist $m\in M^*(M)$ such that $\operatorname{div}(m)=d$?
+
+For the Riemann sphere this question is easily solved:
+If $d=\sum_{i=1}^n p_i\cdot z_i\in\mathcal D(S^2)$, then there exists $m\in M^*(S^2)$ with $\operatorname{div}(m)=d$ if and only if $\sum_{i=1}^n p_i=0$.
+
+Indeed, if $z_1,\ldots,z_{n-1}\in\mathbb C$, $z_n=\infty$, we may define
+\[ m(z)=\prod_{i=1}^{n-1}(z-z_i)^{p_i},\quad z\in\mathbb C. \]
+$m$ extends to a meromorphic function on $S^2$ with singularities of order $p_i$ at $z_i$, $1\leq i\leq n-1$, and of order $-\sum_{i=1}^{n-1}p_i$ at $\infty$.
+
+The converse is included in Lemma~\ref{lemma:1.4.3} below.
+
+In future if $d=\sum_{z\in M}p(z)\cdot z$ is a divisor on $M$, we set
+\[ \deg(d)=\sum_{z\in M}p(z)\in\mathbb Z \]
+% Original book page 22
+and call $\deg(d)$ the \emph{degree} of $d$.
+
+We have the following topological restriction on divisors\IndexMark{idx-165}{degree of divisor@Degree of divisor} of meromorphic functions.
+\FieldHeading{Lemma}{1.4.3}{}\FieldTarget{lemma:1.4.3}{1.4.3} A necessary condition for $d\in\mathcal D(M)$ to be the divisor of a meromorphic function is that $\deg(d)=0$.
+\begin{proof}
+Let $m\in M^*(M)$ and set $\operatorname{div}(m)=\sum_{i=1}^n n_i\cdot z_i$. For $i=1,\ldots,n$ choose charts $(U_i,\phi_i)$ containing $z_i$ and such that $\phi_i(U_i)$ contains $\overline D_1(0)$. Set $D_i=\phi_i^{-1}(\overline D_1(0))$ and $\gamma_i=\partial D_i=\phi_i^{-1}(\partial\overline D_1(0))$. We shall assume that the charts are chosen so that the sets $D_i$ are mutually disjoint.
+
+$\operatorname{Log}m$ is defined up to integer multiples of $2\pi i$ on $M'=M\setminus\bigcup_iD_i$. Hence the 1-form $\phi=d(\log m)$ is well defined on $M'$. By Stokes' theorem
+\[ \int_{M'}d\phi=\sum_{i=1}^n\int_{\gamma_i}\phi. \]
+But $d\phi=d^2(\log m)=0$, and so the left hand integral must vanish. Now
+\begin{align*}
+\sum_{i=1}^n\int_{\gamma_i}\phi
+&=\sum_{i=1}^n\int_{|z|=1}\partial(\log m_i)/\partial z\,dz,\quad\text{where }m_i=m\phi_i^{-1}\\
+&=\sum_{i=1}^n\int_{|z|=1}m_i'/m_i\,dz\\
+&=\sum_{i=1}^n n_i,\quad\text{by the residue theorem.}
+\end{align*}
+% The source omits the factor 2 pi i in the last line; preserved.
+Hence $\deg(d)=0$.
+\end{proof}
+The reader is warned that the vanishing of the degree of $d$ is \emph{not} generally sufficient for $d$ to be the divisor of a meromorphic function (see the end of \hyperref[sec:1:5]{\S5} and also \hyperref[sec:4:4]{Chapter 4, \S4}).
+
+In view of the importance of Theorem~\ref{theorem:1.3.1} in the proofs of the Mittag-Leffler and Weierstrass theorems it is natural to seek a generalisation to Riemann surfaces. The first difficulty we encounter is that of finding a suitable definition of $\partial/\partial\bar z$ for a Riemann surface. Indeed, suppose $f\in C^\infty(M)$ and $(U,\phi)$ and $(V,\psi)$ are complex analytic charts on $M$.
+% Original book page 23
+In general, $[\partial(f\phi^{-1})/\partial\bar z]\phi\ne[\partial(f\psi^{-1})/\partial\bar z]\psi$ and so we cannot expect to define $\partial/\partial\bar z$ as an endomorphism of $C^\infty(M)$. The correct generalisation of $\partial/\partial\bar z$ involves the introduction of ``twisted'' functions and tensor fields on $M$. These concepts are most easily discussed in the general framework of vector bundles and we shall defer further consideration of the construction of meromorphic functions until we have developed sufficient of the elementary theory of vector bundles in \hyperref[sec:1:5]{\S5}. The reader who is largely unfamiliar with the theory of vector bundles may prefer to go straight to Chapter~\ref{ch:2} and return to section 5 after the end of Chapter~\ref{ch:4}.
+
+\paragraph*{Exercises.}
+\begin{enumerate}
+\item Construct the (compact) Riemann surface of $z^2=(y-a)(y-b)$, $a\ne b$, and show that it is biholomorphic to the Riemann sphere. (Hint: prove that the Riemann surface is simply connected).
+\item Construct the Riemann surface of $y^2=(z-a)(z-b)(z-c)$, $a,b,c$ distinct, and show that it is diffeomorphic to the two dimensional real torus.
+\item Formalise and prove a version of the Mittag-Leffler theorem valid for the Riemann sphere.
+\item Let $f:M\to N$ be a holomorphic map between Riemann surfaces. Show
+\begin{enumerate}
+\item[(a)] Either $f$ is constant or $f(M)$ is an open subset of $N$.
+\item[(b)] In case $M$ is compact, either $f$ is constant or $f(M)=N$.
+\item[(c)] Given $z_0\in N$, $f^{-1}(z_0)$ is a discrete subset of $M$ (possibly empty).
+\end{enumerate}
+\item Let $f:M\to N$ be a non-constant map between Riemann surfaces $M$ and $N$ and suppose $d\in\mathcal D(N)$. Show how to define $f^*(d)\in\mathcal D(M)$ and verify that if $m\in M^*(N)$ then $\operatorname{div}(mf)=f^*(\operatorname{div}(m))$.
+\end{enumerate}
+
+\section{Vector bundles}\label{sec:1:5}
+The first part of this section constitutes a summary of the theory of real and complex vector bundles over a topological space. For more comprehensive treatments the reader may refer to Abraham and Marsden \cite{bib:I:abraham-r-and-marsden-j-e:1}, Husemoller \cite{bib:I:husmoller-d:1} or Lang \cite{bib:I:lang-s:1}.
+% Original book page 24
+\FieldHeading{Definition}{1.5.1}{}\FieldTarget{definition:1.5.1}{1.5.1} Let $X$ be a topological space. An \emph{$n$-dimensional real vector bundle}\IndexMark{idx-637}{vector bundle@Vector bundle!real@real} $E$ over $X$ consists of a topological space $E$ and continuous map $\pi:E\to X$ which satisfy
+\begin{enumerate}
+\item[(a)] The fibre $\pi^{-1}(x)=E_x$ has the structure of a real $n$-dimensional vector space for every $x\in X$.
+\item[(b)] There exists an open cover $\{U_i:i\in I\}$ of $X$ and homeomorphisms $\theta_i:\pi^{-1}(U_i)\to U_i\times\mathbb R^n$ such that for all $i\in I$, $x\in U_i$, $\theta_i$ maps $E_x$ linearly and isomorphically onto $\{x\}\times\mathbb R^n$.
+\end{enumerate}
+We denote the vector bundle by $\pi:E\to X$ or just $E$.
+
+The topological space $E$ is called the \emph{total space}\IndexMark{idx-612}{total space of vector bundle@Total space (of vector bundle)} of the vector bundle, $X$ is called the \emph{base space} and $\pi$ the \emph{projection map}. The maps $\theta_i$ are called \emph{trivialisations} of\IndexMark{idx-623}{trivialisation of vector bundle@Trivialisation of vector bundle} $E$.
+
+\paragraph*{Example 1.} Let $\pi:X\times\mathbb R^n\to X$ denote projection on the first factor. Then $\pi:X\times\mathbb R^n\to X$ is an $n$-dimensional vector bundle over $X$ called the \emph{trivial} $n$-dimensional vector bundle\IndexMark{idx-621}{trivial vector bundle@Trivial vector bundle} over $X$. We often denote the trivial bundle over $X$ with fibre $\mathbb R^n$ by $\underline{\mathbb R}^n$.
+
+Condition b) on a vector bundle implies that a vector bundle is locally a trivial bundle. Globally it may be twisted.
+
+\FieldHeading{Definition}{1.5.2}{}\FieldTarget{definition:1.5.2}{1.5.2} A (continuous) \emph{section} of the vector bundle\IndexMark{idx-541}{section of vector bundle@Section of vector bundle} $\pi:E\to X$ is a (continuous) map $s:X\to E$ such that $\pi s=\text{identity}$. That is, $s(x)\in E_x$ for all $x\in X$.
+
+\paragraph*{Example.} If $f:X\to\mathbb R^n$, then the graph map $x\mapsto(x,f(x))$ is a section of the trivial bundle $X\times\mathbb R^n$. Conversely, every section of the trivial bundle $X\times\mathbb R^n$ defines an $\mathbb R^n$-valued function on $X$.
+
+We shall let $C^0(E)$ denote the set of all continuous sections of $E$ and remark that $C^0(E)$ has the structure of a real vector space with addition and scalar multiplication induced from the vector space structure on the fibres of $E$.
+
+If $s$ is a section of the vector bundle $E$, then $\theta_i s:U_i\to U_i\times\mathbb R^n$ is the graph map of a function $S_i:U_i\to\mathbb R^n$. Thus we may think of sections of $E$ as \emph{locally} being $\mathbb R^n$-valued functions. Globally, they may be ``twisted'' $\mathbb R^n$-valued functions.
+% Original book page 25
+\paragraph*{Example.} Let $S^1\mathbin{\dot\times}\mathbb R$ denote the twisted cylinder. $S^1\mathbin{\dot\times}\mathbb R$ is homeomorphic to the M\"obius band and may be explicitly parametrized as the subset $\{(\cos\theta,\sin\theta,t\cos\theta/2,t\sin\theta/2):\theta\in[0,2\pi),t\in\mathbb R\}$ of $\mathbb R^4$. The space $S^1\mathbin{\dot\times}\mathbb R$ has the structure of a 1-dimensional real vector bundle over $S^1$ if we define projection onto $S^1$ in the obvious way.
+
+\begin{center}
+    \begin{minipage}{\linewidth}
+        \centering
+        \input{figures/figure01.tex}
+        \FieldCaption{I}{1}{}
+    \end{minipage}
+\end{center}
+We observe that every continuous section of $S^1\mathbin{\dot\times}\mathbb R$ is zero at at least one point in sharp contrast to what happens for sections of $S^1\times\mathbb R$. Thus although \emph{locally}, twisted and untwisted functions on $S^1$ possess the same properties, their global behaviour may be rather different.
+
+We shall now give an alternative description of vector bundles in terms of \emph{transition functions}. We follow the notation of Definition~\ref{definition:1.5.1}. For each $i\in I$, $x\in U_i$, we let
+\[ \theta_{ix}:E_x\longrightarrow\mathbb R^n \]
+denote the restriction of $\theta_i$ to $E_x$ composed with the projection on $\mathbb R^n$.
+
+Define
+\[ \theta_{ij}:U_{ij}\longrightarrow\operatorname{GL}(\mathbb R^n) \]
+% Original book page 26
+by $\theta_{ij}(x)=\theta_{ix}\theta_{jx}^{-1}$, $x\in U_{ij}$, $i,j\in I$ ($\operatorname{GL}(\mathbb R^n)$ denotes the group of linear isomorphisms of $\mathbb R^n$ which is commonly given the alternative notation $\operatorname{GL}(n,\mathbb R)$).
+
+It may easily be verified that the $\theta_{ij}$ are continuous maps which satisfy the cocycle conditions\IndexMark{idx-091}{cocycle condition@Cocycle condition}
+\begin{equation}
+\left.\begin{aligned}\theta_{ij}&=\theta_{ji}^{-1}\\ \theta_{ij}\cdot\theta_{jk}&=\theta_{ik}\end{aligned}\right\}\tag{A}\label{eq:1:a:2}
+\end{equation}
+(Inversion and multiplication are in $\operatorname{GL}(\mathbb R^n)$). The $\theta_{ij}$ are called \emph{transition functions}\IndexMark{idx-615}{transition function@Transition function} of the vector bundle $E$. Suppose $s$ is a section of $E$ and $S_i:U_i\to\mathbb R^n$ is the local representation of $s$ on $U_i$ as described above. Then for all $i,j$
+\begin{equation} \theta_{ij}S_j=S_i\quad\text{on }U_{ij}.\tag{B}\label{eq:1:b:1}\end{equation}
+Conversely, any set of functions $S_i:U_i\to\mathbb R^n$ satisfying B defines a unique section of $E$.
+
+If $E$ and $F$ are vector bundles over $X$ we shall say that a continuous map $A:E\to F$ is a \emph{vector bundle map}\IndexMark{idx-639}{vector bundle@Vector bundle!map@map} if for all $x\in X$, $A(E_x)\subset F_x$ and $A|E_x$ is linear. If $A$ is bijective and $A^{-1}$ is a vector bundle map we shall say that $A$ is a \emph{vector bundle isomorphism}\IndexMark{idx-638}{vector bundle@Vector bundle!isomorphism@isomorphism} and that $E$ and $F$ are \emph{isomorphic vector bundles}.
+
+Suppose that $E,F$ have trivialising maps $\theta_i,\eta_i$ respectively, relative to some (common) cover $\{U_i:i\in I\}$ of $X$. Then for each $i\in I$, $A$ induces a continuous map $A_i:U_i\times\mathbb R^n\to U_i\times\mathbb R^n$ given by $A_i=\eta_i A\theta_i^{-1}$. In turn, $A_i$ induces a continuous map
+\[ a_i:U_i\longrightarrow L(\mathbb R^n,\mathbb R^n) \]
+such that for all $i,j$
+\[ \eta_{ij}a_j=a_i\theta_{ij}\quad\text{on }U_{ij}. \]
+% Original book page 27
+Conversely, a family of continuous maps $a_i:U_i\to L(\mathbb R^n,\mathbb R^m)$ determines a vector bundle map from $E$ to $F$ provided that for all $i,j$
+\begin{equation}\eta_{ij}a_j=a_i\theta_{ij}\quad\text{on }U_{ij}.\tag{C}\label{eq:1:c:1}\end{equation}
+Notice that $E$ will be a trivial vector bundle (that is, isomorphic to a trivial vector bundle) if and only if there exist $a_i:U_i\to\operatorname{GL}(\mathbb R^n)$ such that for all $i,j$
+\[ a_j=a_i\theta_{ij}\quad\text{on }U_{ij}. \]
+Suppose that $\{U_i:i\in I\}$ is an open cover of the topological space $X$ and that we are given continuous maps $\theta_{ij}:U_{ij}\to\operatorname{GL}(\mathbb R^n)$ satisfying the cocycle condition A. Then the $\theta_{ij}$ determine a unique---up to isomorphism---$n$-dimensional real vector bundle over $X$ whose transition functions are the $\theta_{ij}$. To see this we let $Z$ denote the disjoint union over $I$ of the products $U_i\times\mathbb R^n$. We define an equivalence relation on $Z$ by $(i,x,U)\sim(j,y,V)$ iff $x=y$ and $U=\theta_{ij}(x)V$. It is an easy matter to show that $Z/{\sim}$ has the structure of an $n$-dimensional real vector bundle over $X$ with transition functions $\theta_{ij}$ and we leave details to the reader. In the sequel we usually construct vector bundles by specifying a set of transition functions. From C above, it follows that two sets $\theta_{ij},\eta_{ij}:U_{ij}\to\operatorname{GL}(\mathbb R^n)$ of transition functions define isomorphic vector bundles if and only if there exist $a_i:U_i\to\operatorname{GL}(\mathbb R^n)$ such that for all $i,j$, $\eta_{ij}a_j=a_i\theta_{ij}$ on $U_{ij}$.
+
+\paragraph*{Notation.} Let $\mathbb R^{m\prime}$ denote the real dual\IndexMark{idx-636}{vector bundle@Vector bundle!dual@dual} of $\mathbb R^m$. If $A\in L(\mathbb R^m,\mathbb R^n)$, then the \emph{transpose} of\IndexMark{idx-616}{transpose of linear map@Transpose (of linear map)} $A$, $A'$, is the linear map from $\mathbb R^{n\prime}\to\mathbb R^{m\prime}$ characterised by $A'(\phi)(e)=\phi(A(e))$, $\phi\in\mathbb R^{n\prime}$, $e\in\mathbb R^m$.
+
+\paragraph*{Example 4.} Let $E$ be an $n$-dimensional real vector bundle with transition functions $\theta_{ij}$. We define $\theta_{ij}':U_{ij}\to\operatorname{GL}(\mathbb R^{n\prime})$ by
+\[ \theta_{ij}'(x)=[\theta_{ij}(x)']^{-1},\quad x\in U_{ij}. \]
+The $\theta_{ij}'$ satisfy the cocycle condition A and so are the transition functions for a vector bundle which we call the \emph{dual} vector bundle of $E$ and denote by $E'$. We remark that the trivialisations $\theta_i'$ of $E'$ map naturally to $U_i\times\mathbb R^{n\prime}$ (rather than $U_i\times\mathbb R^n$).
+% Original book page 28
+
+Motivated by the previous example, we shall now extend the possible ``fibre models'' of real vector bundles\IndexMark{idx-642}{vector bundles@Vector bundles!exterior product@exterior product}\IndexMark{idx-643}{vector bundles@Vector bundles!symmetric product@symmetric product} to include any finite combination of direct sum, tensor product\IndexMark{idx-644}{vector bundles@Vector bundles!tensor product@tensor product}, exterior and symmetric power of $\mathbb R^n$ and $\mathbb R^{n\prime}$. All these vector space operations extend immediately to vector bundles over a fixed base space $X$. We give one example to illustrate the method and refer the reader to the references for more details. Suppose that $E$ and $F$ are vector bundles over $X$ with transition functions $\theta_{ij}:U_{ij}\to\operatorname{GL}(\mathbb R^m)$ and $\eta_{ij}:U_{ij}\to\operatorname{GL}(\mathbb R^n)$ respectively. $\bigwedge^r F\otimes(E\oplus(\bigodot^s F'))$ will then denote the vector bundle\IndexMark{idx-634}{vector bundle@Vector bundle!complex@complex} over $X$ with fibre model $\bigwedge^r\mathbb R^n\otimes(\mathbb R^m\oplus(\bigodot^r\mathbb R^{n\prime}))$ and transition functions $\psi_{ij}:U_{ij}\to\operatorname{GL}(\bigwedge^r\mathbb R^n\otimes(\mathbb R^m\oplus(\bigodot^r\mathbb R^{n\prime})))$ defined by
+\[ \psi_{ij}(x)=(\bigwedge^r\eta_{ij}(x))\otimes(\theta_{ij}(x)\oplus(\bigodot^s\eta_{ij}'(x))),\quad x\in U_{ij}. \]
+($\bigwedge^r$ and $\bigodot^s$ denote the operations of $p$th. exterior and $s$th. symmetric power respectively).
+% The inconsistent r,s,p in this paragraph are present in the source.
+
+Suppose that $X$ is a differential manifold (with $C^\infty$ structure). We can define smooth (that is $C^\infty$) real vector bundles over $X$ in the obvious way and everything we have said above generalises immediately to the smooth case. If $E$ is a smooth vector bundle over $X$, we let $C^r(E)$ denote the vector space of $C^r$ sections of $E$, $1\leq r\leq\infty$.
+
+\paragraph*{Example 5.} Let $M$ be an $m$-dimensional differential manifold with smooth atlas $\{(U_i,\phi_i):i\in I\}$. We define $C^\infty$ maps $\phi_{ij}:U_{ij}\to\operatorname{GL}(\mathbb R^m)$ by $\phi_{ij}(x)=D(\phi_i\phi_j^{-1})(\phi_j(x))$. The $\phi_{ij}$ are the transition functions for the (real) \emph{tangent bundle}\IndexMark{idx-598}{tangent bundle@Tangent bundle!real@real} of $M$ which we denote in the sequel by $\mathcal T M$. The (real) \emph{cotangent bundle}\IndexMark{idx-140}{cotangent bundle@Cotangent bundle} of $M$, $\mathcal T'M$, is the dual bundle of $\mathcal T M$ with transition functions $\phi_{ij}'$ (See Abraham and Marsden \cite{bib:I:abraham-r-and-marsden-j-e:1}, Chillingworth \cite{bib:I:chillingworth-d-r-j:1} and Lang \cite{bib:I:lang-s:1} for more details).
+
+We now turn our attention to vector bundles with fibre a complex vector space. An \emph{$m$-dimensional complex vector bundle} $E$ over $X$ is defined exactly as in Definition~\ref{definition:1.5.1} except that ``real'' and ``$\mathbb R^n$'' are everywhere replaced by ``complex'' and ``$\mathbb C^m$'' respectively. We leave the writing out of the formal definitions of complex vector bundles, sections, transition functions, etc. to the reader. Sections of an $m$-dimensional complex vector bundle will locally be $\mathbb C^m$-valued functions: globally they may be twisted.
+% Original book page 29
+
+One important feature of complex vector bundles is the greater complexity of the fibre models which involve not only duals but also conjugates. But first we need to review some complex linear algebra.
+
+If $J:\mathbb C^m\to\mathbb C^m$ denotes scalar multiplication by $i$, then $J$ is a $\mathbb C$-linear isomorphism of $\mathbb C^m$ satisfying $J^2=-I$. The usual complex structure\IndexMark{idx-111}{complex structure@Complex structure!on vector space@on vector space}\IndexMark{idx-113}{complex structure@Complex structure!conjugate structure@conjugate structure} on $\mathbb C^m$ may be defined in terms of $J$ and the underlying real structure on $\mathbb C^m$ by
+\[ (a+ib)Z=aZ+bJ(Z),\quad a,b\in\mathbb R,\quad Z\in\mathbb C^m. \]
+The \emph{conjugate complex structure}\IndexMark{idx-125}{conjugate@Conjugate!vector space@vector space} on $\mathbb C^m$ is defined by
+\[ (a+ib)Z=aZ-bJ(Z),\quad a,b\in\mathbb R,\quad Z\in\mathbb C^m. \]
+We denote the resulting complex vector space by $\overline{\mathbb C}^{m}$. Suppose $A\in L(\mathbb C^m,\mathbb C^n)$, we define $\overline A\in L(\overline{\mathbb C}^{m},\overline{\mathbb C}^{n})$ by simply requiring that $A=\overline A$ on the common underlying set of $\mathbb C^m$ and $\overline{\mathbb C}^{m}$ (We should emphasise that all linear maps here are assumed \emph{complex} linear unless the contrary is explicitly stated).
+
+We let $\mathbb C^{m*}=L(\mathbb C^m,\mathbb C)$ denote the \emph{conjugate dual space}\IndexMark{idx-127}{conjugate@Conjugate!dual space@dual space} of $\mathbb C^m$. If $A\in L(\mathbb C^m,\mathbb C^n)$, we define the \emph{transpose}\IndexMark{idx-617}{transpose of linear map@Transpose (of linear map)} $A^*\in L(\mathbb C^{n*},\mathbb C^{m*})$ exactly as in the real case.
+% "conjugate dual space" here is the wording of the source.
+
+We let $\overline{\mathbb C}^{m*}$ denote the complex vector space of conjugate complex linear maps on $\mathbb C^m$. We call $\overline{\mathbb C}^{m*}$ the \emph{conjugate dual space} of $\mathbb C^m$. Note that $f\in\overline{\mathbb C}^{m*}$ if $f:\mathbb C^m\to\mathbb C$ is $\mathbb R$-linear and $f(\lambda Z)=\overline\lambda f(Z)$, $\lambda\in\mathbb C$, $Z\in\mathbb C^m$. Clearly, $\overline{\mathbb C}^{m*}\cong L(\overline{\mathbb C}^{m},\mathbb C)$. Moreover, $\overline{\mathbb C^{m*}}\cong\overline{\mathbb C}^{m*}$ where we map $\phi\in\mathbb C^{m*}$ to $\overline\phi\in\overline{\mathbb C}^{m*}$ and $\overline\phi(e)=\overline{\phi(e)}$, $e\in\mathbb C^m$. If $A\in L(\mathbb C^m,\mathbb C^n)$, we define the \emph{conjugate transpose} $\overline A^*\in L(\overline{\mathbb C}^{n*},\overline{\mathbb C}^{m*})$ by
+\[ \overline A^*(\phi)(e)=\phi(A(e)),\quad e\in\mathbb C^m,\quad\phi\in\overline{\mathbb C}^{n*}. \]
+Finally, if $A\in L(\mathbb C^m,\mathbb C^n)$ has matrix $[a_{ij}]$ relative to the standard bases of $\mathbb C^m$ and $\mathbb C^n$, the reader may easily verify that the matrices of $\overline A$, $A^*$ and $\overline A^*$ are respectively $[\overline{a_{ij}}]$, $[a_{ji}]$ and $[\overline{a_{ji}}]$ relative to the naturally induced bases on $\overline{\mathbb C}^m,\ldots,\overline{\mathbb C}^{n*}$.
+% Original book page 30
+\paragraph*{Example 6.} Let $E$ be a complex vector bundle with transition functions $\theta_{ij}:U_{ij}\to\operatorname{GL}(\mathbb C^m)$. We define maps
+\begin{align*}
+\overline\theta_{ij}:U_{ij}&\longrightarrow\operatorname{GL}(\overline{\mathbb C}^m),\\
+\theta_{ij}^*:U_{ij}&\longrightarrow\operatorname{GL}(\mathbb C^{m*}),\\
+\overline\theta_{ij}^*:U_{ij}&\longrightarrow\operatorname{GL}(\overline{\mathbb C}^{m*})
+\end{align*}
+by $\overline\theta_{ij}(x)=\overline{\theta_{ij}(x)}$, $\theta_{ij}^*(x)=[\theta_{ij}(x)^*]^{-1}$, $\overline\theta_{ij}^*(x)=[\overline{\theta_{ij}(x)}^*]^{-1}$, $x\in U_{ij}$.
+
+Now $\overline\theta_{ij}$, $\theta_{ij}^*$, $\overline\theta_{ij}^*$ satisfy the cocycle condition A and so are the transition functions for complex vector bundles which we call the \emph{conjugate} bundle, $\overline E$, \emph{dual} bundle, $E^*$, and \emph{conjugate dual}\IndexMark{idx-635}{vector bundle@Vector bundle!conjugate dual@conjugate (dual)} bundle, $\overline E^*$, of $E$ respectively.
+
+Exactly as for the real case we may now extend the possible fibre models of complex vector bundles to include finite combinations of direct sum, tensor product, exterior and symmetric powers of $\mathbb C^m$ and its conjugate and dual spaces. All these operations extend immediately to complex vector bundles over a fixed base space and we leave formal details to the reader.
+
+\paragraph*{Remarks.}
+\begin{enumerate}
+\item We shall show in Chapter 9 that, as complex vector bundles, $E$ is isomorphic to $\overline E^*$ and $E^*$ is isomorphic to $\overline E$. However, these isomorphisms are not natural and in the sequel it will often be convenient to regard these bundles as all being distinct.
+\item If $E$ is a 1-dimensional complex vector bundle, we shall usually refer to $E$ as a \emph{complex line bundle}\IndexMark{idx-104}{complex line bundle@Complex line bundle}\IndexMark{idx-373}{line bundle@Line bundle!complex@complex}. Since $\operatorname{GL}(\mathbb C)\cong\mathbb C^\bullet$, the transition functions for a complex line bundle may be equivalently given by non-vanishing complex valued functions: $\theta_{ij}:U_{ij}\to\mathbb C^\bullet$.
+\end{enumerate}
+\paragraph*{Examples.}
+\paragraph*{7.} Let $\operatorname{CLB}(X)$ denote the set of isomorphism classes of complex line bundles over $X$. We claim that $\operatorname{CLB}(X)$ has the natural structure of an abelian group with identity the trivial bundle $\underline{\mathbb C}$ and product and inversion respectively defined by
+
+% Original book page 31
+\begin{align*}
+E\cdot F&=E\otimes F,\quad E,F\in\operatorname{CLB}(X),\\
+E^{-1}&=E^*,\quad E\in\operatorname{CLB}(X).
+\end{align*}
+Certainly $E\cdot\underline{\mathbb C}=\underline{\mathbb C}\cdot E=E$ for all $E\in\operatorname{CLB}(X)$. We verify that $E^*$ is the inverse of $E$ with respect to $\otimes$ and leave the remaining details to the reader. To verify that $E^*$ is the inverse of $E$ it is enough to note that there is a natural isomorphism $E\otimes E^*\cong\underline{\mathbb C}$ induced from the dual pairing $E_x\otimes E_x^*\cong\mathbb C$, $x\in X$ (Perhaps we should remark that for the group $\operatorname{RLB}(X)$ of \emph{real} line bundles\IndexMark{idx-375}{line bundle@Line bundle!real@real} on $X$, $L$ is isomorphic to $L'$, $L\in\operatorname{RLB}(X)$, and so $L^2\cong\underline{\mathbb R}$, for all $L\in\operatorname{RLB}(X)$).
+
+\paragraph*{2.} Let $M$ be a Riemann surface with complex analytic atlas $\{(U_i,\phi_i):i\in I\}$. We define $\phi_{ij}:U_{ij}\to\operatorname{GL}(\mathbb C)$ by $\phi_{ij}(z)=\partial(\phi_i\phi_j^{-1})/\partial z(\phi_j(z))$, $z\in U_{ij}$. The $\phi_{ij}$ are complex analytic maps and are the transition functions for the \emph{holomorphic tangent bundle}\IndexMark{idx-599}{tangent bundle@Tangent bundle!holomorphic@holomorphic}\IndexMark{idx-601}{tangent bundle@Tangent bundle!anti holomorphic@anti-holomorphic} of $M$ which we denote in the sequel by $TM$.
+% The source numbers this example 2, between examples 7 and 9.
+
+$\phi_{ij}^*:U_{ij}\to\operatorname{GL}(\mathbb C^*)$ are also analytic maps and define the transition functions for the \emph{holomorphic cotangent bundle}\IndexMark{idx-142}{cotangent bundle@Cotangent bundle!holomorphic anti holomorphic@holomorphic, anti-holomorphic}, $TM^*$, of $M$.
+
+$\overline\phi_{ij}:U_{ij}\to\operatorname{GL}(\overline{\mathbb C})$ are $C^\infty$ maps (not analytic!) and are the transition functions for the \emph{anti-holomorphic tangent bundle}, $\overline{TM}$, of $M$.
+
+$\overline\phi_{ij}^*:U_{ij}\to\operatorname{GL}(\overline{\mathbb C}^*)$ are $C^\infty$ maps and are the transition functions for the \emph{anti-holomorphic cotangent bundle}, $\overline{TM}^*$, of $M$.
+
+We shall now show how the operator $\partial/\partial\bar z$ extends to a Riemann surface $M$ as a map $\bar\partial:C^\infty(M)\to C^\infty(\overline{TM}^*)$. First we need to note the composite mapping formula\IndexMark{idx-123}{composite mapping formula@Composite mapping formula} for $\partial/\partial z$, $\partial/\partial\bar z$:
+
+Suppose $h$ and $g$ are $C^1$ complex valued functions defined on open subsets of $\mathbb C$. Then
+\begin{align}
+\partial(gh)/\partial z&=(\partial g/\partial z)(\partial h/\partial z)+(\partial g/\partial\bar z)\overline{\partial h/\partial\bar z},\tag{*}\label{eq:1:star:1}\\
+\partial(gh)/\partial\bar z&=(\partial g/\partial z)(\partial h/\partial\bar z)+(\partial g/\partial\bar z)\overline{\partial h/\partial z}.\tag{**}\label{eq:1:star:2}
+\end{align}
+The proof is most easily done by taking real and imaginary parts and applying the chain rule for $\partial/\partial x$ and $\partial/\partial y$.
+% Original book page 32
+
+Let $(U_i,\phi_i)$, $(U_j,\phi_j)$ be charts for $M$ and $f\in C^\infty(M)$. Then
+\begin{align*}
+\partial(f\phi_i^{-1})/\partial\bar z
+&=\partial(f\phi_j^{-1}\phi_j\phi_i^{-1})/\partial\bar z\\
+&=\partial(f\phi_j^{-1})/\partial\bar z\ \overline{\partial(\phi_j\phi_i^{-1})/\partial z},\quad\text{using ** above}\\
+&=\overline\phi_{ij}^*\ \partial(f\phi_j^{-1})/\partial\bar z,
+\end{align*}
+where $\overline\phi_{ij}^*$ are the transition functions for $\overline{TM}^*$. Hence $\partial(f\phi_i^{-1})/\partial\bar z$ are the local representatives of a $C^\infty$ section of $\overline{TM}^*$ which in the sequel we shall denote by $\bar\partial f$. The operator $\bar\partial:C^\infty(M)\to C^\infty(\overline{TM}^*)$ clearly has kernel equal to $A(M)$. We shall return to the question of how far $\bar\partial$ fails to be surjective at the end of this section.
+
+The fibre model for $\overline{TM}^*$ is $\overline{\mathbb C}^*$ and we denote the standard basis of $\overline{\mathbb C}^*$ by $d\bar z$. Suppose that $g\in C^\infty(\overline{TM}^*)$, then the local representative of $g$ with respect to a chart $(U_i,\phi_i)$ is given by $g_i\,d\bar z$, where $g_i=\overline\phi_i^*g\in C^\infty(U_i)$. If $f\in C^\infty(M)$, the local representative of $\bar\partial f$ is $\partial f_i/\partial\bar z\,d\bar z$, where $f_i=f\phi_i^{-1}\in C^\infty(U_i)$.
+
+We may similarly define $\partial:C^\infty(M)\to C^\infty(TM)$ and the local representative of $\partial f$ with respect to a chart $(U_i,\phi_i)$ will be $\partial f_i/\partial z\,dz$, where $dz$ denotes the standard basis of $\mathbb C^*$.
+% Source prints TM rather than TM* in the preceding codomain.
+
+We remark that $df=\partial f+\bar\partial f$ as is easily verified by the local computation $\partial f/\partial z\,dz+\partial f/\partial\bar z\,d\bar z=\partial f/\partial x\,dx+\partial f/\partial y\,dy$.
+
+\FieldHeading{Definition}{1.5.3}{}\FieldTarget{definition:1.5.3}{1.5.3} Let $\theta_{ij}:U_{ij}\to\operatorname{GL}(\mathbb C)$ be the transition functions for a complex line bundle\IndexMark{idx-374}{line bundle@Line bundle!holomorphic@holomorphic} $E$ over the Riemann surface $M$. If the $\theta_{ij}$ are all analytic, we shall say that $E$ is a \emph{holomorphic line bundle}\IndexMark{idx-294}{holomorphic line bundle@Holomorphic line bundle} over $M$.
+
+\paragraph*{Examples.}
+\paragraph*{9.} If $M$ is a Riemann surface, $TM$ and $TM^*$ are holomorphic line bundles over $M$.
+
+\paragraph*{10.} Let $\operatorname{HLB}(M)$ denote the set of isomorphism classes of holomorphic line bundles over the Riemann surface $M$ (isomorphism here is, of course, analytic line bundle isomorphism, and may be given explicitly in terms of analytic functions using condition C above).
+% Original book page 33
+
+As in the previous example on $\operatorname{CLB}(M)$, $\operatorname{HLB}(M)$ has the natural structure of an abelian group with composition defined as tensor product and inverse as dual (see also below).
+
+Holomorphic line bundles and their generalisation, holomorphic vector bundles, will be of the greatest importance in the sequel. As we shall see they provide a particularly potent geometric framework for many problems in complex analysis.
+
+Suppose that $E$ is a holomorphic line bundle on the Riemann surface $M$ with transition functions $\theta_{ij}$ relative to the cover $\{U_i\}$. A family $S_i\in A(U_i)$ will define an \emph{analytic section} of $E$ if, for all $i,j$,
+\[ S_i=\theta_{ij}S_j\quad\text{on }U_{ij}. \]
+A family $M_i\in M(U_i)$ will define a \emph{meromorphic section}\IndexMark{idx-393}{meromorphic section@Meromorphic section!of vector bundle@of vector bundle} $m$ of $E$ if, for all $i,j$,
+\[ M_i=\theta_{ij}M_j\quad\text{on }U_{ij}. \]
+We denote the sets of analytic and meromorphic sections of $E$ by $\Omega(E)$ and $M(E)$ respectively. We let $M^*(E)$ denote the set of non-zero meromorphic sections of $E$. As in \S\S3,4, we define $\operatorname{ord}(m,z)$\IndexMark{idx-424}{order of pole zero@Order (of pole, zero)}, $m\in M(E)$, $z\in M$; $\operatorname{div}(m)$, $m\in M^*(E)$ and, if $M$ is compact, $\deg(\operatorname{div}(m))$, $m\in M^*(E)$.
+
+With the above formalism out of the way we can now rapidly achieve one of the primary goals of this section: The geometric formulation of the problem of generalising Weierstrass' theorem to compact Riemann surfaces.
+
+For the remainder of this section we shall assume that $M$ is a compact Riemann surface.
+
+\FieldHeading{Proposition}{1.5.4}{}\FieldTarget{proposition:1.5.4}{1.5.4}\IndexMark{idx-185}{divisor class map@Divisor class map} There is a natural homomorphism $[\ ]:\mathcal D(M)\to\operatorname{HLB}(M)$ satisfying the property that for any $d\in\mathcal D(M)$ there exists $s(d)\in M^*([d])$ such that $\operatorname{div}(s(d))=d$. Furthermore, $s(d)$ is determined uniquely up to multiplication by elements of $\mathbb C^\bullet$.
+\begin{proof}
+As we showed in \hyperref[sec:1:3]{\S3}, any divisor may be uniquely specified by an open cover $\{U_i\}$ of $M$ and $m_i\in M^*(U_i)$ such that, for all $i,j$, $m_i/m_j\in A^*(U_{ij})$. Define $\theta_{ij}=m_i/m_j\in A^*(U_{ij})$. Clearly the $\theta_{ij}$ are
+% Original book page 34
+the transition functions for a holomorphic line bundle on $M$ which we denote by $[d]$. We leave it to the reader to verify that $d\mapsto[d]$ is a group homomorphism.
+
+We define $s(d)_i=m_i\in M^*(U_i)$ and observe that $\theta_{ij}s(d)_j=s(d)_i$ on $U_{ij}$. Hence the $s(d)_i$ are the local representatives of a meromorphic section $s(d)$ of $[d]$. Obviously $\operatorname{div}(s(d))=d$. We leave the remaining assertions as an exercise---see also Lemma~\ref{lemma:1.5.6}.
+\end{proof}
+\paragraph*{Remark.} Proposition~\ref{proposition:1.5.4} gives a ``formal'' solution to the problem of which divisors are divisors of meromorphic functions: Every divisor is the divisor of a ``twisted'' meromorphic function.
+
+\FieldHeading{Proposition}{1.5.5}{}\FieldTarget{proposition:1.5.5}{1.5.5} A divisor $d$ on $M$ is the divisor of a meromorphic function if and only if $[d]$ is trivial as a holomorphic line bundle.
+\begin{proof}
+Suppose $d=\operatorname{div}(m)$, $m\in M^*(M)$. Let $\{U_i\}$ be any open cover of $M$. Set $m_i=m|U_i$ and $\theta_{ij}=m_i/m_j=1$. The $m_i$ then define the divisor $d$ and, since $\theta_{ij}=1$, $[d]$ is holomorphically trivial. Conversely, if $[d]$ is holomorphically trivial, there exists a nowhere zero analytic section $s$ of $[d]$. In terms of local representatives $s_i\in A^*(U_i)$ we must have $\theta_{ij}s_i=s_j$, where $\theta_{ij}$ are the transition functions of $[d]$. But $\theta_{ij}=m_i/m_j$, where the $m_i$ define the divisor $d$. Therefore, we have $m_i/s_i=m_j/s_j$ on $U_{ij}$ and we may define $m\in M^*(M)$ by $m|U_i=m_i/s_i$. Obviously, $\operatorname{div}(m)=d$.
+% Source prints theta_ij s_i = s_j; indices retained.
+\end{proof}
+\FieldHeading{Lemma}{1.5.6}{}\FieldTarget{lemma:1.5.6}{1.5.6} Suppose that $L\in\operatorname{HLB}(M)$ and $s,t\in M^*(L)$. Then $s/t$ naturally defines a non-zero meromorphic function on $M$.
+\begin{proof}
+Suppose that $L$ has transition functions $\theta_{ij}$ relative to some open cover $\{U_i\}$ of $M$. Then, $s,t$ are locally given by $s_i,t_i\in M^*(U_i)$ subject to the relations $\theta_{ij}s_{ij}=s_i$, $\theta_{ij}t_j=t_i$ for all $i,j$. Therefore, $s_j/t_j=s_i/t_i$ on $U_{ij}$ and so we may define $m\in M^*(M)$ by $m|U_i=s_i/t_i$.
+% Source prints s_ij in the first relation; retained.
+\end{proof}
+\paragraph*{Remark.} Notice that $t^{-1}$ naturally defines a meromorphic section of $L^{-1}=L^*$ and so $s/t$ may equivalently be defined by using the pairing $M^*(L)\times M^*(L^{-1})\to M^*(M)$ induced from the dual pairing $L\otimes L^*\cong\underline{\mathbb C}$.
+% Original book page 35
+
+\FieldHeading{Proposition}{1.5.7}{}\FieldTarget{proposition:1.5.7}{1.5.7} Let $L\in\operatorname{HLB}(M)$ and suppose $M^*(L)\ne\varnothing$. Given $s\in M^*(L)$, set $\deg(s)=\deg(\operatorname{div}(s))$. Then $\deg(s)$ is independent of $s$ and depends only on $L$.
+\begin{proof}
+Let $s,t\in M^*(L)$. Clearly, $\operatorname{div}(s/t)=\operatorname{div}(s)-\operatorname{div}(t)$. But $s/t\in M^*(M)$ and so by Lemma~\ref{lemma:1.4.3}, $\deg(s/t)=0$. Hence $\deg(s)=\deg(t)$.
+\end{proof}
+For every holomorphic line bundle $L$ on $M$ that admits a non-trivial meromorphic section we may define the \emph{degree of $L$}, $\deg(L)$, to be $\deg(s)$, where $s$ is any non-trivial meromorphic section of $L$. Notice that if $\deg(L)\ne0$, then $L$ cannot be holomorphically trivial. It is also clear that if $d\in\mathcal D(M)$ then $\deg(d)=\deg([d])$.
+
+The degree of $L$ is an important topological invariant of $L$. In fact we shall show later (Example 14, \hyperref[sec:6:3]{\S3, Chapter 6}) that $\deg(L)=0$ if and only if $L$ is trivial as a \emph{complex} line bundle.
+
+What we have achieved above is to shift the problem of determining which divisors are divisors of meromorphic functions to the apparently more general problem of determining which holomorphic line bundles admit non-trivial meromorphic sections. We already know that a divisor $d$ can be the divisor of a meromorphic function on $M$ only if $\deg([d])=\deg(d)=0$. Let $\operatorname{HLB}_0(M)$ denote the subgroup of $\operatorname{HLB}(M)$ consisting of line bundles of degree zero. Two problems naturally arise at this stage.
+\begin{enumerate}
+\item Show that $[\ ]:\mathcal D(M)\to\operatorname{HLB}(M)$ is onto.
+\item Describe $\operatorname{HLB}_0(M)$.
+\end{enumerate}
+To show that $[\ ]$ is onto amounts to proving that every holomorphic line bundle on $M$ has a non-trivial meromorphic section. The existence of such meromorphic sections follows from a rather general finiteness theorem that we prove in Chapter~\ref{ch:7} (see the exercises at the end of \hyperref[sec:7:5]{\S5, Chapter 7}). Once we know that $[\ ]$ is onto it is an easy matter to prove Riemann's part\IndexMark{idx-529}{riemann s inequality@Riemann's inequality} of the \emph{Riemann--Roch} theorem\IndexMark{idx-527}{riemann roch theorem@Riemann--Roch theorem}:
+
+For any divisor $d$ on $M$ we have
+\[ \dim_{\mathbb C}\Omega([d])\geq\deg(d)+1-g, \]
+% Original book page 36
+where $g$ denotes the genus of $M$.
+
+This result is already sufficient to prove useful existence theorems for meromorphic functions on compact Riemann surfaces. The full Riemann--Roch theorem depends on Serre-duality which we establish in Chapter 10 (see also \hyperref[sec:7:5]{\S5, Chapter 7}).
+
+As far as the second problem goes, $\operatorname{HLB}_0(M)$ may be shown to have the structure of a compact complex Lie group of complex dimension $g$. The group $\operatorname{HLB}_0(M)$ is usually referred to as the \emph{Picard variety}\IndexMark{idx-436}{picard variety@Picard variety} of $M$ and denoted by $\operatorname{Pic}(M)$. Whilst the dimension of $\operatorname{Pic}(M)$ depends only on the genus on $M$ its complex structure depends on the complex structure of $M$. Abel's theorem gives explicit conditions on a divisor in order that it determine the identity of $\operatorname{Pic}(M)$, that is the trivial holomorphic line bundle (We refer to Gunning \cite{bib:I:gunning-r-c:1} for details).
+
+We conclude this section by briefly indicating the role that $\bar\partial$ plays in the study of meromorphic functions on a compact Riemann surface.
+
+Suppose that $E$ is a holomorphic line bundle on $M$ with transition functions $\theta_{ij}$. We shall investigate conditions under which $E$ is holomorphically trivial. First observe that, as in the proof of Theorem~\ref{theorem:1.3.3}, $\{(2\pi i)^{-1}\log\theta_{ij}\}$ defines a class $\gamma_E$ in $H^2(M,\mathbb Z)$. The class $\gamma_E$ will be zero if and only if $E$ is trivial as a complex line bundle. From now on we assume $E$ is complex trivial, that is $E\in\operatorname{Pic}(M)$. We may choose the branches of $\log\theta_{ij}$ so that $\log\theta_{ij}=h_{ij}\in A(U_{ij})$ determine an additive cocycle (see the proof of Theorem~\ref{theorem:1.3.3}). Now $E$ is trivial as a complex line bundle if there exist $g_i\in C^\infty(U_i)$ such that $h_{ij}=g_j-g_i$ (exponentiate!). Define $F\in C^\infty(\overline{TM}^*)$ by $F|U_i=\bar\partial g_i$. We can solve $\bar\partial u=-F$ if the class of $F$ in $C^\infty(\overline{TM}^*)/\bar\partial C^\infty(M)$ is zero. Given such a solution, the functions $a_i=\exp(g_i+u)\in A^*(U_i)$ will then give a holomorphic trivialisation of $E$. The basic result now is that the complex vector space $C^\infty(\overline{TM}^*)/\bar\partial C^\infty(M)$ is finite dimensional (the dimension is actually $g$, the genus of $M$). If we are more careful in our arguments we see that to prove $E$ is holomorphically trivial it is enough to find $u\in C^\infty(M)$ such that $\bar\partial u+F$ exponentiates to zero. Further analysis then shows that $H^1(M,\mathbb Z)$ ($\cong\mathbb Z^{2g}$) determines an integer lattice in $C^\infty(\overline{TM}^*)/\bar\partial C^\infty(M)$ and that a necessary and sufficient condition for $E$ to be holomorphically trivial is that $F$ determines a lattice point. The Picard variety is then isomorphic to the torus $(C^\infty(\overline{TM}^*)/\bar\partial C^\infty(M))/H^1(M,\mathbb Z)$. We
+% Original book page 37
+refer to Gunning \cite{bib:I:gunning-r-c:1} for details. In Chapter~\ref{ch:7} we shall show that $C^\infty(\overline{TM}^*)/\bar\partial C^\infty(M)$ is finite dimensional using rather general arguments about sheaves. In Chapter 10 we give a more direct proof of finiteness and much more explicit description of the quotient $C^\infty(\overline{TM}^*)/\bar\partial C^\infty(M)$ using Hodge theory.
+
+\paragraph*{Exercises.}
+\begin{enumerate}
+\item Let $f:X\to Y$ be a continuous map between topological spaces and $E$ be a vector bundle on $Y$ with transition functions $\theta_{ij}$ relative to some cover $\{U_i\}$ of $Y$. Show that $\theta_{ij}f$ are transition functions for a vector bundle $f^*E$ over $X$ (the ``pull-back\IndexMark{idx-485}{pull back@Pull-back!of vector bundle@of vector bundle}\IndexMark{idx-486}{pull back@Pull-back!of divisor@of divisor} bundle\IndexMark{idx-640}{vector bundle@Vector bundle!pull back@pull-back} of $E$ by $f$''). Verify that, up to vector bundle isomorphism, $f^*E$ depends only on $E$ and $f$ and not on any choices we have made. Show also that in case $f$ is a holomorphic map between Riemann surfaces our construction determines a homomorphism $f^*:\operatorname{HLB}(Y)\to\operatorname{HLB}(X)$.
+\item Let $f:X\to Y$ be a holomorphic map between Riemann surfaces and let $d\in\mathcal D(Y)$. Prove that $f^*[d]\cong[f^*(d)]$ (see Exercise 5, \hyperref[sec:1:4]{\S4}).
+\item Let $M$ be a Riemann surface and $d,d'\in\mathcal D(M)$. We say $d$ and $d'$ are \emph{linearly equivalent}\IndexMark{idx-376}{linear equivalence of divisors@Linear equivalence of divisors} if $d-d'=\operatorname{div}(m)$ for some $m\in M^*(M)$. Show that $d$ and $d'$ are linearly equivalent if and only if $[d]\cong[d']$ as holomorphic line bundles.
+\item Let $\Omega$ be a domain in $\mathbb C$. Prove that every holomorphic line bundle on $\Omega$ is holomorphically trivial.
+\item Let $E,F$ be vector bundles over the differential manifold $M$. Prove that $C^\infty(E'\otimes F)$ is naturally isomorphic to the space of smooth vector bundle maps from $E$ to $F$, $\operatorname{Hom}(E,F)$.
+\item Suppose that $E,F$ are vector bundles over the differential manifold $M$ and $\phi:C^\infty(E)\to C^\infty(F)$ is a $C_{\mathbb R}^\infty(M)$-linear map. Prove that $\phi$ is induced from a vector bundle map $\Phi:E\to F$. That is, show that $\phi(s)(x)=\Phi(s(x))$, $x\in M$, $s\in C^\infty(E)$. Deduce that $\phi$ determines a unique section $\gamma$ of $C^\infty(E'\otimes F)$ characterised by $\langle\gamma,X\rangle=\phi(X)$, $X\in C^\infty(E)$, where $\langle\ ,\ \rangle$ is induced from the dual pairing between $E$ and $E'$.
+\end{enumerate}
+
+% Original book page 38
+\section*{Appendix to Chapter~\ref{ch:1}}\label{app:1}
+\addcontentsline{toc}{section}{Appendix to Chapter~\ref{ch:1}}
+In the first part of this appendix we prove a number of results related to Cauchy's integral formula\IndexMark{idx-070}{cauchy s integral formula@Cauchy's integral formula} that will be used later in the text as well as in the proof of Theorem~\ref{theorem:1.3.1}. The main element in the proof of Theorem~\ref{theorem:1.3.1} is the Runge approximation theorem and this, together with the proof of Theorem~\ref{theorem:1.3.1}, constitute the remainder of the appendix.
+
+In the statement of the next three results we shall assume that $\Omega$ is a bounded open domain in $\mathbb C$ with $\partial\Omega$ a finite union of piecewise $C^1$ curves. We use the notation $C^1(\overline\Omega)$ to denote the set of functions on $\overline\Omega$ which are restrictions of $C^1$ functions defined on some neighbourhood of $\overline\Omega$.
+
+\FieldHeading{Lemma}{A1.1}{}\FieldTarget{lemma:A1.1}{A1.1} Let $f\in C^1(\overline\Omega)$. Then
+\[ \int_{\partial\Omega}f\,dz=\int_\Omega\partial f/\partial\bar z\,d\bar z\,dz=2i\int_\Omega\partial f/\partial\bar z\,dx\,dy. \]
+\begin{proof} Stoke's or Green's theorem in the plane (take real and imaginary parts). \end{proof}
+
+\FieldHeading{Theorem}{A1.2}{ (Cauchy's Integral Formula).}\FieldTarget{theorem:A1.2}{A1.2} Let $u\in C^1(\overline\Omega)$. Then
+\[ u(\zeta)=(2\pi i)^{-1}\int_{\partial\Omega}\frac{u(z)}{z-\zeta}\,dz+\frac1\pi\int_\Omega\partial u/\partial\bar z\,/(z-\zeta)\,dx\,dy,\quad\zeta\in\Omega. \]
+\begin{proof} Let $\Omega_\varepsilon=\{z\in\Omega:|z-\zeta|>\varepsilon\}$, where $\varepsilon<d(\zeta,\partial\Omega)$. Apply Lemma~\ref{lemma:A1.1} with $f(z)=u(z)/(z-\zeta)$ and let $\varepsilon\to0$. \end{proof}
+
+\FieldHeading{Corollary}{A1.3}{}\FieldTarget{corollary:A1.3}{A1.3} Let $u\in C^0(\overline\Omega)$ and suppose $u$ is analytic in $\Omega$. Then
+\[ u(\zeta)=(2\pi i)^{-1}\int_{\partial\Omega}\frac{u(z)}{z-\zeta}\,dz,\quad\zeta\in\Omega. \]
+\FieldHeading{Corollary}{A1.4}{}\FieldTarget{corollary:A1.4}{A1.4} Let $\Omega$ be a domain in $\mathbb C$ and suppose that $u_n$, $n\geq1$, is a sequence in $A(\Omega)$ which converges uniformly on compact subsets of $\Omega$ to a function $u$ on $\Omega$. Then $u\in A(\Omega)$.
+\begin{proof} Apply Corollary~\ref{corollary:A1.3} to $u_n-u_m$ restricted to closed discs contained in $\Omega$ to deduce that $\partial u_n/\partial z$ converges uniformly on compact subsets of $\Omega$. Since $\partial u_n/\partial\bar z=0$, it follows that $u$ is $C^1$ on $\Omega$ with $\partial u/\partial\bar z=0$. \end{proof}
+% Original book page 39
+
+\FieldHeading{Corollary}{A1.5}{ (Montel's theorem).}\IndexMark{idx-402}{montel s theorem@Montel's theorem}\FieldTarget{corollary:A1.5}{A1.5} Let $\Omega$ be a domain in $\mathbb C$ and suppose that $u_n$, $n\geq1$, is a sequence in $A(\Omega)$ which is uniformly bounded on every compact subset of $\Omega$. Then there is a subsequence of the $u_n$ which converges uniformly on compact subsets of $\Omega$ to a limit $u\in A(\Omega)$.
+\begin{proof} By Cauchy's inequalities (Exercise 2, \hyperref[sec:1:1]{\S1}) the sequence $\partial u_n/\partial z$ is uniformly bounded on any closed disc $D_r(z)\subset\Omega$. Hence $\partial u_n/\partial z$ is uniformly bounded on any compact subset of $\Omega$. Therefore the sequence $u_n$ is an equicontinuous family and, by Ascoli's theorem, has a subsequence converging uniformly on compact subsets of $\Omega$ to a function $u$. By Corollary~\ref{corollary:A1.4}, $u\in A(\Omega)$. \end{proof}
+
+Let $\mu$ be a (finite, complex regular, Borel) measure on $\mathbb C$. The \emph{support} of $\mu$, $\operatorname{supp}(\mu)$, is defined to be the smallest closed subset of $\mathbb C$ outside of which $\mu$ is zero.
+
+\FieldHeading{Theorem}{A1.6}{}\FieldTarget{theorem:A1.6}{A1.6} Let $\mu$ be a measure on $\mathbb C$ with compact support. Then
+\[ u(\zeta)=\int_{\mathbb C}(z-\zeta)^{-1}\,d\mu(z) \]
+defines an analytic function outside $\operatorname{supp}(\mu)$. If $d\mu=\frac1\pi\phi\,dx\,dy$, $\phi\in C_c^\infty(\mathbb C)$, then $u\in C^\infty(\mathbb C)$ and $\partial u/\partial\bar z=\phi$.
+\begin{proof}
+Certainly $u$ is $C^1$ outside $\operatorname{supp}(\mu)$---in fact $C^\infty$---and differentiating under the integral sign we see that $\partial u/\partial\bar z=0$. Hence $u$ is analytic outside $\operatorname{supp}(\mu)$. For the second statement we see by changing variables that
+\[ u(\zeta)=-\frac1\pi\int_{\mathbb C}\phi(\zeta-z)z^{-1}\,dx\,dy. \]
+Now $z^{-1}$ is integrable on compact sets and so $u\in C^\infty(\mathbb C)$. Moreover,
+\begin{align*}
+\partial u/\partial\bar\zeta&=\frac1\pi\int_{\mathbb C}\partial\phi/\partial\bar\zeta(\zeta-z)/z\,dx\,dy\\
+&=\frac1\pi\int_{\mathbb C}\partial\phi/\partial\bar\zeta(z)/(\zeta-z)\,dx\,dy.
+\end{align*}
+Apply Theorem~\ref{theorem:A1.2} with $\Omega$ any disc containing $\operatorname{supp}(\mu)$ to deduce that $\partial u/\partial\bar\zeta=\phi$.
+% Signs in Theorem~\ref{theorem:A1.6}/proof are reproduced as printed.
+\end{proof}
+% Original book page 40
+\paragraph*{Remark.} Theorem~\ref{theorem:A1.6} proves Theorem~\ref{theorem:1.3.1} in the special case that the right hand side is a $C^\infty$ function with compact support. The solution $u$ given by Theorem~\ref{theorem:A1.6} need not have compact support as is easily seen by choosing $\phi$ so that $\int_{\mathbb C}\phi\ne0$. This is in sharp distinction to what happens for more than one variable as we shall see in Chapter~\ref{ch:2}.
+
+We shall now prove a special case of the Runge Approximation Theorem\IndexMark{idx-531}{runge approximation theorem@Runge approximation theorem}. The proof we give is modelled on that given in Gamelin \cite{bib:I:gamelin-t-w:1} and H\"ormander \cite{bib:I:hormander-l:1} and uses the Riesz representation theorem in combination with the Hahn--Banach theorem. An alternative proof may be found in Hille \cite{bib:I:hille-e:1}.
+
+\FieldHeading{Theorem}{A1.7}{}\FieldTarget{theorem:A1.7}{A1.7} Let $\Omega$ be an open subset of $\mathbb C$ and suppose that $K$ is a compact subset of $\Omega$ such that $\Omega\setminus K$ has no component which is relatively compact in $\Omega$. Then every function which is analytic on a neighbourhood of $K$ can be uniformly approximated on $K$ by functions in $A(\Omega)$.
+\begin{proof}
+By the Hahn--Banach and Riesz representation theorems, it is sufficient to show that every measure $\mu$ on $K$ which is orthogonal to $A(\Omega)$ is also orthogonal to every function analytic on a neighbourhood of $K$.
+
+Suppose $f$ is analytic on a neighbourhood of $K$. Since we are interested in uniform approximation on $K$ we can assume that $f\in C_c^\infty(\mathbb C)$ (multiply $f$ by $\phi\in C_c^\infty(\mathbb C)$ where $\phi\equiv1$ on $K$). By Theorem~\ref{theorem:A1.2},
+\begin{align*}
+f(\zeta)&=\frac1\pi\int_{\mathbb C}\partial f/\partial\bar z\,(z-\zeta)^{-1}\,dx\,dy\\
+&=\frac1\pi\int_{\mathbb C\setminus K}\partial f/\partial\bar z\,(z-\zeta)^{-1}\,dx\,dy,
+\end{align*}
+since $f$ is analytic on a neighbourhood of $K$.
+
+By Fubini's theorem
+\[ \int_{\mathbb C}f(\zeta)\,d\mu(\zeta)=\frac1\pi\int_{\mathbb C\setminus K}\partial f/\partial\bar z\left[\int_{\mathbb C}(z-\zeta)^{-1}\,d\mu(\zeta)\right]dx\,dy. \]
+Set $u(z)=\int_{\mathbb C}(z-\zeta)^{-1}\,d\mu(\zeta)$. Then $u$ is analytic on $\mathbb C\setminus K$, Theorem~\ref{theorem:A1.6}. We claim that $u\equiv0$ on $\mathbb C\setminus K$. If so, it then follows that $\int_{\mathbb C}f\,d\mu=0$ and the proof is complete.
+% Original book page 41
+
+Let $R=\sup\{|z|:z\in K\}$. Then $(z-\zeta)^{-1}$ can be expanded as a power series in $\zeta^n$ which converges uniformly on $K$ provided that $|z|>R$. By our orthogonality assumption on $\mu$, $\int_{\mathbb C}\zeta^n\,d\mu(\zeta)=0$, $n\geq0$. Hence $u(z)=0$, $|z|>R$ and so, by uniqueness of analytic continuation, $u$ vanishes identically on the unbounded component of $\mathbb C\setminus K$. On the other hand if $z\in\mathbb C\setminus\Omega$, $\partial^ku/\partial z^k=(-1)^k k!\int_{\mathbb C}(z-\zeta)^{-k-1}\,d\mu(\zeta)=0$ since $(z-\zeta)^{-k-1}\in A(\Omega)$ for $z\in\mathbb C\setminus\Omega$. Consequently, $u\equiv0$ on every component of $\mathbb C\setminus K$ which intersects $\Omega\setminus K$. But, by assumption, $\Omega\setminus K$ has no components which are relatively compact in $\Omega$ and so $u\equiv0$ on $\mathbb C\setminus K$.
+% Source prints "intersects Omega minus K" in the preceding sentence.
+\end{proof}
+
+\FieldHeading{Theorem}{A1.8}{}\FieldTarget{theorem:A1.8}{A1.8} Let $f\in C^\infty(\Omega)$. Then there exists $u\in C^\infty(\Omega)$ such that
+\[ \partial u/\partial\bar z=f. \]
+\begin{proof}
+(Following H\"ormander \cite{bib:I:hormander-l:1}). We already know from Corollary~\ref{corollary:A1.5} that we can solve $\partial u/\partial\bar z=f$ if $f$ has compact support. What we shall do is to write $f$ as an infinite sum of $C^\infty$ functions with compact support and then use Runge's theorem to modify the resulting infinite set of solutions so that they converge to a solution of $\partial u/\partial\bar z=f$.
+
+For $n=1,2,\ldots$, define $K_n=\{z\in\Omega:|z|\leq n\text{ and }d(z,\partial\Omega)\geq1/n\}$. Then, the $K_n$ are compact; $\Omega\setminus K_n$ has no components which are relatively compact in $\Omega$; every compact subset of $\Omega$ is contained in some $K_n$. For $n=1,2,\ldots$, choose $\theta_n\in C_c^\infty(\Omega,\mathbb R)$ so that $\theta_n\equiv1$ on a neighbourhood of $K_n$. Set $\phi_n=\theta_n-\theta_{n-1}$, $n>1$. Clearly $\theta_n\equiv0$ on a neighbourhood of $K_{n-1}$ and $\sum\phi_n\equiv1$ on $\Omega$. Let $u_n\in C^\infty(\Omega)$ be a solution of $\partial u/\partial\bar z=\phi_n f$ given by Theorem~\ref{theorem:A1.6}. By the Runge Theorem, there exists $a_n\in A(\Omega)$ such that $|a_n-u_n|<2^{-n}$ on $K_{n-1}$. Set $u=\sum_n(u_n-a_n)$ and note that the sum converges uniformly on any compact subset of $\Omega$. For fixed $N$, the sum from $N$ to $\infty$ consists of terms which are analytic on a neighbourhood of $K_N$ and so defines an analytic function on the interior of $K_N$. Hence $u\in C^\infty(\Omega)$ and, differentiating term-by-term, $\partial u/\partial\bar z=f$.
+% Source prints Corollary~\ref{corollary:A1.5}, theta_n = 0, and lower index N; retained.
+\end{proof}
+\paragraph*{Remark.} As we shall see later, Theorems~\ref{theorem:A1.7} and \ref{theorem:A1.8} do not generalise to arbitrary domains in $\mathbb C^n$, $n>1$.
+% Original book page 42
+\paragraph*{Exercises.}
+\begin{enumerate}
+\item Let $\Omega$ be a domain in $\mathbb C$. Suppose that $\omega\subset\Omega$ is an open neighbourhood of the compact subset $K$ of $\Omega$. For integers $p\geq1$ and $u\in A(\Omega)$ let
+\[ |u|_p^\omega=\left\{\int_\omega|u|^p\,dx\,dy\right\}^{1/p}\quad(|u|_p^\omega\text{ may be infinite}). \]
+Show that, given\IndexMark{idx-068}{cauchy s inequalities@Cauchy's inequalities!further estimates@further estimates} $s$, $0<s<d(K,\partial\Omega)$, there exists $C>0$ such that for all $u\in A(\Omega)$ we have
+\[ \|\partial^j u/\partial z^j\|_K\leq\frac{Cj!}{s^j}|u|_p^\omega,\quad j\geq0. \]
+(Hint: Choose $\phi\in C_c^\infty(\Omega)$ such that $\phi(z)=1$ whenever $d(z,K)\leq s$ and apply Theorem~\ref{theorem:A1.2} to $\phi u^p$).
+\item Let $\Omega$ be a domain in $\mathbb C$ and for integers $p\geq1$ let $L^p(\Omega)=\{f\in A(\Omega),|f|_p^\Omega<\infty\}$. Show that $L^p(\Omega)$ is a Banach space and, in case $p=2$, a Hilbert space (Use the result of Q1. in combination with Corollary~\ref{corollary:A1.4}).
+\item Show that if $\Omega$ is a simply connected domain in $\mathbb C$ and $f\in A(\Omega)$ then there is a sequence of polynomials\IndexMark{idx-532}{runge approximation theorem@Runge approximation theorem} converging to $f$ uniformly on compact subsets of $\Omega$. Show that if $\Omega$ is not simply connected, then there is a sequence of rational functions converging uniformly to $f$ on compact subsets of $\Omega$ and that we may assume that the rational functions have all their poles outside $\Omega$.
+\end{enumerate}

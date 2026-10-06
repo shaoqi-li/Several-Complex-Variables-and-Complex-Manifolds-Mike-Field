@@ -1,0 +1,30 @@
+% Part II, printed page 170 (source PDF page 179).
+\begin{tikzpicture}[field/diagram, scale=1.0]
+    % M_j and the enlarged Stein patch; their intersection is W_{j+1}.
+    \fill[FieldPaper] (0,0) ellipse (3.35cm and 1.95cm);
+    \fill[FieldRegion] (0,2.27) circle (1.02cm);
+    \begin{scope}
+        \clip (0,0) ellipse (3.35cm and 1.95cm);
+        \fill[FieldEmphasis] (0,2.27) circle (1.02cm);
+    \end{scope}
+    \draw[field/boundary] (0,0) ellipse (3.35cm and 1.95cm);
+    \draw[field/boundary] (0,2.27) circle (1.02cm);
+    % Adjacent cover elements, bounded inside M_j by smooth arcs.
+    \draw[field/secondary] (-2.27,1.43)
+        .. controls (-1.83,0.70) and (-0.86,1.02) .. (-0.70,1.91);
+    \draw[field/secondary] (0.70,1.91)
+        .. controls (0.91,1.02) and (1.83,0.72) .. (2.28,1.43);
+    \draw[field/hidden] (-0.97,1.98)
+        .. controls (-0.43,2.41) and (0.42,2.41) .. (0.97,1.98);
+    \draw[field/hidden] (-1.83,1.63)
+        .. controls (-1.74,0.99) and (-1.89,0.58) .. (-2.62,0.42);
+    \draw[field/hidden] (1.91,1.59)
+        .. controls (1.72,0.96) and (1.88,0.58) .. (2.61,0.36);
+    \node at (0,-0.10) {$M_j$};
+    \node[inner sep=1pt] at (0,1.59) {$W_{j+1}$};
+    \node[inner sep=1pt] at (-1.48,1.42) {$W_{j-1}$};
+    \node[inner sep=1pt] at (1.43,1.42) {$W_i$};
+    \node[anchor=west] at (1.67,2.64) {$W'_{j+1}$};
+    \draw[field/leader] (1.64,2.55) -- (0.70,2.36);
+    \node[anchor=east] at (-1.34,3.02) {$M_{j+1}=M_j\cup W'_{j+1}$};
+\end{tikzpicture}

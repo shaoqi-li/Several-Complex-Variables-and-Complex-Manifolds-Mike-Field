@@ -1,0 +1,32 @@
+% Figure 8. Gray distinguishes the cone S from the surrounding plane.
+\begin{tikzpicture}[field/diagram, x=0.025cm, y=0.025cm]
+    \fill[FieldRegion] (42,243) -- (209,213) -- (177,137) -- (76,117) -- cycle;
+    \draw[field/boundary] (42,243) -- (209,213) -- (177,137) -- (76,117) -- cycle;
+    \draw[field/secondary] (51,213) -- (200,191)
+                           (60,176) -- (193,178)
+                           (68,140) -- (185,159);
+    \draw[field/hidden] (125,285) -- (125,228)
+                        (125,127) -- (125,94);
+    \draw[field/secondary] (125,228) -- (125,127);
+    \node[above, inner sep=4pt] at (167,221) {$L_1$};
+    \node[below, inner sep=4pt] at (166,135) {$L_2$};
+    \node[right, inner sep=5pt] at (200,177) {$\pi^{-1}(S)$};
+    \node[right] at (128,94) {$E$};
+    \draw[field/map] (223,121) -- (223,79)
+        node[midway, right, inner sep=5pt] {$\pi$};
+
+    \fill[FieldPaper] (48,10) -- (81,70) -- (211,72) -- (182,13) -- cycle;
+    \fill[FieldRegion] (60,31) -- (69,55) -- (130,41) -- cycle;
+    \fill[FieldRegion] (198,54) -- (190,29) -- (130,41) -- cycle;
+    \draw[field/secondary] (48,10) -- (81,70) -- (211,72) -- (182,13) -- cycle;
+    \draw[field/curve] (60,31) -- (130,41) -- (198,54)
+                       (69,55) -- (130,41) -- (190,29);
+    \draw[field/guide] (63,39) -- (130,41) -- (195,46)
+                       (67,47) -- (130,41) -- (192,38);
+    \node[field/point] at (130,41) {};
+    \node[above, inner sep=4pt] at (130,44) {$0$};
+    \node[right, inner sep=5pt] at (200,55) {$L_2$};
+    \node[right, inner sep=5pt] at (192,26) {$L_1$};
+    \node (S) at (247,44) {$S$};
+    \draw[field/leader] (S.west) -- (176,43);
+\end{tikzpicture}

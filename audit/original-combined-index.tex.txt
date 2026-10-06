@@ -1,0 +1,401 @@
+% The index retains the page references and emphasis of the source edition.
+% Source PDF page 213; printed page 204.
+\chapter*{Combined Index to Parts I and II}
+\addcontentsline{toc}{chapter}{Combined Index to Parts I and II}
+\begin{center}(Page numbers referring to items in Part I are italicised)\end{center}
+\begingroup\small
+\raggedright
+\setlength{\parskip}{4pt}
+\begin{multicols}{2}
+\indexentrytext{Abelain variety, \underline{\textit{159}}; projective embedding, \underline{197}}
+\indexentrytext{Algebraic set (projective), \underline{\textit{146}}}
+\indexentrytext{Algebraic manifold, \underline{\textit{147}}}
+\indexentrytext{Almost complex manifold, \underline{26}}
+\indexentrytext{Alternating tensor, 4}
+\indexentrytext{Ample vector bundle, \underline{194,197}}
+\indexentrytext{Analytic continuation, \underline{\textit{3,49,54},89}}
+\indexentrytext{Analytic equivalence, \textit{135}}
+\indexentrytext{Analytic extension of spread manifold, \underline{89}}
+\indexentrytext{Analytic function of one variable, \underline{\textit{1}}; of several variables, \underline{\textit{44}}}
+\indexentrytext{Analytic function on analytic set, \underline{79}}
+\indexentrytext{Analytic hypersurface, \underline{\textit{167}}}
+\indexentrytext{Analytic map, \underline{\textit{135}}}
+\indexentrytext{Analytic polyhedron, \underline{\textit{61,69},145}}
+\indexentrytext{Analytic sheaf, \underline{127}; of finite type, \underline{128}}
+\indexentrytext{Analytic space (reduced), \underline{85}; (unreduced), \underline{86}}
+\indexentrytext{Analytic subset, \underline{\textit{51,137}}}
+\indexentrytext{Anti-holomorphic vector bundle, \underline{27}; tangent (cotangent) bundle, \underline{29}}
+\indexentrytext{Apell and Humbert theorem, \underline{55}}
+\indexentrytext{Approximation of analytic functions on Stein manifold, \underline{154}; of sections of coherent sheaf over Stein manifold, \underline{154}}
+\indexentrytext{Atlas (complex analytic), \underline{\textit{17,134}}}
+\indexentrytext{Basis for complexification of complex vector space, \underline{23}}
+\indexentrytext{Base locus (of linear system), \underline{51}}
+\indexentrytext{Bergman kernel function, \underline{\textit{89}}; of polydisc, \underline{\textit{91}}; of Euclidean disc, \underline{\textit{91}}; Levi form of, \underline{\textit{92}}; of complex manifold, \underline{64}}
+\indexentrytext{Biholomorphic, \underline{\textit{16,18,135}}}
+\indexentrytext{Biholomorphic inequivalence of disc and polydisc, \underline{\textit{92,138}}}
+\indexentrytext{Bimeromorphic invariant, \underline{52}}
+\indexentrytext{Birational invariant, \underline{\textit{185}}}
+\indexentrytext{Blowing-up,\textit{177}, with non-singular centre, \underline{\textit{179}}}
+\indexentrytext{Blowing down, \underline{\textit{185}}}
+\indexentrytext{Bounded domain, \underline{\textit{163}}}
+\indexentrytext{Branch point, \underline{\textit{20}}}
+\indexentrytext{Calabi--Eckmann manifold, \underline{\textit{165}}}
+\indexentrytext{Canonical bundle, \underline{\textit{151},45}; of projective space \underline{45}; of hypersurface, \underline{57}}
+\indexentrytext{Canonical resolution of sheaf, \underline{98}}
+\indexentrytext{Cartan theorems A and B, \underline{140,155,165}}
+\indexentrytext{Cartan--Thullen theorem, \underline{\textit{69}}}
+\indexentrytext{Cartier divisor, \underline{\textit{173}}}
+\indexentrytext{Cauchy's inequalities, \underline{\textit{4,48}}; see also \underline{\textit{42,50}}}
+\indexentrytext{Cauchy's integral formula, \underline{\textit{38}}; for polydiscs, \underline{\textit{46}}}
+\indexentrytext{Cauchy--Riemann equations, \textit{1}}
+\indexentrytext{Cayley--Pl\"ucker--Grassmann coordinates, \underline{\textit{149}}}
+\indexentrytext{\v{C}ech cohomology group, 113}
+\indexentrytext{Centre (of blowing up), \textit{177}}
+\indexentrytext{Chart, \underline{\textit{16}}}
+\indexentrytext{Chern class (first),117,122,123,125; of hyperplane section bundle, \underline{119}; of holomorphic line bundle on $\mathbb{P}^n(\mathbb{C})$, \underline{185}}
+\indexentrytext{Chow's theorem, \underline{\textit{148},182}}
+\indexentrytext{Classical domain, \underline{\textit{139}}}
+\indexentrytext{Closed form, \underline{11}}
+% Source PDF page 214; printed page 205.
+\indexentrytext{Closure of modules theorem, \underline{\textit{133},153}}
+\indexentrytext{Coboundary operator (in \v{C}ech theory), \underline{107}}
+\indexentrytext{Cocycle condition, \underline{\textit{12},26}}
+\indexentrytext{Coherence of ideal sheaf, \underline{137}; inverse image, \underline{137}; direct image, \underline{137}}
+\indexentrytext{Coherent sheaf, 132}
+\indexentrytext{Cohomology, sheaf, \underline{99}; singular, 103}
+\indexentrytext{Cohomology of $O(m)$ sheaves on $\mathbb{P}^n(\mathbb{C})$, 175}
+\indexentrytext{Commutative vector space algebra, 2}
+\indexentrytext{Compact linear map between Fr\'echet spaces, \underline{160}}
+\indexentrytext{Complex differential form, \underline{28}}
+\indexentrytext{Complex Lie group, \underline{\textit{139,151}}}
+\indexentrytext{Complex line bundle,\underline{\textit{30}}; on differential manifold, \underline{116}}
+\indexentrytext{Complex manifold, \underline{\textit{134}}; analytic structure, \textit{135}}
+\indexentrytext{Complex multiplication, \textit{162}}
+\indexentrytext{Complex projective space, \underline{\textit{145}}}
+\indexentrytext{Complex $(r,s)$-vector/form, 22}
+\indexentrytext{Complex structure (on vector space), \underline{\textit{29},17}; conjugate structure, \underline{\textit{29}}}
+\indexentrytext{Complex structure on vector bundle, \underline{26}}
+\indexentrytext{Complex submanifold, \underline{\textit{135}}}
+\indexentrytext{Complex tangent (cotangent) bundle, \underline{28}}
+\indexentrytext{Complex torus, \underline{\textit{151},53}; embedding of, \underline{197}}
+\indexentrytext{Complexification, \underline{15}; of linear map, \underline{19}; of complex vector bundle, \underline{26}}
+\indexentrytext{Composite mapping formula, \underline{\textit{31,43}}}
+\indexentrytext{Conjugate vector space, \underline{\textit{29},17}; dual space, \underline{\textit{29},18}; complex vector bundle, \underline{27}}
+\indexentrytext{Conjugation, \underline{16,20}}
+\indexentrytext{Constant sheaf, \underline{70}}
+\indexentrytext{Contraction, \underline{5,23}; compoistion \underline{7}; of sections of vector bundle, 11}
+\indexentrytext{Convex hull (closed), \underline{\textit{62}}}
+\indexentrytext{Convexity, \underline{\textit{74}}; strict, \underline{\textit{76}}}
+\indexentrytext{Cotangent bundle, \underline{\textit{28},28}; holomorphic, anti-holomorphic. \underline{\textit{31},30}}
+\indexentrytext{Cousin doamins, \underline{\textit{93,94,114,115}}}
+\indexentrytext{Cousin problems \underline{\textit{93,94,114,115,173},41,78,108,141}}
+\indexentrytext{Cousin problem on polydiscs, \underline{41}}
+\indexentrytext{Cubic curve, \underline{\textit{147,158}}}
+\indexentrytext{$d$ (exterior differentiation), \underline{11}; as morphism of sheaves, \underline{74,75}}
+\indexentrytext{Defining function of domain in complex manifold, \underline{60}}
+\indexentrytext{Deformation of complex structure, \underline{\textit{154}}}
+\indexentrytext{Degree of divisor, \underline{\textit{22}}}
+\indexentrytext{Degree of holomorphic line bundle, \underline{121,122,185}}
+\indexentrytext{Derivation, \underline{12}}
+\indexentrytext{Derivative of analytic map, \underline{\textit{44}}}
+\indexentrytext{Desingularization, \underline{\textit{179,181}}}
+\indexentrytext{Differential form, real, \underline{11}; complex, \underline{28}}
+\indexentrytext{Discriminant locus, \textit{116}}
+\indexentrytext{Distinguished boundary, \underline{\textit{45}}}
+\indexentrytext{Direct image sheaf, \underline{82,88,126}}
+\indexentrytext{Direct sum of sheaves, \underline{78}}
+\indexentrytext{Divisor, \underline{\textit{8,179}}; Cartier, \textit{173}; Weil, \textit{172}}
+\indexentrytext{Divisor class map \underline{\textit{33,174},47}}
+\indexentrytext{Divisor group, \underline{\textit{8},46}}
+\indexentrytext{Divisor in normal crossings, \textit{183}}
+\indexentrytext{Divisor of meromorphic function of one variable, \underline{\textit{8}}; of several variables, \underline{\textit{17}}; on complex manifold, \underline{47}}
+\indexentrytext{Divisor sheaf, \underline{78}}
+\indexentrytext{Divisors on compact complex manifolds, \textit{172,173}, \underline{46}; complex projective space, 175; Riemann surface, \underline{\textit{17}}}
+% Source PDF page 215; printed page 206.
+\indexentrytext{Divisors, linear equivalence, \underline{47}; linear system of, \underline{50}}
+\indexentrytext{Dolbeault complex, \underline{76,81,105,139}}
+\indexentrytext{Dolbeault isomorphism, \underline{105,106}}
+\indexentrytext{Dolbeault--Grothendieck lemma, \underline{38}}
+\indexentrytext{Domain of existence, \underline{\textit{66}}}
+\indexentrytext{Domain of holomorphy, \underline{\textit{58},90}}
+\indexentrytext{Doubly periodic function, \textit{155}}
+\indexentrytext{Dual pairing, \underline{4}}
+\indexentrytext{Dual vector bundle, \underline{27}}
+\indexentrytext{$\bar\partial$-operator, \underline{32,34}; for holomorphic vector bundle valued forms, \underline{36}; as morphism of sheaves, \underline{74,76,81}}
+\indexentrytext{Effective divisor, \underline{49}}
+\indexentrytext{Elliptic function, \underline{\textit{155},56}}
+\indexentrytext{Embedded resolution of singularities, \underline{\textit{183,184}}}
+\indexentrytext{Embedding of Stein manifold, \underline{\textit{143}}; of complex 1-dimensional tori, \underline{\textit{158}}; of compact Riemann surface, \underline{197}; of complex tori, \underline{197}}
+\indexentrytext{Envelope of holomorphy, \underline{90}}
+\indexentrytext{Espace \'etal\'e, \underline{72}}
+\indexentrytext{Essential singularity, \underline{\textit{5}}}
+\indexentrytext{Euclidean disc, \underline{\textit{45}}}
+\indexentrytext{Euler sequence, \underline{44,45}; Euler vector field, \underline{44}}
+\indexentrytext{Exact form, \underline{11}}
+\indexentrytext{Exactness of Dolbeault complex, \underline{76}; of de Rham complex, \underline{76}}
+\indexentrytext{Exactness of sheaf sequence, \underline{75}}
+\indexentrytext{Exceptional curve of first kind, \textit{185}}
+\indexentrytext{Exceptional variety, \textit{177}}
+\indexentrytext{Exhaustion function, \underline{\textit{86},62}}
+\indexentrytext{Exotic complex structure, \underline{\textit{166}}}
+\indexentrytext{Exponential sequence, \underline{116,117}}
+\indexentrytext{Exterior algebra of vector space, \underline{2}; of complexification of complex vector space, 22}
+\indexentrytext{Exterior differentiation, \underline{11,28}}
+\indexentrytext{Fine resolution, \underline{98}}
+\indexentrytext{Fine sheaf, \underline{97}}
+\indexentrytext{First Chern class, 177; see also under \emph{Chern class}}
+\indexentrytext{Flabby sheaf, \underline{97,125}}
+\indexentrytext{Flag manifold, \textit{150}}
+\indexentrytext{Fractional power series, \textit{125}}
+\indexentrytext{Fr\'echet space, \underline{159}}
+\indexentrytext{Fr\'echet sheaf, \underline{163}}
+\indexentrytext{Free resolution, \textit{126}}
+\indexentrytext{Free sheaf of modules, \underline{80}}
+\indexentrytext{Fundamental region (for \underline{$\operatorname{SL}(2,\mathbb{Z})$),} \textit{153}}
+\indexentrytext{Genus, \underline{\textit{19},192}}
+\indexentrytext{Geometric genus, \underline{52}}
+\indexentrytext{Germ of function, \underline{\textit{99}}; set, \textit{118}; section (of sheaf), \underline{67}}
+\indexentrytext{Graded vector space, \underline{1}; algebra, 2}
+\indexentrytext{Grassmann manifold, \underline{\textit{148}}; coordinates, \underline{\textit{149}}}
+\indexentrytext{Grauert finiteness theorem for pseudoconvex domains, \underline{168}}
+\indexentrytext{Grauert theorem on holomorphic convexivity of s.L.p. domains, 171}
+\indexentrytext{Grauert vanishing theorem for weakly positive vector bundles, \underline{192}}
+\indexentrytext{Grothendieck splitting theorem for holomorphic vector bundles on $\mathbb{P}^1(\mathbb{C})$, \underline{186,190}}
+\indexentrytext{H-pseudoconvex, \underline{\textit{87}}}
+\indexentrytext{Hartogs figure, \underline{\textit{55}}; generalised, \underline{\textit{55}}}
+\indexentrytext{Hartogs theorem on extension of analytic functions, \underline{\textit{53,57}}; separate analyticity, \underline{\textit{45}}; singularities of analytic functions, \underline{\textit{53}}}
+% Source PDF page 216; printed page 207.
+\indexentrytext{Hermitian form, 58; on complex manifold, 59,119}
+\indexentrytext{Hessian, \underline{\textit{73}}}
+\indexentrytext{Hilbert Syzygy theorem, \textit{126}}
+\indexentrytext{Hodge conjecture, 124}
+\indexentrytext{Holomorphic function: see under \emph{Analytic function}}
+\indexentrytext{Holomorphic convexivity, \textit{62}; of s.L.p. domain, 171}
+\indexentrytext{Holomorphic line bundle, \textit{32}; on projective space, group structure, 185; on complex torus, 53}
+\indexentrytext{Holomorphic tangent (cotangent) bundle, 29}
+\indexentrytext{Holomorphic tangent space to boundary of s.L.p. domain, 60}
+\indexentrytext{Holomorphic vector bundle, 26;80; on $\mathbb{P}^1(\mathbb{C})$, 185}
+\indexentrytext{Holomorphic vector bundles on $\mathbb{P}^n(\mathbb{C})$, universal bundle, 42; hyperplane section bundle, 43; Euler sequence, 44; existence of non-trivial meromorphic sections, \underline{182}}
+\indexentrytext{Holomorphically complete, \textit{86},62}
+\indexentrytext{Homogeneous coordinates, \textit{146}}
+\indexentrytext{Homogeneous domain, \textit{139}}
+\indexentrytext{Homomorphism of sheaves: see under \emph{Sheaf morphism}}
+\indexentrytext{Hopf fibration, \textit{146}}
+\indexentrytext{Hopf manifold, \textit{164}; surface, \textit{164}}
+\indexentrytext{Hopf $\sigma$-process, \textit{177}}
+\indexentrytext{Hyperelliptic curve, \textit{159}}
+\indexentrytext{Hyperplane in projective space, \textit{147}}
+\indexentrytext{Hyperplane section bundle on projective space, 43; sections of 43; Chern class, 119,185}
+\indexentrytext{Hyperplane section bundle of submanifold of projective space, \underline{46}}
+\indexentrytext{Hypersurface, \textit{167}; in normal crossings, \textit{183}; of degree $d$, \textit{172}; in Stein manifold, 141,142}
+\indexentrytext{Ideal presheaf (of analytic set), 67}
+\indexentrytext{Instanton bundle, 189}
+\indexentrytext{Integration (of forms), 12}
+\indexentrytext{Interior product, 5}
+\indexentrytext{Inverse function theorem, \textit{44}}
+\indexentrytext{Inverse image sheaf, 81,82,87,88}
+\indexentrytext{Irreducible analytic set, \textit{170}; components, \textit{171}; domain, \textit{140}; element of ring, \textit{106}; germ, \textit{107,122}; Weierstrass polynomial, \textit{107}}
+\indexentrytext{Isasawa manifold, \textit{167}}
+\indexentrytext{Isomorphism of sheaves: See under \emph{Sheaf morphism}}
+\indexentrytext{Jacobi identity, 13}
+\indexentrytext{Jumping of complex structure, \textit{164}}
+\indexentrytext{Kernel function: See under \emph{Bergman}}
+\indexentrytext{Kodaira embedding theorem, 194}
+\indexentrytext{Koszul complex, 88,142,143,190}
+\indexentrytext{L.p. domain, \underline{\textit{79},61}}
+\indexentrytext{Lattice, \textit{151}}
+\indexentrytext{Laurent series in one variable, \textit{3}; in several variables, \underline{\textit{49}}}
+\indexentrytext{Legendre's relation, 55}
+\indexentrytext{Length (of resolution), \textit{126}}
+\indexentrytext{Leray cover, 111}
+\indexentrytext{Leray's theorem, \textit{13},109}
+\indexentrytext{Levi form, \textit{77}; on complex manifold, 59}
+\indexentrytext{Levi pseudoconvex, \underline{\textit{79},61}}
+\indexentrytext{Levi's problem, \textit{82},172}
+\indexentrytext{Levi theorem, \textit{80}}
+\indexentrytext{Lie algebra of vector fields on complex manifold, 32}
+\indexentrytext{Lie bracket, 12,28}
+\indexentrytext{Lie derivative, 12,13,28}
+\indexentrytext{Line bundle (complex), \textit{30}; holomorphic, \textit{32}; real, \textit{31}}
+% Source PDF page 217; printed page 208.
+\indexentrytext{Linear equivlaence of divisors, \underline{\textit{37},47}}
+\indexentrytext{Linear system of divisors, \underline{50}}
+\indexentrytext{Local isomorphism of sheaves, \underline{80,85}}
+\indexentrytext{Local models, \underline{85}}
+\indexentrytext{Locally free resolution of coherent sheaves on \underline{$\mathbb{P}^n(\mathbb{C})$,183}}
+\indexentrytext{Locally free sheaf, \underline{80}}
+\indexentrytext{Maximum Principle, \underline{\textit{4,49}}}
+\indexentrytext{Meromorphic function of one variable, \underline{\textit{5}}; of several variables, \underline{\textit{33}}}
+\indexentrytext{Meromorphic function on complex manifold, \underline{\textit{136}}; on complex torus, \underline{\textit{155},56}; on Riemann surface, \underline{\textit{17},192}}
+\indexentrytext{Meromorphic section of vector bundle, \underline{\textit{33},47}; on $\mathbb{P}^n(\mathbb{C})$, \underline{182}}
+\indexentrytext{Minimal model, \underline{\textit{185}}}
+\indexentrytext{Mittag-Leffler theorem, \underline{\textit{10}}}
+\indexentrytext{Moduli space, \underline{\textit{154}}}
+\indexentrytext{Moishezon manifold, \underline{\textit{186}}}
+\indexentrytext{Monodromy theorem, \underline{\textit{4}}}
+\indexentrytext{Monoidal transform, \textit{177}}
+\indexentrytext{Montel's theorem, \underline{\textit{39,48}}}
+\indexentrytext{Morphism of spread manifolds, \underline{89}}
+\indexentrytext{Morphism of sheaves: See under \emph{Sheaf morphism}}
+\indexentrytext{Multi-index notation, \underline{\textit{46}}}
+\indexentrytext{Nakayama's Lemma, \underline{\textit{128}}}
+\indexentrytext{Normal crossings, \underline{\textit{183}}}
+\indexentrytext{Normal exhaustion, \underline{\textit{66,70}}}
+\indexentrytext{Normalised analytic function, \underline{\textit{104}}; simultaneous normalisation, \underline{\textit{104}}}
+\indexentrytext{Nullstellensatz, \underline{\textit{112}}; for principal ideals, \textit{123}}
+\indexentrytext{Oka principle, \underline{143}}
+\indexentrytext{Oka presheaf, \underline{66}; sheaf, \underline{69}; sheaf of analytic set, \underline{79}}
+\indexentrytext{Oka theorem, \underline{129}}
+\indexentrytext{Open mapping theorem for analytic maps, \underline{\textit{4,49}}}
+\indexentrytext{Open mapping theorem for Fr\'echet spaces, \underline{159}}
+\indexentrytext{Order (of pole, zero), \underline{\textit{7,17,33}}}
+\indexentrytext{Orientable manifold, \underline{\textit{136},12}}
+\indexentrytext{Osgood's theorem, \underline{\textit{62}}}
+\indexentrytext{$p$-cochain, \underline{107}}
+\indexentrytext{$p$-cocycle, coboundary, \underline{107}}
+\indexentrytext{$p$th. \v{C}ech cohomology group, 113}
+\indexentrytext{$p$th. cohomology group of $\mathcal{U}$ with values in $F$, \underline{107}}
+\indexentrytext{$p$th. sheaf cohomology group, \underline{99}}
+\indexentrytext{Partition of unity, \underline{\textit{11}}; of sheaf, \underline{97}}
+\indexentrytext{Period parallelogram, \textit{155}}
+\indexentrytext{Picard variety, \underline{\textit{36},124}}
+\indexentrytext{Plurigenera, \underline{53}}
+\indexentrytext{Plurisubharmonic, \underline{\textit{85},62}; exhaustion function, \underline{\textit{87},62}; strict, \underline{\textit{85},62}}
+\indexentrytext{Poincar\'e theorem, \textit{138}}
+\indexentrytext{Pole, \underline{\textit{5}}}
+\indexentrytext{Pole set of meromorphic function of one variable, \underline{\textit{7}}; meromorphic function on Riemann surface, \underline{\textit{17}}; several variables, \textit{114}}
+\indexentrytext{Polydisc, \underline{\textit{45}}}
+\indexentrytext{Positive divisor, \underline{49}}
+\indexentrytext{Power series in one variable,\underline{\textit{2}}; in several variables, \underline{\textit{47}}}
+\indexentrytext{Power series ring, \underline{\textit{98}}}
+\indexentrytext{Presheaf, \underline{65,72}}
+\indexentrytext{Presheaf cokernel, image, kernel, \underline{77}}
+\indexentrytext{Presheaf of continuous $\mathbb{C}$-valued $\Gamma$-valued functions, \underline{66}; $C^k(C^\infty)$ functions \underline{66}; analytic functions, \underline{66}; meromorphic functions, \underline{66}; ideals, \underline{67}; $O_X$-modules \underline{67}; holomorphic sections of holomorphic vector bundle, \underline{67}}
+% Source PDF page 218; printed page 209.
+\indexentrytext{Presheaf exactness, \underline{75}}
+\indexentrytext{Presheaf morphism, \underline{73}}
+\indexentrytext{Projective embedding of complex torus, \underline{\textit{158},197}; compact Riemann surface, \underline{197}}
+\indexentrytext{Projective resolution: See under \emph{Resolution (projective)}}
+\indexentrytext{Projective space (complex), \underline{\textit{145}}; algebraic set, \underline{\textit{146}}}
+\indexentrytext{Proper discontinuous action, \textit{162}}
+\indexentrytext{Proper map, \textit{138}}
+\indexentrytext{Property (R), \underline{146,149,151}}
+\indexentrytext{Property (S), \underline{\textit{61}}}
+\indexentrytext{Pseudoconvex, \underline{\textit{85}}; H-, \underline{\textit{87}}; Levi, \underline{\textit{79}}; strictly Levi, \underline{\textit{79}}; $q$-, \underline{60}, strictly $q$-, \underline{60}}
+\indexentrytext{Puiseaux series, \underline{\textit{125}}}
+\indexentrytext{Pull back of vector bundle, \underline{\textit{37}}; of divisor \underline{\textit{37}}; of sheaf, \underline{81,82,87,88}}
+\indexentrytext{$q$-complete manifold, \underline{62,63}}
+\indexentrytext{$q$-plurisubharmonic function, \underline{62}}
+\indexentrytext{$q$-pseudoconvex manifold, \underline{60,63}}
+\indexentrytext{Quadratic transform, \textit{177}}
+\indexentrytext{Quotient of sheaves, \underline{78}}
+\indexentrytext{Radical (of ideal), \textit{120}}
+\indexentrytext{Rado's theorem, \underline{\textit{52}}}
+\indexentrytext{Rational function, \underline{\textit{148}}; on projective space, 175}
+\indexentrytext{Reducible analytic set, \underline{\textit{170}}}
+\indexentrytext{Refinement map, \underline{112}}
+\indexentrytext{Regular point of analytic set, \underline{\textit{168}}}
+\indexentrytext{Reinhardt domain, \underline{\textit{50}}}
+\indexentrytext{Relatively prime germs, \underline{\textit{112}}}
+\indexentrytext{Reproducing property of kernel function, \underline{\textit{91}}}
+\indexentrytext{Resolution of module, \underline{\textit{126}}}
+\indexentrytext{Resolution (projective) of coherent sheaf, 142,145,146,183}
+\indexentrytext{Resolution of sheaf, \underline{98}}
+\indexentrytext{Resolution of singularities, \underline{\textit{183}}}
+\indexentrytext{Restriction of sheaf, \underline{81}}
+\indexentrytext{de Rham cohomology group, \underline{12,105}}
+\indexentrytext{de Rham complex \underline{75,104}}
+\indexentrytext{Riemann removable singularities theorem in one variable, \underline{\textit{4}}; in several variables, \underline{\textit{51,145}}}
+\indexentrytext{Riemann domain, \underline{\textit{19}}; sphere, \underline{\textit{18}}; surface, \underline{\textit{16}}}
+\indexentrytext{Riemann form, \underline{\textit{160}}}
+\indexentrytext{Riemann--Roch theorem, \underline{\textit{35},191}}
+\indexentrytext{Riemann's inequality, \underline{\textit{35},192}}
+\indexentrytext{Runge approximation theorem, \underline{\textit{40,42}}}
+\indexentrytext{Runge domain, \underline{\textit{95},139}}
+\indexentrytext{\underline{s.L.p.} domain \underline{\textit{79},61}}
+\indexentrytext{Schubert calculus, \textit{150}}
+\indexentrytext{Schwartz lemma, \underline{\textit{5}}}
+\indexentrytext{Schwartz finiteness theorem, \underline{160}}
+\indexentrytext{Sections of holomorphic vector bundle, finiteness theorem, \underline{41}}
+\indexentrytext{Section of vector bundle, \underline{\textit{24}}}
+\indexentrytext{Section of sheaf defined over closed set, \underline{83}}
+\indexentrytext{Self-conjugate basis, \underline{24}}
+\indexentrytext{Segre embedding, \underline{\textit{148}}}
+\indexentrytext{Serre duality theorem, \underline{184}}
+\indexentrytext{Serre theorems A and B, \underline{178,189}}
+\indexentrytext{Sheaf cohomology group, \underline{99}; relative to open cover, \underline{107}}
+\indexentrytext{Sheaf cokernel, image, kernel, \underline{77}; quotient, \underline{78}}
+\indexentrytext{Sheaf exact sequence, \underline{75,77}}
+\indexentrytext{Sheaf direct sum, \underline{79}, tensor product, \underline{79}}
+\indexentrytext{Sheaf homomorphism, \underline{73}; isomorphism, \underline{73}; morphism, \underline{73}; local isomorphism, \underline{80}}
+\indexentrytext{Sheaf of germs of continuous $\mathbb{C}$-valued functions, \underline{69}; $C^\infty$ $\mathbb{C}$-valued functions, \underline{69};
+% Source PDF page 219; printed page 210.
+analytic functions, \underline{69}; locally constant functions, \underline{70}; meromorphic functions, \underline{\textit{115,135},70}; divisors, \underline{78}; sections of holomorphic vector bundle, \underline{70}}
+\indexentrytext{Sheaf of $O$-modules, \underline{70}}
+\indexentrytext{Sheaf of relations, \underline{129}}
+\indexentrytext{Sheafification, \underline{68}}
+\indexentrytext{Short exact sequence of sheaves, \underline{75}}
+\indexentrytext{Siegel domain (of second kind), \underline{\textit{141}}}
+\indexentrytext{Singular cohomology, 103}
+\indexentrytext{Singular point of analytic set, \underline{\textit{168}}}
+\indexentrytext{Singularity, \underline{\textit{20}}}
+\indexentrytext{Soft sheaf, \underline{95}}
+\indexentrytext{Spreading of domain in $\mathbb{C}^n$, \underline{89}; of Riemann surface, \underline{\textit{19}}}
+\indexentrytext{Stalk (of sheaf), \underline{68}}
+\indexentrytext{Stein cover of compact Riemann surface, \underline{198}}
+\indexentrytext{Stein manifold, \underline{\textit{142}}; embedding in $\mathbb{C}^n$, \underline{\textit{143}}}
+\indexentrytext{Stieltjes--Vitali theorem: See under \emph{Montel}}
+\indexentrytext{Stokes' theorem, \underline{12}}
+\indexentrytext{Strict transform, \underline{\textit{180}}}
+\indexentrytext{Strictly Levi pseudoconvex, \underline{\textit{79},61}}
+\indexentrytext{Strictly pseudoconvex manifold, \underline{173}}
+\indexentrytext{Subharmonic function, \underline{\textit{85}}}
+\indexentrytext{Subpresheaf, \underline{70}}
+\indexentrytext{Subsheaf, \underline{70}}
+\indexentrytext{Support of section of sheaf, \underline{87}}
+\indexentrytext{Support of sheaf, \underline{87}; of coherent sheaf, \underline{137}}
+\indexentrytext{Symmetric domain, \underline{\textit{139}}}
+\indexentrytext{Symmetric tensor algebra of vector space, 2}
+\indexentrytext{Syzygy theorem, \underline{\textit{126}}}
+\indexentrytext{Tangent bundle, real, \underline{\textit{28}}; holomorphic, \underline{\textit{31},29}; anti-holomorphic, \underline{\textit{31},29}}
+\indexentrytext{Tensor algebra of vector space, 2}
+\indexentrytext{Tensor product of sheaves \underline{79}}
+\indexentrytext{Theta function, \underline{53}}
+\indexentrytext{Topologization of sheaf, \underline{68}; sections of coherent sheaf, 152,161}
+\indexentrytext{Topology on $\mathcal{O}_X$, \underline{71}}
+\indexentrytext{Torsion of almost complex structure, \underline{32}; vanishes if and only if complex structure, \underline{33}}
+\indexentrytext{Torus: See under \emph{Complex torus}}
+\indexentrytext{Total space (of vector bundle), \underline{\textit{24}}}
+\indexentrytext{Trace, \underline{5,11}}
+\indexentrytext{Transition function, \underline{25}}
+\indexentrytext{Transpose (of linear map), \underline{27,29}}
+\indexentrytext{Trivial extension of sheaf \underline{87,126}}
+\indexentrytext{Trivial theta function, \underline{54}}
+\indexentrytext{Trivial vector bundle, \underline{\textit{24},10}}
+\indexentrytext{Trivialisation of vector bundle, \underline{\textit{24}}}
+\indexentrytext{Twisted sheaves on projective space, 177}
+\indexentrytext{Uniform holomorphic vector bundle, \underline{189}}
+\indexentrytext{Uniformization theorem, \underline{\textit{18,163}}}
+\indexentrytext{Uniqueness of analytic continuation, \underline{\textit{3,49}}}
+\indexentrytext{Universal bundle, \textit{151}; on projective space, \underline{42,61}}
+\indexentrytext{V-Hermitian form, \underline{\textit{140}}}
+\indexentrytext{Vector bundle, complex, \underline{\textit{28}}; conjugate (dual), \underline{\textit{30}}; dual, \underline{\textit{27}}; real, \underline{\textit{24}}}
+\indexentrytext{Vector bundle isomorphism, \underline{\textit{26}}; map, \underline{\textit{26}}; pull-back, \underline{\textit{27}}}
+\indexentrytext{Vector bundles, classifying space,\textit{151}; exterior product, \underline{\textit{28}}; symmetric product, \underline{\textit{28}}; tensor product, \underline{\textit{28}}}
+\indexentrytext{Veronese surface, \underline{57}}
+\indexentrytext{Very ample vector bundle, \underline{194}}
+% Source PDF page 220; printed page 211.
+\indexentrytext{Vitali's theorem: see under \emph{Montel}}
+\indexentrytext{Weak continuity principle, \underline{\textit{87}}}
+\indexentrytext{Weakly negative (positive) vector bundle, \underline{61,62}}
+\indexentrytext{Weierstrass Division theorem, \underline{\textit{101}}; Preparation theorem, \underline{\textit{105}}}
+\indexentrytext{Weierstrass elliptic function, \underline{\textit{156}}}
+\indexentrytext{Weierstrass polynomial, \underline{\textit{105}}}
+\indexentrytext{Weierstrass Theorem, \underline{\textit{12}}}
+\indexentrytext{Weierstrass zeta function, \underline{55}}
+\indexentrytext{Weierstrass $\sigma$-function, \underline{55}}
+\indexentrytext{Weil divisor, \textit{172}}
+\indexentrytext{Zero set of meromorphic function of one variable, \underline{\textit{7}}; of several variables, \textit{114}}
+\indexentrytext{Zero-complete (0-complete), \underline{\textit{86},62}}
+\end{multicols}
+\endgroup

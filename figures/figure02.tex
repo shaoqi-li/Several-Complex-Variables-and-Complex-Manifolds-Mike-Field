@@ -1,0 +1,20 @@
+% Figure 2. The shaded set P inside the Hartogs figure D.
+\begin{tikzpicture}[field/diagram, x=1.18cm, y=1.18cm]
+    \def\HartogsBoundary{
+        (-2,-1.35) -- (-1,-1.35) -- (-1,-0.675)
+        -- (1,-0.675) -- (1,-1.35) -- (2,-1.35)
+        -- (2,1.35) -- (1,1.35) -- (1,0.675)
+        -- (-1,0.675) -- (-1,1.35) -- (-2,1.35) -- cycle
+    }
+    \fill[FieldRegion] \HartogsBoundary;
+    \draw[field/hidden] (-1,1.35) -- (1,1.35)
+                        (-1,-1.35) -- (1,-1.35);
+    \draw[field/axis] (-2.5,0) -- (2.65,0) node[right] {$z_n$};
+    \draw[field/axis] (0,-1.7) -- (0,1.9)
+        node[above] {$(z_1,\ldots,z_{n-1})$};
+    \draw[field/boundary] \HartogsBoundary;
+    \node (D) at (1.3,1.72) {$D$};
+    \draw[field/leader] (D.south west) -- (0.67,1.08);
+    \node (P) at (2.5,0.95) {$P$};
+    \draw[field/leader] (P.west) -- (1.66,0.72);
+\end{tikzpicture}
